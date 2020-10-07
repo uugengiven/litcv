@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
+    <style>
+        .scene {
+            width: 100vw;
+            height: 100vh;
+            position: relative;
+            
+            transform: rotateX(75deg);
+        }
+
+        .people {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            border: 1px solid rgba(0, 0, 0, 0.8);
+            border-radius: 50%;
+            width: 600px;
+            height: 600px;
+            margin-top: -300px;
+            margin-left: -300px;
+            transform-style: preserve-3d;            
+        }
+
+        .pictures {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            left: 50%;
+            top: 50%;
+            margin-left: -50px;
+            margin-top: -50px;
+            background-color: pink;
+        }
+
+        .pos {
+            position: absolute;
+            left: 0%;
+            top: 50%;
+            width: 150px;
+            height: 150px;
+            margin-left: -75px;
+            margin-top: -75px;
+            border: solid 1px #000;
+        }
+
+        @keyframes orbit {
+            0%   { transform: rotateZ(0deg); }
+            100% { transform: rotateZ(-360deg); }
+        }
+    </style>
+    <script>
+        const doAnimation = () => {
+            var tl = gsap.timeline({defaults: {duration: 5, ease: Power0.easeNone}, repeat: -1});
+
+            //tl.to("div", {x: -50, z: 50}) // left
+            //.to("div", {x: 0, z: 100}) // back
+            //.to("div", {x: 50, z: 50}) // right
+            //.to("div", {x: 0, z: 0}); // front
+            tl.fromTo(".people", {rotationZ:0}, {rotationZ:-360})
+            //tl.fromTo('div', 5, {rotationX:90, rotationY:0}, {rotationX:90,rotationY:-360, transformOrigin:"50%, 50%, 0px"});
+
+
+            // TweenMax.fromTo('.path' ,5, {rotationZ:0}, {rotationZ:360, transformOrigin:"50%, 50%, 00px"});
+            TweenMax.fromTo('.pos', 5, {rotationX:-90, rotationY:0, rotationZ:0}, {rotationX:-90, rotationY:-360, rotationZ:0})
+
+            // TweenMax.fromTo('.pic' ,5, {rotationY:90,rotationZ:0, rotationX:0}, {rotationY:90,rotationZ:0,rotationX:0, transformOrigin:"50%, 50%"});
+        }
+    </script>
+</head>
+<body>
+    <div class="scene">
+        <div class="people">
+            <div class="pos">
+                <div class="pictures"></div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
