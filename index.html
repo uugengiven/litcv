@@ -6,6 +6,7 @@
     <title>Document</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/tsparticles@1.9.2/dist/tsparticles.min.js" integrity="sha256-5kED68Spy7K2CEbfu4CjV92DmZR5ZQFUoIR5qmPzZWg=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="style.css" />
     <style>
         .pictures {
             width: 100px;
@@ -136,16 +137,16 @@
     <div class="particles" id="tsparticles"></div>
     <div class="scene">
         <div class="people">
-            <img class="pictures bounce circle" id="one" src="/images/head1.jpg">
+            <img class="pictures" id="one" src="/images/head1.jpg">
         </div>
-        <div class="people bounce circle">
+        <div class="people">
             <img class="pictures" id="two" src="/images/head2.jpg">
         </div>
-        <div class="people bounce circle">
+        <div class="people">
             <img class="pictures" id="three" src="/images/head3.jpg">
         </div>
-        <div class="people bounce circle">
-            <img class="pictures" id="four" src="/images/head4.jpg">
+        <div class="people">
+            <div class="pictures orb" id="four">
         </div>
         </div>
     </div>
@@ -156,7 +157,7 @@
         doAnimation();
       }
 
-      
+
       const particles = () => {
 tsParticles.load("tsparticles", {
   fpsLimit: 60,
