@@ -5,81 +5,265 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/tsparticles@1.9.2/dist/tsparticles.min.js" integrity="sha256-5kED68Spy7K2CEbfu4CjV92DmZR5ZQFUoIR5qmPzZWg=" crossorigin="anonymous"></script>
     <style>
-        .scene {
-            width: 100vw;
-            height: 100vh;
-            position: relative;
-            
-            transform: rotateX(75deg);
-        }
-
-        .people {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            border: 1px solid rgba(0, 0, 0, 0.8);
-            border-radius: 50%;
-            width: 600px;
-            height: 600px;
-            margin-top: -300px;
-            margin-left: -300px;
-            transform-style: preserve-3d;            
-        }
-
         .pictures {
-            position: absolute;
             width: 100px;
             height: 100px;
-            left: 50%;
-            top: 50%;
-            margin-left: -50px;
-            margin-top: -50px;
-            background-color: pink;
-        }
-
-        .pos {
+            background-color: purple;
             position: absolute;
-            left: 0%;
-            top: 50%;
-            width: 150px;
-            height: 150px;
-            margin-left: -75px;
-            margin-top: -75px;
-            border: solid 1px #000;
+        }
+        .people {
+            position: relative;
+            height: 30px;
+            justify-content: center;
+            align-items: center;
+            display: flex;
+        }
+        .scene {
+            width: 100%;
+            height: 100%;
+            justify-content: center;
+            align-items: center;
+            display: flex;
+            flex-direction: column;
+        }
+        body {
+            width: 100vw;
+            height: 100vh;
+            background-color: black;
+        }
+        img {
+            border-radius: 50%;
+            width: 100px;
+            height: 100px;
+        }
+        #one {
+            width: 130px;
+            height: 130px;
+            z-index: 150;
+        }
+        .particles {
+          width: 100vw;
+          height: 100vh;
+          position: absolute;
+          z-index: 0;
+          background-color: #6699DD
+        }
+        body {
+          margin: 0;
+          padding: 0;
         }
 
-        @keyframes orbit {
-            0%   { transform: rotateZ(0deg); }
-            100% { transform: rotateZ(-360deg); }
-        }
     </style>
     <script>
+        const setSizes = (x, y, z) => {
+            var sizes = {};
+            sizes.x = [];
+            sizes.x[0] = "-=" + x;
+            sizes.x[1] = "+=" + x;
+            sizes.x[2] = "+=" + x;
+            sizes.x[3] = "-=" + x;
+
+            sizes.y = [];
+            sizes.y[0] = "-=" + y;
+            sizes.y[1] = "-=" + y;
+            sizes.y[2] = "+=" + y;
+            sizes.y[3] = "+=" + y;            
+            
+            sizes.z = [];
+            sizes.z[0] = "-=" + z;
+            sizes.z[1] = "-=" + z;
+            sizes.z[2] = "+=" + z;
+            sizes.z[3] = "+=" + z;
+
+            sizes.index = [];
+            var zmodifier = z * 100;
+            sizes.index[0] = 200 - (10 * zmodifier);
+            sizes.index[1] = 200 - (100 * zmodifier);
+            sizes.index[2] = 200 - (10 * zmodifier);
+            sizes.index[3] = 200 + (100 * zmodifier);
+
+
+            sizes.shadow = [];
+            sizes.shadow[0] = "8px 8px";
+            sizes.shadow[1] = "6px 6px";
+            sizes.shadow[2] = "8px 8px";
+            sizes.shadow[3] = "10px 10px";
+
+            return sizes;
+        }
+        const startAnimation = (tl, el, x, y, z) => {
+            var sizes = setSizes(x, y, z);
+
+            var item = document.querySelector(el);
+            item.style.zIndex = sizes.index[3];
+            item.style.x = sizes.x[3];
+            item.style.y = sizes.y[3];
+            
+            for(var i = 0; i < 4; i++)
+            {
+                var ease1 = "power1.in";
+                var ease2 = "power1.out";
+                if(i % 2 == 0)
+                {
+                    ease1 = "power1.out";
+                    ease2 = "power1.in";
+                }
+                console.log(i, ease1, ease2);
+                tl.to(el, {x: sizes.x[i], ease: ease1}, i * 10);
+                // tl.to(el, {y: sizes.y[i], scale: sizes.z[i], boxShadow:"7px 7px " + sizes.shadow[i] + " gray", zIndex: sizes.index[i], ease: ease2}, i * 10);
+                tl.to(el, {y: sizes.y[i], scale: sizes.z[i], zIndex: sizes.index[i], ease: ease2}, i * 10);
+            }
+        }
+
         const doAnimation = () => {
-            var tl = gsap.timeline({defaults: {duration: 5, ease: Power0.easeNone}, repeat: -1});
+            var tl = gsap.timeline({defaults: {duration: 10}, repeat: -1});
 
-            //tl.to("div", {x: -50, z: 50}) // left
-            //.to("div", {x: 0, z: 100}) // back
-            //.to("div", {x: 50, z: 50}) // right
-            //.to("div", {x: 0, z: 0}); // front
-            tl.fromTo(".people", {rotationZ:0}, {rotationZ:-360})
-            //tl.fromTo('div', 5, {rotationX:90, rotationY:0}, {rotationX:90,rotationY:-360, transformOrigin:"50%, 50%, 0px"});
+            // startAnimation(tl, "#one", 150, 25, .1);
+            startAnimation(tl, "#two", 180, 20, .1);
+            startAnimation(tl, "#three", 220, 30, .15);
+            startAnimation(tl, "#four", 400, 40, .2);
+            
 
-
-            // TweenMax.fromTo('.path' ,5, {rotationZ:0}, {rotationZ:360, transformOrigin:"50%, 50%, 00px"});
-            TweenMax.fromTo('.pos', 5, {rotationX:-90, rotationY:0, rotationZ:0}, {rotationX:-90, rotationY:-360, rotationZ:0})
-
-            // TweenMax.fromTo('.pic' ,5, {rotationY:90,rotationZ:0, rotationX:0}, {rotationY:90,rotationZ:0,rotationX:0, transformOrigin:"50%, 50%"});
+            
         }
     </script>
+
+    
 </head>
 <body>
+    <div class="particles" id="particles-js"></div>
     <div class="scene">
         <div class="people">
-            <div class="pos">
-                <div class="pictures"></div>
-            </div>
+            <img class="pictures bounce circle" id="one" src="/images/head1.jpg">
+        </div>
+        <div class="people bounce circle">
+            <img class="pictures" id="two" src="/images/head2.jpg">
+        </div>
+        <div class="people bounce circle">
+            <img class="pictures" id="three" src="/images/head3.jpg">
+        </div>
+        <div class="people bounce circle">
+            <img class="pictures" id="four" src="/images/head4.jpg">
+        </div>
         </div>
     </div>
+
+    <script>
+      particlesJS("particles-js", {
+"particles": {
+  "number": {
+    "value": 150,
+    "density": {
+      "enable": true,
+      "value_area": 800
+    }
+  },
+  "color": {
+    "value": "#ffffff"
+  },
+  "shape": {
+    "type": "circle",
+    "stroke": {
+      "width": 0,
+      "color": "#000000"
+    },
+    "polygon": {
+      "nb_sides": 5
+    },
+    "image": {
+      "src": "img/github.svg",
+      "width": 100,
+      "height": 100
+    }
+  },
+  "opacity": {
+    "value": 0.5,
+    "random": false,
+    "anim": {
+      "enable": false,
+      "speed": 1,
+      "opacity_min": 0.1,
+      "sync": false
+    }
+  },
+  "size": {
+    "value": 3,
+    "random": true,
+    "anim": {
+      "enable": false,
+      "speed": 40,
+      "size_min": 0.1,
+      "sync": false
+    }
+  },
+  "line_linked": {
+    "enable": true,
+    "distance": 150,
+    "color": "#ffffff",
+    "opacity": 0.4,
+    "width": 1
+  },
+  "move": {
+    "enable": true,
+    "speed": 6,
+    "direction": "none",
+    "random": false,
+    "straight": false,
+    "out_mode": "out",
+    "bounce": false,
+    "attract": {
+      "enable": false,
+      "rotateX": 600,
+      "rotateY": 1200
+    }
+  }
+},
+"interactivity": {
+  "detect_on": "canvas",
+  "events": {
+    "onhover": {
+      "enable": true,
+      "mode": "grab"
+    },
+    "onDiv": {
+      "enable": true,
+      "selectors": ".bounce.circle",
+      "mode": "repulse",
+      "type": "circle"
+    },
+    "resize": true
+  },
+  "modes": {
+    "grab": {
+      "distance": 140,
+      "line_linked": {
+        "opacity": 1
+      }
+    },
+    "bubble": {
+      "distance": 400,
+      "size": 40,
+      "duration": 2,
+      "opacity": 8,
+      "speed": 3
+    },
+    "repulse": {
+      "distance": 200,
+      "duration": 0.4
+    },
+    "push": {
+      "particles_nb": 4
+    },
+    "remove": {
+      "particles_nb": 2
+    }
+  }
+},
+"retina_detect": true
+});
+
+  </script>
 </body>
 </html>
