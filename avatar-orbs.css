@@ -19,7 +19,7 @@
   height: 90%;
   border-radius: 50%;
   background: radial-gradient(
-    circle at 50% 0px,
+    circle at 30% 0px,
     #ffffff,
     rgba(255, 255, 255, 0) 58%
   );
@@ -35,7 +35,7 @@
   top: 0;
   left: 0;
   background: radial-gradient(
-    circle at 50% 30%,
+    circle at 30% 30%,
     rgba(245, 237, 48, 0),
     rgba(200, 190, 20, 0.2) 50%,
     #575300 100%
@@ -85,3 +85,16 @@
 .orb-four {
   background-image: url(images/default-avatar-small.png);
 }
+
+/* .orb-one {
+  background-image: url(images/IanRemmers_Leaf_600-square.jpg);
+}
+.orb-two {
+  background-image: url(images/KateHiggins_Darcy_600-square.jpg);
+}
+.orb-three {
+  background-image: url(images/YohanceMyles_Jamal_600-square.jpg);
+}
+.orb-four {
+  background-image: url(images/AngelaGulner_Luna_600-square.jpg);
+} */
