@@ -87,6 +87,20 @@
 }
 
 /* .orb-one {
+  background-image: url(images/default-avatar-jira.png);
+  background-size: 130px;
+}
+.orb-two {
+  background-image: url(images/default-avatar-jira.png);
+}
+.orb-three {
+  background-image: url(images/default-avatar-jira.png);
+}
+.orb-four {
+  background-image: url(images/default-avatar-jira.png);
+} */
+
+/* .orb-one {
   background-image: url(images/IanRemmers_Leaf_600-square.jpg);
 }
 .orb-two {
