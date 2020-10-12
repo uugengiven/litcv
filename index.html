@@ -61,7 +61,7 @@
       }
     </style>
     <script>
-      const setSizes = (x, y, z) => {
+      const setSizes = (x, y, z, distance) => {
         var sizes = {};
         sizes.x = [];
         sizes.x[0] = '-=' + x;
@@ -83,10 +83,10 @@
 
         sizes.index = [];
         var zmodifier = z * 100;
-        sizes.index[0] = 200 - 10 * zmodifier;
-        sizes.index[1] = 200 - 100 * zmodifier;
-        sizes.index[2] = 200 - 10 * zmodifier;
-        sizes.index[3] = 200 + 100 * zmodifier;
+        sizes.index[0] = 100;
+        sizes.index[1] = 50 - distance;
+        sizes.index[2] = 100;
+        sizes.index[3] = 200 + distance;
 
         sizes.shadow = [];
         sizes.shadow[0] = '8px 8px';
@@ -131,9 +131,9 @@
         var tl = gsap.timeline({ defaults: { duration: 10 }, repeat: -1 });
 
         // startAnimation(tl, "#one", 150, 25, .1);
-        startAnimation(tl, '#two', 180, 20, 0.1);
-        startAnimation(tl, '#three', 220, 30, 0.15);
-        startAnimation(tl, '#four', 400, 40, 0.2);
+        startAnimation(tl, '#two', 180, 20, 0.1, 30);
+        startAnimation(tl, '#three', 220, 30, 0.15, 40);
+        startAnimation(tl, '#four', 400, 40, 0.2, 50);
       };
     </script>
   </head>

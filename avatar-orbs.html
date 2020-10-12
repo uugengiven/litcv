@@ -46,7 +46,9 @@
       #one {
         width: 130px;
         height: 130px;
-        z-index: 150;
+      }
+      #one-container {
+        z-index: 1000;
       }
       .particles {
         width: 100vw;
@@ -67,16 +69,16 @@
   <body onload="init()">
     <div class="particles" id="tsparticles"></div>
     <div class="scene">
-      <div class="people">
+      <div class="people" id="one-container">
         <div class="pictures orb orb-one" id="one"></div>
       </div>
-      <div class="people">
+      <div class="people" id="two-container">
         <div class="pictures orb orb-two" id="two"></div>
       </div>
-      <div class="people">
+      <div class="people" id="three-container">
         <div class="pictures orb orb-three" id="three"></div>
       </div>
-      <div class="people">
+      <div class="people" id="four-container">
         <div class="pictures orb orb-four" id="four"></div>
       </div>
     </div>
