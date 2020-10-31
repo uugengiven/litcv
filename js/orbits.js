@@ -1,6 +1,7 @@
-const orbits = {};
+const orbits = {
+  timelines: [],
 
-orbits.setSizes = (x, y, z, distance) => {
+  setSizes(x, y, z, distance) {
     var sizes = {};
     sizes.x = [];
     sizes.x[0] = '-=' + x;
@@ -34,9 +35,10 @@ orbits.setSizes = (x, y, z, distance) => {
     sizes.shadow[3] = '10px 10px';
 
     return sizes;
-  };
-orbits.startAnimation = (tl, el, x, y, z, distance) => {
-    var sizes = orbits.setSizes(x, y, z, distance);
+  },
+
+  startAnimation (tl, el, x, y, z, distance) {
+    var sizes = this.setSizes(x, y, z, distance);
 
     var item = document.querySelector(el);
     var itemContainer = document.querySelector(el + "-container")
@@ -75,13 +77,37 @@ orbits.startAnimation = (tl, el, x, y, z, distance) => {
 
       console.log("zindex: ", sizes.zindex[i])
     }
-  };
+  },
 
-  orbits.doAnimation = () => {
-    var tl = gsap.timeline({ defaults: { duration: 10 }, repeat: -1 });
+  createOrbit (el, x, y, z, distance) {
+    var timeline = gsap.timeline({ defaults: { duration: 10}, repeat: -1});
+    this.timelines.push(timeline);
+    this.startAnimation(timeline, el, x, y, z, distance);
+    timeline.progress(Math.random());
+    document.querySelector(el).addEventListener('mouseenter', event => {
+      this.pause();
+    });
+    document.querySelector(el).addEventListener('mouseleave', event => {
+      this.pause();
+    })
+  },
 
-    // startAnimation(tl, "#one", 150, 25, .1);
-    orbits.startAnimation(tl, '#two', 180, 20, 0.1, 30);
-    orbits.startAnimation(tl, '#three', 220, 30, 0.15, 40);
-    orbits.startAnimation(tl, '#four', 400, 40, 0.2, 50);
-  };
+  pause () {
+    this.timelines.forEach((timeline) => {
+      if(timeline.paused())
+      {
+        timeline.play();
+      }
+      else
+      {
+        timeline.pause();
+      }
+    });
+  },
+
+  init () {
+    this.createOrbit('#two', 180, 20, 0.1, 30);
+    this.createOrbit('#three', 220, 30, 0.15, 40);
+    this.createOrbit('#four', 400, 40, 0.2, 50);
+  }
+};

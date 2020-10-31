@@ -70,23 +70,31 @@
     <div class="particles" id="tsparticles"></div>
     <div class="scene">
       <div class="people" id="one-container">
-        <div class="pictures orb orb-one" id="one"></div>
+        <div class="pictures orb orb-one" id="one">
+          <div>Here is another example!</div>
+        </div>
       </div>
       <div class="people" id="two-container">
-        <div class="pictures orb orb-two" id="two"></div>
+        <div class="pictures orb orb-two" id="two">
+          <div>This is some info, aww yeah!</div>
+        </div>
       </div>
       <div class="people" id="three-container">
-        <div class="pictures orb orb-three" id="three"></div>
+        <div class="pictures orb orb-three" id="three">
+          <div>Any info in here will be visible when it is hovered over!</div>
+        </div>
       </div>
       <div class="people" id="four-container">
-        <div class="pictures orb orb-four" id="four"></div>
+        <div class="pictures orb orb-four" id="four">
+          <div>shhh, hidden div</div>
+        </div>
       </div>
     </div>
 
     <script>
       const init = () => {
         particles();
-        orbits.doAnimation();
+        orbits.init();
       };
     </script>
   </body>
