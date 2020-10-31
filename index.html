@@ -10,7 +10,7 @@
       integrity="sha256-5kED68Spy7K2CEbfu4CjV92DmZR5ZQFUoIR5qmPzZWg="
       crossorigin="anonymous"
     ></script>
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="avatar-orbs.css" />
     <style>
       .pictures {
         width: 100px;
@@ -53,7 +53,8 @@
         height: 100vh;
         position: absolute;
         z-index: 0;
-        background-color: #6699dd;
+        /* background-color: #669add; */
+        background-color: #5177a9;
       }
       body {
         margin: 0;
@@ -141,16 +142,16 @@
     <div class="particles" id="tsparticles"></div>
     <div class="scene">
       <div class="people">
-        <img class="pictures" id="one" src="/images/IanRemmers_Leaf.jpeg" />
+        <div class="pictures orb orb-one" id="one"></div>
       </div>
       <div class="people">
-        <img class="pictures" id="two" src="/images/KateHiggins_Darcy.JPG" />
+        <div class="pictures orb orb-two" id="two"></div>
       </div>
       <div class="people">
-        <img class="pictures" id="three" src="/images/YohanceMyles_Jamal.jpg" />
+        <div class="pictures orb orb-three" id="three"></div>
       </div>
       <div class="people">
-        <div class="pictures orb" id="four"></div>
+        <div class="pictures orb orb-four" id="four"></div>
       </div>
     </div>
 
@@ -165,7 +166,7 @@
           fpsLimit: 60,
           particles: {
             number: {
-              value: 160,
+              value: 50,
               density: {
                 enable: true,
                 value_area: 800
@@ -207,12 +208,12 @@
               enable: true,
               distance: 100,
               color: '#ffffff',
-              opacity: 0.4,
+              opacity: 0.15,
               width: 1
             },
             move: {
               enable: true,
-              speed: 6,
+              speed: 1,
               direction: 'none',
               random: false,
               straight: false,
@@ -278,6 +279,120 @@
           retina_detect: true
         });
       };
+
+      // const particles = () => {
+      //   tsParticles.load('tsparticles', {
+      //     fpsLimit: 50,
+      //     particles: {
+      //       number: {
+      //         value: 60,
+      //         density: {
+      //           enable: true,
+      //           value_area: 800
+      //         }
+      //       },
+      //       color: {
+      //         value: '#ffffff'
+      //       },
+      //       shape: {
+      //         type: 'circle',
+      //         stroke: {
+      //           width: 0,
+      //           color: '#000000'
+      //         },
+      //         polygon: {
+      //           nb_sides: 5
+      //         },
+      //         image: {
+      //           src: 'img/github.svg',
+      //           width: 100,
+      //           height: 100
+      //         }
+      //       },
+      //       opacity: {
+      //         value: 0.5,
+      //         random: false,
+      //         anim: {
+      //           enable: false,
+      //           speed: 1,
+      //           opacity_min: 0.1,
+      //           sync: false
+      //         }
+      //       },
+      //       size: {
+      //         value: 1,
+      //         random: true,
+      //         anim: {
+      //           enable: false,
+      //           speed: 40,
+      //           size_min: 0.1,
+      //           sync: false
+      //         }
+      //       },
+      //       line_linked: {
+      //         enable: true,
+      //         distance: 150,
+      //         color: '#ffffff',
+      //         opacity: 0.4,
+      //         width: 1
+      //       },
+      //       move: {
+      //         enable: true,
+      //         speed: 1,
+      //         direction: 'none',
+      //         random: false,
+      //         straight: false,
+      //         out_mode: 'out',
+      //         bounce: false,
+      //         attract: {
+      //           enable: false,
+      //           rotateX: 600,
+      //           rotateY: 1200
+      //         }
+      //       }
+      //     },
+      //     interactivity: {
+      //       detect_on: 'canvas',
+      //       events: {
+      //         onhover: {
+      //           enable: true,
+      //           mode: 'grab'
+      //         },
+      //         onclick: {
+      //           enable: true,
+      //           mode: 'push'
+      //         },
+      //         resize: true
+      //       },
+      //       modes: {
+      //         grab: {
+      //           distance: 150,
+      //           line_linked: {
+      //             opacity: 1
+      //           }
+      //         },
+      //         bubble: {
+      //           distance: 400,
+      //           size: 40,
+      //           duration: 2,
+      //           opacity: 8,
+      //           speed: 3
+      //         },
+      //         repulse: {
+      //           distance: 200,
+      //           duration: 0.4
+      //         },
+      //         push: {
+      //           particles_nb: 4
+      //         },
+      //         remove: {
+      //           particles_nb: 2
+      //         }
+      //       }
+      //     },
+      //     retina_detect: true
+      //   });
+      // };
     </script>
   </body>
 </html>
