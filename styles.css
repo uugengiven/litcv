@@ -5,7 +5,8 @@
   z-index: 0;
   /* background-color: #669add; */
   /* background-color: #5177a9; */
-  background-color: rgb(27 27 31);
+  background-color: rgb(27, 27, 31);
+  /* background-color: rgb(4, 4, 4); */
 }
 body {
   width: 100vw;
