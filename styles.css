@@ -4,7 +4,8 @@
   position: absolute;
   z-index: 0;
   /* background-color: #669add; */
-  background-color: #5177a9;
+  /* background-color: #5177a9; */
+  background-color: rgb(27 27 31);
 }
 body {
   width: 100vw;
@@ -149,6 +150,7 @@ img {
   opacity: 0.85;
   padding: 5%;
   border-radius: 4px;
+  /* font-family is a temp placeholder insert way better font below */
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
