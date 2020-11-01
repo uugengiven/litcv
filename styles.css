@@ -10,7 +10,7 @@
 body {
   width: 100vw;
   height: 100vh;
-  background-color: black;
+  /* background-color: black; */
   margin: 0;
   padding: 0;
 }
@@ -57,6 +57,7 @@ img {
   background: no-repeat;
   background-size: 100%;
   filter: grayscale(100%);
+  cursor: pointer;
 }
 
 .orb:before {
