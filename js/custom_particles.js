@@ -10,13 +10,13 @@ const particles = () => {
         }
       },
       color: {
-        value: '#fafafa'
+        value: '#f5f5f5'
       },
       shape: {
         type: 'circle',
         stroke: {
           width: 0,
-          color: '#ff0000'
+          color: '#f5f5f5'
         },
         polygon: {
           nb_sides: 5
