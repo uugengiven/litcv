@@ -1,51 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Love In The Time of Coronavirus</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/tsparticles@1.9.2/dist/tsparticles.min.js"
-      integrity="sha256-5kED68Spy7K2CEbfu4CjV92DmZR5ZQFUoIR5qmPzZWg="
-      crossorigin="anonymous"
-    ></script>
-    <link rel="stylesheet" href="styles.css" />
-    <script src="js/orbits.js"></script>
-    <script src="js/custom_particles.js"></script>
-  </head>
-  <body onload="init()">
-    <div class="particles" id="tsparticles"></div>
-    <main class="content">
-      <section class="person" id="one-container">
-        <div class="orb orb-one" id="one">
-          <div class="orb-info">Here is another example!</div>
-        </div>
-      </section>
-      <section class="person" id="two-container">
-        <div class="orb orb-two" id="two">
-          <div class="orb-info">This is some info, aww yeah!</div>
-        </div>
-      </section>
-      <section class="person" id="three-container">
-        <div class="orb orb-three" id="three">
-          <div class="orb-info">
-            Any info in here will be visible when it is hovered over!
-          </div>
-        </div>
-      </section>
-      <section class="person" id="four-container">
-        <div class="orb orb-four" id="four">
-          <div class="orb-info">shhh, hidden div</div>
-        </div>
-      </section>
-    </main>
 
-    <script>
-      const init = () => {
-        particles();
-        orbits.init();
-      };
-    </script>
-  </body>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Love In The Time of Coronavirus</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/tsparticles@1.9.2/dist/tsparticles.min.js"
+    integrity="sha256-5kED68Spy7K2CEbfu4CjV92DmZR5ZQFUoIR5qmPzZWg=" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="base.css" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="fonts/fonts.css" />
+  <script src="js/orbits.js"></script>
+  <script src="js/custom_particles.js"></script>
+</head>
+
+<body onload="init()">
+  <div class="particles" id="tsparticles"></div>
+  <nav>
+    <a href="#">About</a>
+    <a href="#">Cast & Crew</a>
+    <a href="#">News</a>
+    <a href="#">Contact</a>
+  </nav>
+  <main class="content">
+    <section class="person" id="one-container">
+      <div class="orb orb-one" id="one">
+        <div class="orb-info">Here is another example!</div>
+      </div>
+    </section>
+    <section class="person" id="two-container">
+      <div class="orb orb-two" id="two">
+        <div class="orb-info">This is some info, aww yeah!</div>
+      </div>
+    </section>
+    <section class="person" id="three-container">
+      <div class="orb orb-three" id="three">
+        <div class="orb-info">
+          Any info in here will be visible when it is hovered over!
+        </div>
+      </div>
+    </section>
+    <section class="person" id="four-container">
+      <div class="orb orb-four" id="four">
+        <div class="orb-info">shhh, hidden div</div>
+      </div>
+    </section>
+  </main>
+
+
+
+  <script>
+    const init = () => {
+      particles();
+      orbits.init();
+    };
+  </script>
+</body>
+
 </html>

@@ -1,0 +1,27 @@
+@font-face {
+  font-family: Idlewild;
+  src: url("./IdlewildSSm-Light.otf");
+  font-style: normal;
+  font-weight: 300;
+}
+
+@font-face {
+  font-family: Idlewild;
+  src: url("./IdlewildSSm-Book.otf");
+  font-style: normal;
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: Idlewild;
+  src: url("./IdlewildSSm-Medium.otf");
+  font-style: normal;
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: Idlewild;
+  src: url("./IdlewildSSm-Bold.otf");
+  font-style: normal;
+  font-weight: 700;
+}
