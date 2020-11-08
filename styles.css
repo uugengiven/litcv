@@ -1,3 +1,6 @@
+/* Will probs use this as the main body font */
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans&display=swap");
+
 .particles {
   width: 100vw;
   height: 100vh;
@@ -14,11 +17,16 @@ body {
   /* background-color: black; */
   margin: 0;
   padding: 0;
-  font-family: Idlewild;
+  font-family: "DM Sans";
   font-weight: 400;
   font-size: 1rem;
-  letter-spacing: 2px;
+  letter-spacing: 0.5px;
   background-color: #1b1b1f;
+}
+
+header {
+  display: flex;
+  z-index: 1;
 }
 
 nav {
@@ -32,6 +40,8 @@ nav {
 }
 
 nav a {
+  font-family: "GT America";
+  text-transform: uppercase;
   color: white;
   text-decoration: none;
   margin-bottom: 1.25rem;
