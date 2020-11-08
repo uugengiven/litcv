@@ -1,6 +1,11 @@
 /* Will probs use this as the main body font */
 @import url("https://fonts.googleapis.com/css2?family=DM+Sans&display=swap");
 
+:root {
+  --body-text: #fff;
+  --background: #131313;
+}
+
 .particles {
   width: 100vw;
   height: 100vh;
@@ -8,7 +13,7 @@
   z-index: 0;
   /* background-color: #669add; */
   /* background-color: #5177a9; */
-  background-color: #1b1b1f;
+  background-color: var(--background);
   /* background-color: rgb(4, 4, 4); */
 }
 body {
@@ -21,12 +26,30 @@ body {
   font-weight: 400;
   font-size: 1rem;
   letter-spacing: 0.5px;
-  background-color: #1b1b1f;
+  background-color: var(--background);
+  color: white;
 }
 
 header {
+  width: 100%;
   display: flex;
+  justify-content: space-between;
+  align-items: center;
   z-index: 1;
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: 0.8rem 1.5rem;
+}
+
+header h1 {
+  font-size: 1.125rem;
+}
+
+.gt-america {
+  font-family: GT America;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
 }
 
 nav {
@@ -40,12 +63,9 @@ nav {
 }
 
 nav a {
-  font-family: "GT America";
-  text-transform: uppercase;
   color: white;
   text-decoration: none;
-  margin-bottom: 1.25rem;
-  font-size: 1.25rem;
+  margin-bottom: 1.5rem;
 }
 
 .content {
