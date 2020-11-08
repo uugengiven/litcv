@@ -2,8 +2,13 @@
 @import url("https://fonts.googleapis.com/css2?family=DM+Sans&display=swap");
 
 :root {
-  --body-text: #fff;
-  --background: #131313;
+  --white: #fff;
+  --light-gray: #f4f7fb;
+  --black: #131313;
+  --text-dark: var(--black);
+  --text-light: var(--white);
+  --dark-background: var(--black);
+  --light-background: var(--light-gray);
 }
 
 .particles {
@@ -13,7 +18,7 @@
   z-index: 0;
   /* background-color: #669add; */
   /* background-color: #5177a9; */
-  background-color: var(--background);
+  background-color: var(--dark-background);
   /* background-color: rgb(4, 4, 4); */
 }
 body {
@@ -26,8 +31,16 @@ body {
   font-weight: 400;
   font-size: 1rem;
   letter-spacing: 0.5px;
-  background-color: var(--background);
-  color: white;
+  background-color: var(--dark-background);
+  color: var(--text-light);
+}
+
+/* need to create file to add all these type of classes */
+/* maybe a global.css file? */
+.gt-america {
+  font-family: GT America;
+  letter-spacing: 1.3px;
+  text-transform: uppercase;
 }
 
 header {
@@ -35,7 +48,7 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  z-index: 1;
+  z-index: 5;
   position: fixed;
   top: 0;
   left: 0;
@@ -46,24 +59,49 @@ header h1 {
   font-size: 1.125rem;
 }
 
-.gt-america {
-  font-family: GT America;
-  letter-spacing: 2.5px;
-  text-transform: uppercase;
-}
-
+/* nav body */
 nav {
   z-index: 1;
   position: fixed;
-  top: 50%;
-  transform: translateY(-50%);
+  top: 0;
+  right: 0;
+  width: 100%;
+  max-width: 600px;
+  height: 100%;
+  background-color: var(--white);
+  padding: 3rem;
+  transform: translate(100%, 0);
+  transition: transform 0.5s;
+
   display: flex;
   flex-direction: column;
-  margin: 0 0 0 40px;
+  justify-content: space-between;
 }
 
+body.nav-open nav {
+  transform: translate(0, 0);
+}
+
+/* div.internal and div.social */
+nav div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+nav div.internal {
+  font-size: 1.5rem;
+  line-height: 36px;
+  flex: 1;
+}
+
+nav div.social a {
+  font-size: 0.875rem;
+}
+
+/* menu links */
 nav a {
-  color: white;
+  color: var(--text-dark);
   text-decoration: none;
   margin-bottom: 1.5rem;
 }
