@@ -1,0 +1,35 @@
+body {
+  color: var(--text-dark);
+}
+
+.particles {
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  z-index: 0;
+  /* background-color: #669add; */
+  /* background-color: #5177a9; */
+  background-color: var(--white);
+  /* background-color: rgb(4, 4, 4); */
+}
+
+main.story {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  width: 100%;
+  max-width: 85vw;
+  padding: 40px;
+  margin-top: 3rem;
+}
+
+main.story .paragraph {
+  margin: 0 0 3rem;
+}
+
+main.story h2 {
+  font-size: 2vmax;
+  letter-spacing: 2px;
+  line-height: 1.4;
+}

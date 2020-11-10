@@ -72,14 +72,12 @@ body {
 .gt-america {
   font-family: GT America;
   letter-spacing: 1.6px;
-  text-transform: uppercase;
   font-weight: 400;
 }
 
 .gt-america-extended {
   font-family: GT America-Extended;
   letter-spacing: 1.3px;
-  text-transform: uppercase;
 }
 
 .ivy-mode {
@@ -173,6 +171,7 @@ nav div.internal {
   font-size: 1.3rem;
   line-height: 36px;
   flex: 1;
+  text-transform: uppercase;
 }
 
 /* menu links */
