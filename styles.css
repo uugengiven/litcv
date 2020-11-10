@@ -8,8 +8,10 @@
 :root {
   --white: #fff;
   --light-gray: #f4f7fb;
+  --gray: #e5e5e5;
   --black: #131313;
   --red: #d72f0a;
+  --yellow: #e2f85d;
   --light-pink: peachpuff;
   --text-dark: var(--black);
   --text-light: var(--white);
@@ -17,6 +19,8 @@
   --light-background: var(--light-gray);
   --highlight-color-pink: var(--light-pink);
   --highlight-color-red: var(--red);
+  --highlight-color-yellow: var(--yellow);
+  --highlight-color-gray: var(--gray);
 }
 
 /* ANIMATIONS */
@@ -138,12 +142,12 @@ nav {
 }
 
 nav.fake-mid {
-  background-color: var(--highlight-color-pink);
+  background-color: var(--highlight-color-red);
   transition-delay: 0.1s;
 }
 
 nav.fake-back {
-  background-color: var(--highlight-color-red);
+  background-color: var(--highlight-color-pink);
   transition-delay: 0.2s;
 }
 
