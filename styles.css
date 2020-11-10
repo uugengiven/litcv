@@ -19,6 +19,29 @@
   --highlight-color-red: var(--red);
 }
 
+/* ANIMATIONS */
+/* For heart logo */
+@keyframes heartbeat {
+  0% {
+    transform: scale(0.75);
+  }
+  20% {
+    transform: scale(1);
+  }
+  40% {
+    transform: scale(0.75);
+  }
+  60% {
+    transform: scale(1);
+  }
+  80% {
+    transform: scale(0.75);
+  }
+  100% {
+    transform: scale(0.75);
+  }
+}
+
 .particles {
   width: 100vw;
   height: 100vh;
@@ -66,6 +89,11 @@ body {
   font-size: 2rem;
 }
 
+.misterPixelTools {
+  font-family: VTF MisterPixel Tools;
+  font-style: normal !important;
+}
+
 header {
   width: 100%;
   display: flex;
@@ -79,7 +107,17 @@ header {
 }
 
 header h1 {
-  font-size: 1.125rem;
+  font-size: 1.2rem;
+}
+
+header h1 .misterPixelTools {
+  margin-right: 6px;
+  font-size: 1.75rem;
+}
+
+.heart {
+  display: inline-block;
+  animation: heartbeat 1s infinite;
 }
 
 /* nav body */
