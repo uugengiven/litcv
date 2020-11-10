@@ -1,6 +1,6 @@
 body {
   color: var(--text-dark);
-  background-color: var(--white);
+  background-color: var(--light-background);
 }
 
 .particles {
@@ -10,7 +10,7 @@ body {
   z-index: 0;
   /* background-color: #669add; */
   /* background-color: #5177a9; */
-  background-color: var(--white);
+  background-color: var(--light-background);
   /* background-color: rgb(4, 4, 4); */
 }
 
