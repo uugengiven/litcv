@@ -29,6 +29,7 @@
   background-color: var(--dark-background);
   /* background-color: rgb(4, 4, 4); */
 }
+
 body {
   width: 100vw;
   height: 100vh;
@@ -141,6 +142,13 @@ nav a {
   color: var(--text-dark);
   text-decoration: none;
   margin-bottom: 1.5rem;
+  transform: translateX(0);
+  transition: transform 0.2s ease;
+}
+
+nav a:hover {
+  transform: translateX(5px);
+  color: var(--highlight-color-red);
 }
 
 .content {
