@@ -1,14 +1,22 @@
-/* Will probs use this as the main body font */
+/* DM Sans font - Will probs use this as the main body font */
 @import url("https://fonts.googleapis.com/css2?family=DM+Sans&display=swap");
+
+/* IvyMode font - trying this font out for headings */
+/* might delete later */
+@import url("https://use.typekit.net/frh1wnb.css");
 
 :root {
   --white: #fff;
   --light-gray: #f4f7fb;
   --black: #131313;
+  --red: #d72f0a;
+  --light-pink: peachpuff;
   --text-dark: var(--black);
   --text-light: var(--white);
   --dark-background: var(--black);
   --light-background: var(--light-gray);
+  --highlight-color-pink: var(--light-pink);
+  --highlight-color-red: var(--red);
 }
 
 .particles {
@@ -30,7 +38,7 @@ body {
   font-family: "DM Sans";
   font-weight: 400;
   font-size: 1rem;
-  letter-spacing: 0.5px;
+  letter-spacing: 1px;
   background-color: var(--dark-background);
   color: var(--text-light);
 }
@@ -39,8 +47,22 @@ body {
 /* maybe a global.css file? */
 .gt-america {
   font-family: GT America;
+  letter-spacing: 1.6px;
+  text-transform: uppercase;
+  font-weight: 400;
+}
+
+.gt-america-extended {
+  font-family: GT America-Extended;
   letter-spacing: 1.3px;
   text-transform: uppercase;
+}
+
+.ivy-mode {
+  font-family: ivymode, sans-serif;
+  letter-spacing: 1px;
+  font-weight: 400;
+  font-size: 2rem;
 }
 
 header {
@@ -48,7 +70,7 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  z-index: 5;
+  z-index: 100000;
   position: fixed;
   top: 0;
   left: 0;
@@ -61,7 +83,7 @@ header h1 {
 
 /* nav body */
 nav {
-  z-index: 1;
+  z-index: 9999;
   position: fixed;
   top: 0;
   right: 0;
@@ -71,15 +93,34 @@ nav {
   background-color: var(--white);
   padding: 3rem;
   transform: translate(100%, 0);
-  transition: transform 0.5s;
+  transition: transform 0.5s 0s;
 
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
 
+nav.fake-mid {
+  background-color: var(--highlight-color-pink);
+  transition-delay: 0.1s;
+}
+
+nav.fake-back {
+  background-color: var(--highlight-color-red);
+  transition-delay: 0.2s;
+}
+
 body.nav-open nav {
   transform: translate(0, 0);
+  transition-delay: 0.2s;
+}
+
+body.nav-open nav.fake-mid {
+  transition-delay: 0.1s;
+}
+
+body.nav-open nav.fake-back {
+  transition-delay: 0s;
 }
 
 /* div.internal and div.social */
@@ -90,13 +131,9 @@ nav div {
 }
 
 nav div.internal {
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   line-height: 36px;
   flex: 1;
-}
-
-nav div.social a {
-  font-size: 0.875rem;
 }
 
 /* menu links */

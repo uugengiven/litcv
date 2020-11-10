@@ -33,7 +33,7 @@
 /* Will be mainly used for headings */
 /* This font is being used as part of a trial -- need to look for alternatives */
 @font-face {
-  font-family: GT-America;
+  font-family: GT America;
   src: url("./GT-America-Expanded-Regular-Trial.woff2");
   font-weight: 400;
 }
@@ -45,13 +45,13 @@
 }
 
 @font-face {
-  font-family: GT America;
+  font-family: GT America-Extended;
   src: url("./GT-America-Extended-Regular-Trial.woff2");
   font-weight: 400;
 }
 
 @font-face {
-  font-family: GT America;
+  font-family: GT America-Extended;
   src: url("./GT-America-Extended-Medium-Trial.woff2");
   font-weight: 500;
 }
