@@ -8,8 +8,12 @@
 :root {
   --white: #fff;
   --light-gray: #f4f7fb;
+  --gray: #e5e5e5;
   --black: #131313;
   --red: #d72f0a;
+  --yellow: #e2f85d;
+  --green: #04ff64;
+  --blue: #002fff;
   --light-pink: peachpuff;
   --text-dark: var(--black);
   --text-light: var(--white);
@@ -17,6 +21,10 @@
   --light-background: var(--light-gray);
   --highlight-color-pink: var(--light-pink);
   --highlight-color-red: var(--red);
+  --highlight-color-yellow: var(--yellow);
+  --highlight-color-gray: var(--gray);
+  --highlight-color-green: var(--green);
+  --highlight-color-blue: var(--blue);
 }
 
 /* ANIMATIONS */
@@ -72,14 +80,12 @@ body {
 .gt-america {
   font-family: GT America;
   letter-spacing: 1.6px;
-  text-transform: uppercase;
   font-weight: 400;
 }
 
 .gt-america-extended {
   font-family: GT America-Extended;
   letter-spacing: 1.3px;
-  text-transform: uppercase;
 }
 
 .ivy-mode {
@@ -103,7 +109,7 @@ header {
   position: fixed;
   top: 0;
   left: 0;
-  padding: 0.8rem 1.5rem;
+  padding: 0.8rem 2.5rem;
 }
 
 header h1 {
@@ -140,12 +146,12 @@ nav {
 }
 
 nav.fake-mid {
-  background-color: var(--highlight-color-pink);
+  background-color: var(--highlight-color-green);
   transition-delay: 0.1s;
 }
 
 nav.fake-back {
-  background-color: var(--highlight-color-red);
+  background-color: var(--highlight-color-blue);
   transition-delay: 0.2s;
 }
 
@@ -173,6 +179,7 @@ nav div.internal {
   font-size: 1.3rem;
   line-height: 36px;
   flex: 1;
+  text-transform: uppercase;
 }
 
 /* menu links */
