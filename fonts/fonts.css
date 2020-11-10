@@ -1,3 +1,6 @@
+/* Idlewild Font */
+/* Will be mainly used for headings */
+/* Might replace */
 @font-face {
   font-family: Idlewild;
   src: url("./IdlewildSSm-Light.otf");
@@ -24,4 +27,31 @@
   src: url("./IdlewildSSm-Bold.otf");
   font-style: normal;
   font-weight: 700;
+}
+
+/* GT America */
+/* Will be mainly used for headings */
+/* This font is being used as part of a trial -- need to look for alternatives */
+@font-face {
+  font-family: GT America;
+  src: url("./GT-America-Expanded-Regular-Trial.woff2");
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: GT America;
+  src: url("./GT-America-Expanded-Medium-Trial.woff2");
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: GT America-Extended;
+  src: url("./GT-America-Extended-Regular-Trial.woff2");
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: GT America-Extended;
+  src: url("./GT-America-Extended-Medium-Trial.woff2");
+  font-weight: 500;
 }

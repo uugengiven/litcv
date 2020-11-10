@@ -1,3 +1,24 @@
+/* DM Sans font - Will probs use this as the main body font */
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans&display=swap");
+
+/* IvyMode font - trying this font out for headings */
+/* might delete later */
+@import url("https://use.typekit.net/frh1wnb.css");
+
+:root {
+  --white: #fff;
+  --light-gray: #f4f7fb;
+  --black: #131313;
+  --red: #d72f0a;
+  --light-pink: peachpuff;
+  --text-dark: var(--black);
+  --text-light: var(--white);
+  --dark-background: var(--black);
+  --light-background: var(--light-gray);
+  --highlight-color-pink: var(--light-pink);
+  --highlight-color-red: var(--red);
+}
+
 .particles {
   width: 100vw;
   height: 100vh;
@@ -5,7 +26,7 @@
   z-index: 0;
   /* background-color: #669add; */
   /* background-color: #5177a9; */
-  background-color: #1b1b1f;
+  background-color: var(--dark-background);
   /* background-color: rgb(4, 4, 4); */
 }
 body {
@@ -14,28 +35,112 @@ body {
   /* background-color: black; */
   margin: 0;
   padding: 0;
-  font-family: Idlewild;
+  font-family: "DM Sans";
   font-weight: 400;
   font-size: 1rem;
-  letter-spacing: 2px;
-  background-color: #1b1b1f;
+  letter-spacing: 1px;
+  background-color: var(--dark-background);
+  color: var(--text-light);
 }
 
-nav {
-  z-index: 1;
+/* need to create file to add all these type of classes */
+/* maybe a global.css file? */
+.gt-america {
+  font-family: GT America;
+  letter-spacing: 1.6px;
+  text-transform: uppercase;
+  font-weight: 400;
+}
+
+.gt-america-extended {
+  font-family: GT America-Extended;
+  letter-spacing: 1.3px;
+  text-transform: uppercase;
+}
+
+.ivy-mode {
+  font-family: ivymode, sans-serif;
+  letter-spacing: 1px;
+  font-weight: 400;
+  font-size: 2rem;
+}
+
+header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 100000;
   position: fixed;
-  top: 50%;
-  transform: translateY(-50%);
+  top: 0;
+  left: 0;
+  padding: 0.8rem 1.5rem;
+}
+
+header h1 {
+  font-size: 1.125rem;
+}
+
+/* nav body */
+nav {
+  z-index: 9999;
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100%;
+  max-width: 600px;
+  height: 100%;
+  background-color: var(--white);
+  padding: 3rem;
+  transform: translate(100%, 0);
+  transition: transform 0.5s 0s;
+
   display: flex;
   flex-direction: column;
-  margin: 0 0 0 40px;
+  justify-content: space-between;
 }
 
+nav.fake-mid {
+  background-color: var(--highlight-color-pink);
+  transition-delay: 0.1s;
+}
+
+nav.fake-back {
+  background-color: var(--highlight-color-red);
+  transition-delay: 0.2s;
+}
+
+body.nav-open nav {
+  transform: translate(0, 0);
+  transition-delay: 0.2s;
+}
+
+body.nav-open nav.fake-mid {
+  transition-delay: 0.1s;
+}
+
+body.nav-open nav.fake-back {
+  transition-delay: 0s;
+}
+
+/* div.internal and div.social */
+nav div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+nav div.internal {
+  font-size: 1.3rem;
+  line-height: 36px;
+  flex: 1;
+}
+
+/* menu links */
 nav a {
-  color: white;
+  color: var(--text-dark);
   text-decoration: none;
-  margin-bottom: 1.25rem;
-  font-size: 1.25rem;
+  margin-bottom: 1.5rem;
 }
 
 .content {
