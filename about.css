@@ -59,3 +59,15 @@ main.story h2 {
 .fw500 {
   font-weight: 500;
 }
+
+div.mask {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  height: 200px;
+  width: 100%;
+  background-image: url(https://rikisthebest.s3.us-east-1.amazonaws.com/mask-white.png);
+  background-repeat: repeat-x;
+  z-index: 2;
+  pointer-events: none;
+}
