@@ -1,14 +1,28 @@
-// function makeMarquee() {
-//   const castAndCrew = document.querySelector("div");
+const carousels = document.querySelectorAll("li");
 
-//   // an array is a list of things
-//   const creditsText = new Array(100).fill(castAndCrew);
+const fadeInTimeline = gsap.timeline();
 
-//   // 1. we want to grab out marquee span form the html
-//   // 2. we want to set our repeating title as the content
+// fade in header on page load
+fadeInTimeline
+  // fadeout tags
+  .set(carousels, { opacity: 0 })
+  .to(carousels, { opacity: 1, delay: 1, duration: 1 });
 
-//   const credits = document.querySelector("div.creditsScroll div");
-//   credits.innerHTML = creditsText;
-// }
+carousels.forEach((carousel) => {
+  // get span tag height
+  const spanTag = carousel.querySelectorAll("span");
+  const spanHeight = spanTag.clientHeight;
 
-// makeMarquee();
+  // generate multiple span tags
+  for (let i = 0; i < 50; i = i + 1) {
+    carousel.appendChild(spanTag.cloneNode(true));
+  }
+
+  const movementTimeline = gsap.timeline({
+    repeat: -1,
+  });
+  // making header text move
+  movementTimeline
+    .set(carousel, { y: 0 })
+    .to(carousel, { y: spanHeight * -1, duration: 6, ease: "linear" });
+});

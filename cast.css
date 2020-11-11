@@ -31,6 +31,7 @@ main {
 aside {
   background-color: var(--dark-background);
   height: 100vh;
+  max-width: 30vw;
   padding: 3rem;
   position: absolute;
   top: 0;
@@ -38,10 +39,13 @@ aside {
   overflow: hidden;
 }
 
+.creditsScroll ul {
+  animation: creditsScroll 600s linear infinite;
+}
+
 ul {
   background-color: var(--dark-background);
   margin: 4rem 0 0 0;
-  animation: creditsScroll 600s linear infinite;
 }
 
 ul li {
