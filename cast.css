@@ -1,0 +1,68 @@
+@keyframes creditsScroll {
+  0% {
+    transform: translateY(0);
+  }
+
+  100% {
+    transform: translateY(-2000vh);
+  }
+}
+
+body {
+  background-color: var(--light-background);
+}
+
+.particles {
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  z-index: 0;
+  /* background-color: #669add; */
+  /* background-color: #5177a9; */
+  background-color: var(--light-background);
+  /* background-color: rgb(4, 4, 4); */
+}
+
+main {
+  display: flex;
+  position: relative;
+}
+
+aside {
+  background-color: var(--dark-background);
+  height: 100vh;
+  padding: 3rem;
+  position: absolute;
+  top: 0;
+  z-index: 1;
+  overflow: hidden;
+}
+
+ul {
+  background-color: var(--dark-background);
+  margin: 4rem 0 0 0;
+  animation: creditsScroll 600s linear infinite;
+}
+
+ul li {
+  margin: 0 0 3.5rem;
+}
+
+ul li h3 {
+  font-size: min(1.2vw, 28px);
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+
+ul li p {
+  text-transform: uppercase;
+  color: gray;
+  font-size: 14px;
+}
+
+section.content {
+  height: 100vh;
+  background-color: gray;
+  position: absolute;
+  top: 0;
+}
