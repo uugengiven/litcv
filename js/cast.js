@@ -1,4 +1,4 @@
-const carousels = document.querySelectorAll("li");
+const carousel = document.querySelector("aside");
 
 const fadeInTimeline = gsap.timeline();
 
@@ -10,7 +10,7 @@ fadeInTimeline
 
 carousels.forEach((carousel) => {
   // get span tag height
-  const spanTag = carousel.querySelectorAll("span");
+  const spanTag = carousel.querySelector("div");
   const spanHeight = spanTag.clientHeight;
 
   // generate multiple span tags
@@ -26,3 +26,5 @@ carousels.forEach((carousel) => {
     .set(carousel, { y: 0 })
     .to(carousel, { y: spanHeight * -1, duration: 6, ease: "linear" });
 });
+
+console.log(carousels);

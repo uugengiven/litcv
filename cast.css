@@ -39,7 +39,7 @@ aside {
   overflow: hidden;
 }
 
-.creditsScroll ul {
+div.creditsScroll {
   animation: creditsScroll 600s linear infinite;
 }
 
