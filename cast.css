@@ -43,11 +43,6 @@ div {
   height: 120px;
 }
 
-div h3 {
-  font-size: 1.5rem;
-  margin: 0 0 1rem;
-}
-
 section.castContent {
   width: 70vw;
   position: relative;
