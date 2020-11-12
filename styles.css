@@ -238,7 +238,7 @@ img {
   position: relative;
   background: no-repeat;
   background-size: 100%;
-  filter: grayscale(100%);
+  /* filter: grayscale(100%); */
   cursor: pointer;
 }
 
@@ -250,13 +250,13 @@ img {
   width: 90%;
   height: 90%;
   border-radius: 50%;
-  background: radial-gradient(
+  /* background: radial-gradient(
     circle at 30% 0px,
     #ffffff,
     rgba(255, 255, 255, 0) 58%
   );
   -webkit-filter: blur(5px);
-  filter: blur(5px);
+  filter: blur(5px); */
   z-index: 2;
 }
 .orb:after {
@@ -267,13 +267,14 @@ img {
   height: 100%;
   top: 0;
   left: 0;
-  background: radial-gradient(
+  /* background: radial-gradient(
     circle at 30% 30%,
     rgba(245, 237, 48, 0),
     rgba(200, 190, 20, 0.2) 50%,
     #575300 100%
-  );
+  ); */
 }
+
 .orb .shadow {
   position: absolute;
   width: 100%;
@@ -288,6 +289,7 @@ img {
   transform: rotateX(90deg) translateZ(-160px);
   z-index: 1;
 }
+
 .orb-container {
   width: 300px;
   height: 300px;
@@ -307,7 +309,7 @@ img {
 
 /* default avatar option */
 
-.orb-one {
+/* .orb-one {
   background-image: url(images/default-avatar-small.png);
   background-size: 130px;
 }
@@ -319,7 +321,7 @@ img {
 }
 .orb-four {
   background-image: url(images/default-avatar-small.png);
-}
+} */
 
 .orb .orb-info {
   display: none;
@@ -329,11 +331,12 @@ img {
   display: block;
   position: relative;
   top: 105%;
-  background: white;
+  background: var(--light-background);
+  color: var(--text-dark);
   padding: 5%;
   border-radius: 4px;
   /* font-family is a temp placeholder insert way better font below */
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-family: GT America-Extended;
 }
 
 /* jira avatar option */
@@ -354,7 +357,7 @@ img {
 
 /* photo avatar option */
 
-/* .orb-one {
+.orb-one {
   background-image: url(images/IanRemmers_Leaf_600-square.jpg);
 }
 .orb-two {
@@ -365,4 +368,4 @@ img {
 }
 .orb-four {
   background-image: url(images/AngelaGulner_Luna_600-square.jpg);
-} */
+}
