@@ -1,5 +1,6 @@
 body {
   background-color: var(--light-background);
+  color: var(--text-dark);
 }
 
 .particles {
@@ -22,7 +23,7 @@ main.castCrew {
 }
 
 aside {
-  background-color: var(--dark-background);
+  background-color: var(--white);
   height: 100%;
   width: 30vw;
   padding: 3rem;
@@ -35,6 +36,7 @@ aside {
 
 div.scroll {
   height: 100%;
+  margin: 4rem 0 0 0;
 }
 
 div {
@@ -48,7 +50,6 @@ div h3 {
 
 section.castContent {
   width: 70vw;
-  background-color: gray;
   position: relative;
 }
 

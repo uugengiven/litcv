@@ -3,7 +3,7 @@ const particles = () => {
     fpsLimit: 60,
     particles: {
       number: {
-        value: 60,
+        value: 50,
         density: {
           enable: true,
           value_area: 800,
