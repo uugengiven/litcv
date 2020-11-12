@@ -133,6 +133,7 @@ header h1 {
 header h1 .misterPixelTools {
   margin-right: 6px;
   font-size: 1.9rem;
+  color: var(--highlight-red);
 }
 
 .heart {
