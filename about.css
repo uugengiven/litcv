@@ -1,5 +1,50 @@
 body {
-  color: var(--text-dark);
+  color: var(--white);
+}
+
+main.about {
+  position: relative;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100%;
+  padding: 40px;
+  display: flex;
+}
+
+section {
+  height: 100%;
+}
+
+section.series {
+  position: absolute;
+  width: 50%;
+  top: 0;
+  left: 0;
+}
+
+section.creators {
+  position: absolute;
+  width: 50%;
+  top: 0;
+  right: 0;
+}
+
+.about-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.about-content h3 {
+  margin: 0 0 1.5rem;
+  text-transform: uppercase;
+}
+
+.about-content p {
+  margin: 0 0 2rem;
 }
 
 section.split {
@@ -7,7 +52,6 @@ section.split {
   top: 0;
   left: 0;
   width: 50%;
-  height: 100%;
   background-color: var(--white);
   mix-blend-mode: difference;
   pointer-events: none;

@@ -29,17 +29,16 @@ main.story .paragraph {
   margin: 0 0 6rem;
 }
 
-main.story h2 {
+main.story h1 {
   font-size: min(2.5vw, 100px);
   letter-spacing: 1px;
-  line-height: 1.4;
 }
 
 .underline {
   position: relative;
   text-decoration: none;
   z-index: 1;
-  background: linear-gradient(180deg, transparent 62%, #04ff64 0) 50%/0 75%
+  background: linear-gradient(180deg, transparent 62%, #f8c6ff 0) 50%/0 75%
     no-repeat;
   background-size: 100% 100%;
   display: inline;
@@ -54,7 +53,7 @@ main.story h2 {
     75% no-repeat; */
   background-size: 100% 100%;
   display: inline;
-  border-bottom: 3px solid blue;
+  border-bottom: 3px solid var(--highlight-red);
 }
 
 .fw500 {
