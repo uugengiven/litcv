@@ -13,7 +13,7 @@
   <link rel="stylesheet" href="cast.css" />
   <link rel="stylesheet" href="fonts/fonts.css" />
   <script src="js/orbits.js"></script>
-  <script src="js/custom_particles.js"></script>
+  <script src="js/light_particles.js"></script>
 </head>
 
 <body onload="init()">
@@ -40,7 +40,8 @@
   <nav>
     <div class="internal">
       <a class="gt-america" href="index.html">Characters</a>
-      <a class="gt-america" href="about.html">Story</a>
+      <a class="gt-america" href="story.html">Story</a>
+      <a class="gt-america" href="about.html">About</a>
       <a class="gt-america" href="cast.html">Cast and Crew</a>
       <a class="gt-america" href="#">News</a>
       <a class="gt-america" href="#">Contact</a>
@@ -52,156 +53,73 @@
     </div>
   </nav>
 
-  <main>
+  <main class="castCrew">
     <!-- Cast and Crew Scroll Animation -->
-    <!-- <aside>
-      <div class="creditsScroll">
-        <ul>
-          <li>
-            <h3 class="gt-america"><span>Angela Gulner</span></h3>
-            <p class="gt-america-extended"><span>Luna</span></p>
-          </li>
-          <li>
-            <h3 class="gt-america">Ian Remmers</h3>
-            <p class="gt-america-extended">Leaf</p>
-          </li>
-          <li>
-            <h3 class="gt-america">John Newberg</h3>
-            <p class="gt-america-extended">Carson</p>
-          </li>
-          <li>
-            <h3 class="gt-america">Katie Higgings</h3>
-            <p class="gt-america-extended">Darcy</p>
-          </li>
-          <li>
-            <h3 class="gt-america">Michael Bofshever</h3>
-            <p class="gt-america-extended">Father Daniel</p>
-          </li>
-          <li>
-            <h3 class="gt-america">Yohance Myles</h3>
-            <p class="gt-america-extended">Jamal</p>
-          </li>
-          <li>
-            <h3 class="gt-america">Robert Duvall</h3>
-            <p class="gt-america-extended">Trav</p>
-          </li>
-          <li>
-            <h3 class="gt-america">Shelly Duval</h3>
-            <p class="gt-america-extended">Kiki</p>
-          </li>
-          <li>
-            <h3 class="gt-america">Robert Duvall</h3>
-            <p class="gt-america-extended">Producer</p>
-          </li>
-          <li>
-            <h3 class="gt-america">Ron Howard</h3>
-            <p class="gt-america-extended">Director</p>
-          </li>
-          <li>
-            <h3 class="gt-america">James Cameron</h3>
-            <p class="gt-america-extended">Screenplay</p>
-          </li>
-          <li>
-            <h3 class="gt-america">Jimmy Page</h3>
-            <p class="gt-america-extended">Casting</p>
-          </li>
-          <li>
-            <h3 class="gt-america">Fred Savage</h3>
-            <p class="gt-america-extended">Sound Editor</p>
-          </li>
-          <li>
-            <h3 class="gt-america">Tupac Shakur</h3>
-            <p class="gt-america-extended">Music Editor</p>
-          </li>
-        </ul>
-      </div>
-    </aside> -->
     <aside>
-      <div class="creditsScroll">
-        <ul>
-          <li>
-            <h3 class="gt-america"><span>Angela Gulner</span></h3>
-            <p class="gt-america-extended"><span>Luna</span></p>
-          </li>
-          <li>
-            <h3 class="gt-america"><span>Angela Gulner</span></h3>
-            <p class="gt-america-extended"><span>Luna</span></p>
-          </li>
-          <li>
-            <h3 class="gt-america"><span>Angela Gulner</span></h3>
-            <p class="gt-america-extended"><span>Luna</span></p>
-          </li>
-          <li>
-            <h3 class="gt-america"><span>Angela Gulner</span></h3>
-            <p class="gt-america-extended"><span>Luna</span></p>
-          </li>
-          <li>
-            <h3 class="gt-america"><span>Angela Gulner</span></h3>
-            <p class="gt-america-extended"><span>Luna</span></p>
-          </li>
-          <li>
-            <h3 class="gt-america"><span>Angela Gulner</span></h3>
-            <p class="gt-america-extended"><span>Luna</span></p>
-          </li>
-          <li>
-            <h3 class="gt-america"><span>Angela Gulner</span></h3>
-            <p class="gt-america-extended"><span>Luna</span></p>
-          </li>
-          <li>
-            <h3 class="gt-america"><span>Angela Gulner</span></h3>
-            <p class="gt-america-extended"><span>Luna</span></p>
-          </li>
-          <li>
-            <h3 class="gt-america"><span>Angela Gulner</span></h3>
-            <p class="gt-america-extended"><span>Luna</span></p>
-          </li>
-          <li>
-            <h3 class="gt-america"><span>Angela Gulner</span></h3>
-            <p class="gt-america-extended"><span>Luna</span></p>
-          </li>
-          <li>
-            <h3 class="gt-america"><span>Angela Gulner</span></h3>
-            <p class="gt-america-extended"><span>Luna</span></p>
-          </li>
-          <li>
-            <h3 class="gt-america"><span>Angela Gulner</span></h3>
-            <p class="gt-america-extended"><span>Luna</span></p>
-          </li>
-          <li>
-            <h3 class="gt-america"><span>Angela Gulner</span></h3>
-            <p class="gt-america-extended"><span>Luna</span></p>
-          </li>
-          <li>
-            <h3 class="gt-america"><span>Angela Gulner</span></h3>
-            <p class="gt-america-extended"><span>Luna</span></p>
-          </li>
-          <li>
-            <h3 class="gt-america"><span>Angela Gulner</span></h3>
-            <p class="gt-america-extended"><span>Luna</span></p>
-          </li>
-          <li>
-            <h3 class="gt-america"><span>Angela Gulner</span></h3>
-            <p class="gt-america-extended"><span>Luna</span></p>
-          </li>
-          <li>
-            <h3 class="gt-america"><span>Angela Gulner</span></h3>
-            <p class="gt-america-extended"><span>Luna</span></p>
-          </li>
-          <li>
-            <h3 class="gt-america"><span>Angela Gulner</span></h3>
-            <p class="gt-america-extended"><span>Luna</span></p>
-          </li>
-          <li>
-            <h3 class="gt-america"><span>Angela Gulner</span></h3>
-            <p class="gt-america-extended"><span>Luna</span></p>
-          </li>
-        </ul>
+      <div class="scroll">
+        <div>
+          <h3 class="gt-america">Angela Gulner</h3>
+          <p class="gt-america-extended">Luna</p>
+        </div>
+        <div>
+          <h3 class="gt-america">Ian Remmers</h3>
+          <p class="gt-america-extended">Leaf</p>
+        </div>
+        <div>
+          <h3 class="gt-america">John Newberg</h3>
+          <p class="gt-america-extended">Carson</p>
+        </div>
+        <div>
+          <h3 class="gt-america">Katie Higgings</h3>
+          <p class="gt-america-extended">Darcy</p>
+        </div>
+        <div>
+          <h3 class="gt-america">Michael Bofshever</h3>
+          <p class="gt-america-extended">Father Daniel</p>
+        </div>
+        <div>
+          <h3 class="gt-america">Yohance Myles</h3>
+          <p class="gt-america-extended">Jamal</p>
+        </div>
+        <div>
+          <h3 class="gt-america">Robert Duvall</h3>
+          <p class="gt-america-extended">Trav</p>
+        </div>
+        <div>
+          <h3 class="gt-america">Shelly Duval</h3>
+          <p class="gt-america-extended">Kiki</p>
+        </div>
+        <div>
+          <h3 class="gt-america">Carmen Miranda</h3>
+          <p class="gt-america-extended">Producer</p>
+        </div>
+        <div>
+          <h3 class="gt-america">Ron Howard</h3>
+          <p class="gt-america-extended">Director</p>
+        </div>
+        <div>
+          <h3 class="gt-america">James Cameron</h3>
+          <p class="gt-america-extended">Screenplay</p>
+        </div>
+        <div>
+          <h3 class="gt-america">Jimmy Page</h3>
+          <p class="gt-america-extended">Casting</p>
+        </div>
+        <div>
+          <h3 class="gt-america">Fred Savage</h3>
+          <p class="gt-america-extended">Sound Editor</p>
+        </div>
+        <div>
+          <h3 class="gt-america">Tupac Shakur</h3>
+          <p class="gt-america-extended">Music Editor</p>
+        </div>
       </div>
     </aside>
 
+
     <!-- Cast and Crew content (images, bio) -->
 
-    <section class="content">
+    <section class="castContent">
       <h1>sample content</h1>
     </section>
 
@@ -211,7 +129,6 @@
   <script>
     const init = () => {
       particles();
-      orbits.init();
     };
   </script>
   <script src="js/gsap.min.js"></script>

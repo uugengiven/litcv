@@ -1,28 +1,16 @@
-const carousels = document.querySelectorAll("li");
+const carousel = document.querySelector("div.scroll");
 
-const fadeInTimeline = gsap.timeline();
+const text = carousel.querySelector("div");
+const textHeight = text.clientHeight;
 
-// fade in header on page load
-fadeInTimeline
-  // fadeout tags
-  .set(carousels, { opacity: 0 })
-  .to(carousels, { opacity: 1, delay: 1, duration: 1 });
+for (let i = 0; i < 50; i = i + 1) {
+  carousel.appendChild(text.cloneNode(true));
+}
 
-carousels.forEach((carousel) => {
-  // get span tag height
-  const spanTag = carousel.querySelectorAll("span");
-  const spanHeight = spanTag.clientHeight;
-
-  // generate multiple span tags
-  for (let i = 0; i < 50; i = i + 1) {
-    carousel.appendChild(spanTag.cloneNode(true));
-  }
-
-  const movementTimeline = gsap.timeline({
-    repeat: -1,
-  });
-  // making header text move
-  movementTimeline
-    .set(carousel, { y: 0 })
-    .to(carousel, { y: spanHeight * -1, duration: 6, ease: "linear" });
+const movementTimeline = gsap.timeline({
+  repeat: -1,
 });
+
+movementTimeline
+  .set(carousel, { y: 0 })
+  .to(carousel, { y: textHeight * -1, duration: 5, ease: "linear" });
