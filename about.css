@@ -22,6 +22,7 @@ main.story {
   width: 100%;
   max-width: 80vw;
   padding: 40px;
+  pointer-events: none;
 }
 
 main.story .paragraph {

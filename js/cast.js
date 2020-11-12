@@ -1,6 +1,6 @@
 const carousel = document.querySelector("div.scroll");
 
-const text = carousel.querySelectorAll("div");
+const text = carousel.querySelector("div");
 const textHeight = text.clientHeight;
 
 for (let i = 0; i < 50; i = i + 1) {
@@ -13,4 +13,4 @@ const movementTimeline = gsap.timeline({
 
 movementTimeline
   .set(carousel, { y: 0 })
-  .to(carousel, { y: textHeight * -1, duration: 3, ease: "linear" });
+  .to(carousel, { y: textHeight * -1, duration: 5, ease: "linear" });
