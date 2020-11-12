@@ -1,30 +1,24 @@
-const carousel = document.querySelector("aside");
+const carousel = document.querySelector("div.scroll");
 
 const fadeInTimeline = gsap.timeline();
 
 // fade in header on page load
 fadeInTimeline
   // fadeout tags
-  .set(carousels, { opacity: 0 })
-  .to(carousels, { opacity: 1, delay: 1, duration: 1 });
+  .set(carousel, { opacity: 0 })
+  .to(carousel, { opacity: 1, delay: 1, duration: 1 });
 
-carousels.forEach((carousel) => {
-  // get span tag height
-  const spanTag = carousel.querySelector("div");
-  const spanHeight = spanTag.clientHeight;
+const text = carousel.querySelectorAll("div");
+const textHeight = text.clientHeight;
 
-  // generate multiple span tags
-  for (let i = 0; i < 50; i = i + 1) {
-    carousel.appendChild(spanTag.cloneNode(true));
-  }
+for (let i = 0; i < 50; i = i + 1) {
+  carousel.appendChild(text.cloneNode(true));
+}
 
-  const movementTimeline = gsap.timeline({
-    repeat: -1,
-  });
-  // making header text move
-  movementTimeline
-    .set(carousel, { y: 0 })
-    .to(carousel, { y: spanHeight * -1, duration: 6, ease: "linear" });
+const movementTimeline = gsap.timeline({
+  repeat: -1,
 });
 
-console.log(carousels);
+movementTimeline
+  .set(carousel, { y: 0 })
+  .to(carousel, { y: textHeight * -1, duration: 6, ease: "linear" });

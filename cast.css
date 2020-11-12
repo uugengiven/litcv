@@ -1,13 +1,3 @@
-@keyframes creditsScroll {
-  0% {
-    transform: translateY(0);
-  }
-
-  100% {
-    transform: translateY(-2000vh);
-  }
-}
-
 body {
   background-color: var(--light-background);
 }
@@ -23,50 +13,34 @@ body {
   /* background-color: rgb(4, 4, 4); */
 }
 
-main {
+main.castCrew {
   display: flex;
+  width: 100%;
+  height: 100%;
   position: relative;
 }
 
 aside {
   background-color: var(--dark-background);
-  height: 100vh;
-  max-width: 30vw;
+  height: 100%;
+  width: 40%;
   padding: 3rem;
-  position: absolute;
-  top: 0;
   z-index: 1;
   overflow: hidden;
-}
-
-div.creditsScroll {
-  animation: creditsScroll 600s linear infinite;
-}
-
-ul {
-  background-color: var(--dark-background);
-  margin: 4rem 0 0 0;
-}
-
-ul li {
-  margin: 0 0 3.5rem;
-}
-
-ul li h3 {
-  font-size: min(1.2vw, 28px);
-  text-transform: uppercase;
-  margin-bottom: 1rem;
-}
-
-ul li p {
-  text-transform: uppercase;
-  color: gray;
-  font-size: 14px;
-}
-
-section.content {
-  height: 100vh;
-  background-color: gray;
-  position: absolute;
+  position: fixed;
   top: 0;
+  left: 0;
+}
+
+div.scroll {
+  height: 100%;
+}
+
+div {
+  height: 150px;
+}
+
+div h3 {
+  font-size: 1.5rem;
+  margin: 0 0 1rem;
 }
