@@ -7,7 +7,7 @@ const names = divScroll.querySelectorAll("div");
 
 names.forEach((name) => {
   const namesHeight = name.clientHeight;
-  const namesTotal = 8;
+  const namesTotal = 12;
   divScroll.appendChild(name.cloneNode(true));
 
   const movementTimeline = gsap.timeline({
