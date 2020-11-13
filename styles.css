@@ -92,13 +92,13 @@ h3 {
 /* maybe a global.css file? */
 .gt-america {
   font-family: GT America;
-  letter-spacing: 1.6px;
+  letter-spacing: 0.25vh;
   font-weight: 400;
 }
 
 .gt-america-extended {
   font-family: GT America-Extended;
-  letter-spacing: 1.3px;
+  letter-spacing: 0.15vh;
 }
 
 .ivy-mode {

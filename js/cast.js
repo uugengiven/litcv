@@ -1,16 +1,23 @@
-const carousel = document.querySelector("div.scroll");
+// Infinitely loop/scroll names
+// Clone the all the divs inside div.scroll
 
-const text = carousel.querySelector("div");
-const textHeight = text.clientHeight;
+const divScroll = document.querySelector("div.scroll");
 
-for (let i = 0; i < 50; i = i + 1) {
-  carousel.appendChild(text.cloneNode(true));
-}
+const names = divScroll.querySelectorAll("div");
 
-const movementTimeline = gsap.timeline({
-  repeat: -1,
+names.forEach((name) => {
+  const namesHeight = name.clientHeight;
+  const namesTotal = 12;
+  divScroll.appendChild(name.cloneNode(true));
+
+  const movementTimeline = gsap.timeline({
+    repeat: -1,
+  });
+
+  movementTimeline.set(divScroll, { y: 0 }).to(divScroll, {
+    y: namesHeight * namesTotal * -1,
+    duration: 45,
+    ease: "linear",
+  });
+  console.log(namesHeight);
 });
-
-movementTimeline
-  .set(carousel, { y: 0 })
-  .to(carousel, { y: textHeight * -1, duration: 5, ease: "linear" });
