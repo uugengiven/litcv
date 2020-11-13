@@ -16,7 +16,7 @@ names.forEach((name) => {
 
   movementTimeline.set(divScroll, { y: 0 }).to(divScroll, {
     y: namesHeight * namesTotal * -1,
-    duration: 25,
+    duration: 45,
     ease: "linear",
   });
   console.log(namesHeight);
