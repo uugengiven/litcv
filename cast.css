@@ -107,9 +107,8 @@ div.actorBio {
 }
 
 div.image {
-  width: 350px;
-  height: 500px;
-  background-color: var(--highlight-green);
+  width: 250px;
+  height: 400px;
   position: -webkit-sticky;
   position: sticky;
   top: 60%;
@@ -120,6 +119,7 @@ h1.name {
   text-transform: uppercase;
   margin: 0 0 1rem;
   line-height: 1;
+  color: var(--highlight-red);
 }
 
 p.character {
@@ -128,7 +128,8 @@ p.character {
 
 p.bio {
   margin: 0 0 2rem;
-  color: var(--text-dark);
+  color: #333;
+  font-size: 14px;
 }
 
 /* 
