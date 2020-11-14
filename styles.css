@@ -1,10 +1,6 @@
 /* DM Sans font - Will probs use this as the main body font */
 @import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap");
 
-/* IvyMode font - trying this font out for headings */
-/* might delete later */
-@import url("https://use.typekit.net/frh1wnb.css");
-
 :root {
   --white: #fff;
   --light-gray: #f4f7fb;
