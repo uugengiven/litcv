@@ -1,12 +1,10 @@
 @keyframes fadein {
   0% {
     opacity: 0;
-    transform: translateY(24px);
   }
 
   100% {
     opacity: 1;
-    transform: translateY(0);
   }
 }
 
@@ -24,7 +22,6 @@
 @keyframes hyphen {
   0% {
     height: 1rem;
-    transform-origin: center;
   }
 
   50% {
@@ -33,6 +30,26 @@
 
   100% {
     height: 1rem;
+  }
+}
+
+@keyframes digital {
+  0% {
+    transform: translateY(0);
+  }
+
+  100% {
+    transform: translateY(-20%);
+  }
+}
+
+@keyframes divide {
+  0% {
+    transform: translateY(0);
+  }
+
+  100% {
+    transform: translateY(20%);
   }
 }
 
@@ -47,16 +64,6 @@ main.intro {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-}
-
-svg rect {
-  display: inline-block;
-  vertical-align: middle;
-  transform-origin: center;
-  animation: hyphen 8s 1s infinite alternate cubic-bezier(0.86, 0, 0.07, 1);
-}
-
-main.intro h1 {
   animation: fadein 0.8s 1s both cubic-bezier(0.9, 0.03, 0.69, 0.22);
 }
 
@@ -66,12 +73,18 @@ main.intro h1 svg {
   height: 60vw;
 }
 
-main.intro p {
-  font-size: min(1.5vw, 24px);
-  width: 100%;
-  max-width: 800px;
-  text-align: center;
-  animation: fadein 0.8s 1s both cubic-bezier(0.9, 0.03, 0.69, 0.22);
+svg rect {
+  display: inline-block;
+  vertical-align: middle;
+  /* animation: hyphen 8s 1s infinite alternate cubic-bezier(0.86, 0, 0.07, 1); */
+}
+
+svg path.digital {
+  animation: digital 6s 1s infinite alternate cubic-bezier(0.86, 0, 0.07, 1);
+}
+
+svg path.divide {
+  animation: divide 6s 1s infinite alternate cubic-bezier(0.86, 0, 0.07, 1);
 }
 
 a.explore {
@@ -91,4 +104,9 @@ a span.misterPixelTools {
   margin-right: 6px;
   font-size: 1.9rem;
   margin-bottom: 3px;
+  transition: letter-spacing 0.2s linear;
+}
+
+a.explore:hover {
+  letter-spacing: 5px;
 }
