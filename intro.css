@@ -89,7 +89,7 @@ svg path.divide {
 }
 
 a.explore {
-  color: var(--red);
+  color: var(--green);
   position: fixed;
   bottom: 50px;
   left: 50%;
@@ -111,7 +111,7 @@ a.explore {
 
 span {
   display: block;
-  padding: 25px 80px;
+  padding: 1rem 2.5rem;
 }
 a::before,
 a::after {
@@ -120,7 +120,7 @@ a::after {
   height: 2px;
   position: absolute;
   transition: all 0.2s linear;
-  background: var(--red);
+  background: var(--green);
 }
 
 span::before,
@@ -130,7 +130,7 @@ span::after {
   height: 0;
   position: absolute;
   transition: all 0.2s linear;
-  background: var(--red);
+  background: var(--green);
 }
 a:hover::before,
 a:hover::after {
