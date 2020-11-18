@@ -1,14 +1,4 @@
 body {
-  width: 100vw;
-  height: 100vh;
-  /* background-color: black; */
-  margin: 0;
-  padding: 0;
-  font-family: "DM Sans";
-  font-weight: 400;
-  font-size: 1rem;
-  letter-spacing: 1px;
-  line-height: 1.5;
   background-color: var(--dark-background);
   color: var(--text-light);
 }
