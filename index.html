@@ -10,6 +10,7 @@
     integrity="sha256-5kED68Spy7K2CEbfu4CjV92DmZR5ZQFUoIR5qmPzZWg=" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="base.css" />
   <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="intro.css" />
   <link rel="stylesheet" href="fonts/fonts.css" />
   <script src="js/orbits.js"></script>
   <script src="js/custom_particles.js"></script>
@@ -18,72 +19,27 @@
 <body onload="init()">
   <div class="particles" id="tsparticles"></div>
 
-  <!-- SITE HEADER -->
-  <header>
-    <h1 class="gt-america"><span class="misterPixelTools heart">U</span>Digital — Divide</h1>
-    <a href="#" class="menu-toggle">
-      <svg width="50" height="50" viewBox="0 0 74 74" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <circle cx="37" cy="37" r="37" fill="#E9EEF3" />
-        <rect x="20" y="30" width="35" height="2" fill="#131313" class="menu-top" />
-        <rect x="20" y="42" width="35" height="2" fill="#131313" class="menu-bottom" />
+  <main class="intro">
+    <h1><svg width="616" height="203" viewBox="0 0 616 203" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path class="digital"
+          d="M92.3133 100C115.713 100 133.713 86 133.713 63.6C133.713 41.3 116.813 29 92.8133 29H54.4133V100H92.3133ZM58.0133 32.1H92.6133C114.513 32.1 130.013 42.9 130.013 63.6C130.013 84 114.413 96.9 92.6133 96.9H58.0133V32.1ZM156.388 29H152.788V100H156.388V29ZM217.364 102.4C236.264 102.4 248.964 94.8 254.264 82.4L254.564 100H257.564V64.1H217.564V67.2H254.164V72.6C254.164 81.6 246.164 99.3 217.964 99.3C192.964 99.3 179.164 83.9 179.164 64.6C179.164 43.9 194.664 29.7 218.464 29.7C241.164 29.7 250.864 40.8 253.364 49.7L257.064 49.3C254.564 39.7 243.964 26.6 218.864 26.6C192.264 26.6 175.464 42.3 175.464 64.3C175.464 86.1 191.364 102.4 217.364 102.4ZM286.146 29H282.546V100H286.146V29ZM301.922 29V32.1H335.722V100H339.322V32.1H373.222V29H301.922ZM446.588 100L407.588 29H403.988L364.888 100H368.888L379.888 79.7H431.688L442.688 100H446.588ZM401.788 39.5C403.588 36.1 404.588 33.9 405.688 31.8H405.888C406.888 33.9 407.988 36.1 409.788 39.5L429.988 76.7H381.588L401.788 39.5ZM526.695 100V96.8H467.795V29H464.195V100H526.695Z"
+          fill="white" />
+        <path class="divide"
+          d="M192.621 177C227.621 177 241.021 157.7 241.021 137.2C241.021 113.8 223.721 106 201.221 106H162.721L150.221 177H192.621ZM171.721 114.6H200.421C216.021 114.6 229.921 118.7 229.921 138.3C229.921 152.4 222.821 168.4 192.521 168.4H162.221L171.721 114.6ZM273.745 106H263.245L250.745 177H261.245L273.745 106ZM323.541 177L373.441 106H361.141L322.541 161.4C321.841 162.4 320.041 164.9 319.041 166.8H318.741C318.241 164.9 317.641 163 316.841 160.3L298.141 106H286.741L311.641 177H323.541ZM396.959 106H386.459L373.959 177H384.459L396.959 106ZM451.355 177C486.355 177 499.755 157.7 499.755 137.2C499.755 113.8 482.455 106 459.955 106H421.455L408.955 177H451.355ZM430.455 114.6H459.155C474.755 114.6 488.655 118.7 488.655 138.3C488.655 152.4 481.555 168.4 451.255 168.4H420.955L430.455 114.6ZM589.279 106H521.979L509.479 177H577.479L578.979 168.4H521.479L525.579 144.9H580.679L582.179 136.4H527.179L530.979 114.6H587.779L589.279 106Z"
+          fill="white" />
+        <rect y="87" width="616" height="29" fill="#131313" />
       </svg>
-    </a>
-  </header>
-
-  <!-- MENU NAVIGATION -->
-  <!-- These two nav tags are for the menu animation -->
-  <nav class="fake-back"></nav>
-  <nav class="fake-mid"></nav>
-
-  <!-- Actual navigation -->
-  <nav>
-    <div class="internal">
-      <a class="gt-america" href="index.html">Characters</a>
-      <a class="gt-america" href="story.html">Story</a>
-      <a class="gt-america" href="about.html">About</a>
-      <a class="gt-america" href="cast.html">Cast and Crew</a>
-      <a class="gt-america" href="#">News</a>
-      <a class="gt-america" href="#">Contact</a>
-    </div>
-    <div class="social">
-      <a class="" href="#">Twitter</a>
-      <a class="" href="#">Facebook</a>
-      <a class="" href="#">Instagram</a>
-    </div>
-  </nav>
-
-  <main class="content">
-    <section class="person" id="one-container">
-      <div class="orb orb-one" id="one">
-        <div class="orb-info">Here is another example!</div>
-      </div>
-    </section>
-    <section class="person" id="two-container">
-      <div class="orb orb-two" id="two">
-        <div class="orb-info">This is some info, aww yeah!</div>
-      </div>
-    </section>
-    <section class="person" id="three-container">
-      <div class="orb orb-three" id="three">
-        <div class="orb-info">
-          Any info in here will be visible when it is hovered over!
-        </div>
-      </div>
-    </section>
-    <section class="person" id="four-container">
-      <div class="orb orb-four" id="four">
-        <div class="orb-info">shhh, hidden div</div>
-      </div>
-    </section>
+    </h1>
   </main>
+
+  <a href="characters.html" class="explore btn"><span>Explore</span></a>
+
 
   <script>
     const init = () => {
       particles();
-      orbits.init();
     };
   </script>
-  <script src="js/gsap.min.js"></script>
   <script src="js/menu.js"></script>
 
 </body>

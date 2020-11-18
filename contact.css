@@ -1,0 +1,86 @@
+body {
+  color: var(--text-dark);
+  background-color: var(--light-background);
+}
+
+.particles {
+  background-color: var(--light-background);
+}
+
+main.contact-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  /* display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column; */
+}
+
+div.contact {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+div.contact h1 {
+  font-size: 1.8rem;
+  text-transform: uppercase;
+  color: var(--highlight-red);
+}
+
+div.contact h1 span.misterPixelTools {
+  margin-right: 7px;
+  font-size: 2.3rem;
+}
+
+span.mail {
+  display: inline-block;
+  vertical-align: bottom;
+}
+
+form div.field {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 450px;
+  margin: 1.8rem 0;
+}
+
+label {
+  margin: 0 0 5px;
+
+  font-weight: 400;
+}
+
+input,
+textarea {
+  border: 1px solid #999;
+  line-height: 1.5;
+  font-size: 16px;
+  width: 100%;
+  padding: 12px;
+  outline: none;
+  color: var(--text-dark);
+}
+
+input {
+  height: 48px;
+}
+
+button {
+  width: 150px;
+  height: 48px;
+  background-color: var(--black);
+  color: var(--text-light);
+  padding: 5px 10px;
+  border: none;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: var(--highlight-red);
+  cursor: pointer;
+}

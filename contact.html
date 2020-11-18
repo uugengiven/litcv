@@ -10,10 +10,10 @@
     integrity="sha256-5kED68Spy7K2CEbfu4CjV92DmZR5ZQFUoIR5qmPzZWg=" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="base.css" />
   <link rel="stylesheet" href="styles.css" />
-  <link rel="stylesheet" href="story.css" />
+  <link rel="stylesheet" href="contact.css" />
   <link rel="stylesheet" href="fonts/fonts.css" />
   <script src="js/orbits.js"></script>
-  <script src="js/custom_particles.js"></script>
+  <script src="js/light_particles.js"></script>
 </head>
 
 <body onload="init()">
@@ -52,43 +52,26 @@
     </div>
   </nav>
 
-  <main class="about">
-    <!-- Series -->
-    <section class="series">
-      <div class="about-content">
-        <h3 class="gt-america">About Series</h3>
-        <p>Cronut craft beer snackwave microdosing sartorial tousled sriracha wolf cliche man braid ethical distillery.
-          Neutra vice umami, truffaut man braid pork belly sustainable migas small batch selvage. Ramps man bun
-          cornhole,
-          kombucha whatever banjo neutra pork belly vice single-origin coffee. Pok pok chillwave wolf chartreuse.
-        </p>
-        <p> Disrupt butcher aesthetic selfies vinyl taxidermy. Distillery pinterest crucifix shaman neutra pug schlitz.
-          Selfies fingerstache hammock vape, kitsch slow-carb quinoa asymmetrical twee humblebrag iPhone.</p>
 
-    </section>
+  <main class="contact-container">
+    <div class="contact">
+      <h1 class="gt-america"><span class="misterPixelTools mail">›</span>Say Hello!</h1>
+      <form action="" method="GET">
+        <div class="field">
+          <label for="name">Full Name</label>
+          <input type="text" name="name" id="name">
+        </div>
+        <div class="field">
+          <label for="email">Email Address</label>
+          <input type="email" name="email" id="email">
+        </div>
+        <div class="field">
+          <label for="message">Your Message</label>
+          <textarea name="message" id="message" cols="90" rows="10"></textarea>
+        </div>
+        <button type="submit" class="sendMessage">Send message!</button>
+      </form>
     </div>
-
-    <!-- Creators -->
-    <section class="creators">
-      <div class="about-content">
-        <h3 class="gt-america">Creators</h3>
-        <p>Wolf fanny pack venmo prism locavore roof party keytar tumeric kale chips. Activated charcoal pork belly
-          squid
-          90's lo-fi blog church-key. Ramps gentrify pitchfork, sriracha direct trade selvage letterpress affogato.
-          Church-key etsy try-hard kitsch fanny pack pinterest chicharrones knausgaard blue bottle next level.
-        </p>
-        <p>
-          Williamsburg edison bulb mlkshk lo-fi kinfolk roof party before they sold out locavore mixtape adaptogen
-          vegan.
-          Chillwave gastropub coloring book chambray. Raw denim sartorial coloring book, narwhal post-ironic butcher
-          bushwick snackwave glossier.
-        </p>
-      </div>
-    </section>
-
-    <!-- This is to split the screen in black/white -->
-    <section class="split"></section>
-
 
   </main>
 
