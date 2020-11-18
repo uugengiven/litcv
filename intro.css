@@ -88,17 +88,27 @@ svg path.divide {
   animation: divide 6s 1s infinite alternate cubic-bezier(0.86, 0, 0.07, 1);
 }
 
-a {
+a.explore {
+  color: var(--red);
+  position: fixed;
+  bottom: 50px;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: link-fadein 0.8s 1.5s both cubic-bezier(0.9, 0.03, 0.69, 0.22);
+  font-size: 1.4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+
   display: inline-block;
-  position: relative;
   background: none;
   border: none;
-  color: #fff;
-  font-size: 18px;
   cursor: pointer;
   margin: 20px 30px;
   background: rgba(0, 0, 0, 0.09);
 }
+
 span {
   display: block;
   padding: 25px 80px;
@@ -162,18 +172,4 @@ a:hover span::after {
 .btn:hover span::before,
 .btn:hover span::after {
   transition-delay: 0s;
-}
-
-a.explore {
-  color: var(--red);
-  position: fixed;
-  bottom: 50px;
-  left: 50%;
-  transform: translateX(-50%);
-  animation: link-fadein 0.8s 1.5s both cubic-bezier(0.9, 0.03, 0.69, 0.22);
-  font-size: 1.4rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 999;
 }
