@@ -8,14 +8,7 @@ header h1 {
 }
 
 .particles {
-  width: 100vw;
-  height: 100vh;
-  position: absolute;
-  z-index: 0;
-  /* background-color: #669add; */
-  /* background-color: #5177a9; */
   background-color: var(--light-background);
-  /* background-color: rgb(4, 4, 4); */
 }
 
 main.castCrew {

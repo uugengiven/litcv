@@ -1,9 +1,5 @@
 /* DM Sans font - Will probs use this as the main body font */
-@import url("https://fonts.googleapis.com/css2?family=DM+Sans&display=swap");
-
-/* IvyMode font - trying this font out for headings */
-/* might delete later */
-@import url("https://use.typekit.net/frh1wnb.css");
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap");
 
 :root {
   --white: #fff;
@@ -19,7 +15,7 @@
   --text-dark: var(--black);
   --text-light: var(--white);
   --dark-background: var(--black);
-  --light-background: var(--light-gray);
+  --light-background: var(--white);
   --highlight-pink: var(--pink);
   --highlight-red: var(--red);
   --highlight-yellow: var(--yellow);
@@ -77,6 +73,12 @@ body {
   color: var(--text-light);
 }
 
+a {
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
+
 h2 {
   font-size: 1.5rem;
   margin: 0 0 1rem;
@@ -99,13 +101,6 @@ h3 {
 .gt-america-extended {
   font-family: GT America-Extended;
   letter-spacing: 0.15vh;
-}
-
-.ivy-mode {
-  font-family: ivymode, sans-serif;
-  letter-spacing: 1px;
-  font-weight: 400;
-  font-size: 2rem;
 }
 
 .misterPixelTools {
@@ -141,6 +136,19 @@ header h1 .misterPixelTools {
   animation: heartbeat 1s infinite;
 }
 
+.menu-toggle svg circle,
+.menu-toggle svg rect {
+  transition: fill 0.3s ease;
+}
+
+.menu-toggle svg:hover circle {
+  fill: var(--dark-background);
+}
+
+.menu-toggle svg:hover rect {
+  fill: var(--text-light);
+}
+
 /* nav body */
 nav {
   z-index: 9999;
@@ -166,7 +174,7 @@ nav.fake-mid {
 }
 
 nav.fake-back {
-  background-color: var(--highlight-red);
+  background-color: var(--light-gray);
   transition-delay: 0.2s;
 }
 
@@ -211,175 +219,21 @@ nav a:hover {
   color: var(--highlight-red);
 }
 
-.content {
-  width: 100%;
-  height: 100%;
-  justify-content: center;
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-}
-
-.person {
-  position: relative;
-  height: 30px;
-  justify-content: center;
-  align-items: center;
-  display: flex;
-}
-.person:hover {
-  z-index: 1000000 !important;
-}
-img {
-  border-radius: 50%;
-  width: 100px;
-  height: 100px;
-}
-#one {
-  width: 130px;
-  height: 130px;
-}
-#one-container {
-  z-index: 1000;
-}
-.orb {
-  display: inline-block;
-  /* width: 100%;
-  height: 100%; */
-  width: 100px;
-  height: 100px;
-  margin: 0;
-  border-radius: 50%;
-  position: relative;
-  background: no-repeat;
-  background-size: 100%;
-  /* filter: grayscale(100%); */
-  cursor: pointer;
-}
-
-.orb:before {
-  content: "";
-  position: absolute;
-  top: 1%;
-  left: 5%;
-  width: 90%;
-  height: 90%;
-  border-radius: 50%;
-  /* background: radial-gradient(
-    circle at 30% 0px,
-    #ffffff,
-    rgba(255, 255, 255, 0) 58%
-  );
-  -webkit-filter: blur(5px);
-  filter: blur(5px); */
-  z-index: 2;
-}
-.orb:after {
-  content: "";
-  position: absolute;
-  border-radius: 100%;
-  width: 100%;
-  height: 100%;
-  top: 0;
+footer {
+  position: fixed;
+  bottom: 0;
   left: 0;
-  /* background: radial-gradient(
-    circle at 30% 30%,
-    rgba(245, 237, 48, 0),
-    rgba(200, 190, 20, 0.2) 50%,
-    #575300 100%
-  ); */
-}
-
-.orb .shadow {
-  position: absolute;
+  padding: 1rem 2.5rem;
   width: 100%;
-  height: 100%;
-  background: radial-gradient(
-    circle,
-    rgba(0, 0, 0, 0.4),
-    rgba(0, 0, 0, 0.1) 40%,
-    rgba(0, 0, 0, 0) 50%
-  );
-  -webkit-transform: rotateX(90deg) translateZ(-160px);
-  transform: rotateX(90deg) translateZ(-160px);
-  z-index: 1;
+  z-index: 999;
 }
 
-.orb-container {
-  width: 300px;
-  height: 300px;
-  display: inline-block;
-  margin: 20px;
-  -webkit-perspective: 1200px;
-  -moz-perspective: 1200px;
-  -ms-perspective: 1200px;
-  -o-perspective: 1200px;
-  perspective: 1200px;
-  -webkit-perspective-origin: 50% 50%;
-  -moz-perspective-origin: 50% 50%;
-  -ms-perspective-origin: 50% 50%;
-  -o-perspective-origin: 50% 50%;
-  perspective-origin: 50% 50%;
+footer a .misterPixelTools {
+  margin-right: 6px;
+  font-size: 1.2rem;
 }
 
-/* default avatar option */
-
-/* .orb-one {
-  background-image: url(images/default-avatar-small.png);
-  background-size: 130px;
-}
-.orb-two {
-  background-image: url(images/default-avatar-small.png);
-}
-.orb-three {
-  background-image: url(images/default-avatar-small.png);
-}
-.orb-four {
-  background-image: url(images/default-avatar-small.png);
-} */
-
-.orb .orb-info {
-  display: none;
-}
-
-.orb:hover .orb-info {
-  display: block;
-  position: relative;
-  top: 105%;
-  background: var(--light-background);
-  color: var(--text-dark);
-  padding: 5%;
-  border-radius: 4px;
-  /* font-family is a temp placeholder insert way better font below */
-}
-
-/* jira avatar option */
-
-/* .orb-one {
-  background-image: url(images/default-avatar-jira.png);
-  background-size: 130px;
-}
-.orb-two {
-  background-image: url(images/default-avatar-jira.png);
-}
-.orb-three {
-  background-image: url(images/default-avatar-jira.png);
-}
-.orb-four {
-  background-image: url(images/default-avatar-jira.png);
-} */
-
-/* photo avatar option */
-
-.orb-one {
-  background-image: url(images/IanRemmers_Leaf_600-square.jpg);
-}
-.orb-two {
-  background-image: url(images/KateHiggins_Darcy_600-square.jpg);
-}
-.orb-three {
-  background-image: url(images/YohanceMyles_Jamal_600-square.jpg);
-}
-.orb-four {
-  background-image: url(images/AngelaGulner_Luna_600-square.jpg);
+/* info icon in the footer */
+.info {
+  vertical-align: middle;
 }
