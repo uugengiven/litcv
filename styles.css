@@ -815,26 +815,46 @@ div.overlay p.bio {
 /* CONTACT PAGE */
 main.contact-container {
   position: relative;
+  top: 0;
+  left: 0;
+
   width: 100%;
+  height: 100%;
+  padding: 40px;
+  display: flex;
+  pointer-events: none;
+}
+
+main.contact-container section {
   height: 100%;
 }
 
-div.contact {
+section.questions {
+  position: absolute;
+  width: 50%;
+  top: 0;
+  left: 0;
+}
+
+section.contact {
+  position: absolute;
+  width: 50%;
+  top: 0;
+  right: 0;
+}
+
+section.questions div.contact-content h3 {
+  margin: 0 0 1rem;
+}
+
+.contact-content {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-}
-
-div.contact h1 {
-  font-size: 1.8rem;
-  text-transform: uppercase;
-  color: var(--highlight-red);
-}
-
-div.contact h1 span.misterPixelTools {
-  margin-right: 7px;
-  font-size: 2.3rem;
+  width: 100%;
+  max-width: 500px;
+  pointer-events: all;
 }
 
 span.mail {
@@ -857,7 +877,7 @@ div.field label {
 
 div.field input,
 div.field textarea {
-  border: 1px solid #999;
+  border: 1px solid #fff;
   line-height: 1.5;
   font-size: 16px;
   width: 100%;
@@ -870,18 +890,18 @@ div.field input {
   height: 48px;
 }
 
-div.contact form button {
+div.contact-content form button {
   width: 150px;
   height: 48px;
-  background-color: var(--black);
-  color: var(--text-light);
+  background-color: var(--white);
+  color: var(--text-dark);
   padding: 5px 10px;
   border: none;
   font-size: 1rem;
   transition: background-color 0.3s ease;
 }
 
-div.contact form button:hover {
-  background-color: var(--highlight-red);
+div.contact-content form button:hover {
+  background-color: var(--highlight-pink);
   cursor: pointer;
 }
