@@ -15,12 +15,12 @@
   <script src="js/light_particles.js"></script>
 </head>
 
-<body onload="init()" class="light-body">
-  <div class="particles light-body" id="tsparticles"></div>
+<body onload="init()" class="text-light">
+  <div class="particles" id="tsparticles"></div>
 
   <!-- SITE HEADER -->
   <header>
-    <h1 class="gt-america">Digital — Divide</h1>
+    <h1 class="gt-america text-dark">Digital — Divide</h1>
     <a href="#" class="menu-toggle">
       <svg width="50" height="50" viewBox="0 0 74 74" fill="none" xmlns="http://www.w3.org/2000/svg">
         <circle cx="37" cy="37" r="37" fill="#E9EEF3" />
@@ -53,26 +53,39 @@
 
 
   <main class="contact-container">
-    <div class="contact">
-      <h1 class="gt-america"><span class="misterPixelTools mail">›</span>Say Hello!</h1>
-      <form action="" method="GET">
-        <div class="field">
-          <label for="name">Full Name</label>
-          <input type="text" name="name" id="name">
-        </div>
-        <div class="field">
-          <label for="email">Email Address</label>
-          <input type="email" name="email" id="email">
-        </div>
-        <div class="field">
-          <label for="message">Your Message</label>
-          <textarea name="message" id="message" cols="90" rows="10"></textarea>
-        </div>
-        <button type="submit" class="sendMessage">Send message!</button>
-      </form>
+    <!-- Left -->
+    <section class="questions">
+      <div class="contact-content">
+        <h3 class="gt-america">Have questions?</h3>
+        <p>Feel free to drop us a line using the contact form.
+        </p>
+    </section>
     </div>
 
+    <!-- Contact Form -->
+    <section class="contact">
+      <div class="contact-content">
+        <h3 class="gt-america">Say Hello!</h3>
+        <form action="" method="GET">
+          <div class="field">
+            <label for="name">Full Name</label>
+            <input type="text" name="name" id="name">
+          </div>
+          <div class="field">
+            <label for="email">Email Address</label>
+            <input type="email" name="email" id="email">
+          </div>
+          <div class="field">
+            <label for="message">Your Message</label>
+            <textarea name="message" id="message" cols="90" rows="10"></textarea>
+          </div>
+          <button type="submit" class="sendMessage">Send message!</button>
+        </form>
+      </div>
+    </section>
+    <section class="split"></section>
   </main>
+
 
   <script>
     const init = () => {
