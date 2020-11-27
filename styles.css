@@ -891,17 +891,19 @@ div.field input {
 }
 
 div.contact-content form button {
-  width: 150px;
+  width: 250px;
   height: 48px;
-  background-color: var(--white);
+  background-color: var(--highlight-pink);
   color: var(--text-dark);
   padding: 5px 10px;
   border: none;
-  font-size: 1rem;
-  transition: background-color 0.3s ease;
+  font-size: 14px;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
 }
 
 div.contact-content form button:hover {
-  background-color: var(--highlight-pink);
+  background-color: var(--highlight-red);
+  color: white;
   cursor: pointer;
 }
