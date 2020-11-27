@@ -180,6 +180,7 @@ nav {
   padding: 3rem;
   transform: translate(100%, 0);
   transition: transform 0.5s 0s;
+  border-left: 1px solid var(--black);
 
   display: flex;
   flex-direction: column;
