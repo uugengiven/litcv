@@ -73,6 +73,24 @@ body {
   color: var(--text-light);
 }
 
+.dark-body {
+  background-color: var(--dark-background);
+  color: var(--text-light);
+}
+
+.light-body {
+  background-color: var(--light-background);
+  color: var(--text-dark);
+}
+
+.text-light {
+  color: var(--text-light);
+}
+
+.text-dark {
+  color: var(--text-dark);
+}
+
 a {
   text-decoration: none;
   color: inherit;
@@ -236,4 +254,607 @@ footer a .misterPixelTools {
 /* info icon in the footer */
 .info {
   vertical-align: middle;
+}
+
+/* INTRO PAGE */
+/* Animations */
+@keyframes fadein {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes link-fadein {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+/* H1 Hyphen */
+@keyframes hyphen {
+  0% {
+    height: 1rem;
+  }
+
+  50% {
+    height: 2rem;
+  }
+
+  100% {
+    height: 1rem;
+  }
+}
+
+@keyframes digital {
+  0% {
+    transform: translateY(0);
+  }
+
+  100% {
+    transform: translateY(-20%);
+  }
+}
+
+@keyframes divide {
+  0% {
+    transform: translateY(0);
+  }
+
+  100% {
+    transform: translateY(20%);
+  }
+}
+
+/* Title and blurb */
+main.intro {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  animation: fadein 0.8s 1s both cubic-bezier(0.9, 0.03, 0.69, 0.22);
+  pointer-events: none;
+}
+
+main.intro h1 svg {
+  display: block;
+  width: 60vw;
+  height: 60vw;
+}
+
+h1 svg rect {
+  display: inline-block;
+  vertical-align: middle;
+  /* animation: hyphen 8s 1s infinite alternate cubic-bezier(0.86, 0, 0.07, 1); */
+}
+
+h1 svg path.digital {
+  animation: digital 6s 1s infinite alternate cubic-bezier(0.86, 0, 0.07, 1);
+}
+
+h1 svg path.divide {
+  animation: divide 6s 1s infinite alternate cubic-bezier(0.86, 0, 0.07, 1);
+}
+
+a.explore {
+  color: var(--green);
+  position: fixed;
+  bottom: 50px;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: link-fadein 0.8s 1.5s both cubic-bezier(0.9, 0.03, 0.69, 0.22);
+  font-size: 1.4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+
+  display: inline-block;
+  background: none;
+  border: none;
+  cursor: pointer;
+  margin: 20px 30px;
+  background: rgba(0, 0, 0, 0.09);
+}
+
+a.explore span {
+  display: block;
+  padding: 1rem 2.5rem;
+}
+a.explore::before,
+a.explore::after {
+  content: "";
+  width: 0;
+  height: 2px;
+  position: absolute;
+  transition: all 0.2s linear;
+  background: var(--green);
+}
+
+a.explore span::before,
+a.explore span::after {
+  content: "";
+  width: 2px;
+  height: 0;
+  position: absolute;
+  transition: all 0.2s linear;
+  background: var(--green);
+}
+a.explore:hover::before,
+a.explore:hover::after {
+  width: 100%;
+}
+a.explore:hover span::before,
+a.explore:hover span::after {
+  height: 100%;
+}
+
+a.btn::before,
+a.btn::after {
+  transition-delay: 0s;
+}
+a.btn span::before,
+a.btn span::after {
+  transition-delay: 0.2s;
+}
+a.btn::before {
+  right: 0;
+  top: 0;
+}
+a.btn::after {
+  left: 0;
+  bottom: 0;
+}
+a.btn span::before {
+  left: 0;
+  top: 0;
+}
+a.btn span::after {
+  right: 0;
+  bottom: 0;
+}
+a.btn:hover::before,
+a.btn:hover::after {
+  transition-delay: 0.2s;
+}
+a.btn:hover span::before,
+a.btn:hover span::after {
+  transition-delay: 0s;
+}
+
+/* STORY PAGE */
+main.about {
+  position: relative;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100%;
+  padding: 40px;
+  display: flex;
+  pointer-events: none;
+}
+
+main.about section {
+  height: 100%;
+}
+
+section.series {
+  position: absolute;
+  width: 50%;
+  top: 0;
+  left: 0;
+}
+
+section.creators {
+  position: absolute;
+  width: 50%;
+  top: 0;
+  right: 0;
+}
+
+.about-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  max-width: 500px;
+}
+
+.about-content h3 {
+  margin: 0 0 1.5rem;
+  text-transform: uppercase;
+}
+
+.about-content p {
+  margin: 0 0 2rem;
+}
+
+section.split {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 50%;
+  background-color: var(--white);
+  mix-blend-mode: difference;
+  pointer-events: none;
+}
+
+/* CHARACTER ORBS */
+.content {
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.person {
+  position: relative;
+  height: 30px;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+.person:hover {
+  z-index: 1000000 !important;
+}
+
+img {
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+}
+
+#one {
+  width: 130px;
+  height: 130px;
+}
+#one-container {
+  z-index: 1000;
+}
+.orb {
+  display: inline-block;
+  /* width: 100%;
+  height: 100%; */
+  width: 100px;
+  height: 100px;
+  margin: 0;
+  border-radius: 50%;
+  position: relative;
+  background: no-repeat;
+  background-size: 100%;
+  /* filter: grayscale(100%); */
+  cursor: pointer;
+}
+
+.orb:before {
+  content: "";
+  position: absolute;
+  top: 1%;
+  left: 5%;
+  width: 90%;
+  height: 90%;
+  border-radius: 50%;
+  /* background: radial-gradient(
+    circle at 30% 0px,
+    #ffffff,
+    rgba(255, 255, 255, 0) 58%
+  );
+  -webkit-filter: blur(5px);
+  filter: blur(5px); */
+  z-index: 2;
+}
+.orb:after {
+  content: "";
+  position: absolute;
+  border-radius: 100%;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  /* background: radial-gradient(
+    circle at 30% 30%,
+    rgba(245, 237, 48, 0),
+    rgba(200, 190, 20, 0.2) 50%,
+    #575300 100%
+  ); */
+}
+
+.orb .shadow {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(
+    circle,
+    rgba(0, 0, 0, 0.4),
+    rgba(0, 0, 0, 0.1) 40%,
+    rgba(0, 0, 0, 0) 50%
+  );
+  -webkit-transform: rotateX(90deg) translateZ(-160px);
+  transform: rotateX(90deg) translateZ(-160px);
+  z-index: 1;
+}
+
+.orb-container {
+  width: 300px;
+  height: 300px;
+  display: inline-block;
+  margin: 20px;
+  -webkit-perspective: 1200px;
+  -moz-perspective: 1200px;
+  -ms-perspective: 1200px;
+  -o-perspective: 1200px;
+  perspective: 1200px;
+  -webkit-perspective-origin: 50% 50%;
+  -moz-perspective-origin: 50% 50%;
+  -ms-perspective-origin: 50% 50%;
+  -o-perspective-origin: 50% 50%;
+  perspective-origin: 50% 50%;
+}
+
+/* default avatar option */
+
+/* .orb-one {
+  background-image: url(images/default-avatar-small.png);
+  background-size: 130px;
+}
+.orb-two {
+  background-image: url(images/default-avatar-small.png);
+}
+.orb-three {
+  background-image: url(images/default-avatar-small.png);
+}
+.orb-four {
+  background-image: url(images/default-avatar-small.png);
+} */
+
+.orb .orb-info {
+  display: none;
+}
+
+.orb:hover .orb-info {
+  display: block;
+  position: relative;
+  top: 105%;
+  background: var(--light-background);
+  color: var(--text-dark);
+  padding: 5%;
+  border-radius: 4px;
+  /* font-family is a temp placeholder insert way better font below */
+}
+
+/* jira avatar option */
+
+/* .orb-one {
+  background-image: url(images/default-avatar-jira.png);
+  background-size: 130px;
+}
+.orb-two {
+  background-image: url(images/default-avatar-jira.png);
+}
+.orb-three {
+  background-image: url(images/default-avatar-jira.png);
+}
+.orb-four {
+  background-image: url(images/default-avatar-jira.png);
+} */
+
+/* photo avatar option */
+
+.orb-one {
+  background-image: url(images/IanRemmers_Leaf_600-square.jpg);
+}
+.orb-two {
+  background-image: url(images/KateHiggins_Darcy_600-square.jpg);
+}
+.orb-three {
+  background-image: url(images/YohanceMyles_Jamal_600-square.jpg);
+}
+.orb-four {
+  background-image: url(images/AngelaGulner_Luna_600-square.jpg);
+}
+
+/* CAST AND CREW PAGE */
+
+main.castCrew {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+aside.credits-aside {
+  background-color: var(--dark-background);
+  height: 100%;
+  width: 30vw;
+  padding: 3rem;
+  z-index: 1;
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  left: 0;
+  color: var(--text-light);
+}
+/* shadow on top and bottom to "fade in/out" the text */
+div.shadow {
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  -webkit-mask-size: 100% 100%;
+  -webkit-mask-position: 50% 50%;
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0) 0,
+    #fff 10%,
+    #fff 90%,
+    rgba(255, 255, 255, 0) 100%
+  );
+}
+
+/* this div holds div.h3 and div.p; this is the div to be animated */
+div.scroll {
+  height: 100%;
+  margin: 4rem 0 0 0;
+}
+
+/* this div holds the h3 and p tags */
+
+div.name-holder {
+  height: 100px;
+}
+
+/* actor name */
+div h3.credits-text {
+  font-size: min(1.2vw, 18px);
+  margin: 0 0 0.4rem;
+}
+
+/* character name */
+div p.gray {
+  color: gray;
+}
+
+/* Actors */
+
+/* this section holds div.actor */
+section.castContent {
+  width: 70vw;
+  position: absolute;
+  padding: 2rem;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 100%;
+}
+
+/* this div holds the actor image and bio */
+div.actor {
+  display: flex;
+  justify-content: space-evenly;
+  height: 100%;
+  position: absolute;
+  top: 10%;
+}
+
+/* this div holds the actor name (h1), character (p), and bio (p) */
+div.actorBio {
+  width: 100%;
+  max-width: 50%;
+  height: auto;
+}
+
+div.image {
+  width: 250px;
+  height: 400px;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 60%;
+}
+
+h1.name {
+  font-size: 1.6rem;
+  text-transform: uppercase;
+  margin: 0 0 1rem;
+  line-height: 1;
+  color: var(--highlight-red);
+}
+
+p.character {
+  margin: 0 0 2rem;
+}
+
+p.bio {
+  margin: 0 0 2rem;
+  color: #333;
+  font-size: 14px;
+}
+
+/* CONTACT PAGE */
+main.contact-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+div.contact {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+div.contact h1 {
+  font-size: 1.8rem;
+  text-transform: uppercase;
+  color: var(--highlight-red);
+}
+
+div.contact h1 span.misterPixelTools {
+  margin-right: 7px;
+  font-size: 2.3rem;
+}
+
+span.mail {
+  display: inline-block;
+  vertical-align: bottom;
+}
+
+form div.field {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 450px;
+  margin: 1.8rem 0;
+}
+
+div.field label {
+  margin: 0 0 5px;
+  font-weight: 400;
+}
+
+div.field input,
+div.field textarea {
+  border: 1px solid #999;
+  line-height: 1.5;
+  font-size: 16px;
+  width: 100%;
+  padding: 12px;
+  outline: none;
+  color: var(--text-dark);
+}
+
+div.field input {
+  height: 48px;
+}
+
+div.contact form button {
+  width: 150px;
+  height: 48px;
+  background-color: var(--black);
+  color: var(--text-light);
+  padding: 5px 10px;
+  border: none;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+div.contact form button:hover {
+  background-color: var(--highlight-red);
+  cursor: pointer;
 }
