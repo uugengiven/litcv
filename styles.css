@@ -279,25 +279,12 @@ footer a .misterPixelTools {
 @keyframes link-fadein {
   0% {
     opacity: 0;
+    transform: translate(50px);
   }
 
   100% {
     opacity: 1;
-  }
-}
-
-/* H1 Hyphen */
-@keyframes hyphen {
-  0% {
-    height: 1rem;
-  }
-
-  50% {
-    height: 2rem;
-  }
-
-  100% {
-    height: 1rem;
+    transform: translate(-50px);
   }
 }
 
@@ -324,11 +311,14 @@ footer a .misterPixelTools {
 /* Title and blurb */
 main.intro {
   position: relative;
+  overflow: hidden;
   width: 100%;
   height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
+  animation: fadein 0.8s 1s both cubic-bezier(0.9, 0.03, 0.69, 0.22);
+  pointer-events: none;
 }
 
 section.introTop {
@@ -337,7 +327,6 @@ section.introTop {
   left: 40%;
   transform: translate(-35%, -40%);
   animation: fadein 0.8s 1s both cubic-bezier(0.9, 0.03, 0.69, 0.22);
-  pointer-events: none;
 }
 
 section.introBottom {
@@ -346,7 +335,6 @@ section.introBottom {
   left: 60%;
   transform: translate(-65%, -60%);
   animation: fadein 0.8s 1.5s both cubic-bezier(0.9, 0.03, 0.69, 0.22);
-  pointer-events: none;
 }
 
 main.intro h1 svg {
@@ -369,11 +357,11 @@ h1 svg path.divide {
 }
 
 a.explore {
-  color: var(--green);
+  color: var(--yellow);
   position: fixed;
   bottom: 50px;
   left: 50%;
-  transform: translateX(-50%);
+  transform: translate(-50%);
   animation: link-fadein 0.8s 1.5s both cubic-bezier(0.9, 0.03, 0.69, 0.22);
   font-size: 1.4rem;
   display: flex;
@@ -385,8 +373,6 @@ a.explore {
   background: none;
   border: none;
   cursor: pointer;
-  margin: 20px 30px;
-  background: rgba(0, 0, 0, 0.09);
 }
 
 a.explore span {
@@ -400,7 +386,7 @@ a.explore::after {
   height: 2px;
   position: absolute;
   transition: all 0.2s linear;
-  background: var(--green);
+  background: var(--yellow);
 }
 
 a.explore span::before,
@@ -410,7 +396,7 @@ a.explore span::after {
   height: 0;
   position: absolute;
   transition: all 0.2s linear;
-  background: var(--green);
+  background: var(--yellow);
 }
 a.explore:hover::before,
 a.explore:hover::after {
