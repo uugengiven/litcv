@@ -1,10 +1,25 @@
+/* D3 container  */
+
+.content {
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
+/* main D3 svg */
 #d3-graph {
   z-index: 1;
   width: 100vw;
   height: 100vh;
+  /* allows interaction with particles through D3 svg */
   pointer-events: none;
 }
 
+/* force directed graph  */
 #force-directed-graph {
+  /* allows interaction with particles through D3 svg */
   pointer-events: all;
 }

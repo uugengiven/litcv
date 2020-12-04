@@ -312,18 +312,7 @@ const renameEdgesProperties = function (d) {
   };
 };
 
-// GOT Data
-// const datasets = [
-//   ['data/got-s1-nodes.csv', 'data/got-s1-edges.csv'],
-//   ['data/got-s2-nodes.csv', 'data/got-s2-edges.csv'],
-//   ['data/got-s3-nodes.csv', 'data/got-s3-edges.csv'],
-//   ['data/got-s4-nodes.csv', 'data/got-s4-edges.csv'],
-//   ['data/got-s5-node.csv', 'data/got-s5-edges.csv'],
-//   ['data/got-s6-nodes.csv', 'data/got-s6-edges.csv'],
-//   ['data/got-s7-nodes.csv', 'data/got-s7-edges.csv']
-// ];
-
-// Digital Divide data
+// CSV Datasets
 const datasets = [
   ['dd-data/dd-all-nodes.csv', 'dd-data/dd-all-edges.csv'],
   ['dd-data/dd-travis-nodes.csv', 'dd-data/dd-travis-edges.csv'],
