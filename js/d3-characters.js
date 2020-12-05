@@ -7,7 +7,6 @@ function graphChart() {
     fillNeighbors = '#f0c808',
     fillText = '#333',
     strokeLink = d3.rgb(150, 150, 150, 0.075),
-    // strokeLink = d3.rgb(150, 150, 150, 0),
     strokeLinkHover = d3.rgb(50, 50, 50, 1),
     minRadius = 30,
     radius = function (node) {
@@ -39,8 +38,9 @@ function graphChart() {
         .force(
           'charge',
           d3.forceManyBody().strength(d => -radius(d) * 150)
+          // d3.forceManyBody().strength(d => -radius(d) * (width / 20))
         )
-        .force('center', d3.forceCenter(width / 3, height / 2))
+        .force('center', d3.forceCenter(width / 3, height / 2.5))
         .force('x', d3.forceX())
         .force('y', d3.forceY())
         .alphaTarget(0.15);
