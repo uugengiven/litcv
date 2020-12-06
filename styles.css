@@ -57,13 +57,6 @@
   }
 }
 
-/* canvas.b-canvas {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-} */
-
 .particles {
   width: 100vw;
   height: 100vh;
@@ -138,11 +131,6 @@ h3 {
   letter-spacing: 0.15vh;
 }
 
-.misterPixelTools {
-  font-family: VTF MisterPixel Tools;
-  font-style: normal !important;
-}
-
 header {
   width: 100%;
   display: flex;
@@ -152,7 +140,7 @@ header {
   position: fixed;
   top: 0;
   left: 0;
-  padding: 1rem 2.5rem;
+  padding: 1rem 1.5rem 1rem 2rem;
 }
 
 header h1 {
@@ -789,19 +777,8 @@ div.actor div.overlay {
   z-index: 1;
 }
 
-/* div.actor img,
-div.actor div.overlay {
-  backface-visibility: hidden;
-  transition: transform 1s;
-} */
-
-/* div.actor:hover img {
-  transform: rotateY(180deg);
-} */
-
 div.actor:hover div.overlay {
   transform: translateY(0);
-  /* transform: rotateY(360deg); */
 }
 
 div.overlay h1.actor-name {
