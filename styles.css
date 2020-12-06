@@ -279,12 +279,12 @@ footer a .misterPixelTools {
 @keyframes link-fadein {
   0% {
     opacity: 0;
-    transform: translate(50px);
+    transform: translateY(50px);
   }
 
   100% {
     opacity: 1;
-    transform: translate(-50px);
+    transform: translateY(-50px);
   }
 }
 
@@ -912,4 +912,14 @@ div.contact-content form button:hover {
   background-color: var(--highlight-red);
   color: white;
   cursor: pointer;
+}
+
+@media (max-width: 800px) {
+  aside {
+    display: none;
+  }
+
+  section.castContent {
+    width: 100vw;
+  }
 }
