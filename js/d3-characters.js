@@ -37,8 +37,8 @@ function graphChart() {
         )
         .force(
           'charge',
-          d3.forceManyBody().strength(d => -radius(d) * 150)
-          // d3.forceManyBody().strength(d => -radius(d) * (width / 20))
+          // d3.forceManyBody().strength(d => -radius(d) * 150)
+          d3.forceManyBody().strength(d => -radius(d) * (width / 10))
         )
         .force('center', d3.forceCenter(width / 3, height / 2.5))
         .force('x', d3.forceX())
