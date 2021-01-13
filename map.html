@@ -82,10 +82,11 @@
       </div>
     </section>
     <article class="snackbar_hidden" id="snackbar-container">
-      <div id="map-text">
-        i'm the info thing
+      <div>
+        <h3 id="snackbar-title"></h3>
+        <p id="snackbar-info-one"></p>
+        <p id="snackbar-info-two"></p>
       </div>
-      This is an example of the snackbar.
     </article>
 
   <footer>
@@ -116,13 +117,14 @@
                 const imgTexture = new THREE.TextureLoader().load(`./images/episodes/${img}`);
                 const material = new THREE.SpriteMaterial({ map: imgTexture });
                 const sprite = new THREE.Sprite(material);
+                
                 if(type == "Character")
                 {
-                    sprite.scale.set(12, 12);
+                  sprite.scale.set(12, 12);
                 }
                 else
                 {
-                    sprite.scale.set(16, 9);
+                  sprite.scale.set(16, 9);
                 }
                 
                 return sprite;
@@ -131,15 +133,26 @@
             .onNodeClick(node => {
                 // Aim at node from outside it
                 const snackbar = document.getElementById('snackbar-container');
-                snackbar.classList.contains('snackbar_hidden') ? snackbar.classList.remove('snackbar_hidden') & snackbar.classList.add('snackbar_show') : null;
+                const title = document.getElementById("snackbar-title");
+                const descriptionOne = document.getElementById("snackbar-info-one");
+                const descriptionTwo = document.getElementById("snackbar-info-two");
 
-              if(node.type == "Character") {
-                document.getElementById("map-text").innerHTML = node.type;
-                console.log('character');
+                snackbar.classList.contains('snackbar_hidden') 
+                ? snackbar.classList.remove('snackbar_hidden') & snackbar.classList.add('snackbar_show') 
+                : null;
+
+              // because there might be different properties for characters/episodes
+              if(node.type === "Character") {
+                // TODO: don't use innerHTML
+                title.innerHTML = node.id;
+                descriptionOne.innerHTML = "Group " + node.group;
+                descriptionTwo.innerHTML = "Type " + node.type;
               }
-              else {
-                document.getElementById("map-text").innerHTML = node.type;
-                console.log("Episode");
+              if (node.type === "Episode") {
+                // TODO: don't use innerHTML
+                title.innerHTML = node.type + " - " + node.title;
+                descriptionOne.innerHTML = "previous episode " + node.prev;
+                descriptionTwo.innerHTML = "next episode " + node.next;
               }
                 // conditional for character versus episode
                 const distance = 40;
@@ -147,7 +160,7 @@
                 Graph.cameraPosition(
                     { x: node.x * distRatio, y: node.y * distRatio, z: node.z * distRatio }, // new position
                     node, // lookAt ({ x, y, z })
-                    3000  // ms transition duration
+                    2000  // ms transition duration
                 );
             });
       </script>

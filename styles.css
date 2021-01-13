@@ -726,39 +726,35 @@ div.contact-content form button:hover {
 }
 
 /* 3D MAP PAGE */
-/* TODO: use vars */
-.map-info {
-  position: absolute;
-  height: 200px;
-  bottom: 0;
-  width: 100vw;
-  background-color: white;
-  color: black;
-}
+/* TODO: update to vars */
 
 .snackbar_hidden,
 .snackbar_show {
   color: black;
   background-color: whitesmoke;
+  opacity: 0.975;
   padding: 14px 24px;
   position: fixed;
   bottom: -50px;
   left: 50%;
   transform: translateX(-50%);
   min-width: 310px;
-  max-width: 600px;
+  max-width: 800px;
+  height: 250px;
+  width: 90vw;
   margin: 0 auto;
   border-radius: 2px;
-  transition: bottom 0.3s ease-in-out;
-  z-index: 10000;
+  /* align with animation speed of sidenav or 3D */
+  transition: bottom 2000ms ease-in-out;
+  z-index: 9000;
   font-size: 14px;
   box-sizing: border-box;
 }
 .snackbar_hidden {
-  bottom: -100px;
+  bottom: -250px;
 }
 .snackbar_show {
-  bottom: 0px;
+  bottom: 0;
 }
 /* https://codepen.io/green_man_5/pen/NbqwPP */
 
@@ -768,4 +764,5 @@ add data to json
 adjust height/styling of snackbar
 close snackbar on sidenav click too
 media queries for snackbar width??
+fix data names
 close snackbar */
