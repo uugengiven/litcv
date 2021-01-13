@@ -1,105 +1,249 @@
 {
-    "nodes": [
-      {"id": "Darcy", "group": 10, "img": "Darcy.jpg", "type": "Character"},
-      {"id": "Carson", "group": 10, "img": "Carson.jpg", "type": "Character"},
-      {"id": "FatherD", "group": 10, "img": "Kiki.jpg", "type": "Character"},
-      {"id": "Jamal", "group": 10, "img": "Carson.jpg", "type": "Character"},
-      {"id": "Kiki", "group": 10, "img": "Kiki.jpg", "type": "Character"},
-      {"id": "Leaf", "group": 10, "img": "Trav.jpg", "type": "Character"},
-      {"id": "Luna", "group": 10, "img": "Kiki.jpg", "type": "Character"},
-      {"id": "Trav", "group": 10, "img": "Trav.jpg", "type": "Character"},
-      {"id": "DarcyCarson01", "group": 1, "img": "DarcyCarson01.png", "type": "Episode"},
-      {"id": "DarcyCarson02", "group": 1, "img": "DarcyCarson02.png", "type": "Episode"},
-      {"id": "DarcyCarson03", "group": 1, "img": "DarcyCarson03.png", "type": "Episode"},
-      {"id": "DarcyFatherD01", "group": 2, "img": "DarcyFatherD01.png", "type": "Episode"},
-      {"id": "DarcyJamal01", "group": 3, "img": "DarcyJamal01.png", "type": "Episode"},
-      {"id": "DarcyJamal02", "group": 3, "img": "DarcyJamal02.png", "type": "Episode"},
-      {"id": "DarcyJamal03", "group": 3, "img": "DarcyJamal03.png", "type": "Episode"},
-      {"id": "KikiLeaf01", "group": 4, "img": "KikiLeaf01.png", "type": "Episode"},
-      {"id": "KikiLeaf02", "group": 4, "img": "KikiLeaf02.png", "type": "Episode"},
-      {"id": "KikiLeaf03", "group": 4, "img": "KikiLeaf03.png", "type": "Episode"},
-      {"id": "LunaKiki01", "group": 5, "img": "LunaKiki01.png", "type": "Episode"},
-      {"id": "LunaKiki02", "group": 5, "img": "LunaKiki02.png", "type": "Episode"},
-      {"id": "LunaKiki03", "group": 5, "img": "LunaKiki03.png", "type": "Episode"},
-      {"id": "LunaKiki04", "group": 5, "img": "LunaKiki04.png", "type": "Episode"},
-      {"id": "LunaKiki05", "group": 5, "img": "LunaKiki05.png", "type": "Episode"},
-      {"id": "LunaKiki06", "group": 5, "img": "LunaKiki06.png", "type": "Episode"},
-      {"id": "LunaLeaf01", "group": 6, "img": "LunaLeaf01.png", "type": "Episode"},
-      {"id": "LunaLeaf02", "group": 6, "img": "LunaLeaf02.png", "type": "Episode"},
-      {"id": "TravCarson01", "group": 7, "img": "TravCarson01.png", "type": "Episode"},
-      {"id": "TravCarson02", "group": 7, "img": "TravCarson02.png", "type": "Episode"},
-      {"id": "TravFatherD01", "group": 8, "img": "TravFatherD01.png", "type": "Episode"},
-      {"id": "TravFatherD02", "group": 8, "img": "TravFatherD02.png", "type": "Episode"},
-      {"id": "TravLuna01", "group": 9, "img": "TravLuna01.png", "type": "Episode"},
-      {"id": "TravLuna02", "group": 9, "img": "TravLuna02.png", "type": "Episode"},
-      {"id": "TravLuna03", "group": 9, "img": "TravLuna03.png", "type": "Episode"},
-      {"id": "TravLuna04", "group": 9, "img": "TravLuna04.png", "type": "Episode"},
-      {"id": "TravLuna05", "group": 9, "img": "TravLuna05.png", "type": "Episode"},
-      {"id": "TravLuna06", "group": 9, "img": "TravLuna06.png", "type": "Episode"},
-      {"id": "TravLuna07", "group": 9, "img": "TravLuna07.png", "type": "Episode"}
-    ],
-    "links": [
-      {"source": "Darcy", "target": "DarcyCarson01", "value": 3},
-      {"source": "Darcy", "target": "DarcyCarson02", "value": 2},
-      {"source": "Darcy", "target": "DarcyCarson03", "value": 2},
-      {"source": "Darcy", "target": "DarcyFatherD01", "value": 2},
-      {"source": "Darcy", "target": "DarcyJamal01", "value": 4},
-      {"source": "Darcy", "target": "DarcyJamal02", "value": 2},
-      {"source": "Darcy", "target": "DarcyJamal03", "value": 2},
-      {"source": "Carson", "target": "DarcyCarson01", "value": 3},
-      {"source": "Carson", "target": "DarcyCarson02", "value": 2},
-      {"source": "Carson", "target": "DarcyCarson03", "value": 2},
-      {"source": "Carson", "target": "DarcyCarson03", "value": 2},
-      {"source": "Carson", "target": "TravCarson01", "value": 4},
-      {"source": "Carson", "target": "TravCarson02", "value": 2},
-      {"source": "FatherD", "target": "DarcyFatherD01", "value": 4},
-      {"source": "FatherD", "target": "TravFatherD01", "value": 3},
-      {"source": "FatherD", "target": "TravFatherD02", "value": 2},
-      {"source": "Jamal", "target": "DarcyJamal01", "value": 4},
-      {"source": "Jamal", "target": "DarcyJamal02", "value": 2},
-      {"source": "Jamal", "target": "DarcyJamal03", "value": 2},
-      {"source": "Kiki", "target": "KikiLeaf01", "value": 4},
-      {"source": "Kiki", "target": "KikiLeaf02", "value": 2},
-      {"source": "Kiki", "target": "KikiLeaf03", "value": 2},
-      {"source": "Kiki", "target": "LunaKiki01", "value": 3},
-      {"source": "Kiki", "target": "LunaKiki02", "value": 2},
-      {"source": "Kiki", "target": "LunaKiki03", "value": 2},
-      {"source": "Kiki", "target": "LunaKiki04", "value": 2},
-      {"source": "Kiki", "target": "LunaKiki05", "value": 2},
-      {"source": "Kiki", "target": "LunaKiki06", "value": 2},
-      {"source": "Leaf", "target": "KikiLeaf01", "value": 4},
-      {"source": "Leaf", "target": "KikiLeaf02", "value": 2},
-      {"source": "Leaf", "target": "KikiLeaf03", "value": 2},
-      {"source": "Leaf", "target": "LunaLeaf01", "value": 3},
-      {"source": "Leaf", "target": "LunaLeaf02", "value": 2},
-      {"source": "Luna", "target": "LunaKiki01", "value": 2},
-      {"source": "Luna", "target": "LunaKiki02", "value": 2},
-      {"source": "Luna", "target": "LunaKiki03", "value": 2},
-      {"source": "Luna", "target": "LunaKiki04", "value": 2},
-      {"source": "Luna", "target": "LunaKiki05", "value": 2},
-      {"source": "Luna", "target": "LunaKiki06", "value": 2},
-      {"source": "Luna", "target": "LunaLeaf01", "value": 2},
-      {"source": "Luna", "target": "LunaLeaf02", "value": 2},
-      {"source": "Luna", "target": "TravLuna01", "value": 2},
-      {"source": "Luna", "target": "TravLuna02", "value": 2},
-      {"source": "Luna", "target": "TravLuna03", "value": 2},
-      {"source": "Luna", "target": "TravLuna04", "value": 2},
-      {"source": "Luna", "target": "TravLuna05", "value": 2},
-      {"source": "Luna", "target": "TravLuna06", "value": 2},
-      {"source": "Luna", "target": "TravLuna07", "value": 2},
-      {"source": "Trav", "target": "TravCarson01", "value": 2},
-      {"source": "Trav", "target": "TravCarson02", "value": 2},
-      {"source": "Trav", "target": "TravFatherD01", "value": 2},
-      {"source": "Trav", "target": "TravFatherD02", "value": 2},
-      {"source": "Trav", "target": "TravLuna01", "value": 2},
-      {"source": "Trav", "target": "TravLuna02", "value": 2},
-      {"source": "Trav", "target": "TravLuna03", "value": 2},
-      {"source": "Trav", "target": "TravLuna04", "value": 2},
-      {"source": "Trav", "target": "TravLuna05", "value": 2},
-      {"source": "Trav", "target": "TravLuna06", "value": 2},
-      {"source": "Trav", "target": "TravLuna07", "value": 2},
-      {"source": "DarcyCarson01", "target": "DarcyCarson02", "value": 1},
-      {"source": "DarcyCarson02", "target": "DarcyCarson03", "value": 1}
-    ]
+  "nodes": [
+    { "id": "Darcy", "group": 10, "img": "Darcy.jpg", "type": "Character" },
+    { "id": "Carson", "group": 10, "img": "Carson.jpg", "type": "Character" },
+    { "id": "FatherD", "group": 10, "img": "Kiki.jpg", "type": "Character" },
+    { "id": "Jamal", "group": 10, "img": "Carson.jpg", "type": "Character" },
+    { "id": "Kiki", "group": 10, "img": "Kiki.jpg", "type": "Character" },
+    { "id": "Leaf", "group": 10, "img": "Trav.jpg", "type": "Character" },
+    { "id": "Luna", "group": 10, "img": "Kiki.jpg", "type": "Character" },
+    { "id": "Trav", "group": 10, "img": "Trav.jpg", "type": "Character" },
+    {
+      "id": "DarcyCarson01",
+      "group": 1,
+      "img": "DarcyCarson01.png",
+      "type": "Episode"
+    },
+    {
+      "id": "DarcyCarson02",
+      "group": 1,
+      "img": "DarcyCarson02.png",
+      "type": "Episode"
+    },
+    {
+      "id": "DarcyCarson03",
+      "group": 1,
+      "img": "DarcyCarson03.png",
+      "type": "Episode"
+    },
+    {
+      "id": "DarcyFatherD01",
+      "group": 2,
+      "img": "DarcyFatherD01.png",
+      "type": "Episode"
+    },
+    {
+      "id": "DarcyJamal01",
+      "group": 3,
+      "img": "DarcyJamal01.png",
+      "type": "Episode"
+    },
+    {
+      "id": "DarcyJamal02",
+      "group": 3,
+      "img": "DarcyJamal02.png",
+      "type": "Episode"
+    },
+    {
+      "id": "DarcyJamal03",
+      "group": 3,
+      "img": "DarcyJamal03.png",
+      "type": "Episode"
+    },
+    {
+      "id": "KikiLeaf01",
+      "group": 4,
+      "img": "KikiLeaf01.png",
+      "type": "Episode"
+    },
+    {
+      "id": "KikiLeaf02",
+      "group": 4,
+      "img": "KikiLeaf02.png",
+      "type": "Episode"
+    },
+    {
+      "id": "KikiLeaf03",
+      "group": 4,
+      "img": "KikiLeaf03.png",
+      "type": "Episode"
+    },
+    {
+      "id": "LunaKiki01",
+      "group": 5,
+      "img": "LunaKiki01.png",
+      "type": "Episode"
+    },
+    {
+      "id": "LunaKiki02",
+      "group": 5,
+      "img": "LunaKiki02.png",
+      "type": "Episode"
+    },
+    {
+      "id": "LunaKiki03",
+      "group": 5,
+      "img": "LunaKiki03.png",
+      "type": "Episode"
+    },
+    {
+      "id": "LunaKiki04",
+      "group": 5,
+      "img": "LunaKiki04.png",
+      "type": "Episode"
+    },
+    {
+      "id": "LunaKiki05",
+      "group": 5,
+      "img": "LunaKiki05.png",
+      "type": "Episode"
+    },
+    {
+      "id": "LunaKiki06",
+      "group": 5,
+      "img": "LunaKiki06.png",
+      "type": "Episode"
+    },
+    {
+      "id": "LunaLeaf01",
+      "group": 6,
+      "img": "LunaLeaf01.png",
+      "type": "Episode"
+    },
+    {
+      "id": "LunaLeaf02",
+      "group": 6,
+      "img": "LunaLeaf02.png",
+      "type": "Episode"
+    },
+    {
+      "id": "TravCarson01",
+      "group": 7,
+      "img": "TravCarson01.png",
+      "type": "Episode"
+    },
+    {
+      "id": "TravCarson02",
+      "group": 7,
+      "img": "TravCarson02.png",
+      "type": "Episode"
+    },
+    {
+      "id": "TravFatherD01",
+      "group": 8,
+      "img": "TravFatherD01.png",
+      "type": "Episode"
+    },
+    {
+      "id": "TravFatherD02",
+      "group": 8,
+      "img": "TravFatherD02.png",
+      "type": "Episode"
+    },
+    {
+      "id": "TravLuna01",
+      "group": 9,
+      "img": "TravLuna01.png",
+      "type": "Episode"
+    },
+    {
+      "id": "TravLuna02",
+      "group": 9,
+      "img": "TravLuna02.png",
+      "type": "Episode"
+    },
+    {
+      "id": "TravLuna03",
+      "group": 9,
+      "img": "TravLuna03.png",
+      "type": "Episode"
+    },
+    {
+      "id": "TravLuna04",
+      "group": 9,
+      "img": "TravLuna04.png",
+      "type": "Episode"
+    },
+    {
+      "id": "TravLuna05",
+      "group": 9,
+      "img": "TravLuna05.png",
+      "type": "Episode"
+    },
+    {
+      "id": "TravLuna06",
+      "group": 9,
+      "img": "TravLuna06.png",
+      "type": "Episode"
+    },
+    {
+      "id": "TravLuna07",
+      "group": 9,
+      "img": "TravLuna07.png",
+      "type": "Episode"
+    }
+  ],
+  "links": [
+    { "source": "Darcy", "target": "DarcyCarson01", "value": 3 },
+    { "source": "Darcy", "target": "DarcyCarson02", "value": 2 },
+    { "source": "Darcy", "target": "DarcyCarson03", "value": 2 },
+    { "source": "Darcy", "target": "DarcyFatherD01", "value": 2 },
+    { "source": "Darcy", "target": "DarcyJamal01", "value": 4 },
+    { "source": "Darcy", "target": "DarcyJamal02", "value": 2 },
+    { "source": "Darcy", "target": "DarcyJamal03", "value": 2 },
+    { "source": "Carson", "target": "DarcyCarson01", "value": 3 },
+    { "source": "Carson", "target": "DarcyCarson02", "value": 2 },
+    { "source": "Carson", "target": "DarcyCarson03", "value": 2 },
+    { "source": "Carson", "target": "DarcyCarson03", "value": 2 },
+    { "source": "Carson", "target": "TravCarson01", "value": 4 },
+    { "source": "Carson", "target": "TravCarson02", "value": 2 },
+    { "source": "FatherD", "target": "DarcyFatherD01", "value": 4 },
+    { "source": "FatherD", "target": "TravFatherD01", "value": 3 },
+    { "source": "FatherD", "target": "TravFatherD02", "value": 2 },
+    { "source": "Jamal", "target": "DarcyJamal01", "value": 4 },
+    { "source": "Jamal", "target": "DarcyJamal02", "value": 2 },
+    { "source": "Jamal", "target": "DarcyJamal03", "value": 2 },
+    { "source": "Kiki", "target": "KikiLeaf01", "value": 4 },
+    { "source": "Kiki", "target": "KikiLeaf02", "value": 2 },
+    { "source": "Kiki", "target": "KikiLeaf03", "value": 2 },
+    { "source": "Kiki", "target": "LunaKiki01", "value": 3 },
+    { "source": "Kiki", "target": "LunaKiki02", "value": 2 },
+    { "source": "Kiki", "target": "LunaKiki03", "value": 2 },
+    { "source": "Kiki", "target": "LunaKiki04", "value": 2 },
+    { "source": "Kiki", "target": "LunaKiki05", "value": 2 },
+    { "source": "Kiki", "target": "LunaKiki06", "value": 2 },
+    { "source": "Leaf", "target": "KikiLeaf01", "value": 4 },
+    { "source": "Leaf", "target": "KikiLeaf02", "value": 2 },
+    { "source": "Leaf", "target": "KikiLeaf03", "value": 2 },
+    { "source": "Leaf", "target": "LunaLeaf01", "value": 3 },
+    { "source": "Leaf", "target": "LunaLeaf02", "value": 2 },
+    { "source": "Luna", "target": "LunaKiki01", "value": 2 },
+    { "source": "Luna", "target": "LunaKiki02", "value": 2 },
+    { "source": "Luna", "target": "LunaKiki03", "value": 2 },
+    { "source": "Luna", "target": "LunaKiki04", "value": 2 },
+    { "source": "Luna", "target": "LunaKiki05", "value": 2 },
+    { "source": "Luna", "target": "LunaKiki06", "value": 2 },
+    { "source": "Luna", "target": "LunaLeaf01", "value": 2 },
+    { "source": "Luna", "target": "LunaLeaf02", "value": 2 },
+    { "source": "Luna", "target": "TravLuna01", "value": 2 },
+    { "source": "Luna", "target": "TravLuna02", "value": 2 },
+    { "source": "Luna", "target": "TravLuna03", "value": 2 },
+    { "source": "Luna", "target": "TravLuna04", "value": 2 },
+    { "source": "Luna", "target": "TravLuna05", "value": 2 },
+    { "source": "Luna", "target": "TravLuna06", "value": 2 },
+    { "source": "Luna", "target": "TravLuna07", "value": 2 },
+    { "source": "Trav", "target": "TravCarson01", "value": 2 },
+    { "source": "Trav", "target": "TravCarson02", "value": 2 },
+    { "source": "Trav", "target": "TravFatherD01", "value": 2 },
+    { "source": "Trav", "target": "TravFatherD02", "value": 2 },
+    { "source": "Trav", "target": "TravLuna01", "value": 2 },
+    { "source": "Trav", "target": "TravLuna02", "value": 2 },
+    { "source": "Trav", "target": "TravLuna03", "value": 2 },
+    { "source": "Trav", "target": "TravLuna04", "value": 2 },
+    { "source": "Trav", "target": "TravLuna05", "value": 2 },
+    { "source": "Trav", "target": "TravLuna06", "value": 2 },
+    { "source": "Trav", "target": "TravLuna07", "value": 2 },
+    { "source": "DarcyCarson01", "target": "DarcyCarson02", "value": 1 },
+    { "source": "DarcyCarson02", "target": "DarcyCarson03", "value": 1 }
+  ]
 }
-      
