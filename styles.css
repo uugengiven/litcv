@@ -726,6 +726,7 @@ div.contact-content form button:hover {
 }
 
 /* 3D MAP PAGE */
+/* TODO: use vars */
 .map-info {
   position: absolute;
   height: 200px;
@@ -734,3 +735,29 @@ div.contact-content form button:hover {
   background-color: white;
   color: black;
 }
+
+.snackbar_hidden,
+.snackbar_show {
+  color: black;
+  background-color: whitesmoke;
+  padding: 14px 24px;
+  position: fixed;
+  bottom: -50px;
+  left: 50%;
+  transform: translateX(-50%);
+  min-width: 300px;
+  max-width: 600px;
+  margin: 0 auto;
+  border-radius: 2px;
+  transition: bottom 0.3s ease;
+  z-index: 10000;
+  font-size: 14px;
+  box-sizing: border-box;
+}
+.snackbar_hidden {
+  bottom: -100px;
+}
+.snackbar_show {
+  bottom: 0px;
+}
+/* https://codepen.io/green_man_5/pen/NbqwPP */

@@ -82,11 +82,12 @@
 
       </div>
     </section>
-    <section class="map-info">
+    <aside class="snackbar_hidden" id="snackbar-container">
       <div id="map-text">
         i'm the info thing
       </div>
-    </section>
+      This is an example of the snackbar.
+    </aside>
 
   <footer>
     <a href="index.html">Intro | </a>
@@ -130,6 +131,9 @@
             .onNodeHover(node => elem.style.cursor = node ? 'pointer' : null)
             .onNodeClick(node => {
                 // Aim at node from outside it
+                const snackbar = document.getElementById('snackbar-container');
+                snackbar.classList.contains('snackbar_hidden') ? snackbar.classList.remove('snackbar_hidden') & snackbar.classList.add('snackbar_show') : null;
+
               if(node.type == "Character") {
                 document.getElementById("map-text").innerHTML = node.type;
                 console.log('character');
