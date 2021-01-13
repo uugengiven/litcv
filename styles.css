@@ -724,3 +724,13 @@ div.contact-content form button:hover {
     width: 100vw;
   }
 }
+
+/* 3D MAP PAGE */
+.map-info {
+  position: absolute;
+  height: 200px;
+  bottom: 0;
+  width: 100vw;
+  background-color: white;
+  color: black;
+}
