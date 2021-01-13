@@ -141,6 +141,7 @@
                 ? snackbar.classList.remove('snackbar_hidden') & snackbar.classList.add('snackbar_show') 
                 : null;
 
+              // conditional for character versus episode
               // because there might be different properties for characters/episodes
               if(node.type === "Character") {
                 // TODO: don't use innerHTML
@@ -154,7 +155,6 @@
                 descriptionOne.innerHTML = "previous episode " + node.prev;
                 descriptionTwo.innerHTML = "next episode " + node.next;
               }
-                // conditional for character versus episode
                 const distance = 40;
                 const distRatio = 1 + distance/Math.hypot(node.x, node.y, node.z);
                 Graph.cameraPosition(
