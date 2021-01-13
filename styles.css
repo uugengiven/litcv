@@ -745,11 +745,11 @@ div.contact-content form button:hover {
   bottom: -50px;
   left: 50%;
   transform: translateX(-50%);
-  min-width: 300px;
+  min-width: 310px;
   max-width: 600px;
   margin: 0 auto;
   border-radius: 2px;
-  transition: bottom 0.3s ease;
+  transition: bottom 0.3s ease-in-out;
   z-index: 10000;
   font-size: 14px;
   box-sizing: border-box;
@@ -763,6 +763,9 @@ div.contact-content form button:hover {
 /* https://codepen.io/green_man_5/pen/NbqwPP */
 
 /* TODO: 
+not showing on mobile???
 add data to json 
 adjust height/styling of snackbar
+close snackbar on sidenav click too
+media queries for snackbar width??
 close snackbar */
