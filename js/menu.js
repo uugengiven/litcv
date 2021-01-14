@@ -1,10 +1,10 @@
 // closes snackbar if open when nav menu toggled
 const snackbar = document.getElementById('snackbar-container');
 function toggleSnackbar() {
-  if (snackbar.classList.contains('snackbar_show')) {
-    snackbar.classList.remove('snackbar_show') &
-      snackbar.classList.add('snackbar_hidden');
-  }
+  snackbar.classList.contains('snackbar_show')
+    ? snackbar.classList.remove('snackbar_show') &
+      snackbar.classList.add('snackbar_hidden')
+    : null;
 }
 
 // select the body tag in the HTML
