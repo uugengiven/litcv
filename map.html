@@ -145,7 +145,7 @@
               // because there might be different properties for characters/episodes
               if(node.type === "Character") {
                 // TODO: don't use innerHTML
-                title.innerHTML = node.id;
+                title.innerHTML = node.type + " - " + node.id;
                 descriptionOne.innerHTML = "Group " + node.group;
                 descriptionTwo.innerHTML = "Type " + node.type;
               }
