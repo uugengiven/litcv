@@ -730,8 +730,8 @@ div.contact-content form button:hover {
 
 .snackbar_hidden,
 .snackbar_show {
-  color: black;
-  background-color: whitesmoke;
+  color: var(--text-dark);
+  background-color: var(--white);
   opacity: 0.975;
   padding: 14px 24px;
   position: fixed;
@@ -759,7 +759,6 @@ div.contact-content form button:hover {
 /* https://codepen.io/green_man_5/pen/NbqwPP */
 
 /* TODO: 
-not showing on mobile???
 add data to json 
 adjust height/styling of snackbar
 close snackbar on sidenav click too
