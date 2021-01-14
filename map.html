@@ -152,8 +152,8 @@
               if (node.type === "Episode") {
                 // TODO: don't use innerHTML
                 title.innerHTML = node.type + " - " + node.title;
-                descriptionOne.innerHTML = "previous episode " + node.prev;
-                descriptionTwo.innerHTML = "next episode " + node.next;
+                descriptionOne.innerHTML = "previous episode - " + node.prev;
+                descriptionTwo.innerHTML = "next episode - " + node.next;
               }
                 const distance = 40;
                 const distRatio = 1 + distance/Math.hypot(node.x, node.y, node.z);
