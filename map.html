@@ -144,16 +144,14 @@
               // conditional for character versus episode
               // because there might be different properties for characters/episodes
               if(node.type === "Character") {
-                // TODO: don't use innerHTML
-                title.innerHTML = node.type + " - " + node.id;
-                descriptionOne.innerHTML = "Group " + node.group;
-                descriptionTwo.innerHTML = "Type " + node.type;
+                title.textContent = node.type + " - " + node.id;
+                descriptionOne.textContent = "Group " + node.group;
+                descriptionTwo.textContent = "Type " + node.type;
               }
               if (node.type === "Episode") {
-                // TODO: don't use innerHTML
-                title.innerHTML = node.type + " - " + node.title;
-                descriptionOne.innerHTML = "previous episode - " + node.prev;
-                descriptionTwo.innerHTML = "next episode - " + node.next;
+                title.textContent = node.type + " - " + node.title;
+                descriptionOne.textContent = "previous episode - " + node.prev;
+                descriptionTwo.textContent = "next episode - " + node.next;
               }
                 const distance = 40;
                 const distRatio = 1 + distance/Math.hypot(node.x, node.y, node.z);
