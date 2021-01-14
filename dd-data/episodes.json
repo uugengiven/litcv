@@ -1,13 +1,53 @@
 {
   "nodes": [
-    { "id": "Darcy", "group": 10, "img": "Darcy.jpg", "type": "Character" },
-    { "id": "Carson", "group": 10, "img": "Carson.jpg", "type": "Character" },
-    { "id": "FatherD", "group": 10, "img": "Kiki.jpg", "type": "Character" },
-    { "id": "Jamal", "group": 10, "img": "Carson.jpg", "type": "Character" },
-    { "id": "Kiki", "group": 10, "img": "Kiki.jpg", "type": "Character" },
-    { "id": "Leaf", "group": 10, "img": "Trav.jpg", "type": "Character" },
-    { "id": "Luna", "group": 10, "img": "Kiki.jpg", "type": "Character" },
-    { "id": "Trav", "group": 10, "img": "Trav.jpg", "type": "Character" },
+    {
+      "id": "Darcy",
+      "group": 10,
+      "img": "Darcy_avatar.png",
+      "type": "Character"
+    },
+    {
+      "id": "Carson",
+      "group": 10,
+      "img": "Carson_avatar.png",
+      "type": "Character"
+    },
+    {
+      "id": "FatherD",
+      "group": 10,
+      "img": "FatherD_avatar.png",
+      "type": "Character"
+    },
+    {
+      "id": "Jamal",
+      "group": 10,
+      "img": "Jamal_avatar.png",
+      "type": "Character"
+    },
+    {
+      "id": "Kiki",
+      "group": 10,
+      "img": "Kiki_avatar.png",
+      "type": "Character"
+    },
+    {
+      "id": "Leaf",
+      "group": 10,
+      "img": "Leaf_avatar.png",
+      "type": "Character"
+    },
+    {
+      "id": "Luna",
+      "group": 10,
+      "img": "Luna_avatar.png",
+      "type": "Character"
+    },
+    {
+      "id": "Trav",
+      "group": 10,
+      "img": "Trav_avatar.png",
+      "type": "Character"
+    },
     {
       "id": "DarcyCarson01",
       "group": 1,
