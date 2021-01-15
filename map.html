@@ -82,11 +82,10 @@
       </div>
     </section>
     <article class="snackbar_hidden" id="snackbar-container">
-      <div>
-        <h3 id="snackbar-title"></h3>
-        <p id="snackbar-info-one"></p>
-        <p id="snackbar-info-two"></p>
-      </div>
+      <!-- temp tags until styled -->
+        <h2 id="snackbar-title"></h2>
+        <h3 id="snackbar-info-one"></h3>
+        <h3 id="snackbar-info-two"></h3>
     </article>
 
   <footer>
@@ -112,7 +111,7 @@
             .nodeLabel('id')
             .nodeAutoColorBy('group')
             .linkDirectionalParticles("value")
-            .linkDirectionalParticleSpeed(d => d.value * 0.001)
+            .linkDirectionalParticleSpeed(d => d.value * 0.0025)
             .nodeThreeObject(({ img, type }) => {
                 const imgTexture = new THREE.TextureLoader().load(`./images/episodes/${img}`);
                 const material = new THREE.SpriteMaterial({ map: imgTexture });
@@ -150,8 +149,8 @@
               }
               if (node.type === "Episode") {
                 title.textContent = node.type + " - " + node.title;
-                descriptionOne.textContent = "previous episode - " + node.prev;
-                descriptionTwo.textContent = "next episode - " + node.next;
+                descriptionOne.textContent = node.prev;
+                descriptionTwo.textContent =  node.next;
               }
                 const distance = 40;
                 const distRatio = 1 + distance/Math.hypot(node.x, node.y, node.z);
