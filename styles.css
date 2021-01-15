@@ -732,7 +732,7 @@ div.contact-content form button:hover {
 .snackbar_show {
   color: var(--text-dark);
   background-color: var(--white);
-  opacity: 0.975;
+  /* opacity: 0.975; */
   padding: 14px 24px;
   position: fixed;
   bottom: -50px;

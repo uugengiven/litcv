@@ -113,6 +113,7 @@
             .nodeAutoColorBy('group')
             .linkDirectionalParticles("value")
             .linkDirectionalParticleSpeed(d => d.value * 0.0025)
+            .linkCurvature(.125)
             .nodeThreeObject(({ img, type }) => {
                 const imgTexture = new THREE.TextureLoader().load(`./images/episodes/${img}`);
                 const material = new THREE.SpriteMaterial({ map: imgTexture });
