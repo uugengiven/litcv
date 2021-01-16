@@ -83,6 +83,7 @@
     </section>
     <article class="snackbar_hidden" id="snackbar-container">
       <!-- temp tags until styled -->
+      <img  class="snackbar-icon" src="./images/icons/close-icon.png" alt="close" onclick="closeSnackbar()"> 
         <h2 id="snackbar-title"></h2>
         <h3 id="snackbar-info-one"></h3>
         <h3 id="snackbar-info-two"></h3>
@@ -121,7 +122,7 @@
                 
                 if(type == "Character")
                 {
-                  sprite.scale.set(12, 12);
+                  sprite.scale.set(14, 14);
                 }
                 else
                 {
@@ -164,5 +165,14 @@
             });
       </script>
     <script src="js/menu.js"></script>
+    <script>
+      const snackbarIcon = document.querySelector('.snackbar-icon');
+      const snackbarContainer = document.querySelector('#snackbar-container');
+      function closeSnackbar() {
+         snackbarContainer.classList.contains('snackbar_show') 
+            ? snackbarContainer.classList.remove('snackbar_show') & snackbarContainer.classList.add('snackbar_hidden') 
+            : null;
+      }
+    </script>
   </body>
 </html>

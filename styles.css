@@ -752,11 +752,19 @@ div.contact-content form button:hover {
 }
 .snackbar_hidden {
   bottom: -250px;
+  transition: bottom 1000ms ease-in-out;
 }
 .snackbar_show {
   bottom: 0;
 }
-/* https://codepen.io/green_man_5/pen/NbqwPP */
+
+.snackbar-icon {
+  width: 36px;
+  position: absolute;
+  top: 8px;
+  right: 6px;
+  cursor: pointer;
+}
 
 /* TODO: 
 add data to json 
