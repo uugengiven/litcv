@@ -152,8 +152,8 @@
               }
               if (node.type === "Episode") {
                 title.textContent = node.type + " - " + node.title;
-                descriptionOne.textContent = node.prev;
-                descriptionTwo.textContent =  node.next;
+                descriptionOne.textContent = node.prev + " for " + node.title;
+                descriptionTwo.textContent =  node.next + " for " + node.title;
               }
                 const distance = 40;
                 const distRatio = 1 + distance/Math.hypot(node.x, node.y, node.z);
