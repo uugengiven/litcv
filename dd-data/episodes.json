@@ -4,49 +4,57 @@
       "id": "Darcy",
       "group": 10,
       "img": "Darcy_avatar.png",
-      "type": "Character"
+      "type": "Character",
+      "title": "Darcy"
     },
     {
       "id": "Carson",
       "group": 10,
       "img": "Carson_avatar.png",
-      "type": "Character"
+      "type": "Character",
+      "title": "Carson"
     },
     {
       "id": "FatherD",
       "group": 10,
       "img": "FatherD_avatar.png",
-      "type": "Character"
+      "type": "Character",
+      "title": "Father Daniel"
     },
     {
       "id": "Jamal",
       "group": 10,
       "img": "Jamal_avatar.png",
-      "type": "Character"
+      "type": "Character",
+      "title": "Jamal"
     },
     {
       "id": "Kiki",
       "group": 10,
       "img": "Kiki_avatar.png",
-      "type": "Character"
+      "type": "Character",
+      "title": "Kiki"
     },
     {
       "id": "Leaf",
       "group": 10,
       "img": "Leaf_avatar.png",
-      "type": "Character"
+      "type": "Character",
+      "title": "Leaf"
     },
     {
       "id": "Luna",
       "group": 10,
       "img": "Luna_avatar.png",
-      "type": "Character"
+      "type": "Character",
+      "title": "Luna"
     },
     {
       "id": "Trav",
       "group": 10,
       "img": "Trav_avatar.png",
-      "type": "Character"
+      "type": "Character",
+      "title": "Trav"
     },
     {
       "id": "DarcyCarson01",
