@@ -106,7 +106,7 @@
     </script>
     <script>
         const elem = document.getElementById('3d-graph');
-        const distance = 600;
+        // const distance = 700;
 
         const Graph = ForceGraph3D()
           (elem)
@@ -118,7 +118,7 @@
             .linkDirectionalParticleSpeed(d => d.value * 0.0025)
             .linkColor('linkColor')
             .linkCurvature(.125)
-            .cameraPosition({ z: distance })
+            // .cameraPosition({ z: distance })
             .nodeThreeObject(({ img, type }) => {
                 const imgTexture = new THREE.TextureLoader().load(`./images/episodes/${img}`);
                 const material = new THREE.SpriteMaterial({ map: imgTexture });
@@ -137,7 +137,7 @@
             })
             .onNodeHover(node => elem.style.cursor = node ? 'pointer' : null)
             .onNodeClick(node => {
-                clearInterval(rotate)
+                // clearInterval(rotate)
                 // Aim at node from outside it
                 const snackbar = document.getElementById('snackbar-container');
                 const title = document.getElementById("snackbar-title");
@@ -169,14 +169,14 @@
                 );
             });
              // camera orbit
-            let angle = 0;
-            let rotate = setInterval(() => {
-              Graph.cameraPosition({
-                x: distance * Math.sin(angle),
-                z: distance * Math.cos(angle)
-              });
-              angle += Math.PI / 3000;
-            }, 10);
+            // let angle = 0;
+            // let rotate = setInterval(() => {
+            //   Graph.cameraPosition({
+            //     x: distance * Math.sin(angle),
+            //     z: distance * Math.cos(angle)
+            //   });
+            //   angle += Math.PI / 3000;
+            // }, 10);
       </script>
     <script src="js/menu.js"></script>
     <script src="js/snackbarToggle.js"></script>
