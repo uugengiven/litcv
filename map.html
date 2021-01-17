@@ -106,16 +106,17 @@
     </script>
     <script>
         const elem = document.getElementById('3d-graph');
-        const distance = 700;
+        const distance = 600;
 
         const Graph = ForceGraph3D()
           (elem)
             .jsonUrl('./dd-data/episodes.json')
             .backgroundColor('#ffffff00')
             .nodeLabel('title')
-            .nodeAutoColorBy('group')
+            .nodeAutoColorBy('id')
             .linkDirectionalParticles("value")
             .linkDirectionalParticleSpeed(d => d.value * 0.0025)
+            .linkColor('linkColor')
             .linkCurvature(.125)
             .cameraPosition({ z: distance })
             .nodeThreeObject(({ img, type }) => {
