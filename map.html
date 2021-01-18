@@ -104,12 +104,14 @@
         particles();
       };
     </script> -->
+    
+    <script src="dd-data/episodes.js"></script>
     <script>
         const elem = document.getElementById('3d-graph');
 
         const Graph = ForceGraph3D()
           (elem)
-            .jsonUrl('./dd-data/episodes.json')
+            .graphData(data)
             .backgroundColor('#ffffff00')
             .nodeLabel('title')
             // .nodeAutoColorBy('id')
