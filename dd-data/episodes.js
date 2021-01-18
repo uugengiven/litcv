@@ -1,8 +1,11 @@
 const baseColor = "white";
-const followColor = "red";
+const path1color = "blue";
+const path2color = "green";
+const path3color = "red";
 const baseCurve = 0;
 const charWidth = 0;
 const baseWidth = 0;
+const baseParticles = 2;
 
 
 const data = {
@@ -740,354 +743,44 @@ const data = {
       "width": charWidth
     },
     {
-      "source": "DarcyCarson01",
-      "target": "DarcyCarson02",
-      "linkColor": followColor,
-      "linkCurvature": baseCurve,
-      "width": baseWidth
-    },
-    {
-      "source": "DarcyCarson02",
-      "target": "DarcyCarson03",
-      "linkColor": followColor,
-      "linkCurvature": baseCurve,
-      "width": baseWidth
-    },
-    {
-      "source": "TravLuna01",
-      "target": "TravLuna02",
-      "linkColor": followColor,
-      "linkCurvature": baseCurve,
-      "width": baseWidth
-    },
-    {
       "source": "TravLuna01",
       "target": "LunaKiki01",
-      "linkColor": followColor,
+      "linkColor": path3color,
       "linkCurvature": baseCurve,
-      "width": baseWidth
+      "width": baseWidth,
+      "value": baseParticles
+    },    
+    {
+      "source": "LunaKiki01",
+      "target": "TravLuna02",
+      "linkColor": path3color,
+      "linkCurvature": baseCurve,
+      "width": baseWidth,
+      "value": baseParticles
     },
     {
       "source": "TravLuna02",
       "target": "TravLuna03",
-      "linkColor": followColor,
+      "linkColor": path3color,
       "linkCurvature": baseCurve,
-      "width": baseWidth
-    },
-    {
-      "source": "TravLuna02",
-      "target": "LunaKiki01",
-      "linkColor": followColor,
-      "linkCurvature": baseCurve,
-      "width": baseWidth
-    },
-    {
-      "source": "TravLuna03",
-      "target": "TravLuna04",
-      "linkColor": followColor,
-      "linkCurvature": baseCurve,
-      "width": baseWidth
+      "width": baseWidth,
+      "value": baseParticles
     },
     {
       "source": "TravLuna03",
       "target": "TravFatherD01",
-      "linkColor": followColor,
+      "linkColor": path3color,
       "linkCurvature": baseCurve,
-      "width": baseWidth
-    },
-    {
-      "source": "TravLuna03",
-      "target": "DarcyCarson01",
-      "linkColor": followColor,
-      "linkCurvature": baseCurve,
-      "width": baseWidth
-    },
-    {
-      "source": "TravLuna04",
-      "target": "LunaKiki02",
-      "linkColor": followColor,
-      "linkCurvature": baseCurve,
-      "width": baseWidth
-    },
-    {
-      "source": "TravLuna04",
-      "target": "TravLuna05",
-      "linkColor": followColor,
-      "linkCurvature": baseCurve,
-      "width": baseWidth
-    },
-    {
-      "source": "TravLuna04",
-      "target": "LunaKiki01",
-      "linkColor": followColor,
-      "linkCurvature": baseCurve,
-      "width": baseWidth
-    },
-    {
-      "source": "TravLuna04",
-      "target": "TravCarson01",
-      "linkColor": followColor,
-      "linkCurvature": baseCurve,
-      "width": baseWidth
-    },
-    {
-      "source": "TravLuna05",
-      "target": "TravLuna06",
-      "linkColor": followColor,
-      "linkCurvature": baseCurve,
-      "width": baseWidth
-    },
-    {
-      "source": "TravLuna05",
-      "target": "LunaKiki03",
-      "linkColor": followColor,
-      "linkCurvature": baseCurve,
-      "width": baseWidth
-    },
-    {
-      "source": "TravLuna05",
-      "target": "TravFatherD02",
-      "linkColor": followColor,
-      "linkCurvature": baseCurve,
-      "width": baseWidth
-    },
-    {
-      "source": "TravLuna05",
-      "target": "TravFatherD01",
-      "linkColor": followColor,
-      "linkCurvature": baseCurve,
-      "width": baseWidth
-    },
-    {
-      "source": "TravLuna06",
-      "target": "TravCarson02",
-      "linkColor": followColor,
-      "linkCurvature": baseCurve,
-      "width": baseWidth
-    },
-    {
-      "source": "TravLuna06",
-      "target": "TravLuna07",
-      "linkColor": followColor,
-      "linkCurvature": baseCurve,
-      "width": baseWidth
-    },
-    {
-      "source": "LunaKiki01",
-      "target": "LunaKiki02",
-      "linkColor": followColor,
-      "linkCurvature": baseCurve,
-      "width": baseWidth
-    },
-    {
-      "source": "LunaKiki01",
-      "target": "KikiLeaf01",
-      "linkColor": followColor,
-      "linkCurvature": baseCurve,
-      "width": baseWidth
-    },
-    {
-      "source": "LunaKiki02",
-      "target": "LunaKiki03",
-      "linkColor": followColor,
-      "linkCurvature": baseCurve,
-      "width": baseWidth
-    },
-    {
-      "source": "LunaKiki02",
-      "target": "KikiLeaf02",
-      "linkColor": followColor,
-      "linkCurvature": baseCurve,
-      "width": baseWidth
-    },
-    {
-      "source": "LunaKiki03",
-      "target": "LunaKiki05",
-      "linkColor": followColor,
-      "linkCurvature": baseCurve,
-      "width": baseWidth
-    },
-    {
-      "source": "LunaKiki03",
-      "target": "KikiLeaf02",
-      "linkColor": followColor,
-      "linkCurvature": baseCurve,
-      "width": baseWidth
-    },
-    {
-      "source": "LunaKiki04",
-      "target": "LunaKiki05",
-      "linkColor": followColor,
-      "linkCurvature": baseCurve,
-      "width": baseWidth
-    },
-    {
-      "source": "LunaKiki05",
-      "target": "LunaKiki06",
-      "linkColor": followColor,
-      "linkCurvature": baseCurve,
-      "width": baseWidth
-    },
-    {
-      "source": "LunaKiki04",
-      "target": "TravLuna05",
-      "linkColor": followColor,
-      "linkCurvature": baseCurve,
-      "width": baseWidth
-    },
-    {
-      "source": "LunaKiki05",
-      "target": "TravLuna06",
-      "linkColor": followColor,
-      "linkCurvature": baseCurve,
-      "width": baseWidth
-    },
-    {
-      "source": "LunaKiki06",
-      "target": "TravLuna07",
-      "linkColor": followColor,
-      "linkCurvature": baseCurve,
-      "width": baseWidth
-    },
-    {
-      "source": "LunaKiki04",
-      "target": "KikiLeaf03",
-      "linkColor": followColor,
-      "linkCurvature": baseCurve,
-      "width": baseWidth
-    },
-    {
-      "source": "LunaKiki04",
-      "target": "KikiLeaf03",
-      "linkColor": followColor,
-      "linkCurvature": baseCurve,
-      "width": baseWidth
-    },
-    {
-      "source": "LunaKiki03",
-      "target": "LunaLeaf01",
-      "linkColor": followColor,
-      "linkCurvature": baseCurve,
-      "width": baseWidth
-    },
-    {
-      "source": "LunaKiki05",
-      "target": "LunaLeaf02",
-      "linkColor": followColor,
-      "linkCurvature": baseCurve,
-      "width": baseWidth
-    },
-    {
-      "source": "LunaKiki06",
-      "target": "LunaLeaf02",
-      "linkColor": followColor,
-      "linkCurvature": baseCurve,
-      "width": baseWidth
-    },
-    {
-      "source": "KikiLeaf01",
-      "target": "KikiLeaf02",
-      "linkColor": followColor,
-      "linkCurvature": baseCurve,
-      "width": baseWidth
-    },
-    {
-      "source": "KikiLeaf02",
-      "target": "KikiLeaf03",
-      "linkColor": followColor,
-      "linkCurvature": baseCurve,
-      "width": baseWidth
-    },
-    {
-      "source": "LunaLeaf01",
-      "target": "LunaLeaf02",
-      "linkColor": followColor,
-      "linkCurvature": baseCurve,
-      "width": baseWidth
+      "width": baseWidth,
+      "value": baseParticles
     },
     {
       "source": "TravFatherD01",
-      "target": "TravFatherD02",
-      "linkColor": followColor,
+      "target": "DarcyCarson01",
+      "linkColor": path3color,
       "linkCurvature": baseCurve,
-      "width": baseWidth
-    },
-    {
-      "source": "TravFatherD02",
-      "target": "TravCarson02",
-      "linkColor": followColor,
-      "linkCurvature": baseCurve,
-      "width": baseWidth
-    },
-    {
-      "source": "DarcyCarson01",
-      "target": "DarcyCarson02",
-      "linkColor": followColor,
-      "linkCurvature": baseCurve,
-      "width": baseWidth
-    },
-    {
-      "source": "DarcyCarson02",
-      "target": "DarcyCarson03",
-      "linkColor": followColor,
-      "linkCurvature": baseCurve,
-      "width": baseWidth
-    },
-    {
-      "source": "DarcyCarson01",
-      "target": "DarcyJamal01",
-      "linkColor": followColor,
-      "linkCurvature": baseCurve,
-      "width": baseWidth
-    },
-    {
-      "source": "DarcyCarson02",
-      "target": "DarcyJamal03",
-      "linkColor": followColor,
-      "linkCurvature": baseCurve,
-      "width": baseWidth
-    },
-    {
-      "source": "DarcyCarson03",
-      "target": "TravCarson02",
-      "linkColor": followColor,
-      "linkCurvature": baseCurve,
-      "width": baseWidth
-    },
-    {
-      "source": "DarcyCarson02",
-      "target": "DarcyFatherD01",
-      "linkColor": followColor,
-      "linkCurvature": baseCurve,
-      "width": baseWidth
-    },
-    {
-      "source": "DarcyFatherD01",
-      "target": "TravFatherD02",
-      "linkColor": followColor,
-      "linkCurvature": baseCurve,
-      "width": baseWidth
-    },
-    {
-      "source": "DarcyJamal01",
-      "target": "DarcyJamal02",
-      "linkColor": followColor,
-      "linkCurvature": baseCurve,
-      "width": baseWidth
-    },
-    {
-      "source": "DarcyJamal02",
-      "target": "DarcyJamal03",
-      "linkColor": followColor,
-      "linkCurvature": baseCurve,
-      "width": baseWidth
-    },
-    {
-      "source": "TravCarson01",
-      "target": "TravCarson02",
-      "linkColor": followColor,
-      "linkCurvature": baseCurve,
-      "width": baseWidth
+      "width": baseWidth,
+      "value": baseParticles
     }
   ]
 }
