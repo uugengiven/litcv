@@ -99,11 +99,11 @@
       <a href="intro.html">Intro 2</a>
     </footer> -->
 
-    <script>
+    <!-- <script>
       const init = () => {
         particles();
       };
-    </script>
+    </script> -->
     <script>
         const elem = document.getElementById('3d-graph');
 
@@ -112,11 +112,12 @@
             .jsonUrl('./dd-data/episodes.json')
             .backgroundColor('#ffffff00')
             .nodeLabel('title')
-            .nodeAutoColorBy('id')
-            .linkDirectionalParticles("value")
-            .linkDirectionalParticleSpeed(d => d.value * 0.0025)
+            // .nodeAutoColorBy('id')
+            // .linkDirectionalParticles("value")
+            // .linkDirectionalParticleSpeed(d => d.value * 0.005)
             .linkColor('linkColor')
-            .linkCurvature(.125)
+            .linkCurvature("linkCurvature")
+            .linkWidth("width")
             .nodeThreeObject(({ img, type }) => {
                 const imgTexture = new THREE.TextureLoader().load(`./images/episodes/${img}`);
                 const material = new THREE.SpriteMaterial({ map: imgTexture });

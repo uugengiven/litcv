@@ -2,56 +2,56 @@
   "nodes": [
     {
       "id": "Darcy",
-      "group": 10,
+      "group": 1,
       "img": "Darcy_avatar.png",
       "type": "Character",
       "title": "Darcy"
     },
     {
       "id": "Carson",
-      "group": 10,
+      "group": 2,
       "img": "Carson_avatar.png",
       "type": "Character",
       "title": "Carson"
     },
     {
       "id": "FatherD",
-      "group": 10,
+      "group": 3,
       "img": "FatherD_avatar.png",
       "type": "Character",
       "title": "Father Daniel"
     },
     {
       "id": "Jamal",
-      "group": 10,
+      "group": 4,
       "img": "Jamal_avatar.png",
       "type": "Character",
       "title": "Jamal"
     },
     {
       "id": "Kiki",
-      "group": 10,
+      "group": 5,
       "img": "Kiki_avatar.png",
       "type": "Character",
       "title": "Kiki"
     },
     {
       "id": "Leaf",
-      "group": 10,
+      "group": 6,
       "img": "Leaf_avatar.png",
       "type": "Character",
       "title": "Leaf"
     },
     {
       "id": "Luna",
-      "group": 10,
+      "group": 7,
       "img": "Luna_avatar.png",
       "type": "Character",
       "title": "Luna"
     },
     {
       "id": "Trav",
-      "group": 10,
+      "group": 8,
       "img": "Trav_avatar.png",
       "type": "Character",
       "title": "Trav"
@@ -322,368 +322,765 @@
     {
       "source": "Darcy",
       "target": "DarcyCarson01",
-      "value": 1,
-      "linkColor": "goldenrod"
+      "linkColor": "orange",
+      "linkCurvature": 0.25,
+      "width": 0.5
     },
     {
       "source": "Darcy",
       "target": "DarcyCarson02",
-      "value": 1,
-      "linkColor": "goldenrod"
+      "linkColor": "orange",
+      "linkCurvature": 0.25,
+      "width": 0.5
     },
     {
       "source": "Darcy",
       "target": "DarcyCarson03",
-      "value": 1,
-      "linkColor": "goldenrod"
+      "linkColor": "orange",
+      "linkCurvature": 0.25,
+      "width": 0.5
     },
     {
       "source": "Darcy",
       "target": "DarcyFatherD01",
-      "value": 1,
-      "linkColor": "goldenrod"
+      "linkColor": "orange",
+      "linkCurvature": 0.25,
+      "width": 0.5
     },
     {
       "source": "Darcy",
       "target": "DarcyJamal01",
-      "value": 1,
-      "linkColor": "goldenrod"
+      "linkColor": "orange",
+      "linkCurvature": 0.25,
+      "width": 0.5
     },
     {
       "source": "Darcy",
       "target": "DarcyJamal02",
-      "value": 1,
-      "linkColor": "goldenrod"
+      "linkColor": "orange",
+      "linkCurvature": 0.25,
+      "width": 0.5
     },
     {
       "source": "Darcy",
       "target": "DarcyJamal03",
-      "value": 1,
-      "linkColor": "goldenrod"
+      "linkColor": "orange",
+      "linkCurvature": 0.25,
+      "width": 0.5
     },
     {
       "source": "Carson",
       "target": "DarcyCarson01",
-      "value": 1,
-      "linkColor": "goldenrod"
+      "linkColor": "chocolate",
+      "linkCurvature": 0.25,
+      "width": 0.5
     },
     {
       "source": "Carson",
       "target": "DarcyCarson02",
-      "value": 1,
-      "linkColor": "goldenrod"
+      "linkColor": "chocolate",
+      "linkCurvature": 0.25,
+      "width": 0.5
     },
     {
       "source": "Carson",
       "target": "DarcyCarson03",
-      "value": 1,
-      "linkColor": "goldenrod"
+      "linkColor": "chocolate",
+      "linkCurvature": 0.25,
+      "width": 0.5
     },
     {
       "source": "Carson",
       "target": "DarcyCarson03",
-      "value": 1,
-      "linkColor": "goldenrod"
+      "linkColor": "chocolate",
+      "linkCurvature": 0.25,
+      "width": 0.5
     },
     {
       "source": "Carson",
       "target": "TravCarson01",
-      "value": 1,
-      "linkColor": "goldenrod"
+      "linkColor": "chocolate",
+      "linkCurvature": 0.25,
+      "width": 0.5
     },
     {
       "source": "Carson",
       "target": "TravCarson02",
-      "value": 1,
-      "linkColor": "goldenrod"
+      "linkColor": "chocolate",
+      "linkCurvature": 0.25,
+      "width": 0.5
     },
     {
       "source": "FatherD",
       "target": "DarcyFatherD01",
-      "value": 1,
-      "linkColor": "goldenrod"
+      "linkColor": "olivedrab",
+      "linkCurvature": 0.25,
+      "width": 0.5
     },
     {
       "source": "FatherD",
       "target": "TravFatherD01",
-      "value": 1,
-      "linkColor": "goldenrod"
+      "linkColor": "olivedrab",
+      "linkCurvature": 0.25,
+      "width": 0.5
     },
     {
       "source": "FatherD",
       "target": "TravFatherD02",
-      "value": 1,
-      "linkColor": "goldenrod"
+      "linkColor": "olivedrab",
+      "linkCurvature": 0.25,
+      "width": 0.5
     },
     {
       "source": "Jamal",
       "target": "DarcyJamal01",
-      "value": 1,
-      "linkColor": "goldenrod"
+      "linkColor": "dodgerblue",
+      "linkCurvature": 0.25,
+      "width": 0.5
     },
     {
       "source": "Jamal",
       "target": "DarcyJamal02",
-      "value": 1,
-      "linkColor": "goldenrod"
+      "linkColor": "dodgerblue",
+      "linkCurvature": 0.25,
+      "width": 0.5
     },
     {
       "source": "Jamal",
       "target": "DarcyJamal03",
-      "value": 1,
-      "linkColor": "goldenrod"
+      "linkColor": "dodgerblue",
+      "linkCurvature": 0.25,
+      "width": 0.5
     },
     {
       "source": "Kiki",
       "target": "KikiLeaf01",
-      "value": 1,
-      "linkColor": "goldenrod"
+      "linkColor": "chartreuse",
+      "linkCurvature": 0.25,
+      "width": 0.5
     },
     {
       "source": "Kiki",
       "target": "KikiLeaf02",
-      "value": 1,
-      "linkColor": "goldenrod"
+      "linkColor": "chartreuse",
+      "linkCurvature": 0.25,
+      "width": 0.5
     },
     {
       "source": "Kiki",
       "target": "KikiLeaf03",
-      "value": 1,
-      "linkColor": "goldenrod"
+      "linkColor": "chartreuse",
+      "linkCurvature": 0.25,
+      "width": 0.5
     },
     {
       "source": "Kiki",
       "target": "LunaKiki01",
-      "value": 1,
-      "linkColor": "goldenrod"
+      "linkColor": "chartreuse",
+      "linkCurvature": 0.25,
+      "width": 0.5
     },
     {
       "source": "Kiki",
       "target": "LunaKiki02",
-      "value": 1,
-      "linkColor": "goldenrod"
+      "linkColor": "chartreuse",
+      "linkCurvature": 0.25,
+      "width": 0.5
     },
     {
       "source": "Kiki",
       "target": "LunaKiki03",
-      "value": 1,
-      "linkColor": "goldenrod"
+      "linkColor": "chartreuse",
+      "linkCurvature": 0.25,
+      "width": 0.5
     },
     {
       "source": "Kiki",
       "target": "LunaKiki04",
-      "value": 1,
-      "linkColor": "goldenrod"
+      "linkColor": "chartreuse",
+      "linkCurvature": 0.25,
+      "width": 0.5
     },
     {
       "source": "Kiki",
       "target": "LunaKiki05",
-      "value": 1,
-      "linkColor": "goldenrod"
+      "linkColor": "chartreuse",
+      "linkCurvature": 0.25,
+      "width": 0.5
     },
     {
       "source": "Kiki",
       "target": "LunaKiki06",
-      "value": 1,
-      "linkColor": "goldenrod"
+      "linkColor": "chartreuse",
+      "linkCurvature": 0.25,
+      "width": 0.5
     },
     {
       "source": "Leaf",
       "target": "KikiLeaf01",
-      "value": 1,
-      "linkColor": "goldenrod"
+      "linkColor": "moccasion",
+      "linkCurvature": 0.25,
+      "width": 0.5
     },
     {
       "source": "Leaf",
       "target": "KikiLeaf02",
-      "value": 1,
-      "linkColor": "goldenrod"
+      "linkColor": "moccasion",
+      "linkCurvature": 0.25,
+      "width": 0.5
     },
     {
       "source": "Leaf",
       "target": "KikiLeaf03",
-      "value": 1,
-      "linkColor": "goldenrod"
+      "linkColor": "moccasion",
+      "linkCurvature": 0.25,
+      "width": 0.5
     },
     {
       "source": "Leaf",
       "target": "LunaLeaf01",
-      "value": 1,
-      "linkColor": "goldenrod"
+      "linkColor": "moccasion",
+      "linkCurvature": 0.25,
+      "width": 0.5
     },
     {
       "source": "Leaf",
       "target": "LunaLeaf02",
-      "value": 1,
-      "linkColor": "goldenrod"
+      "linkColor": "moccasion",
+      "linkCurvature": 0.25,
+      "width": 0.5
     },
     {
       "source": "Luna",
       "target": "LunaKiki01",
-      "value": 1,
-      "linkColor": "goldenrod"
+      "linkColor": "orangered",
+      "linkCurvature": 0.25,
+      "width": 0.5
     },
     {
       "source": "Luna",
       "target": "LunaKiki02",
-      "value": 1,
-      "linkColor": "goldenrod"
+      "linkColor": "orangered",
+      "linkCurvature": 0.25,
+      "width": 0.5
     },
     {
       "source": "Luna",
       "target": "LunaKiki03",
-      "value": 1,
-      "linkColor": "goldenrod"
+      "linkColor": "orangered",
+      "linkCurvature": 0.25,
+      "width": 0.5
     },
     {
       "source": "Luna",
       "target": "LunaKiki04",
-      "value": 1,
-      "linkColor": "goldenrod"
+      "linkColor": "orangered",
+      "linkCurvature": 0.25,
+      "width": 0.5
     },
     {
       "source": "Luna",
       "target": "LunaKiki05",
-      "value": 1,
-      "linkColor": "goldenrod"
+      "linkColor": "orangered",
+      "linkCurvature": 0.25,
+      "width": 0.5
     },
     {
       "source": "Luna",
       "target": "LunaKiki06",
-      "value": 1,
-      "linkColor": "goldenrod"
+      "linkColor": "orangered",
+      "linkCurvature": 0.25,
+      "width": 0.5
     },
     {
       "source": "Luna",
       "target": "LunaLeaf01",
-      "value": 1,
-      "linkColor": "goldenrod"
+      "linkColor": "orangered",
+      "linkCurvature": 0.25,
+      "width": 0.5
     },
     {
       "source": "Luna",
       "target": "LunaLeaf02",
-      "value": 1,
-      "linkColor": "goldenrod"
+      "linkColor": "orangered",
+      "linkCurvature": 0.25,
+      "width": 0.5
     },
     {
       "source": "Luna",
       "target": "TravLuna01",
-      "value": 1,
-      "linkColor": "goldenrod"
+      "linkColor": "orangered",
+      "linkCurvature": 0.25,
+      "width": 0.5
     },
     {
       "source": "Luna",
       "target": "TravLuna02",
-      "value": 1,
-      "linkColor": "goldenrod"
+      "linkColor": "orangered",
+      "linkCurvature": 0.25,
+      "width": 0.5
     },
     {
       "source": "Luna",
       "target": "TravLuna03",
-      "value": 1,
-      "linkColor": "goldenrod"
+      "linkColor": "orangered",
+      "linkCurvature": 0.25,
+      "width": 0.5
     },
     {
       "source": "Luna",
       "target": "TravLuna04",
-      "value": 1,
-      "linkColor": "goldenrod"
+      "linkColor": "orangered",
+      "linkCurvature": 0.25,
+      "width": 0.5
     },
     {
       "source": "Luna",
       "target": "TravLuna05",
-      "value": 1,
-      "linkColor": "goldenrod"
+      "linkColor": "orangered",
+      "linkCurvature": 0.25,
+      "width": 0.5
     },
     {
       "source": "Luna",
       "target": "TravLuna06",
-      "value": 1,
-      "linkColor": "goldenrod"
+      "linkColor": "orangered",
+      "linkCurvature": 0.25,
+      "width": 0.5
     },
     {
       "source": "Luna",
       "target": "TravLuna07",
-      "value": 1,
-      "linkColor": "goldenrod"
+      "linkColor": "orangered",
+      "linkCurvature": 0.25,
+      "width": 0.5
     },
     {
       "source": "Trav",
       "target": "TravCarson01",
-      "value": 1,
-      "linkColor": "goldenrod"
+      "linkColor": "mediumvioletred",
+      "linkCurvature": 0.25,
+      "width": 0.5
     },
     {
       "source": "Trav",
       "target": "TravCarson02",
-      "value": 1,
-      "linkColor": "goldenrod"
+      "linkColor": "mediumvioletred",
+      "linkCurvature": 0.25,
+      "width": 0.5
     },
     {
       "source": "Trav",
       "target": "TravFatherD01",
-      "value": 1,
-      "linkColor": "goldenrod"
+      "linkColor": "mediumvioletred",
+      "linkCurvature": 0.25,
+      "width": 0.5
     },
     {
       "source": "Trav",
       "target": "TravFatherD02",
-      "value": 1,
-      "linkColor": "goldenrod"
+      "linkColor": "mediumvioletred",
+      "linkCurvature": 0.25,
+      "width": 0.5
     },
     {
       "source": "Trav",
       "target": "TravLuna01",
-      "value": 1,
-      "linkColor": "goldenrod"
+      "linkColor": "mediumvioletred",
+      "linkCurvature": 0.25,
+      "width": 0.5
     },
     {
       "source": "Trav",
       "target": "TravLuna02",
-      "value": 1,
-      "linkColor": "goldenrod"
+      "linkColor": "mediumvioletred",
+      "linkCurvature": 0.25,
+      "width": 0.5
     },
     {
       "source": "Trav",
       "target": "TravLuna03",
-      "value": 1,
-      "linkColor": "goldenrod"
+      "linkColor": "mediumvioletred",
+      "linkCurvature": 0.25,
+      "width": 0.5
     },
     {
       "source": "Trav",
       "target": "TravLuna04",
-      "value": 1,
-      "linkColor": "goldenrod"
+      "linkColor": "mediumvioletred",
+      "linkCurvature": 0.25,
+      "width": 0.5
     },
     {
       "source": "Trav",
       "target": "TravLuna05",
-      "value": 1,
-      "linkColor": "goldenrod"
+      "linkColor": "mediumvioletred",
+      "linkCurvature": 0.25,
+      "width": 0.5
     },
     {
       "source": "Trav",
       "target": "TravLuna06",
-      "value": 1,
-      "linkColor": "goldenrod"
+      "linkColor": "mediumvioletred",
+      "linkCurvature": 0.25,
+      "width": 0.5
     },
     {
       "source": "Trav",
       "target": "TravLuna07",
-      "value": 1,
-      "linkColor": "goldenrod"
+      "linkColor": "mediumvioletred",
+      "linkCurvature": 0.25,
+      "width": 0.5
     },
     {
       "source": "DarcyCarson01",
       "target": "DarcyCarson02",
-      "value": 1,
-      "linkColor": "goldenrod"
+      "linkColor": "white",
+      "linkCurvature": 0,
+      "width": 0
     },
     {
       "source": "DarcyCarson02",
       "target": "DarcyCarson03",
-      "value": 1,
-      "linkColor": "goldenrod"
+      "linkColor": "white",
+      "linkCurvature": 0,
+      "width": 0
+    },
+    {
+      "source": "TravLuna01",
+      "target": "TravLuna02",
+      "linkColor": "white",
+      "linkCurvature": 0,
+      "width": 0
+    },
+    {
+      "source": "TravLuna01",
+      "target": "LunaKiki01",
+      "linkColor": "white",
+      "linkCurvature": 0,
+      "width": 0
+    },
+    {
+      "source": "TravLuna02",
+      "target": "TravLuna03",
+      "linkColor": "white",
+      "linkCurvature": 0,
+      "width": 0
+    },
+    {
+      "source": "TravLuna02",
+      "target": "LunaKiki01",
+      "linkColor": "white",
+      "linkCurvature": 0,
+      "width": 0
+    },
+    {
+      "source": "TravLuna03",
+      "target": "TravLuna04",
+      "linkColor": "white",
+      "linkCurvature": 0,
+      "width": 0
+    },
+    {
+      "source": "TravLuna03",
+      "target": "TravFatherD01",
+      "linkColor": "white",
+      "linkCurvature": 0,
+      "width": 0
+    },
+    {
+      "source": "TravLuna03",
+      "target": "DarcyCarson01",
+      "linkColor": "white",
+      "linkCurvature": 0,
+      "width": 0
+    },
+    {
+      "source": "TravLuna04",
+      "target": "LunaKiki02",
+      "linkColor": "white",
+      "linkCurvature": 0,
+      "width": 0
+    },
+    {
+      "source": "TravLuna04",
+      "target": "TravLuna05",
+      "linkColor": "white",
+      "linkCurvature": 0,
+      "width": 0
+    },
+    {
+      "source": "TravLuna04",
+      "target": "LunaKiki01",
+      "linkColor": "white",
+      "linkCurvature": 0,
+      "width": 0
+    },
+    {
+      "source": "TravLuna04",
+      "target": "TravCarson01",
+      "linkColor": "white",
+      "linkCurvature": 0,
+      "width": 0
+    },
+    {
+      "source": "TravLuna05",
+      "target": "TravLuna06",
+      "linkColor": "white",
+      "linkCurvature": 0,
+      "width": 0
+    },
+    {
+      "source": "TravLuna05",
+      "target": "LunaKiki03",
+      "linkColor": "white",
+      "linkCurvature": 0,
+      "width": 0
+    },
+    {
+      "source": "TravLuna05",
+      "target": "TravFatherD02",
+      "linkColor": "white",
+      "linkCurvature": 0,
+      "width": 0
+    },
+    {
+      "source": "TravLuna05",
+      "target": "TravFatherD01",
+      "linkColor": "white",
+      "linkCurvature": 0,
+      "width": 0
+    },
+    {
+      "source": "TravLuna06",
+      "target": "TravCarson02",
+      "linkColor": "white",
+      "linkCurvature": 0,
+      "width": 0
+    },
+    {
+      "source": "TravLuna06",
+      "target": "TravLuna07",
+      "linkColor": "white",
+      "linkCurvature": 0,
+      "width": 0
+    },
+    {
+      "source": "LunaKiki01",
+      "target": "LunaKiki02",
+      "linkColor": "white",
+      "linkCurvature": 0,
+      "width": 0
+    },
+    {
+      "source": "LunaKiki01",
+      "target": "KikiLeaf01",
+      "linkColor": "white",
+      "linkCurvature": 0,
+      "width": 0
+    },
+    {
+      "source": "LunaKiki02",
+      "target": "LunaKiki03",
+      "linkColor": "white",
+      "linkCurvature": 0,
+      "width": 0
+    },
+    {
+      "source": "LunaKiki02",
+      "target": "KikiLeaf02",
+      "linkColor": "white",
+      "linkCurvature": 0,
+      "width": 0
+    },
+    {
+      "source": "LunaKiki03",
+      "target": "LunaKiki05",
+      "linkColor": "white",
+      "linkCurvature": 0,
+      "width": 0
+    },
+    {
+      "source": "LunaKiki03",
+      "target": "KikiLeaf02",
+      "linkColor": "white",
+      "linkCurvature": 0,
+      "width": 0
+    },
+    {
+      "source": "LunaKiki04",
+      "target": "LunaKiki05",
+      "linkColor": "white",
+      "linkCurvature": 0,
+      "width": 0
+    },
+    {
+      "source": "LunaKiki05",
+      "target": "LunaKiki06",
+      "linkColor": "white",
+      "linkCurvature": 0,
+      "width": 0
+    },
+    {
+      "source": "LunaKiki04",
+      "target": "TravLuna05",
+      "linkColor": "white",
+      "linkCurvature": 0,
+      "width": 0
+    },
+    {
+      "source": "LunaKiki05",
+      "target": "TravLuna06",
+      "linkColor": "white",
+      "linkCurvature": 0,
+      "width": 0
+    },
+    {
+      "source": "LunaKiki06",
+      "target": "TravLuna07",
+      "linkColor": "white",
+      "linkCurvature": 0,
+      "width": 0
+    },
+    {
+      "source": "LunaKiki04",
+      "target": "KikiLeaf03",
+      "linkColor": "white",
+      "linkCurvature": 0,
+      "width": 0
+    },
+    {
+      "source": "LunaKiki04",
+      "target": "KikiLeaf03",
+      "linkColor": "white",
+      "linkCurvature": 0,
+      "width": 0
+    },
+    {
+      "source": "LunaKiki03",
+      "target": "LunaLeaf01",
+      "linkColor": "white",
+      "linkCurvature": 0,
+      "width": 0
+    },
+    {
+      "source": "LunaKiki05",
+      "target": "LunaLeaf02",
+      "linkColor": "white",
+      "linkCurvature": 0,
+      "width": 0
+    },
+    {
+      "source": "LunaKiki06",
+      "target": "LunaLeaf02",
+      "linkColor": "white",
+      "linkCurvature": 0,
+      "width": 0
+    },
+    {
+      "source": "KikiLeaf01",
+      "target": "KikiLeaf02",
+      "linkColor": "white",
+      "linkCurvature": 0,
+      "width": 0
+    },
+    {
+      "source": "KikiLeaf02",
+      "target": "KikiLeaf03",
+      "linkColor": "white",
+      "linkCurvature": 0,
+      "width": 0
+    },
+    {
+      "source": "LunaLeaf01",
+      "target": "LunaLeaf02",
+      "linkColor": "white",
+      "linkCurvature": 0,
+      "width": 0
+    },
+    {
+      "source": "TravFatherD01",
+      "target": "TravFatherD02",
+      "linkColor": "white",
+      "linkCurvature": 0,
+      "width": 0
+    },
+    {
+      "source": "TravFatherD02",
+      "target": "TravCarson02",
+      "linkColor": "white",
+      "linkCurvature": 0,
+      "width": 0
+    },
+    {
+      "source": "DarcyCarson01",
+      "target": "DarcyCarson02",
+      "linkColor": "white",
+      "linkCurvature": 0,
+      "width": 0
+    },
+    {
+      "source": "DarcyCarson02",
+      "target": "DarcyCarson03",
+      "linkColor": "white",
+      "linkCurvature": 0,
+      "width": 0
+    },
+    {
+      "source": "DarcyCarson01",
+      "target": "DarcyJamal01",
+      "linkColor": "white",
+      "linkCurvature": 0,
+      "width": 0
+    },
+    {
+      "source": "DarcyCarson02",
+      "target": "DarcyJamal03",
+      "linkColor": "white",
+      "linkCurvature": 0,
+      "width": 0
+    },
+    {
+      "source": "DarcyCarson03",
+      "target": "TravCarson02",
+      "linkColor": "white",
+      "linkCurvature": 0,
+      "width": 0
+    },
+    {
+      "source": "DarcyCarson02",
+      "target": "DarcyFatherD01",
+      "linkColor": "white",
+      "linkCurvature": 0,
+      "width": 0
+    },
+    {
+      "source": "DarcyFatherD01",
+      "target": "TravFatherD02",
+      "linkColor": "white",
+      "linkCurvature": 0,
+      "width": 0
+    },
+    {
+      "source": "DarcyJamal01",
+      "target": "DarcyJamal02",
+      "linkColor": "white",
+      "linkCurvature": 0,
+      "width": 0
+    },
+    {
+      "source": "DarcyJamal02",
+      "target": "DarcyJamal03",
+      "linkColor": "white",
+      "linkCurvature": 0,
+      "width": 0
+    },
+    {
+      "source": "TravCarson01",
+      "target": "TravCarson02",
+      "linkColor": "white",
+      "linkCurvature": 0,
+      "width": 0
     }
   ]
 }
