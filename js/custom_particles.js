@@ -44,9 +44,7 @@ const particles = () => {
       },
       line_linked: {
         enable: true,
-        // use 150 for pages without 3D animation
-        // distance: 150,
-        distance: 50,
+        distance: 150,
         // color: '#945050',
         // color: '#783434',
         color: '#ccc',

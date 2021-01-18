@@ -106,7 +106,6 @@
     </script>
     <script>
         const elem = document.getElementById('3d-graph');
-        // const distance = 700;
 
         const Graph = ForceGraph3D()
           (elem)
@@ -118,7 +117,6 @@
             .linkDirectionalParticleSpeed(d => d.value * 0.0025)
             .linkColor('linkColor')
             .linkCurvature(.125)
-            // .cameraPosition({ z: distance })
             .nodeThreeObject(({ img, type }) => {
                 const imgTexture = new THREE.TextureLoader().load(`./images/episodes/${img}`);
                 const material = new THREE.SpriteMaterial({ map: imgTexture });
@@ -137,7 +135,6 @@
             })
             .onNodeHover(node => elem.style.cursor = node ? 'pointer' : null)
             .onNodeClick(node => {
-                // clearInterval(rotate)
                 // Aim at node from outside it
                 const snackbar = document.getElementById('snackbar-container');
                 const title = document.getElementById("snackbar-title");
@@ -151,7 +148,7 @@
               // conditional for character versus episode
               // because there might be different properties for characters/episodes
               if(node.type === "Character") {
-                title.textContent = node.type + " - " + node.id;
+                title.textContent = node.type + " - " + node.title;
                 descriptionOne.textContent = "Group " + node.group;
                 descriptionTwo.textContent = "Type " + node.type;
               }
@@ -168,15 +165,6 @@
                     2000  // ms transition duration
                 );
             });
-             // camera orbit
-            // let angle = 0;
-            // let rotate = setInterval(() => {
-            //   Graph.cameraPosition({
-            //     x: distance * Math.sin(angle),
-            //     z: distance * Math.cos(angle)
-            //   });
-            //   angle += Math.PI / 3000;
-            // }, 10);
       </script>
     <script src="js/menu.js"></script>
     <script src="js/snackbarToggle.js"></script>
