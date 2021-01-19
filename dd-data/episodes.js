@@ -746,7 +746,7 @@ const data = {
       width: charWidth
     },
     // path 1 start
-    // LUNA
+    // LUNA - blue
     {
       source: 'TravLuna01',
       target: 'TravLuna02',
@@ -768,7 +768,8 @@ const data = {
       source: 'TravLuna03',
       target: 'TravLuna04',
       linkColor: path1color,
-      linkCurvature: baseCurve,
+      linkCurvature: slightCurve,
+      curveRotation: curveRotationA,
       width: baseWidth,
       value: baseParticles
     },
@@ -776,7 +777,8 @@ const data = {
       source: 'TravLuna04',
       target: 'TravLuna05',
       linkColor: path1color,
-      linkCurvature: baseCurve,
+      linkCurvature: slightCurve,
+      curveRotation: curveRotationA,
       width: baseWidth,
       value: baseParticles
     },
@@ -784,7 +786,8 @@ const data = {
       source: 'TravLuna05',
       target: 'TravLuna06',
       linkColor: path1color,
-      linkCurvature: baseCurve,
+      linkCurvature: slightCurve,
+      curveRotation: curveRotationA,
       width: baseWidth,
       value: baseParticles
     },
@@ -792,7 +795,8 @@ const data = {
       source: 'TravLuna06',
       target: 'TravLuna07',
       linkColor: path1color,
-      linkCurvature: baseCurve,
+      linkCurvature: slightCurve,
+      curveRotation: curveRotationA,
       width: baseWidth,
       value: baseParticles
     },
@@ -862,6 +866,7 @@ const data = {
     },
     // path 1 end
     // path 2 start
+    // DARCY, JAMAL, CARSON, and FATHER DANIEL - green
     {
       source: 'DarcyJamal01',
       target: 'DarcyJamal02',
@@ -944,19 +949,13 @@ const data = {
     },
     // path 2 end
     // path 3 start
+    // TRAV
     {
       source: 'TravLuna01',
-      target: 'LunaKiki01',
-      linkColor: path3color,
-      linkCurvature: baseCurve,
-      width: baseWidth,
-      value: baseParticles
-    },
-    {
-      source: 'LunaKiki01',
       target: 'TravLuna02',
       linkColor: path3color,
-      linkCurvature: baseCurve,
+      linkCurvature: slightCurve,
+      curveRotation: curveRotationB,
       width: baseWidth,
       value: baseParticles
     },
@@ -971,30 +970,86 @@ const data = {
     },
     {
       source: 'TravLuna03',
-      target: 'TravFatherD01',
+      target: 'TravLuna04',
       linkColor: path3color,
-      linkCurvature: baseCurve,
+      linkCurvature: slightCurve,
+      curveRotation: curveRotationB,
       width: baseWidth,
       value: baseParticles
     },
     {
-      source: 'TravFatherD01',
-      target: 'DarcyCarson01',
+      source: 'TravLuna04',
+      target: 'TravLuna05',
       linkColor: path3color,
-      linkCurvature: baseCurve,
+      linkCurvature: slightCurve,
+      curveRotation: curveRotationB,
       width: baseWidth,
       value: baseParticles
     },
     {
-      source: 'DarcyCarson01',
-      target: 'DarcyFatherD01',
+      source: 'TravLuna05',
+      target: 'TravLuna06',
+      linkColor: path3color,
+      linkCurvature: slightCurve,
+      curveRotation: curveRotationB,
+      width: baseWidth,
+      value: baseParticles
+    },
+    {
+      source: 'TravLuna06',
+      target: 'TravLuna07',
+      linkColor: path3color,
+      linkCurvature: slightCurve,
+      curveRotation: curveRotationB,
+      width: baseWidth,
+      value: baseParticles
+    },
+    {
+      source: 'TravLuna07',
+      target: 'TravCarson01',
       linkColor: path3color,
       linkCurvature: baseCurve,
       width: baseWidth,
       value: baseParticles
     }
+    // TODO: adjust all of Luna link curves too!!!!!!!!!!!!
+
+    // {
+    //   source: 'TravLuna02',
+    //   target: 'TravLuna03',
+    //   linkColor: path3color,
+    //   linkCurvature: slightCurve,
+    //   curveRotation: curveRotationB,
+    //   width: baseWidth,
+    //   value: baseParticles
+    // },
+    // {
+    //   source: 'TravLuna03',
+    //   target: 'TravFatherD01',
+    //   linkColor: path3color,
+    //   linkCurvature: baseCurve,
+    //   width: baseWidth,
+    //   value: baseParticles
+    // },
+    // {
+    //   source: 'TravFatherD01',
+    //   target: 'DarcyCarson01',
+    //   linkColor: path3color,
+    //   linkCurvature: baseCurve,
+    //   width: baseWidth,
+    //   value: baseParticles
+    // },
+    // {
+    //   source: 'DarcyCarson01',
+    //   target: 'DarcyFatherD01',
+    //   linkColor: path3color,
+    //   linkCurvature: baseCurve,
+    //   width: baseWidth,
+    //   value: baseParticles
+    // }
     // path 3 end
     // path 4 start
+    // KIKI?
     // path 4 end
   ]
 };
