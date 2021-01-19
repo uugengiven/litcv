@@ -1,8 +1,13 @@
+// white
 const baseColor = '#ffffff95';
-const path1color = 'skyblue';
-const path2color = 'green';
-const path3color = 'orange';
-const path4color = 'yellow';
+// blue
+const path1color = '#50BFE6';
+// green
+const path2color = '#66FF66';
+// orange
+const path3color = '#FF9933';
+// yellow
+const path4color = '#FFFF66';
 const baseCurve = 0;
 const slightCurve = 0.125;
 const curveRotationA = 1;
@@ -935,7 +940,8 @@ const data = {
       source: 'TravFatherD02',
       target: 'TravCarson01',
       linkColor: path2color,
-      linkCurvature: baseCurve,
+      linkCurvature: slightCurve,
+      curveRotation: curveRotationA,
       width: baseWidth,
       value: baseParticles
     },
@@ -943,7 +949,8 @@ const data = {
       source: 'TravCarson01',
       target: 'TravCarson02',
       linkColor: path2color,
-      linkCurvature: baseCurve,
+      linkCurvature: slightCurve,
+      curveRotation: curveRotationA,
       width: baseWidth,
       value: baseParticles
     },
@@ -1011,45 +1018,37 @@ const data = {
       linkCurvature: baseCurve,
       width: baseWidth,
       value: baseParticles
+    },
+    {
+      source: 'TravCarson01',
+      target: 'TravCarson02',
+      linkColor: path3color,
+      linkCurvature: slightCurve,
+      curveRotation: curveRotationB,
+      width: baseWidth,
+      value: baseParticles
+    },
+    {
+      source: 'TravCarson02',
+      target: 'TravFatherD01',
+      linkColor: path3color,
+      linkCurvature: slightCurve,
+      curveRotation: curveRotationB,
+      width: baseWidth,
+      value: baseParticles
+    },
+    {
+      source: 'TravFatherD01',
+      target: 'TravFatherD02',
+      linkColor: path3color,
+      linkCurvature: slightCurve,
+      curveRotation: curveRotationB,
+      width: baseWidth,
+      value: baseParticles
     }
-    // TODO: adjust all of Luna link curves too!!!!!!!!!!!!
-
-    // {
-    //   source: 'TravLuna02',
-    //   target: 'TravLuna03',
-    //   linkColor: path3color,
-    //   linkCurvature: slightCurve,
-    //   curveRotation: curveRotationB,
-    //   width: baseWidth,
-    //   value: baseParticles
-    // },
-    // {
-    //   source: 'TravLuna03',
-    //   target: 'TravFatherD01',
-    //   linkColor: path3color,
-    //   linkCurvature: baseCurve,
-    //   width: baseWidth,
-    //   value: baseParticles
-    // },
-    // {
-    //   source: 'TravFatherD01',
-    //   target: 'DarcyCarson01',
-    //   linkColor: path3color,
-    //   linkCurvature: baseCurve,
-    //   width: baseWidth,
-    //   value: baseParticles
-    // },
-    // {
-    //   source: 'DarcyCarson01',
-    //   target: 'DarcyFatherD01',
-    //   linkColor: path3color,
-    //   linkCurvature: baseCurve,
-    //   width: baseWidth,
-    //   value: baseParticles
-    // }
     // path 3 end
     // path 4 start
-    // KIKI?
+    // KIKI - LEAF - LUNA
     // path 4 end
   ]
 };
