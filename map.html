@@ -114,12 +114,14 @@
             .graphData(data)
             .backgroundColor('#ffffff00')
             .nodeLabel('title')
-            .linkDirectionalParticles("value")
+            .linkDirectionalParticles('value')
             .linkDirectionalParticleSpeed(d => d.value * 0.005)
             .linkColor('linkColor')
-            .linkCurvature("linkCurvature")
+            .linkCurvature('linkCurvature')
+            .linkCurveRotation('curveRotation')
             .linkDirectionalParticleWidth(1)
-            .linkWidth("width")
+            .linkWidth('width')
+            .linkResolution(6)
             .nodeThreeObject(({ img, type }) => {
                 const imgTexture = new THREE.TextureLoader().load(`./images/episodes/${img}`);
                 const material = new THREE.SpriteMaterial({ map: imgTexture });
