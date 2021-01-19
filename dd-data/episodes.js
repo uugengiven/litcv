@@ -5,7 +5,7 @@ const path3color = 'orange';
 const path4color = 'yellow';
 const baseCurve = 0;
 const charWidth = 0;
-const baseWidth = 0;
+const baseWidth = 1;
 const baseParticles = 2;
 
 const data = {
