@@ -5,7 +5,9 @@ const path1color = '#50BFE6';
 // green
 const path2color = '#66FF66';
 // orange
-const path3color = '#FF9933';
+// const path3color = '#FF9933';
+// red
+const path3color = '#FF355E';
 // yellow
 const path4color = '#FFFF66';
 const baseCurve = 0;
@@ -13,7 +15,7 @@ const slightCurve = 0.125;
 const curveRotationA = 1;
 const curveRotationB = 4;
 const charWidth = 0;
-const baseWidth = 0.75;
+const baseWidth = 0.5;
 const baseParticles = 2;
 
 const data = {
@@ -817,7 +819,8 @@ const data = {
       source: 'LunaLeaf01',
       target: 'LunaLeaf02',
       linkColor: path1color,
-      linkCurvature: baseCurve,
+      linkCurvature: slightCurve,
+      curveRotation: curveRotationA,
       width: baseWidth,
       value: baseParticles
     },
@@ -1045,10 +1048,51 @@ const data = {
       curveRotation: curveRotationB,
       width: baseWidth,
       value: baseParticles
-    }
+    },
     // path 3 end
     // path 4 start
     // KIKI - LEAF - LUNA
+    {
+      source: 'LunaKiki06',
+      target: 'KikiLeaf01',
+      linkColor: path4color,
+      linkCurvature: baseCurve,
+      width: baseWidth,
+      value: baseParticles
+    },
+    {
+      source: 'KikiLeaf01',
+      target: 'KikiLeaf02',
+      linkColor: path4color,
+      linkCurvature: baseCurve,
+      width: baseWidth,
+      value: baseParticles
+    },
+    {
+      source: 'KikiLeaf02',
+      target: 'KikiLeaf03',
+      linkColor: path4color,
+      linkCurvature: baseCurve,
+      width: baseWidth,
+      value: baseParticles
+    },
+    {
+      source: 'KikiLeaf03',
+      target: 'LunaLeaf01',
+      linkColor: path4color,
+      linkCurvature: baseCurve,
+      width: baseWidth,
+      value: baseParticles
+    },
+    {
+      source: 'LunaLeaf01',
+      target: 'LunaLeaf02',
+      linkColor: path4color,
+      linkCurvature: slightCurve,
+      curveRotation: curveRotationB,
+      width: baseWidth,
+      value: baseParticles
+    }
     // path 4 end
   ]
 };
