@@ -746,6 +746,7 @@ const data = {
       width: charWidth
     },
     // path 1 start
+    // LUNA
     {
       source: 'TravLuna01',
       target: 'TravLuna02',
@@ -813,23 +814,47 @@ const data = {
     },
     {
       source: 'LunaLeaf02',
-      target: 'KikiLeaf01',
+      target: 'LunaKiki01',
       linkColor: path1color,
       linkCurvature: baseCurve,
       width: baseWidth,
       value: baseParticles
     },
     {
-      source: 'KikiLeaf01',
-      target: 'KikiLeaf02',
+      source: 'LunaKiki01',
+      target: 'LunaKiki02',
       linkColor: path1color,
       linkCurvature: baseCurve,
       width: baseWidth,
       value: baseParticles
     },
     {
-      source: 'KikiLeaf02',
-      target: 'KikiLeaf03',
+      source: 'LunaKiki02',
+      target: 'LunaKiki03',
+      linkColor: path1color,
+      linkCurvature: baseCurve,
+      width: baseWidth,
+      value: baseParticles
+    },
+    {
+      source: 'LunaKiki03',
+      target: 'LunaKiki04',
+      linkColor: path1color,
+      linkCurvature: baseCurve,
+      width: baseWidth,
+      value: baseParticles
+    },
+    {
+      source: 'LunaKiki04',
+      target: 'LunaKiki05',
+      linkColor: path1color,
+      linkCurvature: baseCurve,
+      width: baseWidth,
+      value: baseParticles
+    },
+    {
+      source: 'LunaKiki05',
+      target: 'LunaKiki06',
       linkColor: path1color,
       linkCurvature: baseCurve,
       width: baseWidth,
