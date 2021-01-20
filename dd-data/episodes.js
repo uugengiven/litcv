@@ -1,20 +1,12 @@
 // white
 const baseColor = '#ffffff80';
-// blue
 const path1color = '#4F86F7';
-// green
 const path2color = '#66FF66';
-// orange
 const path3color = '#FF7A00';
-// yellow
 const path4color = '#FFFF66';
-// red
-const path5color = '#FF355E';
-// purple
-const path6color = '#FF00CC';
-// plum purple
+const path5color = '#FF00CC';
+const path6color = '#FF355E';
 const path7color = '#9C51B6';
-//
 const path8color = '#DA8A67';
 
 const baseCurve = 0;
