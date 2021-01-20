@@ -1,13 +1,13 @@
 // white
-const baseColor = '#ffffff95';
+const baseColor = '#ffffff80';
 // blue
 const path1color = '#50BFE6';
 // green
 const path2color = '#66FF66';
 // orange
-// const path3color = '#FF9933';
+const path3color = '#FF9933';
 // red
-const path3color = '#FF355E';
+// const path3color = '#FF355E';
 // yellow
 const path4color = '#FFFF66';
 const baseCurve = 0;
@@ -16,7 +16,7 @@ const curveRotationA = 1;
 const curveRotationB = 4;
 const charWidth = 0;
 const baseWidth = 0.5;
-const baseParticles = 2;
+const baseParticles = 6;
 
 const data = {
   nodes: [
