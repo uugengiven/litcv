@@ -1,15 +1,16 @@
 // white
 const baseColor = '#ffffff80';
 // blue
-const path1color = '#50BFE6';
+const path1color = '#4F86F7';
 // green
 const path2color = '#66FF66';
 // orange
-const path3color = '#FF9933';
-// red
-// const path3color = '#FF355E';
+const path3color = '#FF7A00';
 // yellow
 const path4color = '#FFFF66';
+// red
+const path5color = '#FF355E';
+
 const baseCurve = 0;
 const slightCurve = 0.125;
 const curveRotationA = 1;
@@ -755,6 +756,14 @@ const data = {
     // path 1 start
     // LUNA - blue
     {
+      source: 'Luna',
+      target: 'TravLuna01',
+      linkColor: path1color,
+      linkCurvature: baseCurve,
+      width: baseWidth,
+      value: baseParticles
+    },
+    {
       source: 'TravLuna01',
       target: 'TravLuna02',
       linkColor: path1color,
@@ -836,7 +845,8 @@ const data = {
       source: 'LunaKiki01',
       target: 'LunaKiki02',
       linkColor: path1color,
-      linkCurvature: baseCurve,
+      linkCurvature: slightCurve,
+      curveRotation: curveRotationA,
       width: baseWidth,
       value: baseParticles
     },
@@ -844,7 +854,8 @@ const data = {
       source: 'LunaKiki02',
       target: 'LunaKiki03',
       linkColor: path1color,
-      linkCurvature: baseCurve,
+      linkCurvature: slightCurve,
+      curveRotation: curveRotationA,
       width: baseWidth,
       value: baseParticles
     },
@@ -852,7 +863,8 @@ const data = {
       source: 'LunaKiki03',
       target: 'LunaKiki04',
       linkColor: path1color,
-      linkCurvature: baseCurve,
+      linkCurvature: slightCurve,
+      curveRotation: curveRotationA,
       width: baseWidth,
       value: baseParticles
     },
@@ -860,7 +872,8 @@ const data = {
       source: 'LunaKiki04',
       target: 'LunaKiki05',
       linkColor: path1color,
-      linkCurvature: baseCurve,
+      linkCurvature: slightCurve,
+      curveRotation: curveRotationA,
       width: baseWidth,
       value: baseParticles
     },
@@ -868,18 +881,36 @@ const data = {
       source: 'LunaKiki05',
       target: 'LunaKiki06',
       linkColor: path1color,
+      linkCurvature: slightCurve,
+      curveRotation: curveRotationA,
+      width: baseWidth,
+      value: baseParticles
+    },
+    {
+      source: 'LunaKiki06',
+      target: 'Luna',
+      linkColor: path1color,
       linkCurvature: baseCurve,
       width: baseWidth,
       value: baseParticles
     },
     // path 1 end
     // path 2 start
-    // DARCY, JAMAL, CARSON, and FATHER DANIEL - green
+    // DARCY - green
+    {
+      source: 'Darcy',
+      target: 'DarcyJamal01',
+      linkColor: path2color,
+      linkCurvature: baseCurve,
+      width: baseWidth,
+      value: baseParticles
+    },
     {
       source: 'DarcyJamal01',
       target: 'DarcyJamal02',
       linkColor: path2color,
-      linkCurvature: baseCurve,
+      linkCurvature: slightCurve,
+      curveRotation: curveRotationA,
       width: baseWidth,
       value: baseParticles
     },
@@ -887,7 +918,8 @@ const data = {
       source: 'DarcyJamal02',
       target: 'DarcyJamal03',
       linkColor: path2color,
-      linkCurvature: baseCurve,
+      linkCurvature: slightCurve,
+      curveRotation: curveRotationA,
       width: baseWidth,
       value: baseParticles
     },
@@ -925,35 +957,9 @@ const data = {
     },
     {
       source: 'DarcyFatherD01',
-      target: 'TravFatherD01',
+      target: 'Darcy',
       linkColor: path2color,
       linkCurvature: baseCurve,
-      width: baseWidth,
-      value: baseParticles
-    },
-    {
-      source: 'TravFatherD01',
-      target: 'TravFatherD02',
-      linkColor: path2color,
-      linkCurvature: baseCurve,
-      width: baseWidth,
-      value: baseParticles
-    },
-    {
-      source: 'TravFatherD02',
-      target: 'TravCarson01',
-      linkColor: path2color,
-      linkCurvature: slightCurve,
-      curveRotation: curveRotationA,
-      width: baseWidth,
-      value: baseParticles
-    },
-    {
-      source: 'TravCarson01',
-      target: 'TravCarson02',
-      linkColor: path2color,
-      linkCurvature: slightCurve,
-      curveRotation: curveRotationA,
       width: baseWidth,
       value: baseParticles
     },
@@ -1051,7 +1057,60 @@ const data = {
     },
     // path 3 end
     // path 4 start
-    // KIKI - LEAF - LUNA
+    // KIKI
+    {
+      source: 'Kiki',
+      target: 'LunaKiki01',
+      linkColor: path4color,
+      linkCurvature: baseCurve,
+      width: baseWidth,
+      value: baseParticles
+    },
+    {
+      source: 'LunaKiki01',
+      target: 'LunaKiki02',
+      linkColor: path4color,
+      linkCurvature: slightCurve,
+      curveRotation: curveRotationB,
+      width: baseWidth,
+      value: baseParticles
+    },
+    {
+      source: 'LunaKiki02',
+      target: 'LunaKiki03',
+      linkColor: path4color,
+      linkCurvature: slightCurve,
+      curveRotation: curveRotationB,
+      width: baseWidth,
+      value: baseParticles
+    },
+    {
+      source: 'LunaKiki03',
+      target: 'LunaKiki04',
+      linkColor: path4color,
+      linkCurvature: slightCurve,
+      curveRotation: curveRotationB,
+      width: baseWidth,
+      value: baseParticles
+    },
+    {
+      source: 'LunaKiki04',
+      target: 'LunaKiki05',
+      linkColor: path4color,
+      linkCurvature: slightCurve,
+      curveRotation: curveRotationB,
+      width: baseWidth,
+      value: baseParticles
+    },
+    {
+      source: 'LunaKiki05',
+      target: 'LunaKiki06',
+      linkColor: path4color,
+      linkCurvature: slightCurve,
+      curveRotation: curveRotationB,
+      width: baseWidth,
+      value: baseParticles
+    },
     {
       source: 'LunaKiki06',
       target: 'KikiLeaf01',
@@ -1064,7 +1123,8 @@ const data = {
       source: 'KikiLeaf01',
       target: 'KikiLeaf02',
       linkColor: path4color,
-      linkCurvature: baseCurve,
+      linkCurvature: slightCurve,
+      curveRotation: curveRotationA,
       width: baseWidth,
       value: baseParticles
     },
@@ -1072,27 +1132,89 @@ const data = {
       source: 'KikiLeaf02',
       target: 'KikiLeaf03',
       linkColor: path4color,
-      linkCurvature: baseCurve,
+      linkCurvature: slightCurve,
+      curveRotation: curveRotationA,
       width: baseWidth,
       value: baseParticles
     },
     {
       source: 'KikiLeaf03',
-      target: 'LunaLeaf01',
+      target: 'Kiki',
       linkColor: path4color,
       linkCurvature: baseCurve,
       width: baseWidth,
       value: baseParticles
     },
+    // {
+    //   source: 'KikiLeaf01',
+    //   target: 'KikiLeaf02',
+    //   linkColor: path4color,
+    //   linkCurvature: baseCurve,
+    //   width: baseWidth,
+    //   value: baseParticles
+    // },
+    // {
+    //   source: 'KikiLeaf02',
+    //   target: 'KikiLeaf03',
+    //   linkColor: path4color,
+    //   linkCurvature: baseCurve,
+    //   width: baseWidth,
+    //   value: baseParticles
+    // },
+    // {
+    //   source: 'KikiLeaf03',
+    //   target: 'LunaLeaf01',
+    //   linkColor: path4color,
+    //   linkCurvature: baseCurve,
+    //   width: baseWidth,
+    //   value: baseParticles
+    // },
+    // {
+    //   source: 'LunaLeaf01',
+    //   target: 'LunaLeaf02',
+    //   linkColor: path4color,
+    //   linkCurvature: slightCurve,
+    //   curveRotation: curveRotationB,
+    //   width: baseWidth,
+    //   value: baseParticles
+    // },
+    // path 4 end
+    // path 5 start
+    // JAMAL
     {
-      source: 'LunaLeaf01',
-      target: 'LunaLeaf02',
-      linkColor: path4color,
+      source: 'Jamal',
+      target: 'DarcyJamal01',
+      linkColor: path5color,
+      linkCurvature: baseCurve,
+      width: baseWidth,
+      value: baseParticles
+    },
+    {
+      source: 'DarcyJamal01',
+      target: 'DarcyJamal02',
+      linkColor: path5color,
       linkCurvature: slightCurve,
       curveRotation: curveRotationB,
       width: baseWidth,
       value: baseParticles
+    },
+    {
+      source: 'DarcyJamal02',
+      target: 'DarcyJamal03',
+      linkColor: path5color,
+      linkCurvature: slightCurve,
+      curveRotation: curveRotationB,
+      width: baseWidth,
+      value: baseParticles
+    },
+    {
+      source: 'DarcyJamal03',
+      target: 'Jamal',
+      linkColor: path5color,
+      linkCurvature: baseCurve,
+      width: baseWidth,
+      value: baseParticles
     }
-    // path 4 end
+    // path 5 end
   ]
 };
