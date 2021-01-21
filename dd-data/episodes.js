@@ -884,14 +884,6 @@ const data = {
       width: baseWidth,
       value: baseParticles
     },
-    {
-      source: 'LunaKiki06',
-      target: 'Luna',
-      linkColor: path1color,
-      linkCurvature: baseCurve,
-      width: baseWidth,
-      value: baseParticles
-    },
     // path 1 end
     // path 2 start
     // DARCY - green
@@ -950,14 +942,6 @@ const data = {
     {
       source: 'DarcyCarson03',
       target: 'DarcyFatherD01',
-      linkColor: path2color,
-      linkCurvature: baseCurve,
-      width: baseWidth,
-      value: baseParticles
-    },
-    {
-      source: 'DarcyFatherD01',
-      target: 'Darcy',
       linkColor: path2color,
       linkCurvature: baseCurve,
       width: baseWidth,
@@ -1063,14 +1047,6 @@ const data = {
       width: baseWidth,
       value: baseParticles
     },
-    {
-      source: 'TravFatherD02',
-      target: 'Trav',
-      linkColor: path3color,
-      linkCurvature: baseCurve,
-      width: baseWidth,
-      value: baseParticles
-    },
     // path 3 end
     // path 4 start
     // KIKI
@@ -1153,14 +1129,6 @@ const data = {
       width: baseWidth,
       value: baseParticles
     },
-    {
-      source: 'KikiLeaf03',
-      target: 'Kiki',
-      linkColor: path4color,
-      linkCurvature: baseCurve,
-      width: baseWidth,
-      value: baseParticles
-    },
     // path 4 end
     // path 5 start
     // JAMAL
@@ -1190,14 +1158,6 @@ const data = {
       width: baseWidth,
       value: baseParticles
     },
-    {
-      source: 'DarcyJamal03',
-      target: 'Jamal',
-      linkColor: path5color,
-      linkCurvature: baseCurve,
-      width: baseWidth,
-      value: baseParticles
-    },
     // path 5 end
     // path 6 start
     // FATHER DANIEL
@@ -1221,14 +1181,6 @@ const data = {
     {
       source: 'TravFatherD02',
       target: 'DarcyFatherD01',
-      linkColor: path6color,
-      linkCurvature: baseCurve,
-      width: baseWidth,
-      value: baseParticles
-    },
-    {
-      source: 'DarcyFatherD01',
-      target: 'FatherD',
       linkColor: path6color,
       linkCurvature: baseCurve,
       width: baseWidth,
@@ -1280,14 +1232,6 @@ const data = {
       width: baseWidth,
       value: baseParticles
     },
-    {
-      source: 'TravCarson02',
-      target: 'Carson',
-      linkColor: path7color,
-      linkCurvature: baseCurve,
-      width: baseWidth,
-      value: baseParticles
-    },
     // path 7 end
     // path 8 start
     // LEAF
@@ -1331,14 +1275,6 @@ const data = {
       linkColor: path8color,
       linkCurvature: slightCurve,
       curveRotation: curveRotationB,
-      width: baseWidth,
-      value: baseParticles
-    },
-    {
-      source: 'KikiLeaf03',
-      target: 'Leaf',
-      linkColor: path8color,
-      linkCurvature: baseCurve,
       width: baseWidth,
       value: baseParticles
     }
