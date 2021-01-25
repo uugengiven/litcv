@@ -11,8 +11,6 @@
   <link rel="stylesheet" href="base.css" />
   <link rel="stylesheet" href="styles.css" />
   <link rel="stylesheet" href="fonts/fonts.css" />
-  <script src="js/blotter.min.js"></script>
-  <script src="js/slidingDoorMaterial.js"></script>
   <script src="js/orbits.js"></script>
   <script src="js/light_particles.js"></script>
 </head>
@@ -81,40 +79,12 @@
             <label for="message">Your Message</label>
             <textarea name="message" id="message" cols="90" rows="10"></textarea>
           </div>
-          <button type="submit" class="sendMessage gt-america">Send message!</button>
+          <button type="submit" class="sendMessage gt-america">Send</button>
         </form>
       </div>
     </section>
     <section class="split"></section>
   </main>
-
-  <script>
-    var text = new Blotter.Text("Digital", {
-      family: "Arial",
-      size: 96,
-      fill: "#fff",
-      paddingLeft: 80,
-      paddingRight: 80,
-      paddingTop: 80,
-      paddingBottom: 80,
-    })
-
-    var material = new Blotter.SlidingDoorMaterial();
-    material.uniforms.uDivisions = 11,
-      material.uniforms.uDivisionWidth.value = 0.25,
-      material.uniforms.uAnimateHorizontal.value = 1,
-      material.uniforms.uFlipAnimationDirection.value = 1,
-      material.uniforms.uSpeed.value = 0.2;
-
-    var blotter = new Blotter(material, {
-      texts: text
-    })
-
-    var scope = blotter.forText(text);
-
-    scope.appendTo(document.body);
-  </script>
-
 
   <script>
     const init = () => {
