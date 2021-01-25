@@ -1,179 +1,162 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Digital Divide</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.9.1/d3.min.js"></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/tsparticles@1.9.2/dist/tsparticles.min.js"
-      integrity="sha256-5kED68Spy7K2CEbfu4CjV92DmZR5ZQFUoIR5qmPzZWg="
-      crossorigin="anonymous"
-    ></script>
-    <link rel="stylesheet" href="base.css" />
-    <link rel="stylesheet" href="styles.css" />
-    <link rel="stylesheet" href="fonts/fonts.css" />
-    <link rel="stylesheet" href="d3.css" />
-    
-    <script src="//unpkg.com/three"></script>
-    <script src="//unpkg.com/3d-force-graph"></script>
-    <script src="js/orbits.js"></script>
-    <script src="js/custom_particles.js"></script>
-  </head>
 
-  <body onload="init()" class="dark-body">
-    <div class="particles dark-body" id="tsparticles"></div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Digital Divide</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.9.1/d3.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/tsparticles@1.9.2/dist/tsparticles.min.js"
+    integrity="sha256-5kED68Spy7K2CEbfu4CjV92DmZR5ZQFUoIR5qmPzZWg=" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="base.css" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="fonts/fonts.css" />
+  <link rel="stylesheet" href="d3.css" />
 
-    <!-- SITE HEADER -->
-    <header>
-      <h1 class="gt-america">Digital — Divide</h1>
-      <a href="#" class="menu-toggle">
-        <svg
-          width="50"
-          height="50"
-          viewBox="0 0 74 74"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <circle cx="37" cy="37" r="37" fill="#E9EEF3" />
-          <rect
-            x="20"
-            y="30"
-            width="35"
-            height="2"
-            fill="#131313"
-            class="menu-top"
-          />
-          <rect
-            x="20"
-            y="42"
-            width="35"
-            height="2"
-            fill="#131313"
-            class="menu-bottom"
-          />
-        </svg>
-      </a>
-    </header>
+  <script src="//unpkg.com/three"></script>
+  <script src="//unpkg.com/3d-force-graph"></script>
+  <script src="js/orbits.js"></script>
+</head>
 
-    <!-- MENU NAVIGATION -->
-    <!-- These two nav tags are for the menu animation -->
-    <nav class="fake-back"></nav>
-    <nav class="fake-mid"></nav>
+<body onload="init()" class="gradient-body">
+  <div class="particles gradient-body" id="tsparticles"></div>
 
-    <!-- Actual navigation -->
-    <nav>
-      <div class="internal">
-        <a class="gt-america" href="characters.html">Characters</a>
-        <a class="gt-america" href="story.html">Story</a>
-        <a class="gt-america" href="cast.html">Cast and Crew</a>
-        <a class="gt-america" href="news.html">News</a>
-        <a class="gt-america" href="contact.html">Contact</a>
-      </div>
-      <div class="social">
-        <a class="" href="#">Twitter</a>
-        <a class="" href="#">Facebook</a>
-        <a class="" href="#">Instagram</a>
-      </div>
-    </nav>
-    </section>
-    <section>
-      <div id="3d-graph">
-      </div>
-    </section>
-    <article class="snackbar_hidden" id="snackbar-container">
-      <!-- temp tags until styled -->
-      <img  class="snackbar-icon" src="./images/icons/close-icon.png" alt="close" onclick="closeSnackbar()"> 
-        <h3 id="snackbar-title"></h3>
-        <p id="snackbar-info-one"></p>
-        <p id="snackbar-info-two"></p>
-    </article>
+  <!-- SITE HEADER -->
+  <header>
+    <h1 class="gt-america">Digital Divide</h1>
+    <a href="#" class="menu-toggle">
+      <svg width="50" height="50" viewBox="0 0 74 74" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="37" cy="37" r="37" fill="#E9EEF3" />
+        <rect x="20" y="30" width="35" height="2" fill="#131313" class="menu-top" />
+        <rect x="20" y="42" width="35" height="2" fill="#131313" class="menu-bottom" />
+      </svg>
+    </a>
+  </header>
+
+  <!-- MENU NAVIGATION -->
+  <!-- These two nav tags are for the menu animation -->
+  <nav class="fake-back"></nav>
+  <nav class="fake-mid"></nav>
+
+  <!-- Actual navigation -->
+  <nav>
+    <div class="internal">
+      <a class="gt-america" href="characters.html">Characters</a>
+      <a class="gt-america" href="story.html">Story</a>
+      <a class="gt-america" href="cast.html">Cast and Crew</a>
+      <a class="gt-america" href="news.html">News</a>
+      <a class="gt-america" href="contact.html">Contact</a>
+    </div>
+    <div class="social">
+      <a class="" href="#">Twitter</a>
+      <a class="" href="#">Facebook</a>
+      <a class="" href="#">Instagram</a>
+    </div>
+  </nav>
+  </section>
+  <section>
+    <div id="3d-graph">
+    </div>
+  </section>
+  <article class="snackbar_hidden" id="snackbar-container">
+    <!-- temp tags until styled -->
+    <img class="snackbar-icon" src="./images/icons/close-icon.png" alt="close" onclick="closeSnackbar()">
+    <h3 id="snackbar-title"></h3>
+    <p id="snackbar-info-one"></p>
+    <p id="snackbar-info-two"></p>
+  </article>
 
   <!-- <footer>
     <a href="index.html">Intro | </a>
   </footer> -->
 
 
-    <!-- <footer>
+  <!-- <footer>
       <a href="index.html">Intro | </a>
       <a href="intro.html">Intro 2</a>
     </footer> -->
 
-    <script>
-      const init = () => {
-        particles();
-      };
-    </script>
-    
-    <script src="dd-data/episodes.js"></script>
-    <script>
-        const elem = document.getElementById('3d-graph');
+  <script>
+    const init = () => {
+      particles();
+    };
+  </script>
 
-        const Graph = ForceGraph3D()
-          (elem)
-            .graphData(data)
-            .backgroundColor('#ffffff00')
-            .nodeLabel('title')
-            .linkDirectionalParticles('value')
-            .linkDirectionalParticleSpeed(d => d.value * 0.00125)
-            .linkColor('linkColor')
-            .linkCurvature('linkCurvature')
-            .linkCurveRotation('curveRotation')
-            .linkDirectionalParticleWidth(1)
-            .linkWidth('width')
-            .linkResolution(6)
-            .nodeThreeObject(({ img, type }) => {
-                const imgTexture = new THREE.TextureLoader().load(`./images/episodes/${img}`);
-                const material = new THREE.SpriteMaterial({ map: imgTexture });
-                const sprite = new THREE.Sprite(material);
-                
-                if(type == "Character")
-                {
-                  sprite.scale.set(14, 14);
-                }
-                else
-                {
-                  sprite.scale.set(16, 9);
-                }
-                
-                return sprite;
-            })
-            .onNodeHover(node => elem.style.cursor = node ? 'pointer' : null)
-            .onNodeClick(node => {
-                // Aim at node from outside it
-                const snackbar = document.getElementById('snackbar-container');
-                const title = document.getElementById("snackbar-title");
-                const descriptionOne = document.getElementById("snackbar-info-one");
-                const descriptionTwo = document.getElementById("snackbar-info-two");
+  <script src="dd-data/episodes.js"></script>
+  <script>
+    const elem = document.getElementById('3d-graph');
 
-                snackbar.classList.contains('snackbar_hidden') 
-                ? snackbar.classList.remove('snackbar_hidden') & snackbar.classList.add('snackbar_show') 
-                : null;
+    const Graph = ForceGraph3D()
+      (elem)
+      .graphData(data)
+      .backgroundColor('#ffffff00')
+      .nodeLabel('title')
+      .linkDirectionalParticles('value')
+      .linkDirectionalParticleSpeed(d => d.value * 0.00125)
+      .linkColor('linkColor')
+      .linkCurvature('linkCurvature')
+      .linkCurveRotation('curveRotation')
+      .linkDirectionalParticleWidth(1)
+      .linkWidth('width')
+      .linkResolution(6)
+      .nodeThreeObject(({
+        img,
+        type
+      }) => {
+        const imgTexture = new THREE.TextureLoader().load(`./images/episodes/${img}`);
+        const material = new THREE.SpriteMaterial({
+          map: imgTexture
+        });
+        const sprite = new THREE.Sprite(material);
 
-              // conditional for character versus episode
-              // because there might be different properties for characters/episodes
-              if(node.type === "Character") {
-                title.textContent = node.type + " - " + node.title;
-                descriptionOne.textContent = "Group " + node.group;
-                descriptionTwo.textContent = "Type " + node.type;
-              }
-              if (node.type === "Episode") {
-                title.textContent = node.type + " - " + node.title;
-                descriptionOne.textContent = node.prev + " for " + node.title;
-                descriptionTwo.textContent =  node.next + " for " + node.title;
-              }
-                const distance = 40;
-                const distRatio = 1 + distance/Math.hypot(node.x, node.y, node.z);
-                Graph.cameraPosition(
-                    { x: node.x * distRatio, y: node.y * distRatio, z: node.z * distRatio }, // new position
-                    node, // lookAt ({ x, y, z })
-                    2000  // ms transition duration
-                );
-            });
-      </script>
-    <script src="js/menu.js"></script>
-    <script src="js/snackbarToggle.js"></script>
-  </body>
+        if (type == "Character") {
+          sprite.scale.set(14, 14);
+        } else {
+          sprite.scale.set(16, 9);
+        }
+
+        return sprite;
+      })
+      .onNodeHover(node => elem.style.cursor = node ? 'pointer' : null)
+      .onNodeClick(node => {
+        // Aim at node from outside it
+        const snackbar = document.getElementById('snackbar-container');
+        const title = document.getElementById("snackbar-title");
+        const descriptionOne = document.getElementById("snackbar-info-one");
+        const descriptionTwo = document.getElementById("snackbar-info-two");
+
+        snackbar.classList.contains('snackbar_hidden') ?
+          snackbar.classList.remove('snackbar_hidden') & snackbar.classList.add('snackbar_show') :
+          null;
+
+        // conditional for character versus episode
+        // because there might be different properties for characters/episodes
+        if (node.type === "Character") {
+          title.textContent = node.type + " - " + node.title;
+          descriptionOne.textContent = "Group " + node.group;
+          descriptionTwo.textContent = "Type " + node.type;
+        }
+        if (node.type === "Episode") {
+          title.textContent = node.type + " - " + node.title;
+          descriptionOne.textContent = node.prev + " for " + node.title;
+          descriptionTwo.textContent = node.next + " for " + node.title;
+        }
+        const distance = 40;
+        const distRatio = 1 + distance / Math.hypot(node.x, node.y, node.z);
+        Graph.cameraPosition({
+            x: node.x * distRatio,
+            y: node.y * distRatio,
+            z: node.z * distRatio
+          }, // new position
+          node, // lookAt ({ x, y, z })
+          2000 // ms transition duration
+        );
+      });
+  </script>
+  <script src="js/menu.js"></script>
+  <script src="js/snackbarToggle.js"></script>
+</body>
+
 </html>
 
 
@@ -182,27 +165,27 @@
     background: -moz-radial-gradient(top left, rgba(209, 210, 209, 1.0), rgba(117, 117, 117, 1.0));
     background: radial-gradient(to bottom right, rgba(209, 210, 209, 1.0), rgba(117, 117, 117, 1.0)); -->
 
-    <!-- background: rgba(209, 210, 209, 1.0);
+<!-- background: rgba(209, 210, 209, 1.0);
     background: -webkit-radial-gradient(center, rgba(209, 210, 209, 1.0), rgba(117, 117, 117, 1.0));
     background: -moz-radial-gradient(center, rgba(209, 210, 209, 1.0), rgba(117, 117, 117, 1.0));
     background: radial-gradient(ellipse at center, rgb(97 97 97), rgb(4, 4, 4)); -->
-    
 
-    <!-- background: #F5F0EF;
+
+<!-- background: #F5F0EF;
     background: -webkit-radial-gradient(top left, #525252, #202227);
     background: -moz-radial-gradient(top left, #F5F0EF, #202227);
     background: radial-gradient(to bottom right, #F5F0EF, #202227); -->
-    
-    <!-- background: -webkit-radial-gradient(top left, #440e0e, #202227);
+
+<!-- background: -webkit-radial-gradient(top left, #440e0e, #202227);
     background: -moz-radial-gradient(top left, #F5F0EF, #202227);
     background: radial-gradient(to bottom right, #F5F0EF, #202227); -->
 
 
-    <!-- background: -webkit-radial-gradient(top left, #440e0e, #020304);
+<!-- background: -webkit-radial-gradient(top left, #440e0e, #020304);
     background: -moz-radial-gradient(top left, #F5F0EF, #202227);
     background: radial-gradient(to bottom right, #F5F0EF, #202227); -->
 
 
-    <!-- background: -webkit-radial-gradient(top left, #9a9a9a12, #350e0e);
+<!-- background: -webkit-radial-gradient(top left, #9a9a9a12, #350e0e);
     background: -moz-radial-gradient(top left, #F5F0EF, #202227);
     background: radial-gradient(to bottom right, #F5F0EF, #202227); -->

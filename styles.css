@@ -1,5 +1,5 @@
 /* DM Sans font - Will probs use this as the main body font */
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap");
 
 :root {
   --white: #fff;
@@ -81,6 +81,20 @@ body {
   line-height: 1.6;
   background-color: var(--dark-background);
   color: var(--text-light);
+}
+
+.gradient-body {
+  /* background: linear-gradient(#fff, transparent),
+    linear-gradient(-45deg, #bbb, transparent),
+    linear-gradient(45deg, #f1f4f8, transparent);
+  background-blend-mode: multiply; */
+  background: rgb(255, 255, 255);
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(213, 225, 230, 1) 100%
+  );
+  color: var(--text-dark);
 }
 
 .dark-body {
@@ -183,7 +197,7 @@ nav {
 }
 
 nav.fake-mid {
-  background-color: var(--highlight-pink);
+  background-color: var(--black);
   transition-delay: 0.1s;
 }
 
@@ -369,7 +383,7 @@ a.explore span {
 }
 a.explore::before,
 a.explore::after {
-  content: '';
+  content: "";
   width: 0;
   height: 2px;
   position: absolute;
@@ -379,7 +393,7 @@ a.explore::after {
 
 a.explore span::before,
 a.explore span::after {
-  content: '';
+  content: "";
   width: 2px;
   height: 0;
   position: absolute;
@@ -731,7 +745,7 @@ div.contact-content form button:hover {
 .snackbar_hidden,
 .snackbar_show {
   color: var(--text-dark);
-  background-color: var(--white);
+  background-color: #eee;
   /* opacity: 0.975; */
   padding: 14px 24px;
   position: fixed;
@@ -771,4 +785,8 @@ div.contact-content form button:hover {
 .snackbar-icon:hover {
   opacity: 0.5;
   transition: opacity 250ms ease-in-out;
+}
+
+.scene-tooltip {
+  color: var(--text-dark);
 }
