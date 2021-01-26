@@ -1,6 +1,6 @@
 // white
 // const baseColor = '#131313';
-const baseColor = '#ffffff30';
+const baseColor = '#ffffff35';
 const path1color = '#093CF2'; // blue
 const path2color = '#53FF50'; // green
 const path3color = '#FF7A00'; // orange
