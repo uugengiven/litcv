@@ -1,6 +1,7 @@
 // white
 // const baseColor = '#131313';
-const baseColor = '#ffffff35';
+// bright colors
+const baseColor = '#ffffff50';
 const path1color = '#093CF2'; // blue
 const path2color = '#53FF50'; // green
 const path3color = '#FF7A00'; // orange
@@ -9,6 +10,20 @@ const path5color = '#FF00CC'; // magenta
 const path6color = '#E43D26'; // red
 const path7color = '#6600CC'; // purple
 const path8color = '#DA8A67'; // peachy
+
+// less bright colors
+
+// #c53932 - red
+// #3A76AF - blue
+// #B3C7E5 - light blue
+// #EF8536 - orange
+// #F5BD82 - peach
+// #519D3E - green
+// #A8DC93 - light green
+// #C53932 - red
+// #F19D99 - pink
+// #8D6BB8 - purple
+// #C1B1D2 - indigo
 
 const baseCurve = 0;
 const slightCurve = 0.125;

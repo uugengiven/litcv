@@ -88,13 +88,13 @@ body {
     linear-gradient(-45deg, #bbb, transparent),
     linear-gradient(45deg, #f1f4f8, transparent);
   background-blend-mode: multiply; */
-  background: rgb(255, 255, 255);
+  /* background: rgb(255, 255, 255);
   background: radial-gradient(
     circle,
     rgba(255, 255, 255, 1) 0%,
     rgba(213, 225, 230, 1) 100%
   );
-  color: var(--text-dark);
+  color: var(--text-dark); */
 
   /* start test  */
   background: rgb(255, 255, 255);
@@ -105,10 +105,17 @@ body {
     )
     no-repeat; */
 
-  background: linear-gradient(
+  /* background: linear-gradient(
       to bottom right,
       rgb(95 95 95 / 7.5%) 0%,
       rgb(0 0 0) 100%
+    )
+    no-repeat; */
+
+  background: linear-gradient(
+      to bottom right,
+      rgb(95 95 95 / 7.5%) 0%,
+      rgb(60 60 60) 100%
     )
     no-repeat;
 
