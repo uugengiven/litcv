@@ -106,17 +106,19 @@
       .linkResolution(6)
       .nodeThreeObject(({
         img,
-        type
+        type,
+        id,
+        size
       }) => {
         const imgTexture = new THREE.TextureLoader().load(`./images/episodes/${img}`);
         const material = new THREE.SpriteMaterial({
           map: imgTexture
         });
         const sprite = new THREE.Sprite(material);
-
         if (type == "Character") {
-          sprite.scale.set(14, 14);
-        } else {
+          sprite.scale.set(size, size);
+        } 
+        else {
           sprite.scale.set(16, 9);
         }
 

@@ -35,56 +35,64 @@ const data = {
       group: 1,
       img: 'Darcy_avatar.png',
       type: 'Character',
-      title: 'Darcy'
+      title: 'Darcy',
+      size: 18
     },
     {
       id: 'Carson',
       group: 2,
       img: 'Carson_avatar.png',
       type: 'Character',
-      title: 'Carson'
+      title: 'Carson',
+      size: 14
     },
     {
       id: 'FatherD',
       group: 3,
       img: 'FatherD_avatar.png',
       type: 'Character',
-      title: 'Father Daniel'
+      title: 'Father Daniel',
+      size: 14
     },
     {
       id: 'Jamal',
       group: 4,
       img: 'Jamal_avatar.png',
       type: 'Character',
-      title: 'Jamal'
+      title: 'Jamal',
+      size: 14
     },
     {
       id: 'Kiki',
       group: 5,
       img: 'Kiki_avatar.png',
       type: 'Character',
-      title: 'Kiki'
+      title: 'Kiki',
+      size: 18
     },
     {
       id: 'Leaf',
       group: 6,
       img: 'Leaf_avatar.png',
       type: 'Character',
-      title: 'Leaf'
+      title: 'Leaf',
+      size: 14
     },
     {
       id: 'Luna',
       group: 7,
       img: 'Luna_avatar.png',
       type: 'Character',
-      title: 'Luna'
+      title: 'Luna',
+      size: 22
     },
     {
       id: 'Trav',
       group: 8,
       img: 'Trav_avatar.png',
       type: 'Character',
-      title: 'Trav'
+      title: 'Trav',
+      size: 22
     },
     {
       id: 'DarcyCarson01',
