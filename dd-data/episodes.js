@@ -1,37 +1,32 @@
-// white
+// character to episode links
 // const baseColor = '#131313';
-// bright colors
 const baseColor = '#ffffff50';
-const path1color = '#093CF2'; // blue
-const path2color = '#53FF50'; // green
-const path3color = '#FF7A00'; // orange
-const path4color = '#FFFF66'; // yellow
-const path5color = '#FF00CC'; // magenta
-const path6color = '#E43D26'; // red
-const path7color = '#6600CC'; // purple
-const path8color = '#DA8A67'; // peachy
-
-// less bright colors
-
-// #c53932 - red
-// #3A76AF - blue
-// #B3C7E5 - light blue
-// #EF8536 - orange
-// #F5BD82 - peach
-// #519D3E - green
-// #A8DC93 - light green
-// #C53932 - red
-// #F19D99 - pink
-// #8D6BB8 - purple
-// #C1B1D2 - indigo
+// luna
+const path1color = '#339ACC'; // cerulean blue
+// darcy
+const path2color = '#FF6037'; // outrageous orange
+// trav
+const path3color = '#FF9933'; // neon carrot
+// kiki
+const path4color = '#FFFF66'; // laser yellow
+// jamal
+const path5color = '#66FF66'; // screamin green
+// father daniel
+const path6color = '#AAF0D1'; // magic mint
+// carson
+const path7color = '#FF6EFF'; // shocking pink
+// leaf
+const path8color = '#FF355E'; // radical red
+// fake link to change shape of graph
+const transparentLink = 'ffffff00';
 
 const baseCurve = 0;
 const slightCurve = 0.125;
 const curveRotationA = 1;
 const curveRotationB = 4;
 const charWidth = 0;
-const baseWidth = 0.1;
-const baseParticles = 6;
+const baseWidth = 0.25;
+const baseParticles = 3;
 
 const data = {
   nodes: [
@@ -768,7 +763,7 @@ const data = {
       width: charWidth
     },
     // path 1 start
-    // LUNA - blue
+    // LUNA
     {
       source: 'Luna',
       target: 'TravLuna01',
@@ -902,7 +897,7 @@ const data = {
     },
     // path 1 end
     // path 2 start
-    // DARCY - green
+    // DARCY
     {
       source: 'Darcy',
       target: 'DarcyJamal01',
@@ -1293,7 +1288,13 @@ const data = {
       curveRotation: curveRotationB,
       width: baseWidth,
       value: baseParticles
-    }
+    },
     // path 8 end
+    // transparent link to reshape
+    {
+      source: 'Jamal',
+      target: 'Leaf',
+      linkColor: transparentLink
+    }
   ]
 };
