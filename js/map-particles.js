@@ -23,7 +23,7 @@ const particles = () => {
         }
       },
       opacity: {
-        value: 0.09,
+        value: 0.125,
         random: false,
         anim: {
           enable: false,
@@ -46,7 +46,7 @@ const particles = () => {
         enable: true,
         distance: 250,
         color: '#131313',
-        opacity: 0.175,
+        opacity: 0.25,
         width: 1
       },
       move: {
