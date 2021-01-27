@@ -14,7 +14,7 @@ const path5color = '#66FF66'; // screamin green
 // father daniel
 const path6color = '#AAF0D1'; // magic mint
 // carson
-const path7color = '#FF6EFF'; // shocking pink
+const path7color = '#FF00CC'; // hot magenta
 // leaf
 const path8color = '#FF355E'; // radical red
 // fake link to change shape of graph
