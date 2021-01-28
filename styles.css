@@ -112,12 +112,16 @@ body {
     )
     no-repeat; */
 
-  background: linear-gradient(
+  /* background: linear-gradient(
       to bottom right,
       rgb(95 95 95 / 7.5%) 0%,
       rgb(60 60 60) 100%
     )
-    no-repeat;
+    no-repeat; */
+
+  /* background: #6f6e6e; */
+  background: #777777bf;
+  /* background: #777777a8; */
 
   color: var(--text-dark);
 }
