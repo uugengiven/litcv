@@ -83,49 +83,23 @@ body {
   color: var(--text-light);
 }
 
+/* update once they choose a version */
 .gradient-body {
-  /* background: linear-gradient(#fff, transparent),
-    linear-gradient(-45deg, #bbb, transparent),
-    linear-gradient(45deg, #f1f4f8, transparent);
-  background-blend-mode: multiply; */
-  /* background: rgb(255, 255, 255);
-  background: radial-gradient(
-    circle,
-    rgba(255, 255, 255, 1) 0%,
-    rgba(213, 225, 230, 1) 100%
-  );
-  color: var(--text-dark); */
+  background: #777777a8;
+  color: var(--text-light);
+}
 
-  /* start test  */
+/* update once they choose a version */
+.gradient-body.alternate-version {
   background: rgb(255, 255, 255);
-  /* background: linear-gradient(
-      to bottom right,
-      rgb(95 95 95 / 0%) 0%,
-      rgb(0 0 0) 100%
-    )
-    no-repeat; */
-
-  /* background: linear-gradient(
-      to bottom right,
-      rgb(95 95 95 / 7.5%) 0%,
-      rgb(0 0 0) 100%
-    )
-    no-repeat; */
-
-  /* background: linear-gradient(
+  background: linear-gradient(
       to bottom right,
       rgb(95 95 95 / 7.5%) 0%,
       rgb(60 60 60) 100%
     )
-    no-repeat; */
-
-  /* background: #6f6e6e; */
-  background: #777777bf;
-  /* background: #777777a8; */
-
+    no-repeat;
   color: var(--text-dark);
 }
-/* end test  */
 
 .dark-body {
   background-color: var(--dark-background);
