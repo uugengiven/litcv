@@ -83,14 +83,7 @@ body {
   color: var(--text-light);
 }
 
-/* update once they choose a version */
 .gradient-body {
-  background: #777777a8;
-  color: var(--text-light);
-}
-
-/* update once they choose a version */
-.gradient-body.alternate-version {
   background: rgb(255, 255, 255);
   background: linear-gradient(
       to bottom right,
@@ -165,6 +158,10 @@ header h1 {
   font-size: 14px;
   text-transform: uppercase;
   animation: letter-spacing 8s infinite alternate;
+}
+
+header h1 span.black-white {
+  color: var(--text-light);
 }
 
 .menu-toggle svg circle,
