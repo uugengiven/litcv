@@ -31,329 +31,300 @@ const baseParticles = 3;
 const data = {
   nodes: [
     {
-      id: 'Darcy',
-      group: 1,
-      img: 'Darcy_avatar.png',
-      type: 'Character',
-      title: 'Darcy',
-      size: 18
-    },
-    {
-      id: 'Carson',
-      group: 2,
-      img: 'Carson_avatar.png',
-      type: 'Character',
-      title: 'Carson',
-      size: 14
-    },
-    {
-      id: 'FatherD',
-      group: 3,
-      img: 'FatherD_avatar.png',
-      type: 'Character',
-      title: 'Father Daniel',
-      size: 14
-    },
-    {
-      id: 'Jamal',
-      group: 4,
-      img: 'Jamal_avatar.png',
-      type: 'Character',
-      title: 'Jamal',
-      size: 14
-    },
-    {
-      id: 'Kiki',
-      group: 5,
-      img: 'Kiki_avatar.png',
-      type: 'Character',
-      title: 'Kiki',
-      size: 18
-    },
-    {
-      id: 'Leaf',
-      group: 6,
-      img: 'Leaf_avatar.png',
-      type: 'Character',
-      title: 'Leaf',
-      size: 14
-    },
-    {
       id: 'Luna',
-      group: 7,
       img: 'Luna_avatar.png',
       type: 'Character',
       title: 'Luna',
-      size: 22
+      size: 22,
+      primaryColor: path1color
+    },
+    {
+      id: 'Darcy',
+      img: 'Darcy_avatar.png',
+      type: 'Character',
+      title: 'Darcy',
+      size: 18,
+      primaryColor: path2color
     },
     {
       id: 'Trav',
-      group: 8,
       img: 'Trav_avatar.png',
       type: 'Character',
       title: 'Trav',
-      size: 22
+      size: 22,
+      primaryColor: path3color
+    },
+    {
+      id: 'Kiki',
+      img: 'Kiki_avatar.png',
+      type: 'Character',
+      title: 'Kiki',
+      size: 18,
+      primaryColor: path4color
+    },
+    {
+      id: 'Jamal',
+      img: 'Jamal_avatar.png',
+      type: 'Character',
+      title: 'Jamal',
+      size: 14,
+      primaryColor: path5color
+    },
+    {
+      id: 'FatherD',
+      img: 'FatherD_avatar.png',
+      type: 'Character',
+      title: 'Father D',
+      size: 14,
+      primaryColor: path6color
+    },
+    {
+      id: 'Carson',
+      img: 'Carson_avatar.png',
+      type: 'Character',
+      title: 'Carson',
+      size: 14,
+      primaryColor: path7color
+    },
+    {
+      id: 'Leaf',
+      img: 'Leaf_avatar.png',
+      type: 'Character',
+      title: 'Leaf',
+      size: 14,
+      primaryColor: path8color
     },
     {
       id: 'DarcyCarson01',
-      group: 1,
       img: 'DarcyCarson01.png',
       type: 'Episode',
       title: 'Darcy Carson 01',
-      prev: 'previous episode',
-      next: 'next episode'
+      primaryColor: path2color,
+      primaryCharacter: 'Darcy'
     },
     {
       id: 'DarcyCarson02',
-      group: 1,
       img: 'DarcyCarson02.png',
       type: 'Episode',
       title: 'Darcy Carson 02',
-      prev: 'previous episode',
-      next: 'next episode'
+      primaryColor: path2color,
+      primaryCharacter: 'Darcy'
     },
     {
       id: 'DarcyCarson03',
-      group: 1,
       img: 'DarcyCarson03.png',
       type: 'Episode',
       title: 'Darcy Carson 03',
-      prev: 'previous episode',
-      next: 'next episode'
+      primaryColor: path2color,
+      primaryCharacter: 'Darcy'
     },
     {
       id: 'DarcyFatherD01',
-      group: 2,
       img: 'DarcyFatherD01.png',
       type: 'Episode',
       title: 'Darcy FatherD 01',
-      prev: 'previous episode',
-      next: 'next episode'
+      primaryColor: path2color,
+      primaryCharacter: 'Darcy'
     },
     {
       id: 'DarcyJamal01',
-      group: 3,
       img: 'DarcyJamal01.png',
       type: 'Episode',
       title: 'Darcy Jamal 01',
-      prev: 'previous episode',
-      next: 'next episode'
+      primaryColor: path2color,
+      primaryCharacter: 'Darcy'
     },
     {
       id: 'DarcyJamal02',
-      group: 3,
       img: 'DarcyJamal02.png',
       type: 'Episode',
       title: 'Darcy Jamal 02',
-      prev: 'previous episode',
-      next: 'next episode'
+      primaryColor: path2color,
+      primaryCharacter: 'Darcy'
     },
     {
       id: 'DarcyJamal03',
-      group: 3,
       img: 'DarcyJamal03.png',
       type: 'Episode',
       title: 'Darcy Jamal 03',
-      prev: 'previous episode',
-      next: 'next episode'
+      primaryColor: path2color,
+      primaryCharacter: 'Darcy'
     },
     {
       id: 'KikiLeaf01',
-      group: 4,
       img: 'KikiLeaf01.png',
       type: 'Episode',
       title: 'Kiki Leaf 01',
-      prev: 'previous episode',
-      next: 'next episode'
+      primaryColor: path4color,
+      primaryCharacter: 'Kiki'
     },
     {
       id: 'KikiLeaf02',
-      group: 4,
       img: 'KikiLeaf02.png',
       type: 'Episode',
       title: 'Kiki Leaf 02',
-      prev: 'previous episode',
-      next: 'next episode'
+      primaryColor: path4color,
+      primaryCharacter: 'Kiki'
     },
     {
       id: 'KikiLeaf03',
-      group: 4,
       img: 'KikiLeaf03.png',
       type: 'Episode',
       title: 'Kiki Leaf 03',
-      prev: 'previous episode',
-      next: 'next episode'
+      primaryColor: path4color,
+      primaryCharacter: 'Kiki'
     },
     {
       id: 'LunaKiki01',
-      group: 5,
       img: 'LunaKiki01.png',
       type: 'Episode',
       title: 'Luna Kiki 01',
-      prev: 'previous episode',
-      next: 'next episode'
+      primaryColor: path1color,
+      primaryCharacter: 'Luna'
     },
     {
       id: 'LunaKiki02',
-      group: 5,
       img: 'LunaKiki02.png',
       type: 'Episode',
       title: 'Luna Kiki 02',
-      prev: 'previous episode',
-      next: 'next episode'
+      primaryColor: path1color,
+      primaryCharacter: 'Luna'
     },
     {
       id: 'LunaKiki03',
-      group: 5,
       img: 'LunaKiki03.png',
       type: 'Episode',
       title: 'Luna Kiki 03',
-      prev: 'previous episode',
-      next: 'next episode'
+      primaryColor: path1color,
+      primaryCharacter: 'Luna'
     },
     {
       id: 'LunaKiki04',
-      group: 5,
       img: 'LunaKiki04.png',
       type: 'Episode',
       title: 'Luna Kiki 04',
-      prev: 'previous episode',
-      next: 'next episode'
+      primaryColor: path1color,
+      primaryCharacter: 'Luna'
     },
     {
       id: 'LunaKiki05',
-      group: 5,
       img: 'LunaKiki05.png',
       type: 'Episode',
       title: 'Luna Kiki 05',
-      prev: 'previous episode',
-      next: 'next episode'
+      primaryColor: path1color,
+      primaryCharacter: 'Luna'
     },
     {
       id: 'LunaKiki06',
-      group: 5,
       img: 'LunaKiki06.png',
       type: 'Episode',
       title: 'Luna Kiki 06',
-      prev: 'previous episode',
-      next: 'next episode'
+      primaryColor: path1color,
+      primaryCharacter: 'Luna'
     },
     {
       id: 'LunaLeaf01',
-      group: 6,
       img: 'LunaLeaf01.png',
       type: 'Episode',
       title: 'Luna Leaf 01',
-      prev: 'previous episode',
-      next: 'next episode'
+      primaryColor: path1color,
+      primaryCharacter: 'Luna'
     },
     {
       id: 'LunaLeaf02',
-      group: 6,
       img: 'LunaLeaf02.png',
       type: 'Episode',
       title: 'Luna Leaf 02',
-      prev: 'previous episode',
-      next: 'next episode'
+      primaryColor: path1color,
+      primaryCharacter: 'Luna'
     },
     {
       id: 'TravCarson01',
-      group: 7,
       img: 'TravCarson01.png',
       type: 'Episode',
       title: 'Trav Carson 01',
-      prev: 'previous episode',
-      next: 'next episode'
+      primaryColor: path3color,
+      primaryCharacter: 'Trav'
     },
     {
       id: 'TravCarson02',
-      group: 7,
       img: 'TravCarson02.png',
       type: 'Episode',
       title: 'Trav Carson 02',
-      prev: 'previous episode',
-      next: 'next episode'
+      primaryColor: path3color,
+      primaryCharacter: 'Trav'
     },
     {
       id: 'TravFatherD01',
-      group: 8,
       img: 'TravFatherD01.png',
       type: 'Episode',
       title: 'Trav FatherD 01',
-      prev: 'previous episode',
-      next: 'next episode'
+      primaryColor: path3color,
+      primaryCharacter: 'Trav'
     },
     {
       id: 'TravFatherD02',
-      group: 8,
       img: 'TravFatherD02.png',
       type: 'Episode',
       title: 'Trav FatherD 02',
-      prev: 'previous episode',
-      next: 'next episode'
+      primaryColor: path3color,
+      primaryCharacter: 'Trav'
     },
     {
       id: 'TravLuna01',
-      group: 9,
       img: 'TravLuna01.png',
       type: 'Episode',
       title: 'Trav Luna 01',
-      prev: 'previous episode',
-      next: 'next episode'
+      primaryColor: path3color,
+      primaryCharacter: 'Trav'
     },
     {
       id: 'TravLuna02',
-      group: 9,
       img: 'TravLuna02.png',
       type: 'Episode',
       title: 'Trav Luna 02',
-      prev: 'previous episode',
-      next: 'next episode'
+      primaryColor: path3color,
+      primaryCharacter: 'Trav'
     },
     {
       id: 'TravLuna03',
-      group: 9,
       img: 'TravLuna03.png',
       type: 'Episode',
       title: 'Trav Luna 03',
-      prev: 'previous episode',
-      next: 'next episode'
+      primaryColor: path3color,
+      primaryCharacter: 'Trav'
     },
     {
       id: 'TravLuna04',
-      group: 9,
       img: 'TravLuna04.png',
       type: 'Episode',
       title: 'Trav Luna 04',
-      prev: 'previous episode',
-      next: 'next episode'
+      primaryColor: path3color,
+      primaryCharacter: 'Trav'
     },
     {
       id: 'TravLuna05',
-      group: 9,
       img: 'TravLuna05.png',
       type: 'Episode',
       title: 'Trav Luna 05',
-      prev: 'previous episode',
-      next: 'next episode'
+      primaryColor: path3color,
+      primaryCharacter: 'Trav'
     },
     {
       id: 'TravLuna06',
-      group: 9,
       img: 'TravLuna06.png',
       type: 'Episode',
       title: 'Trav Luna 06',
-      prev: 'previous episode',
-      next: 'next episode'
+      primaryColor: path3color,
+      primaryCharacter: 'Trav'
     },
     {
       id: 'TravLuna07',
-      group: 9,
       img: 'TravLuna07.png',
       type: 'Episode',
       title: 'Trav Luna 07',
-      prev: 'previous episode',
-      next: 'next episode'
+      primaryColor: path3color,
+      primaryCharacter: 'Trav'
     }
   ],
   links: [

@@ -64,9 +64,10 @@
   <article class="snackbar_hidden" id="snackbar-container">
     <!-- temp tags until styled -->
     <img class="snackbar-icon" src="./images/icons/close-icon.png" alt="close" onclick="closeSnackbar()">
-    <h3 id="snackbar-title"></h3>
-    <p id="snackbar-info-one"></p>
-    <p id="snackbar-info-two"></p>
+    <div class="diagonal-blocks">
+      <div class="block block--left"></div>
+      <div class="block block--right"></div>
+    </div>
   </article>
 
   <script>
@@ -118,9 +119,8 @@
       .onNodeClick(node => {
         // Aim at node from outside it
         const snackbar = document.getElementById('snackbar-container');
-        const title = document.getElementById("snackbar-title");
-        const descriptionOne = document.getElementById("snackbar-info-one");
-        const descriptionTwo = document.getElementById("snackbar-info-two");
+        const primaryCharacter = document.querySelector('.block--left');
+        const episodeTitle = document.querySelector('.block--right');
 
         snackbar.classList.contains('snackbar_hidden') ?
           snackbar.classList.remove('snackbar_hidden') & snackbar.classList.add('snackbar_show') :
@@ -129,14 +129,18 @@
         // conditional for character versus episode
         // because there might be different properties for characters/episodes
         if (node.type === "Character") {
-          title.textContent = node.type + " - " + node.title;
-          descriptionOne.textContent = "Group " + node.group;
-          descriptionTwo.textContent = "Type " + node.type;
+          // Sets colors/text content for diagonal boxes in snackbar
+          primaryCharacter.style.backgroundColor = node.primaryColor
+          primaryCharacter.textContent = node.title;
+          episodeTitle.style.backgroundColor = 'transparent';
+          episodeTitle.textContent = '';
         }
         if (node.type === "Episode") {
-          title.textContent = node.type + " - " + node.title;
-          descriptionOne.textContent = node.prev + " for " + node.title;
-          descriptionTwo.textContent = node.next + " for " + node.title;
+          primaryCharacter.style.backgroundColor = node.primaryColor
+          primaryCharacter.textContent = node.primaryCharacter;
+          episodeTitle.textContent = node.title;
+          episodeTitle.style.backgroundColor = 'lightgray';
+         
         }
         const distance = 40;
         const distRatio = 1 + distance / Math.hypot(node.x, node.y, node.z);
