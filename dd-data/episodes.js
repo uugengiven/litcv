@@ -36,7 +36,8 @@ const data = {
       type: 'Character',
       title: 'Luna',
       size: 22,
-      primaryColor: path1color
+      primaryColor: path1color,
+      recommendedEpisode: 'Trav Luna 01'
     },
     {
       id: 'Darcy',
@@ -44,7 +45,8 @@ const data = {
       type: 'Character',
       title: 'Darcy',
       size: 18,
-      primaryColor: path2color
+      primaryColor: path2color,
+      recommendedEpisode: 'Darcy Jamal 01'
     },
     {
       id: 'Trav',
@@ -52,7 +54,8 @@ const data = {
       type: 'Character',
       title: 'Trav',
       size: 22,
-      primaryColor: path3color
+      primaryColor: path3color,
+      recommendedEpisode: 'Trav Luna 01'
     },
     {
       id: 'Kiki',
@@ -60,7 +63,8 @@ const data = {
       type: 'Character',
       title: 'Kiki',
       size: 18,
-      primaryColor: path4color
+      primaryColor: path4color,
+      recommendedEpisode: 'Kiki Luna 01'
     },
     {
       id: 'Jamal',
@@ -68,7 +72,8 @@ const data = {
       type: 'Character',
       title: 'Jamal',
       size: 14,
-      primaryColor: path5color
+      primaryColor: path5color,
+      recommendedEpisode: 'Darcy Jamal 01'
     },
     {
       id: 'FatherD',
@@ -76,7 +81,8 @@ const data = {
       type: 'Character',
       title: 'Father D',
       size: 14,
-      primaryColor: path6color
+      primaryColor: path6color,
+      recommendedEpisode: 'Trav FatherD 01'
     },
     {
       id: 'Carson',
@@ -84,7 +90,8 @@ const data = {
       type: 'Character',
       title: 'Carson',
       size: 14,
-      primaryColor: path7color
+      primaryColor: path7color,
+      recommendedEpisode: 'Darcy Carson 01'
     },
     {
       id: 'Leaf',
@@ -92,7 +99,8 @@ const data = {
       type: 'Character',
       title: 'Leaf',
       size: 14,
-      primaryColor: path8color
+      primaryColor: path8color,
+      recommendedEpisode: 'Luna Leaf 01'
     },
     {
       id: 'DarcyCarson01',

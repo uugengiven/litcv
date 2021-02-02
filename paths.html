@@ -64,10 +64,21 @@
   <article class="snackbar_hidden" id="snackbar-container">
     <!-- temp tags until styled -->
     <img class="snackbar-icon" src="./images/icons/close-icon.png" alt="close" onclick="closeSnackbar()">
-    <div class="diagonal-blocks">
+    <section class="diagonal-blocks">
       <div class="block block--left"></div>
       <div class="block block--right"></div>
-    </div>
+    </section>
+    <section class="snackbar-controls">
+      <div>
+        <img class="control-icon" src="images/icons/back.png" alt="back button icon">
+      </div>
+      <div>
+        <img class="control-icon" src="images/icons/play.png" alt="play button icon">
+      </div>
+      <div>
+        <img class="control-icon" src="images/icons/forward.png" alt="forward button icon">
+      </div>
+    </section>
   </article>
 
   <script>
@@ -132,15 +143,12 @@
           // Sets colors/text content for diagonal boxes in snackbar
           primaryCharacter.style.backgroundColor = node.primaryColor
           primaryCharacter.textContent = node.title;
-          episodeTitle.style.backgroundColor = 'transparent';
-          episodeTitle.textContent = '';
+          episodeTitle.textContent = node.recommendedEpisode;
         }
         if (node.type === "Episode") {
           primaryCharacter.style.backgroundColor = node.primaryColor
           primaryCharacter.textContent = node.primaryCharacter;
-          episodeTitle.textContent = node.title;
-          episodeTitle.style.backgroundColor = 'lightgray';
-         
+          episodeTitle.textContent = node.title;         
         }
         const distance = 40;
         const distRatio = 1 + distance / Math.hypot(node.x, node.y, node.z);

@@ -760,7 +760,7 @@ div.contact-content form button:hover {
   align-items: center;
   justify-content: center; */
   color: var(--text-dark);
-  background-color: #eee;
+  background-color: var(--light-background);
   /* opacity: 0.975; */
   padding: 14px 24px;
   position: fixed;
@@ -769,7 +769,7 @@ div.contact-content form button:hover {
   transform: translateX(-50%);
   min-width: 310px;
   max-width: 800px;
-  height: 200px;
+  height: 160px;
   width: 90vw;
   margin: 0 auto;
   border-radius: 4px 4px 0 0;
@@ -780,7 +780,7 @@ div.contact-content form button:hover {
   box-sizing: border-box;
 }
 .snackbar_hidden {
-  bottom: -250px;
+  bottom: -210px;
   transition: bottom 1000ms ease-in-out;
 }
 .snackbar_show {
@@ -788,10 +788,10 @@ div.contact-content form button:hover {
 }
 
 .snackbar-icon {
-  width: 26px;
+  width: 20px;
   position: absolute;
-  top: 6px;
-  right: 4px;
+  top: 3px;
+  right: 2px;
   cursor: pointer;
   opacity: 1;
   transition: opacity 250ms ease-in-out;
@@ -806,7 +806,7 @@ div.contact-content form button:hover {
 
 .diagonal-blocks {
   display: flex;
-  padding: 1.5rem 0 1rem 0;
+  padding: 0.75rem 0;
 }
 
 .block {
@@ -834,11 +834,31 @@ div.contact-content form button:hover {
 }
 
 .block--right {
+  background-color: lightgray;
   margin-left: -2.5rem;
   clip-path: polygon(3rem 0, 100% 0, 100% 100%, 0% 100%);
   border-top-right-radius: 4px;
   border-bottom-right-radius: 4px;
   width: calc(50% + 2rem);
+}
+
+.snackbar-controls {
+  display: flex;
+  justify-content: space-evenly;
+  max-width: 350px;
+  margin: 0.5rem auto;
+}
+
+.snackbar-controls .control-icon {
+  height: 56px;
+  cursor: pointer;
+  opacity: 1;
+  transition: opacity 250ms ease-in-out;
+}
+
+.snackbar-controls .control-icon:hover {
+  opacity: 0.5;
+  transition: opacity 250ms ease-in-out;
 }
 
 .scene-tooltip {
