@@ -37,7 +37,8 @@ const data = {
       title: 'Luna',
       size: 22,
       primaryColor: path1color,
-      recommendedEpisode: 'Trav Luna 01'
+      recommendedEpisode: 'Trav Luna 01',
+      recommendedEpisodeID: 'TravLuna01'
     },
     {
       id: 'Darcy',
