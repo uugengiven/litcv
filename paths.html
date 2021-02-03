@@ -181,7 +181,7 @@
     // Grabs data-attribute to use for repositioning graph
     const rightBox = document.querySelector('.block--right');
     rightBox.onclick = function() {
-      const node = {x: this.dataset.x, y: this.dataset.y, z:this.dataset.z}
+      const node = {x: this.dataset.x, y: this.dataset.y, z: this.dataset.z}
       const distance = 40;
       const distRatio = 1 + distance / Math.hypot(node.x, node.y, node.z);
         Graph.cameraPosition({
