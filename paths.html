@@ -129,10 +129,14 @@
       .onNodeHover(node => elem.style.cursor = node ? 'pointer' : null)
       .onNodeClick(node => {
         // Aim at node from outside it
+        // console.log(data);
+        let allNodes = data.nodes;
+        console.log(allNodes);
         const snackbar = document.getElementById('snackbar-container');
         const primaryCharacter = document.querySelector('.block--left');
         const episodeTitle = document.querySelector('.block--right');
 
+        // checks to see if snackbar is open and toggles it
         snackbar.classList.contains('snackbar_hidden') ?
           snackbar.classList.remove('snackbar_hidden') & snackbar.classList.add('snackbar_show') :
           null;
@@ -143,13 +147,25 @@
           // Sets colors/text content for diagonal boxes in snackbar
           primaryCharacter.style.backgroundColor = node.primaryColor
           primaryCharacter.textContent = node.title;
+          // Sets next episode text in right block of snackbar diagonal blocks
           episodeTitle.textContent = node.recommendedEpisode;
-          // Sets data attribute to give snackbar access to that value
+          // Sets data attribute on snackbar block to give it access to that value
           episodeTitle.setAttribute("data-episode", node.recommendedEpisodeID);
+          // console.log(node.recommendedEpisodeID);
+          // Finds next node info based on recommended episode property passed from nodes JSON
+          let nextTarget = allNodes.find(item => item.id === node.recommendedEpisodeID);
+          // console.log(nextTarget, 'next episode');
+          // Sets x,y,z of node as data attributes on diagonal block in snackbar
+          episodeTitle.setAttribute('data-x', nextTarget.x);
+          episodeTitle.setAttribute('data-y', nextTarget.y);
+          episodeTitle.setAttribute('data-z', nextTarget.z);
         }
         if (node.type === "Episode") {
+          // Sets background color of left diagonal block in snackbar
           primaryCharacter.style.backgroundColor = node.primaryColor
+          // Sets text of left diagonal block in snackbar
           primaryCharacter.textContent = node.primaryCharacter;
+          // Sets text of right diagonal block in snackbar
           episodeTitle.textContent = node.title;         
         }
         const distance = 40;
@@ -166,11 +182,20 @@
   </script>
   <script>
     // Grabs data-attribute to use for repositioning graph
-    function snackbarReposition() {
-      const rightBox = document.querySelector('.block--right');
-      rightBox.addEventListener('click', function() {
- 	      console.log(this.dataset.episode);
-      });
+    const rightBox = document.querySelector('.block--right');
+    rightBox.onclick = function() {
+      const node = {x: this.dataset.x, y: this.dataset.y, z:this.dataset.z}
+      console.log({node})
+      const distance = 40;
+      const distRatio = 1 + distance / Math.hypot(node.x, node.y, node.z);
+        Graph.cameraPosition({
+            x: node.x * distRatio,
+            y: node.y * distRatio,
+            z: node.z * distRatio
+          }, // new position
+          node, // lookAt ({ x, y, z })
+          2000 // ms transition duration
+        );
     }
   </script>
   <script src="js/menu.js"></script>
