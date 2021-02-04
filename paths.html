@@ -158,8 +158,10 @@
           blockRight.setAttribute("data-episode", node.recommendedEpisodeID);
         }
         if (node.type === "Episode") {
+          // TODO - don't change this from episode node click????
           // Sets background color of left diagonal block in snackbar
           blockLeft.style.backgroundColor = node.primaryColor
+          // TODO - don't change this from episode node click????
           // Sets text of left diagonal block in snackbar
           blockLeft.textContent = node.primaryCharacter;
           // Sets text of right diagonal block in snackbar
