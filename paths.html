@@ -143,7 +143,7 @@
         // TODOS
         // - build out rest of paths
         // - diagonal blocks text content?
-        // - move nav click funcionality to arrow icons from diagonal blocks?
+        // - move nav click functionality to arrow icons from diagonal blocks?
         // - condense setAttribute outside of conditional?
         // - property for character path chosen so that clicking on episode doesn't change left block text
 
@@ -185,22 +185,22 @@
     // all nodes data
     const everyNode = data.nodes;
     // right diagonal block in snackbar selector
-    const rightBox = document.querySelector('.block--right');
-    rightBox.onclick = function() {
-      // Grabs recommended episode from data-attribute on block div
-      let nextEpisodeID = rightBox.dataset.episode;
-      // Finds current node info to target for repositioning
-      let node = everyNode.find(item => item.id === nextEpisodeID);
-      const distance = 40;
-      const distRatio = 1 + distance / Math.hypot(node.x, node.y, node.z);
-        Graph.cameraPosition({
-            x: node.x * distRatio,
-            y: node.y * distRatio,
-            z: node.z * distRatio
-          }, // new position
-          node, // lookAt ({ x, y, z })
-          2000 // ms transition duration
-        );
+    const blockRight = document.querySelector('.block--right');
+    blockRight.onclick = function() {
+    // Grabs recommended episode from data-attribute on block div
+    let nextEpisodeID = blockRight.dataset.episode;
+    // Finds current node info to target for repositioning
+    let node = everyNode.find(item => item.id === nextEpisodeID);
+    const distance = 40;
+    const distRatio = 1 + distance / Math.hypot(node.x, node.y, node.z);
+      Graph.cameraPosition({
+          x: node.x * distRatio,
+          y: node.y * distRatio,
+          z: node.z * distRatio
+        }, // new position
+        node, // lookAt ({ x, y, z })
+        2000 // ms transition duration
+      );
     }
   </script>
   <script src="js/menu.js"></script>
