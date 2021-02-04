@@ -98,7 +98,7 @@ const data = {
       size: 14,
       primaryColor: path7color,
       recommendedEpisode: 'Darcy Carson 01',
-      recommendedEpisodeID: 'DarcyCarson01'
+      recommendedEpisode: 'DarcyCarson01'
     },
     {
       id: 'Leaf',
@@ -107,8 +107,7 @@ const data = {
       title: 'Leaf',
       size: 14,
       primaryColor: path8color,
-      recommendedEpisode: 'Luna Leaf 01',
-      recommendedEpisodeID: 'LunaLeaf01'
+      recommendedEpisode: 'Luna Leaf 01'
     },
     {
       id: 'DarcyCarson01',
@@ -116,9 +115,7 @@ const data = {
       type: 'Episode',
       title: 'Darcy Carson 01',
       primaryColor: path2color,
-      primaryCharacter: 'Darcy',
-      recommendedEpisode: 'Darcy Carson 02',
-      recommendedEpisodeID: 'DarcyCarson02'
+      primaryCharacter: 'Darcy'
     },
     {
       id: 'DarcyCarson02',

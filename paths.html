@@ -131,9 +131,10 @@
         // Aim at node from outside it
         // Gets all node data
         let allNodes = data.nodes;
+        // Select targets for snackbar and diagonal blocks inside snackbar
         const snackbar = document.getElementById('snackbar-container');
-        const primaryCharacter = document.querySelector('.block--left');
-        const episodeTitle = document.querySelector('.block--right');
+        const blockLeft = document.querySelector('.block--left');
+        const blockRight = document.querySelector('.block--right');
 
         // checks to see if snackbar is open and toggles it
         snackbar.classList.contains('snackbar_hidden') ?
@@ -144,26 +145,27 @@
         // because there might be different properties for characters/episodes
         if (node.type === "Character") {
           // Sets colors/text content for diagonal boxes in snackbar
-          primaryCharacter.style.backgroundColor = node.primaryColor
-          primaryCharacter.textContent = node.title;
+          blockLeft.style.backgroundColor = node.primaryColor
+          blockLeft.textContent = node.title;
           // Sets next episode text in right block of snackbar diagonal blocks
-          episodeTitle.textContent = node.recommendedEpisode;
+          blockRight.textContent = node.recommendedEpisode;
           // Sets data attribute on snackbar block to give it access to that value
-          episodeTitle.setAttribute("data-episode", node.recommendedEpisodeID);
+          blockRight.setAttribute("data-episode", node.recommendedEpisodeID);
           // Finds next node info based on recommended episode property passed from nodes JSON
           let nextTarget = allNodes.find(item => item.id === node.recommendedEpisodeID);
           // Sets x,y,z of node as data attributes on diagonal block in snackbar
-          episodeTitle.setAttribute('data-x', nextTarget.x);
-          episodeTitle.setAttribute('data-y', nextTarget.y);
-          episodeTitle.setAttribute('data-z', nextTarget.z);
+          blockRight.setAttribute('data-x', nextTarget.x);
+          blockRight.setAttribute('data-y', nextTarget.y);
+          blockRight.setAttribute('data-z', nextTarget.z);
         }
         if (node.type === "Episode") {
           // Sets background color of left diagonal block in snackbar
-          primaryCharacter.style.backgroundColor = node.primaryColor
+          blockLeft.style.backgroundColor = node.primaryColor
           // Sets text of left diagonal block in snackbar
-          primaryCharacter.textContent = node.primaryCharacter;
+          blockLeft.textContent = node.primaryCharacter;
           // Sets text of right diagonal block in snackbar
-          episodeTitle.textContent = node.title;         
+          // TODO: THIS SHOULD BE RECOMMENDED EPISODE
+          blockRight.textContent = node.title;         
         }
         const distance = 40;
         const distRatio = 1 + distance / Math.hypot(node.x, node.y, node.z);
