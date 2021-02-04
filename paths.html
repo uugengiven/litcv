@@ -151,12 +151,12 @@
           blockRight.textContent = node.recommendedEpisode;
           // Sets data attribute on snackbar block to give it access to that value
           blockRight.setAttribute("data-episode", node.recommendedEpisodeID);
-          // Finds next node info based on recommended episode property passed from nodes JSON
-          let nextTarget = allNodes.find(item => item.id === node.recommendedEpisodeID);
-          // Sets x,y,z of node as data attributes on diagonal block in snackbar
-          blockRight.setAttribute('data-x', nextTarget.x);
-          blockRight.setAttribute('data-y', nextTarget.y);
-          blockRight.setAttribute('data-z', nextTarget.z);
+          // // Finds next node info based on recommended episode property passed from nodes JSON
+          // let nextTarget = allNodes.find(item => item.id === node.recommendedEpisodeID);
+          // // Sets x,y,z of node as data attributes on diagonal block in snackbar
+          // blockRight.setAttribute('data-x', nextTarget.x);
+          // blockRight.setAttribute('data-y', nextTarget.y);
+          // blockRight.setAttribute('data-z', nextTarget.z);
         }
         if (node.type === "Episode") {
           // Sets background color of left diagonal block in snackbar
@@ -180,10 +180,14 @@
       });
   </script>
   <script>
-    // Grabs data-attribute to use for repositioning graph
+    // Grabs data-attribute added from node click to use for repositioning graph from snackbar blocks
     const rightBox = document.querySelector('.block--right');
+    const everyNode = data.nodes;
     rightBox.onclick = function() {
-      const node = {x: this.dataset.x, y: this.dataset.y, z: this.dataset.z}
+      // Grabs recommended episode from data-attribute on block div
+      let nextEpisodeID = rightBox.dataset.episode;
+      // Finds current node info to target for repositioning
+      let node = everyNode.find(item => item.id === nextEpisodeID);
       const distance = 40;
       const distRatio = 1 + distance / Math.hypot(node.x, node.y, node.z);
         Graph.cameraPosition({
