@@ -140,6 +140,8 @@
           null;
 
         // TODOS
+        // - only change character name if click on character node
+        // - delete secondary/primary stuff in json and implementation?
         // - build out rest of paths
         // - diagonal blocks text content?
         // - move nav click functionality to arrow icons from diagonal blocks?
@@ -186,6 +188,7 @@
     // right diagonal block in snackbar selector
     const blockRight = document.querySelector('.block--right');
     blockRight.onclick = function() {
+      console.log(everyLink);
     // Grabs recommended episode from data-attribute on block div
     let nextEpisodeID = blockRight.dataset.episode;
     // Finds current node info to target for repositioning
