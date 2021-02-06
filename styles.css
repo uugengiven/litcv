@@ -857,6 +857,12 @@ div.contact-content form button:hover {
   transition: opacity 250ms ease-in-out;
 }
 
+.snackbar-controls .control-icon.inactive {
+  opacity: 0.25;
+  transition: opacity 250ms ease-in-out;
+  cursor: not-allowed;
+}
+
 .scene-tooltip {
   color: var(--text-dark);
 }
