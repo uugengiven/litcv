@@ -110,6 +110,8 @@
         2000 // ms transition duration
       );
     }
+
+    // 3D graph 
     const elem = document.getElementById('3d-graph');
 
     const Graph = ForceGraph3D()
@@ -165,6 +167,9 @@
         // - condense setAttribute outside of conditional?
         // - property for character path chosen so that clicking on episode doesn't change left block text
         // - toggle prev arrow on next arrow click conditionally 
+        // - randomly clicking an episode: does left block disappear?
+        // - prev/next : second example?
+        // https://stackoverflow.com/questions/48026118/loop-through-array-forward-and-backward-one-at-time
 
         // conditional for character versus episode 
         if (node.type === "Character") {
