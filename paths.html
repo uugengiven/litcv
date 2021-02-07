@@ -125,7 +125,6 @@
         );
       // increases index if not at last item in array
       storyPath[++storyPathIndex];
-      console.log(storyPathIndex);
     }
 
     prevBtn.onclick = function() {
@@ -188,56 +187,25 @@
         return sprite;
       })
       .onNodeHover(node => elem.style.cursor = node ? 'pointer' : null)
+      // Aim at node from outside it
       .onNodeClick(node => {
-        // Aim at node from outside it
-    
         // checks to see if snackbar is open and toggles it
         snackbar.classList.contains('snackbar_hidden') ?
           snackbar.classList.remove('snackbar_hidden') & snackbar.classList.add('snackbar_show') :
           null;
-
-        // TODOS
-        // - storyPath property on character link path?
-        // - only change character name if click on character node
-        // - delete secondary/primary stuff in json and implementation?
-        // - build out rest of paths
-        // - diagonal blocks text content?
-        // - don't remove arrow icons: just remove cursor and change color // use class for this
-        // - move nav click functionality to arrow icons from diagonal blocks?
-        // - condense setAttribute outside of conditional?
-        // - property for character path chosen so that clicking on episode doesn't change left block text
-        // - toggle prev arrow on next arrow click conditionally 
-        // - randomly clicking an episode: does left block disappear?
-        // - prev/next : second example?
-        // https://stackoverflow.com/questions/48026118/loop-through-array-forward-and-backward-one-at-time
 
         // conditional for character versus episode 
         if (node.type === "Character") {
           // resets for storyPathIndex and text content
           storyPathIndex = 0;
           blockRight.textContent = '';
-          console.log(node);
           storyPath = allLinks.filter(item => item.characterPath === node.id);
-          console.log(storyPath);
-          // blockRight.textContent = storyPath[0].target.title;
 
           // Sets colors/text content for diagonal boxes in snackbar
           blockLeft.style.backgroundColor = node.primaryColor
           blockLeft.textContent = node.title;
-          // Sets next episode text in right block of snackbar diagonal blocks
-          // blockRight.textContent = node.recommendedEpisode;
-          // Sets data attribute on snackbar block to give it access to that value
-          // blockRight.setAttribute("data-episode", node.recommendedEpisodeID);
         }
-        if (node.type === "Episode") {
-          // TODO - don't change this from episode node click????
-          // Sets background color of left diagonal block in snackbar
-          // blockLeft.style.backgroundColor = node.primaryColor
-          // TODO - don't change this from episode node click????
-          // Sets text of left diagonal block in snackbar
-          // blockLeft.textContent = node.primaryCharacter;
-          // Sets text of right diagonal block in snackbar
-          // TODO: THIS SHOULD BE RECOMMENDED EPISODE
+        if (node.type === "Episode") {         
           blockRight.textContent = node.title;      
           blockLeft.textContent = '';   
           blockLeft.style.backgroundColor = 'transparent';
