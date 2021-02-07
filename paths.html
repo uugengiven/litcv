@@ -92,8 +92,8 @@
     const blockLeft = document.querySelector('.block--left');
     const blockRight = document.querySelector('.block--right');
     // Selectors for snack bar control icons
-    const prevBtn = document.querySelector('control-icon--prev');
-    const nextBtn = document.querySelector('control-icon--next');
+    const prevBtn = document.querySelector('.control-icon--prev');
+    const nextBtn = document.querySelector('.control-icon--next');
     // all nodes data
     const allNodes = data.nodes;
     // all links data
@@ -101,21 +101,22 @@
     // global vars
     var storyPath;
     // Function grabs data-attribute added from node click to use for repositioning graph from snackbar blocks
-    blockRight.onclick = function() {
-    // Grabs recommended episode from data-attribute on block div
-    let nextEpisodeID = blockRight.dataset.episode;
-    // Finds current node info to target for repositioning
-    let node = allNodes.find(item => item.id === nextEpisodeID);
-    const distance = 40;
-    const distRatio = 1 + distance / Math.hypot(node.x, node.y, node.z);
-      Graph.cameraPosition({
-          x: node.x * distRatio,
-          y: node.y * distRatio,
-          z: node.z * distRatio
-        }, // new position
-        node, // lookAt ({ x, y, z })
-        2000 // ms transition duration
-      );
+    nextBtn.onclick = function() {
+      console.log(storyPath)
+    // // Grabs recommended episode from data-attribute on block div
+    // let nextEpisodeID = blockRight.dataset.episode;
+    // // Finds current node info to target for repositioning
+    // let node = allNodes.find(item => item.id === nextEpisodeID);
+    // const distance = 40;
+    // const distRatio = 1 + distance / Math.hypot(node.x, node.y, node.z);
+    //   Graph.cameraPosition({
+    //       x: node.x * distRatio,
+    //       y: node.y * distRatio,
+    //       z: node.z * distRatio
+    //     }, // new position
+    //     node, // lookAt ({ x, y, z })
+    //     2000 // ms transition duration
+    //   );
     }
 
     // 3D graph 
@@ -185,7 +186,7 @@
           console.log(allLinks);
           storyPath = allLinks.filter(item => item.characterPath === node.id);
           console.log(storyPath);
-          blockRight.textContent = storyPath[0].target.title;
+          // blockRight.textContent = storyPath[0].target.title;
 
           // Sets colors/text content for diagonal boxes in snackbar
           blockLeft.style.backgroundColor = node.primaryColor
