@@ -93,6 +93,7 @@
     const blockRight = document.querySelector('.block--right');
     // all nodes data
     const allNodes = data.nodes;
+    // all links data
     const allLinks = data.links;
     // Function grabs data-attribute added from node click to use for repositioning graph from snackbar blocks
     blockRight.onclick = function() {
@@ -175,13 +176,14 @@
 
         // conditional for character versus episode 
         if (node.type === "Character") {
+          console.log(node);
           // Sets colors/text content for diagonal boxes in snackbar
           blockLeft.style.backgroundColor = node.primaryColor
           blockLeft.textContent = node.title;
           // Sets next episode text in right block of snackbar diagonal blocks
-          blockRight.textContent = node.recommendedEpisode;
+          // blockRight.textContent = node.recommendedEpisode;
           // Sets data attribute on snackbar block to give it access to that value
-          blockRight.setAttribute("data-episode", node.recommendedEpisodeID);
+          // blockRight.setAttribute("data-episode", node.recommendedEpisodeID);
         }
         if (node.type === "Episode") {
           // TODO - don't change this from episode node click????

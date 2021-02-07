@@ -36,9 +36,9 @@ const data = {
       type: 'Character',
       title: 'Luna',
       size: 22,
-      primaryColor: path1color,
-      recommendedEpisode: 'Trav Luna 01',
-      recommendedEpisodeID: 'TravLuna01'
+      primaryColor: path1color
+      // recommendedEpisode: 'Trav Luna 01',
+      // recommendedEpisodeID: 'TravLuna01'
     },
     {
       id: 'Darcy',
@@ -46,9 +46,9 @@ const data = {
       type: 'Character',
       title: 'Darcy',
       size: 18,
-      primaryColor: path2color,
-      recommendedEpisode: 'Darcy Jamal 01',
-      recommendedEpisodeID: 'DarcyJamal01'
+      primaryColor: path2color
+      // recommendedEpisode: 'Darcy Jamal 01',
+      // recommendedEpisodeID: 'DarcyJamal01'
     },
     {
       id: 'Trav',
@@ -56,9 +56,9 @@ const data = {
       type: 'Character',
       title: 'Trav',
       size: 22,
-      primaryColor: path3color,
-      recommendedEpisode: 'Trav Luna 01',
-      recommendedEpisodeID: 'TravLuna01'
+      primaryColor: path3color
+      // recommendedEpisode: 'Trav Luna 01',
+      // recommendedEpisodeID: 'TravLuna01'
     },
     {
       id: 'Kiki',
@@ -66,9 +66,9 @@ const data = {
       type: 'Character',
       title: 'Kiki',
       size: 18,
-      primaryColor: path4color,
-      recommendedEpisode: 'Luna Kiki 01',
-      recommendedEpisodeID: 'LunaKiki01'
+      primaryColor: path4color
+      // recommendedEpisode: 'Luna Kiki 01',
+      // recommendedEpisodeID: 'LunaKiki01'
     },
     {
       id: 'Jamal',
@@ -76,9 +76,9 @@ const data = {
       type: 'Character',
       title: 'Jamal',
       size: 14,
-      primaryColor: path5color,
-      recommendedEpisode: 'Darcy Jamal 01',
-      recommendedEpisodeID: 'DarcyJamal01'
+      primaryColor: path5color
+      // recommendedEpisode: 'Darcy Jamal 01',
+      // recommendedEpisodeID: 'DarcyJamal01'
     },
     {
       id: 'FatherD',
@@ -86,9 +86,9 @@ const data = {
       type: 'Character',
       title: 'Father D',
       size: 14,
-      primaryColor: path6color,
-      recommendedEpisode: 'Trav FatherD 01',
-      recommendedEpisodeID: 'TravFatherD01'
+      primaryColor: path6color
+      // recommendedEpisode: 'Trav FatherD 01',
+      // recommendedEpisodeID: 'TravFatherD01'
     },
     {
       id: 'Carson',
@@ -96,9 +96,9 @@ const data = {
       type: 'Character',
       title: 'Carson',
       size: 14,
-      primaryColor: path7color,
-      recommendedEpisode: 'Darcy Carson 01',
-      recommendedEpisodeID: 'DarcyCarson01'
+      primaryColor: path7color
+      // recommendedEpisode: 'Darcy Carson 01',
+      // recommendedEpisodeID: 'DarcyCarson01'
     },
     {
       id: 'Leaf',
@@ -106,9 +106,9 @@ const data = {
       type: 'Character',
       title: 'Leaf',
       size: 14,
-      primaryColor: path8color,
-      recommendedEpisode: 'Luna Leaf 01',
-      recommendedEpisodeID: 'LunaLeaf01'
+      primaryColor: path8color
+      // recommendedEpisode: 'Luna Leaf 01',
+      // recommendedEpisodeID: 'LunaLeaf01'
     },
     {
       id: 'DarcyCarson01',
@@ -315,419 +315,6 @@ const data = {
     }
   ],
   links: [
-    {
-      source: 'Darcy',
-      target: 'DarcyCarson01',
-      linkColor: baseColor,
-      linkCurvature: baseCurve,
-      width: charWidth
-    },
-    {
-      source: 'Darcy',
-      target: 'DarcyCarson02',
-      linkColor: baseColor,
-      linkCurvature: baseCurve,
-      width: charWidth
-    },
-    {
-      source: 'Darcy',
-      target: 'DarcyCarson03',
-      linkColor: baseColor,
-      linkCurvature: baseCurve,
-      width: charWidth
-    },
-    {
-      source: 'Darcy',
-      target: 'DarcyFatherD01',
-      linkColor: baseColor,
-      linkCurvature: baseCurve,
-      width: charWidth
-    },
-    {
-      source: 'Darcy',
-      target: 'DarcyJamal01',
-      linkColor: baseColor,
-      linkCurvature: baseCurve,
-      width: charWidth
-    },
-    {
-      source: 'Darcy',
-      target: 'DarcyJamal02',
-      linkColor: baseColor,
-      linkCurvature: baseCurve,
-      width: charWidth
-    },
-    {
-      source: 'Darcy',
-      target: 'DarcyJamal03',
-      linkColor: baseColor,
-      linkCurvature: baseCurve,
-      width: charWidth
-    },
-    {
-      source: 'Carson',
-      target: 'DarcyCarson01',
-      linkColor: baseColor,
-      linkCurvature: baseCurve,
-      width: charWidth
-    },
-    {
-      source: 'Carson',
-      target: 'DarcyCarson02',
-      linkColor: baseColor,
-      linkCurvature: baseCurve,
-      width: charWidth
-    },
-    {
-      source: 'Carson',
-      target: 'DarcyCarson03',
-      linkColor: baseColor,
-      linkCurvature: baseCurve,
-      width: charWidth
-    },
-    {
-      source: 'Carson',
-      target: 'DarcyCarson03',
-      linkColor: baseColor,
-      linkCurvature: baseCurve,
-      width: charWidth
-    },
-    {
-      source: 'Carson',
-      target: 'TravCarson01',
-      linkColor: baseColor,
-      linkCurvature: baseCurve,
-      width: charWidth
-    },
-    {
-      source: 'Carson',
-      target: 'TravCarson02',
-      linkColor: baseColor,
-      linkCurvature: baseCurve,
-      width: charWidth
-    },
-    {
-      source: 'FatherD',
-      target: 'DarcyFatherD01',
-      linkColor: baseColor,
-      linkCurvature: baseCurve,
-      width: charWidth
-    },
-    {
-      source: 'FatherD',
-      target: 'TravFatherD01',
-      linkColor: baseColor,
-      linkCurvature: baseCurve,
-      width: charWidth
-    },
-    {
-      source: 'FatherD',
-      target: 'TravFatherD02',
-      linkColor: baseColor,
-      linkCurvature: baseCurve,
-      width: charWidth
-    },
-    {
-      source: 'Jamal',
-      target: 'DarcyJamal01',
-      linkColor: baseColor,
-      linkCurvature: baseCurve,
-      width: charWidth
-    },
-    {
-      source: 'Jamal',
-      target: 'DarcyJamal02',
-      linkColor: baseColor,
-      linkCurvature: baseCurve,
-      width: charWidth
-    },
-    {
-      source: 'Jamal',
-      target: 'DarcyJamal03',
-      linkColor: baseColor,
-      linkCurvature: baseCurve,
-      width: charWidth
-    },
-    {
-      source: 'Kiki',
-      target: 'KikiLeaf01',
-      linkColor: baseColor,
-      linkCurvature: baseCurve,
-      width: charWidth
-    },
-    {
-      source: 'Kiki',
-      target: 'KikiLeaf02',
-      linkColor: baseColor,
-      linkCurvature: baseCurve,
-      width: charWidth
-    },
-    {
-      source: 'Kiki',
-      target: 'KikiLeaf03',
-      linkColor: baseColor,
-      linkCurvature: baseCurve,
-      width: charWidth
-    },
-    {
-      source: 'Kiki',
-      target: 'LunaKiki01',
-      linkColor: baseColor,
-      linkCurvature: baseCurve,
-      width: charWidth
-    },
-    {
-      source: 'Kiki',
-      target: 'LunaKiki02',
-      linkColor: baseColor,
-      linkCurvature: baseCurve,
-      width: charWidth
-    },
-    {
-      source: 'Kiki',
-      target: 'LunaKiki03',
-      linkColor: baseColor,
-      linkCurvature: baseCurve,
-      width: charWidth
-    },
-    {
-      source: 'Kiki',
-      target: 'LunaKiki04',
-      linkColor: baseColor,
-      linkCurvature: baseCurve,
-      width: charWidth
-    },
-    {
-      source: 'Kiki',
-      target: 'LunaKiki05',
-      linkColor: baseColor,
-      linkCurvature: baseCurve,
-      width: charWidth
-    },
-    {
-      source: 'Kiki',
-      target: 'LunaKiki06',
-      linkColor: baseColor,
-      linkCurvature: baseCurve,
-      width: charWidth
-    },
-    {
-      source: 'Leaf',
-      target: 'KikiLeaf01',
-      linkColor: baseColor,
-      linkCurvature: baseCurve,
-      width: charWidth
-    },
-    {
-      source: 'Leaf',
-      target: 'KikiLeaf02',
-      linkColor: baseColor,
-      linkCurvature: baseCurve,
-      width: charWidth
-    },
-    {
-      source: 'Leaf',
-      target: 'KikiLeaf03',
-      linkColor: baseColor,
-      linkCurvature: baseCurve,
-      width: charWidth
-    },
-    {
-      source: 'Leaf',
-      target: 'LunaLeaf01',
-      linkColor: baseColor,
-      linkCurvature: baseCurve,
-      width: charWidth
-    },
-    {
-      source: 'Leaf',
-      target: 'LunaLeaf02',
-      linkColor: baseColor,
-      linkCurvature: baseCurve,
-      width: charWidth
-    },
-    {
-      source: 'Luna',
-      target: 'LunaKiki01',
-      linkColor: baseColor,
-      linkCurvature: baseCurve,
-      width: charWidth
-    },
-    {
-      source: 'Luna',
-      target: 'LunaKiki02',
-      linkColor: baseColor,
-      linkCurvature: baseCurve,
-      width: charWidth
-    },
-    {
-      source: 'Luna',
-      target: 'LunaKiki03',
-      linkColor: baseColor,
-      linkCurvature: baseCurve,
-      width: charWidth
-    },
-    {
-      source: 'Luna',
-      target: 'LunaKiki04',
-      linkColor: baseColor,
-      linkCurvature: baseCurve,
-      width: charWidth
-    },
-    {
-      source: 'Luna',
-      target: 'LunaKiki05',
-      linkColor: baseColor,
-      linkCurvature: baseCurve,
-      width: charWidth
-    },
-    {
-      source: 'Luna',
-      target: 'LunaKiki06',
-      linkColor: baseColor,
-      linkCurvature: baseCurve,
-      width: charWidth
-    },
-    {
-      source: 'Luna',
-      target: 'LunaLeaf01',
-      linkColor: baseColor,
-      linkCurvature: baseCurve,
-      width: charWidth
-    },
-    {
-      source: 'Luna',
-      target: 'LunaLeaf02',
-      linkColor: baseColor,
-      linkCurvature: baseCurve,
-      width: charWidth
-    },
-    {
-      source: 'Luna',
-      target: 'TravLuna01',
-      linkColor: baseColor,
-      linkCurvature: baseCurve,
-      width: charWidth
-    },
-    {
-      source: 'Luna',
-      target: 'TravLuna02',
-      linkColor: baseColor,
-      linkCurvature: baseCurve,
-      width: charWidth
-    },
-    {
-      source: 'Luna',
-      target: 'TravLuna03',
-      linkColor: baseColor,
-      linkCurvature: baseCurve,
-      width: charWidth
-    },
-    {
-      source: 'Luna',
-      target: 'TravLuna04',
-      linkColor: baseColor,
-      linkCurvature: baseCurve,
-      width: charWidth
-    },
-    {
-      source: 'Luna',
-      target: 'TravLuna05',
-      linkColor: baseColor,
-      linkCurvature: baseCurve,
-      width: charWidth
-    },
-    {
-      source: 'Luna',
-      target: 'TravLuna06',
-      linkColor: baseColor,
-      linkCurvature: baseCurve,
-      width: charWidth
-    },
-    {
-      source: 'Luna',
-      target: 'TravLuna07',
-      linkColor: baseColor,
-      linkCurvature: baseCurve,
-      width: charWidth
-    },
-    {
-      source: 'Trav',
-      target: 'TravCarson01',
-      linkColor: baseColor,
-      linkCurvature: baseCurve,
-      width: charWidth
-    },
-    {
-      source: 'Trav',
-      target: 'TravCarson02',
-      linkColor: baseColor,
-      linkCurvature: baseCurve,
-      width: charWidth
-    },
-    {
-      source: 'Trav',
-      target: 'TravFatherD01',
-      linkColor: baseColor,
-      linkCurvature: baseCurve,
-      width: charWidth
-    },
-    {
-      source: 'Trav',
-      target: 'TravFatherD02',
-      linkColor: baseColor,
-      linkCurvature: baseCurve,
-      width: charWidth
-    },
-    {
-      source: 'Trav',
-      target: 'TravLuna01',
-      linkColor: baseColor,
-      linkCurvature: baseCurve,
-      width: charWidth
-    },
-    {
-      source: 'Trav',
-      target: 'TravLuna02',
-      linkColor: baseColor,
-      linkCurvature: baseCurve,
-      width: charWidth
-    },
-    {
-      source: 'Trav',
-      target: 'TravLuna03',
-      linkColor: baseColor,
-      linkCurvature: baseCurve,
-      width: charWidth
-    },
-    {
-      source: 'Trav',
-      target: 'TravLuna04',
-      linkColor: baseColor,
-      linkCurvature: baseCurve,
-      width: charWidth
-    },
-    {
-      source: 'Trav',
-      target: 'TravLuna05',
-      linkColor: baseColor,
-      linkCurvature: baseCurve,
-      width: charWidth
-    },
-    {
-      source: 'Trav',
-      target: 'TravLuna06',
-      linkColor: baseColor,
-      linkCurvature: baseCurve,
-      width: charWidth
-    },
-    {
-      source: 'Trav',
-      target: 'TravLuna07',
-      linkColor: baseColor,
-      linkCurvature: baseCurve,
-      width: charWidth
-    },
     // path 1 start
     // LUNA
     {
@@ -1261,6 +848,419 @@ const data = {
       source: 'Jamal',
       target: 'Leaf',
       linkColor: transparentLink
+    },
+    {
+      source: 'Darcy',
+      target: 'DarcyCarson01',
+      linkColor: baseColor,
+      linkCurvature: baseCurve,
+      width: charWidth
+    },
+    {
+      source: 'Darcy',
+      target: 'DarcyCarson02',
+      linkColor: baseColor,
+      linkCurvature: baseCurve,
+      width: charWidth
+    },
+    {
+      source: 'Darcy',
+      target: 'DarcyCarson03',
+      linkColor: baseColor,
+      linkCurvature: baseCurve,
+      width: charWidth
+    },
+    {
+      source: 'Darcy',
+      target: 'DarcyFatherD01',
+      linkColor: baseColor,
+      linkCurvature: baseCurve,
+      width: charWidth
+    },
+    {
+      source: 'Darcy',
+      target: 'DarcyJamal01',
+      linkColor: baseColor,
+      linkCurvature: baseCurve,
+      width: charWidth
+    },
+    {
+      source: 'Darcy',
+      target: 'DarcyJamal02',
+      linkColor: baseColor,
+      linkCurvature: baseCurve,
+      width: charWidth
+    },
+    {
+      source: 'Darcy',
+      target: 'DarcyJamal03',
+      linkColor: baseColor,
+      linkCurvature: baseCurve,
+      width: charWidth
+    },
+    {
+      source: 'Carson',
+      target: 'DarcyCarson01',
+      linkColor: baseColor,
+      linkCurvature: baseCurve,
+      width: charWidth
+    },
+    {
+      source: 'Carson',
+      target: 'DarcyCarson02',
+      linkColor: baseColor,
+      linkCurvature: baseCurve,
+      width: charWidth
+    },
+    {
+      source: 'Carson',
+      target: 'DarcyCarson03',
+      linkColor: baseColor,
+      linkCurvature: baseCurve,
+      width: charWidth
+    },
+    {
+      source: 'Carson',
+      target: 'DarcyCarson03',
+      linkColor: baseColor,
+      linkCurvature: baseCurve,
+      width: charWidth
+    },
+    {
+      source: 'Carson',
+      target: 'TravCarson01',
+      linkColor: baseColor,
+      linkCurvature: baseCurve,
+      width: charWidth
+    },
+    {
+      source: 'Carson',
+      target: 'TravCarson02',
+      linkColor: baseColor,
+      linkCurvature: baseCurve,
+      width: charWidth
+    },
+    {
+      source: 'FatherD',
+      target: 'DarcyFatherD01',
+      linkColor: baseColor,
+      linkCurvature: baseCurve,
+      width: charWidth
+    },
+    {
+      source: 'FatherD',
+      target: 'TravFatherD01',
+      linkColor: baseColor,
+      linkCurvature: baseCurve,
+      width: charWidth
+    },
+    {
+      source: 'FatherD',
+      target: 'TravFatherD02',
+      linkColor: baseColor,
+      linkCurvature: baseCurve,
+      width: charWidth
+    },
+    {
+      source: 'Jamal',
+      target: 'DarcyJamal01',
+      linkColor: baseColor,
+      linkCurvature: baseCurve,
+      width: charWidth
+    },
+    {
+      source: 'Jamal',
+      target: 'DarcyJamal02',
+      linkColor: baseColor,
+      linkCurvature: baseCurve,
+      width: charWidth
+    },
+    {
+      source: 'Jamal',
+      target: 'DarcyJamal03',
+      linkColor: baseColor,
+      linkCurvature: baseCurve,
+      width: charWidth
+    },
+    {
+      source: 'Kiki',
+      target: 'KikiLeaf01',
+      linkColor: baseColor,
+      linkCurvature: baseCurve,
+      width: charWidth
+    },
+    {
+      source: 'Kiki',
+      target: 'KikiLeaf02',
+      linkColor: baseColor,
+      linkCurvature: baseCurve,
+      width: charWidth
+    },
+    {
+      source: 'Kiki',
+      target: 'KikiLeaf03',
+      linkColor: baseColor,
+      linkCurvature: baseCurve,
+      width: charWidth
+    },
+    {
+      source: 'Kiki',
+      target: 'LunaKiki01',
+      linkColor: baseColor,
+      linkCurvature: baseCurve,
+      width: charWidth
+    },
+    {
+      source: 'Kiki',
+      target: 'LunaKiki02',
+      linkColor: baseColor,
+      linkCurvature: baseCurve,
+      width: charWidth
+    },
+    {
+      source: 'Kiki',
+      target: 'LunaKiki03',
+      linkColor: baseColor,
+      linkCurvature: baseCurve,
+      width: charWidth
+    },
+    {
+      source: 'Kiki',
+      target: 'LunaKiki04',
+      linkColor: baseColor,
+      linkCurvature: baseCurve,
+      width: charWidth
+    },
+    {
+      source: 'Kiki',
+      target: 'LunaKiki05',
+      linkColor: baseColor,
+      linkCurvature: baseCurve,
+      width: charWidth
+    },
+    {
+      source: 'Kiki',
+      target: 'LunaKiki06',
+      linkColor: baseColor,
+      linkCurvature: baseCurve,
+      width: charWidth
+    },
+    {
+      source: 'Leaf',
+      target: 'KikiLeaf01',
+      linkColor: baseColor,
+      linkCurvature: baseCurve,
+      width: charWidth
+    },
+    {
+      source: 'Leaf',
+      target: 'KikiLeaf02',
+      linkColor: baseColor,
+      linkCurvature: baseCurve,
+      width: charWidth
+    },
+    {
+      source: 'Leaf',
+      target: 'KikiLeaf03',
+      linkColor: baseColor,
+      linkCurvature: baseCurve,
+      width: charWidth
+    },
+    {
+      source: 'Leaf',
+      target: 'LunaLeaf01',
+      linkColor: baseColor,
+      linkCurvature: baseCurve,
+      width: charWidth
+    },
+    {
+      source: 'Leaf',
+      target: 'LunaLeaf02',
+      linkColor: baseColor,
+      linkCurvature: baseCurve,
+      width: charWidth
+    },
+    {
+      source: 'Luna',
+      target: 'LunaKiki01',
+      linkColor: baseColor,
+      linkCurvature: baseCurve,
+      width: charWidth
+    },
+    {
+      source: 'Luna',
+      target: 'LunaKiki02',
+      linkColor: baseColor,
+      linkCurvature: baseCurve,
+      width: charWidth
+    },
+    {
+      source: 'Luna',
+      target: 'LunaKiki03',
+      linkColor: baseColor,
+      linkCurvature: baseCurve,
+      width: charWidth
+    },
+    {
+      source: 'Luna',
+      target: 'LunaKiki04',
+      linkColor: baseColor,
+      linkCurvature: baseCurve,
+      width: charWidth
+    },
+    {
+      source: 'Luna',
+      target: 'LunaKiki05',
+      linkColor: baseColor,
+      linkCurvature: baseCurve,
+      width: charWidth
+    },
+    {
+      source: 'Luna',
+      target: 'LunaKiki06',
+      linkColor: baseColor,
+      linkCurvature: baseCurve,
+      width: charWidth
+    },
+    {
+      source: 'Luna',
+      target: 'LunaLeaf01',
+      linkColor: baseColor,
+      linkCurvature: baseCurve,
+      width: charWidth
+    },
+    {
+      source: 'Luna',
+      target: 'LunaLeaf02',
+      linkColor: baseColor,
+      linkCurvature: baseCurve,
+      width: charWidth
+    },
+    {
+      source: 'Luna',
+      target: 'TravLuna01',
+      linkColor: baseColor,
+      linkCurvature: baseCurve,
+      width: charWidth
+    },
+    {
+      source: 'Luna',
+      target: 'TravLuna02',
+      linkColor: baseColor,
+      linkCurvature: baseCurve,
+      width: charWidth
+    },
+    {
+      source: 'Luna',
+      target: 'TravLuna03',
+      linkColor: baseColor,
+      linkCurvature: baseCurve,
+      width: charWidth
+    },
+    {
+      source: 'Luna',
+      target: 'TravLuna04',
+      linkColor: baseColor,
+      linkCurvature: baseCurve,
+      width: charWidth
+    },
+    {
+      source: 'Luna',
+      target: 'TravLuna05',
+      linkColor: baseColor,
+      linkCurvature: baseCurve,
+      width: charWidth
+    },
+    {
+      source: 'Luna',
+      target: 'TravLuna06',
+      linkColor: baseColor,
+      linkCurvature: baseCurve,
+      width: charWidth
+    },
+    {
+      source: 'Luna',
+      target: 'TravLuna07',
+      linkColor: baseColor,
+      linkCurvature: baseCurve,
+      width: charWidth
+    },
+    {
+      source: 'Trav',
+      target: 'TravCarson01',
+      linkColor: baseColor,
+      linkCurvature: baseCurve,
+      width: charWidth
+    },
+    {
+      source: 'Trav',
+      target: 'TravCarson02',
+      linkColor: baseColor,
+      linkCurvature: baseCurve,
+      width: charWidth
+    },
+    {
+      source: 'Trav',
+      target: 'TravFatherD01',
+      linkColor: baseColor,
+      linkCurvature: baseCurve,
+      width: charWidth
+    },
+    {
+      source: 'Trav',
+      target: 'TravFatherD02',
+      linkColor: baseColor,
+      linkCurvature: baseCurve,
+      width: charWidth
+    },
+    {
+      source: 'Trav',
+      target: 'TravLuna01',
+      linkColor: baseColor,
+      linkCurvature: baseCurve,
+      width: charWidth
+    },
+    {
+      source: 'Trav',
+      target: 'TravLuna02',
+      linkColor: baseColor,
+      linkCurvature: baseCurve,
+      width: charWidth
+    },
+    {
+      source: 'Trav',
+      target: 'TravLuna03',
+      linkColor: baseColor,
+      linkCurvature: baseCurve,
+      width: charWidth
+    },
+    {
+      source: 'Trav',
+      target: 'TravLuna04',
+      linkColor: baseColor,
+      linkCurvature: baseCurve,
+      width: charWidth
+    },
+    {
+      source: 'Trav',
+      target: 'TravLuna05',
+      linkColor: baseColor,
+      linkCurvature: baseCurve,
+      width: charWidth
+    },
+    {
+      source: 'Trav',
+      target: 'TravLuna06',
+      linkColor: baseColor,
+      linkCurvature: baseCurve,
+      width: charWidth
+    },
+    {
+      source: 'Trav',
+      target: 'TravLuna07',
+      linkColor: baseColor,
+      linkCurvature: baseCurve,
+      width: charWidth
     }
   ]
 };
