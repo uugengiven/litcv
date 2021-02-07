@@ -96,6 +96,7 @@
     // Selectors for snack bar control icons
     const prevBtn = document.querySelector('.control-icon--prev');
     const nextBtn = document.querySelector('.control-icon--next');
+    const playBtn = document.querySelector('.control-icon--play')
     // all nodes data
     const allNodes = data.nodes;
     // all links data
@@ -111,6 +112,8 @@
       }
       // changes opacity for right text block in snackbar
       blockRight.classList.add('active');
+      // changes opacity for play icon in snackbar
+      playBtn.classList.add('active');
       // sets text content for episode in right diagonal block
       blockRight.textContent = storyPath[storyPathIndex].target.title;
       // gets next target x,y,z and repositions camera
@@ -201,6 +204,8 @@
         if (node.type === "Character") {
           // adds active class to left snackbar block
           blockLeft.classList.add('active');
+          // adds active class to next button
+          nextBtn.classList.add('active');
           // resets for storyPathIndex and text content
           storyPathIndex = 0;
           blockRight.classList.remove('active');

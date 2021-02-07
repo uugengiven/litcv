@@ -859,7 +859,7 @@ div.contact-content form button:hover {
   transition: opacity 250ms ease-in-out;
 }
 
-.snackbar-controls .control-icon .active {
+.snackbar-controls .control-icon.active {
   opacity: 1;
   cursor: pointer;
   transition: opacity 250ms ease-in-out;
