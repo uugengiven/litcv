@@ -99,10 +99,19 @@
     // all links data
     const allLinks = data.links;
     // global vars
-    var storyPath;
+    var storyPath = [];
+    var storyPathIndex = 0;
     // Function grabs data-attribute added from node click to use for repositioning graph from snackbar blocks
     nextBtn.onclick = function() {
-      console.log(storyPath)
+      console.log('storyPath',storyPath);
+      console.log(storyPathIndex);
+      if (storyPathIndex === (storyPath.length - 1)) {
+        return;
+      }
+      console.log(
+        storyPath[++storyPathIndex]
+      );
+      
     // // Grabs recommended episode from data-attribute on block div
     // let nextEpisodeID = blockRight.dataset.episode;
     // // Finds current node info to target for repositioning
@@ -117,6 +126,13 @@
     //     node, // lookAt ({ x, y, z })
     //     2000 // ms transition duration
     //   );
+    }
+
+    prevBtn.onclick = function() {
+      if (storyPathIndex === 0) {
+        return;
+      }
+      console.log(storyPath[--storyPathIndex])
     }
 
     // 3D graph 
