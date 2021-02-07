@@ -103,29 +103,27 @@
     var storyPathIndex = 0;
     // Function grabs data-attribute added from node click to use for repositioning graph from snackbar blocks
     nextBtn.onclick = function() {
-      console.log('storyPath',storyPath);
-      console.log(storyPathIndex);
+      // checks if on last item of array
       if (storyPathIndex === (storyPath.length - 1)) {
         return;
       }
-      console.log(
-        storyPath[++storyPathIndex]
-      );
-      
-    // // Grabs recommended episode from data-attribute on block div
-    // let nextEpisodeID = blockRight.dataset.episode;
-    // // Finds current node info to target for repositioning
-    // let node = allNodes.find(item => item.id === nextEpisodeID);
-    // const distance = 40;
-    // const distRatio = 1 + distance / Math.hypot(node.x, node.y, node.z);
-    //   Graph.cameraPosition({
-    //       x: node.x * distRatio,
-    //       y: node.y * distRatio,
-    //       z: node.z * distRatio
-    //     }, // new position
-    //     node, // lookAt ({ x, y, z })
-    //     2000 // ms transition duration
-    //   );
+      // sets text content for episode in right diagonal block
+      blockRight.textContent = storyPath[storyPathIndex].target.title;
+      // gets next target x,y,z and repositions camera
+      let node = storyPath[storyPathIndex].target;
+      const distance = 40;
+      const distRatio = 1 + distance / Math.hypot(node.x, node.y, node.z);
+        Graph.cameraPosition({
+            x: node.x * distRatio,
+            y: node.y * distRatio,
+            z: node.z * distRatio
+          }, // new position
+          node, // lookAt ({ x, y, z })
+          2000 // ms transition duration
+        );
+      // increases index if not at last item in array
+      storyPath[++storyPathIndex];
+      console.log(storyPathIndex);
     }
 
     prevBtn.onclick = function() {
@@ -198,8 +196,10 @@
 
         // conditional for character versus episode 
         if (node.type === "Character") {
+          // resets for storyPathIndex and text content
+          storyPathIndex = 0;
+          blockRight.textContent = '';
           console.log(node);
-          console.log(allLinks);
           storyPath = allLinks.filter(item => item.characterPath === node.id);
           console.log(storyPath);
           // blockRight.textContent = storyPath[0].target.title;
