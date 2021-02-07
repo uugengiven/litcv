@@ -855,7 +855,7 @@ div.contact-content form button:hover {
 .snackbar-controls .control-icon {
   height: 46px;
   cursor: not-allowed;
-  opacity: 0.25;
+  opacity: 0.2;
   transition: opacity 250ms ease-in-out;
 }
 

@@ -110,14 +110,18 @@
       if (storyPathIndex === (storyPath.length - 1)) {
         return;
       }
+      storyPath[++storyPathIndex];
       // changes opacity for right text block in snackbar
       blockRight.classList.add('active');
       // changes opacity for play icon in snackbar
       playBtn.classList.add('active');
+      // changes opacity for prev icon in snackbar
+      prevBtn.classList.add('active');
+      console.log(storyPathIndex);
       // sets text content for episode in right diagonal block
-      blockRight.textContent = storyPath[storyPathIndex].target.title;
+      blockRight.textContent = storyPath[storyPathIndex].source.title;
       // gets next target x,y,z and repositions camera
-      let node = storyPath[storyPathIndex].target;
+      let node = storyPath[storyPathIndex].source;
       const distance = 40;
       const distRatio = 1 + distance / Math.hypot(node.x, node.y, node.z);
         Graph.cameraPosition({
@@ -129,18 +133,20 @@
           2000 // ms transition duration
         );
       // increases index if not at last item in array
-      storyPath[++storyPathIndex];
     }
 
     prevBtn.onclick = function() {
       if (storyPathIndex === 0) {
         return;
       }
-      storyPath[--storyPathIndex]
-      // sets text content for episode in right diagonal block
+      storyPath[--storyPathIndex];
+      console.log(storyPathIndex);
       storyPathIndex === 0 
       ? blockRight.classList.remove('active') 
-      : blockRight.textContent = storyPath[storyPathIndex].source.title;;
+      & prevBtn.classList.remove('active')
+      & playBtn.classList.remove('active')
+      : blockRight.textContent = storyPath[storyPathIndex].source.title;
+      
       // gets next target x,y,z and repositions camera
       let node = storyPath[storyPathIndex].source;
       const distance = 40;
@@ -202,14 +208,18 @@
 
         // conditional for character versus episode 
         if (node.type === "Character") {
+          storyPath = allLinks.filter(item => item.characterPath === node.id);
+          storyPathIndex = 0;
+          console.log(storyPath);
+          // resets classes on snackbar control icons
+          prevBtn.classList.remove('active')
+          playBtn.classList.remove('active')
           // adds active class to left snackbar block
           blockLeft.classList.add('active');
           // adds active class to next button
           nextBtn.classList.add('active');
           // resets for storyPathIndex and text content
-          storyPathIndex = 0;
           blockRight.classList.remove('active');
-          storyPath = allLinks.filter(item => item.characterPath === node.id);
 
           // Sets colors/text content for diagonal boxes in snackbar
           blockLeft.style.backgroundColor = node.primaryColor
