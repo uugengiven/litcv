@@ -111,6 +111,7 @@
         return;
       }
       storyPath[++storyPathIndex];
+      storyPathIndex === (storyPath.length - 1) ? nextBtn.classList.remove('active') : null;
       // changes opacity for right text block in snackbar
       blockRight.classList.add('active');
       // changes opacity for play icon in snackbar
@@ -146,6 +147,8 @@
       & prevBtn.classList.remove('active')
       & playBtn.classList.remove('active')
       : blockRight.textContent = storyPath[storyPathIndex].source.title;
+      
+      nextBtn.classList.add('active')
       
       // gets next target x,y,z and repositions camera
       let node = storyPath[storyPathIndex].source;
