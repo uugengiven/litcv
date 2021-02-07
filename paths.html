@@ -137,6 +137,7 @@
     }
 
     prevBtn.onclick = function() {
+      // checks if first item of array
       if (storyPathIndex === 0) {
         return;
       }
@@ -148,7 +149,7 @@
       & playBtn.classList.remove('active')
       : blockRight.textContent = storyPath[storyPathIndex].source.title;
       
-      nextBtn.classList.add('active')
+      nextBtn.classList.add('active');
       
       // gets next target x,y,z and repositions camera
       let node = storyPath[storyPathIndex].source;
