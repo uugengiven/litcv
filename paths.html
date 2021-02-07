@@ -109,6 +109,8 @@
       if (storyPathIndex === (storyPath.length - 1)) {
         return;
       }
+      // changes opacity for right text block in snackbar
+      blockRight.classList.add('active');
       // sets text content for episode in right diagonal block
       blockRight.textContent = storyPath[storyPathIndex].target.title;
       // gets next target x,y,z and repositions camera
@@ -129,12 +131,13 @@
 
     prevBtn.onclick = function() {
       if (storyPathIndex === 0) {
-        // add  classes for icons here
         return;
       }
       storyPath[--storyPathIndex]
       // sets text content for episode in right diagonal block
-      blockRight.textContent = storyPath[storyPathIndex].source.title;
+      storyPathIndex === 0 
+      ? blockRight.classList.remove('active') 
+      : blockRight.textContent = storyPath[storyPathIndex].source.title;;
       // gets next target x,y,z and repositions camera
       let node = storyPath[storyPathIndex].source;
       const distance = 40;
@@ -196,19 +199,21 @@
 
         // conditional for character versus episode 
         if (node.type === "Character") {
+          // adds active class to left snackbar block
+          blockLeft.classList.add('active');
           // resets for storyPathIndex and text content
           storyPathIndex = 0;
-          blockRight.textContent = '';
+          blockRight.classList.remove('active');
           storyPath = allLinks.filter(item => item.characterPath === node.id);
 
           // Sets colors/text content for diagonal boxes in snackbar
           blockLeft.style.backgroundColor = node.primaryColor
           blockLeft.textContent = node.title;
         }
-        if (node.type === "Episode") {         
+        if (node.type === "Episode") {
+          blockRight.classList.add('active');         
           blockRight.textContent = node.title;      
-          blockLeft.textContent = '';   
-          blockLeft.style.backgroundColor = 'transparent';
+          blockLeft.classList.remove('active');  
         }
         const distance = 40;
         const distRatio = 1 + distance / Math.hypot(node.x, node.y, node.z);
