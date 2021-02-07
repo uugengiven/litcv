@@ -68,10 +68,12 @@
     </section>
     <section class="snackbar-controls">
       <div>
-        <img class="control-icon control-icon--prev inactive" src="images/icons/back.png" alt="back button icon" title="previous">
+        <!-- inactive classes to start?? -->
+        <img class="control-icon control-icon--prev" src="images/icons/back.png" alt="back button icon" title="previous">
       </div>
       <div>
-        <img class="control-icon control-icon--play inactive" src="images/icons/play.png" alt="play button icon" title="play">
+        <!-- inactive classes to start?? -->
+        <img class="control-icon control-icon--play" src="images/icons/play.png" alt="play button icon" title="play">
       </div>
       <div>
         <img class="control-icon control-icon--next" src="images/icons/forward.png" alt="forward button icon" title="next">
@@ -128,9 +130,24 @@
 
     prevBtn.onclick = function() {
       if (storyPathIndex === 0) {
+        // add  classes for icons here
         return;
       }
-      console.log(storyPath[--storyPathIndex])
+      storyPath[--storyPathIndex]
+      // sets text content for episode in right diagonal block
+      blockRight.textContent = storyPath[storyPathIndex].source.title;
+      // gets next target x,y,z and repositions camera
+      let node = storyPath[storyPathIndex].source;
+      const distance = 40;
+      const distRatio = 1 + distance / Math.hypot(node.x, node.y, node.z);
+        Graph.cameraPosition({
+            x: node.x * distRatio,
+            y: node.y * distRatio,
+            z: node.z * distRatio
+          }, // new position
+          node, // lookAt ({ x, y, z })
+          2000 // ms transition duration
+        );
     }
 
     // 3D graph 
