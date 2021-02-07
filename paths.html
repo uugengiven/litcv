@@ -68,13 +68,13 @@
     </section>
     <section class="snackbar-controls">
       <div>
-        <img class="control-icon inactive" src="images/icons/back.png" alt="back button icon" title="previous">
+        <img class="control-icon control-icon--prev inactive" src="images/icons/back.png" alt="back button icon" title="previous">
       </div>
       <div>
-        <img class="control-icon inactive" src="images/icons/play.png" alt="play button icon" title="play">
+        <img class="control-icon control-icon--play inactive" src="images/icons/play.png" alt="play button icon" title="play">
       </div>
       <div>
-        <img class="control-icon" src="images/icons/forward.png" alt="forward button icon" title="next">
+        <img class="control-icon control-icon--next" src="images/icons/forward.png" alt="forward button icon" title="next">
       </div>
     </section>
   </article>
@@ -91,6 +91,9 @@
     const snackbar = document.getElementById('snackbar-container');
     const blockLeft = document.querySelector('.block--left');
     const blockRight = document.querySelector('.block--right');
+    // Selectors for snack bar control icons
+    const prevBtn = document.querySelector('control-icon--prev');
+    const nextBtn = document.querySelector('control-icon--next');
     // all nodes data
     const allNodes = data.nodes;
     // all links data
@@ -182,6 +185,7 @@
           console.log(allLinks);
           storyPath = allLinks.filter(item => item.characterPath === node.id);
           console.log(storyPath);
+          blockRight.textContent = storyPath[0].target.title;
 
           // Sets colors/text content for diagonal boxes in snackbar
           blockLeft.style.backgroundColor = node.primaryColor

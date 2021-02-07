@@ -542,7 +542,8 @@ const data = {
       linkColor: path3color,
       linkCurvature: baseCurve,
       width: baseWidth,
-      value: baseParticles
+      value: baseParticles,
+      characterPath: 'Trav'
     },
     {
       source: 'TravLuna01',
@@ -551,7 +552,8 @@ const data = {
       linkCurvature: slightCurve,
       curveRotation: curveRotationB,
       width: baseWidth,
-      value: baseParticles
+      value: baseParticles,
+      characterPath: 'Trav'
     },
     {
       source: 'TravLuna02',
@@ -560,7 +562,8 @@ const data = {
       linkCurvature: slightCurve,
       curveRotation: curveRotationB,
       width: baseWidth,
-      value: baseParticles
+      value: baseParticles,
+      characterPath: 'Trav'
     },
     {
       source: 'TravLuna03',
@@ -569,7 +572,8 @@ const data = {
       linkCurvature: slightCurve,
       curveRotation: curveRotationB,
       width: baseWidth,
-      value: baseParticles
+      value: baseParticles,
+      characterPath: 'Trav'
     },
     {
       source: 'TravLuna04',
@@ -578,7 +582,8 @@ const data = {
       linkCurvature: slightCurve,
       curveRotation: curveRotationB,
       width: baseWidth,
-      value: baseParticles
+      value: baseParticles,
+      characterPath: 'Trav'
     },
     {
       source: 'TravLuna05',
@@ -587,7 +592,8 @@ const data = {
       linkCurvature: slightCurve,
       curveRotation: curveRotationB,
       width: baseWidth,
-      value: baseParticles
+      value: baseParticles,
+      characterPath: 'Trav'
     },
     {
       source: 'TravLuna06',
@@ -596,7 +602,8 @@ const data = {
       linkCurvature: slightCurve,
       curveRotation: curveRotationB,
       width: baseWidth,
-      value: baseParticles
+      value: baseParticles,
+      characterPath: 'Trav'
     },
     {
       source: 'TravLuna07',
@@ -604,7 +611,8 @@ const data = {
       linkColor: path3color,
       linkCurvature: baseCurve,
       width: baseWidth,
-      value: baseParticles
+      value: baseParticles,
+      characterPath: 'Trav'
     },
     {
       source: 'TravCarson01',
@@ -613,7 +621,8 @@ const data = {
       linkCurvature: slightCurve,
       curveRotation: curveRotationA,
       width: baseWidth,
-      value: baseParticles
+      value: baseParticles,
+      characterPath: 'Trav'
     },
     {
       source: 'TravCarson02',
@@ -622,7 +631,8 @@ const data = {
       linkCurvature: slightCurve,
       curveRotation: curveRotationA,
       width: baseWidth,
-      value: baseParticles
+      value: baseParticles,
+      characterPath: 'Trav'
     },
     {
       source: 'TravFatherD01',
@@ -631,7 +641,8 @@ const data = {
       linkCurvature: slightCurve,
       curveRotation: curveRotationA,
       width: baseWidth,
-      value: baseParticles
+      value: baseParticles,
+      characterPath: 'Trav'
     },
     // path 3 end
     // path 4 start
@@ -642,7 +653,8 @@ const data = {
       linkColor: path4color,
       linkCurvature: baseCurve,
       width: baseWidth,
-      value: baseParticles
+      value: baseParticles,
+      characterPath: 'Kiki'
     },
     {
       source: 'LunaKiki01',
@@ -651,7 +663,8 @@ const data = {
       linkCurvature: slightCurve,
       curveRotation: curveRotationB,
       width: baseWidth,
-      value: baseParticles
+      value: baseParticles,
+      characterPath: 'Kiki'
     },
     {
       source: 'LunaKiki02',
@@ -660,7 +673,8 @@ const data = {
       linkCurvature: slightCurve,
       curveRotation: curveRotationB,
       width: baseWidth,
-      value: baseParticles
+      value: baseParticles,
+      characterPath: 'Kiki'
     },
     {
       source: 'LunaKiki03',
@@ -669,7 +683,8 @@ const data = {
       linkCurvature: slightCurve,
       curveRotation: curveRotationB,
       width: baseWidth,
-      value: baseParticles
+      value: baseParticles,
+      characterPath: 'Kiki'
     },
     {
       source: 'LunaKiki04',
@@ -678,7 +693,8 @@ const data = {
       linkCurvature: slightCurve,
       curveRotation: curveRotationB,
       width: baseWidth,
-      value: baseParticles
+      value: baseParticles,
+      characterPath: 'Kiki'
     },
     {
       source: 'LunaKiki05',
@@ -687,7 +703,8 @@ const data = {
       linkCurvature: slightCurve,
       curveRotation: curveRotationB,
       width: baseWidth,
-      value: baseParticles
+      value: baseParticles,
+      characterPath: 'Kiki'
     },
     {
       source: 'LunaKiki06',
@@ -695,7 +712,8 @@ const data = {
       linkColor: path4color,
       linkCurvature: baseCurve,
       width: baseWidth,
-      value: baseParticles
+      value: baseParticles,
+      characterPath: 'Kiki'
     },
     {
       source: 'KikiLeaf01',
@@ -704,7 +722,8 @@ const data = {
       linkCurvature: slightCurve,
       curveRotation: curveRotationA,
       width: baseWidth,
-      value: baseParticles
+      value: baseParticles,
+      characterPath: 'Kiki'
     },
     {
       source: 'KikiLeaf02',
@@ -713,7 +732,8 @@ const data = {
       linkCurvature: slightCurve,
       curveRotation: curveRotationA,
       width: baseWidth,
-      value: baseParticles
+      value: baseParticles,
+      characterPath: 'Kiki'
     },
     // path 4 end
     // path 5 start
@@ -724,7 +744,8 @@ const data = {
       linkColor: path5color,
       linkCurvature: baseCurve,
       width: baseWidth,
-      value: baseParticles
+      value: baseParticles,
+      characterPath: 'Jamal'
     },
     {
       source: 'DarcyJamal01',
@@ -733,7 +754,8 @@ const data = {
       linkCurvature: slightCurve,
       curveRotation: curveRotationB,
       width: baseWidth,
-      value: baseParticles
+      value: baseParticles,
+      characterPath: 'Jamal'
     },
     {
       source: 'DarcyJamal02',
@@ -742,7 +764,8 @@ const data = {
       linkCurvature: slightCurve,
       curveRotation: curveRotationB,
       width: baseWidth,
-      value: baseParticles
+      value: baseParticles,
+      characterPath: 'Jamal'
     },
     // path 5 end
     // path 6 start
@@ -753,7 +776,8 @@ const data = {
       linkColor: path6color,
       linkCurvature: baseCurve,
       width: baseWidth,
-      value: baseParticles
+      value: baseParticles,
+      characterPath: 'FatherD'
     },
     {
       source: 'TravFatherD01',
@@ -762,7 +786,8 @@ const data = {
       linkCurvature: slightCurve,
       curveRotation: curveRotationB,
       width: baseWidth,
-      value: baseParticles
+      value: baseParticles,
+      characterPath: 'FatherD'
     },
     {
       source: 'TravFatherD02',
@@ -770,7 +795,8 @@ const data = {
       linkColor: path6color,
       linkCurvature: baseCurve,
       width: baseWidth,
-      value: baseParticles
+      value: baseParticles,
+      characterPath: 'FatherD'
     },
     // path 6 end
     // path 7 start
@@ -781,7 +807,8 @@ const data = {
       linkColor: path7color,
       linkCurvature: baseCurve,
       width: baseWidth,
-      value: baseParticles
+      value: baseParticles,
+      characterPath: 'Carson'
     },
     {
       source: 'DarcyCarson01',
@@ -790,7 +817,8 @@ const data = {
       linkCurvature: slightCurve,
       curveRotation: curveRotationB,
       width: baseWidth,
-      value: baseParticles
+      value: baseParticles,
+      characterPath: 'Carson'
     },
     {
       source: 'DarcyCarson02',
@@ -799,7 +827,8 @@ const data = {
       linkCurvature: slightCurve,
       curveRotation: curveRotationB,
       width: baseWidth,
-      value: baseParticles
+      value: baseParticles,
+      characterPath: 'Carson'
     },
     {
       source: 'DarcyCarson03',
@@ -807,7 +836,8 @@ const data = {
       linkColor: path7color,
       linkCurvature: baseCurve,
       width: baseWidth,
-      value: baseParticles
+      value: baseParticles,
+      characterPath: 'Carson'
     },
     {
       source: 'TravCarson01',
@@ -816,7 +846,8 @@ const data = {
       linkCurvature: slightCurve,
       curveRotation: curveRotationB,
       width: baseWidth,
-      value: baseParticles
+      value: baseParticles,
+      characterPath: 'Carson'
     },
     // path 7 end
     // path 8 start
@@ -827,7 +858,8 @@ const data = {
       linkColor: path8color,
       linkCurvature: baseCurve,
       width: baseWidth,
-      value: baseParticles
+      value: baseParticles,
+      characterPath: 'Leaf'
     },
     {
       source: 'LunaLeaf01',
@@ -836,7 +868,8 @@ const data = {
       linkCurvature: slightCurve,
       curveRotation: curveRotationB,
       width: baseWidth,
-      value: baseParticles
+      value: baseParticles,
+      characterPath: 'Leaf'
     },
     {
       source: 'LunaLeaf02',
@@ -844,7 +877,8 @@ const data = {
       linkColor: path8color,
       linkCurvature: baseCurve,
       width: baseWidth,
-      value: baseParticles
+      value: baseParticles,
+      characterPath: 'Leaf'
     },
     {
       source: 'KikiLeaf01',
@@ -853,7 +887,8 @@ const data = {
       linkCurvature: slightCurve,
       curveRotation: curveRotationB,
       width: baseWidth,
-      value: baseParticles
+      value: baseParticles,
+      characterPath: 'Leaf'
     },
     {
       source: 'KikiLeaf02',
@@ -862,7 +897,8 @@ const data = {
       linkCurvature: slightCurve,
       curveRotation: curveRotationB,
       width: baseWidth,
-      value: baseParticles
+      value: baseParticles,
+      characterPath: 'Leaf'
     },
     // path 8 end
     // transparent link to reshape
