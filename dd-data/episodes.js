@@ -447,7 +447,7 @@ const data = {
       value: baseParticles,
       characterPath: 'Luna'
     },
-    // this is hacky af but it works for the next/prev functionality
+    // yes, this looks hacky af but it's for the next/prev functionality
     {
       source: 'LunaKiki06',
       target: 'LunaKiki06',
@@ -524,7 +524,7 @@ const data = {
       value: baseParticles,
       characterPath: 'Darcy'
     },
-    // this is hacky af but it works for the next/prev functionality
+    // yes, this looks hacky af but it's for the next/prev functionality
     {
       source: 'DarcyFatherD01',
       target: 'DarcyFatherD01',
@@ -642,7 +642,7 @@ const data = {
       value: baseParticles,
       characterPath: 'Trav'
     },
-    // this is hacky af but it works for the next/prev functionality
+    // yes, this looks hacky af but it's for the next/prev functionality
     {
       source: 'TravFatherD02',
       target: 'TravFatherD02',
@@ -740,7 +740,7 @@ const data = {
       value: baseParticles,
       characterPath: 'Kiki'
     },
-    // this is hacky af but it works for the next/prev functionality
+    // yes, this looks hacky af but it's for the next/prev functionality
     {
       source: 'KikiLeaf03',
       target: 'KikiLeaf03',
@@ -779,7 +779,7 @@ const data = {
       value: baseParticles,
       characterPath: 'Jamal'
     },
-    // this is hacky af but it works for the next/prev functionality
+    // yes, this looks hacky af but it's for the next/prev functionality
     {
       source: 'DarcyJamal03',
       target: 'DarcyJamal03',
@@ -817,7 +817,7 @@ const data = {
       value: baseParticles,
       characterPath: 'FatherD'
     },
-    // this is hacky af but it works for the next/prev functionality
+    // yes, this looks hacky af but it's for the next/prev functionality
     {
       source: 'DarcyFatherD01',
       target: 'DarcyFatherD01',
@@ -875,7 +875,7 @@ const data = {
       value: baseParticles,
       characterPath: 'Carson'
     },
-    // this is hacky af but it works for the next/prev functionality
+    // yes, this looks hacky af but it's for the next/prev functionality
     {
       source: 'TravCarson02',
       target: 'TravCarson02',
