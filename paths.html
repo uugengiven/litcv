@@ -140,6 +140,9 @@
       if (storyPathIndex === 0) {
         return;
       }
+      if (storyPathIndex === 1) {
+        blockRight.textContent = '';
+      }
       storyPath[--storyPathIndex];
       console.log(storyPathIndex);
       storyPathIndex === 0 
@@ -213,25 +216,36 @@
         if (node.type === "Character") {
           storyPath = allLinks.filter(item => item.characterPath === node.id);
           storyPathIndex = 0;
-          console.log(storyPath);
+          console.log('storypath from character', storyPath);
+          console.log('storypath index from character', storyPathIndex);
           // resets classes on snackbar control icons
           prevBtn.classList.remove('active')
           playBtn.classList.remove('active')
           // adds active class to left snackbar block
-          blockLeft.classList.add('active');
+          // blockLeft.classList.add('active');
           // adds active class to next button
           nextBtn.classList.add('active');
           // resets for storyPathIndex and text content
           blockRight.classList.remove('active');
-
+          blockRight.textContent = '';
           // Sets colors/text content for diagonal boxes in snackbar
           blockLeft.style.backgroundColor = node.primaryColor
           blockLeft.textContent = node.title;
         }
         if (node.type === "Episode") {
+          storyPath = [];
+          storyPathIndex = 0;
+          console.log('storypath from episode', storyPath)
+          console.log('storypath index from episode', storyPathIndex)
+          blockRight.textContent = node.title; 
+          blockLeft.textContent = '';
+          blockLeft.style.backgroundColor = '#e2e2e2';
+          // blockLeft.classList.add('active');     
           blockRight.classList.add('active');         
-          blockRight.textContent = node.title;      
-          blockLeft.classList.remove('active');  
+          // blockLeft.classList.remove('active');  
+          nextBtn.classList.remove('active');
+          prevBtn.classList.remove('active');
+          playBtn.classList.add('active');
         }
         const distance = 35;
         const distRatio = 1 + distance / Math.hypot(node.x, node.y, node.z);

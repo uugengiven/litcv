@@ -639,7 +639,6 @@ main.contact-container {
   position: relative;
   top: 0;
   left: 0;
-
   width: 100%;
   height: 100%;
   padding: 40px;
@@ -751,7 +750,6 @@ div.contact-content form button:hover {
 }
 
 /* 3D MAP PAGE */
-/* TODO: update to vars */
 
 .snackbar_hidden,
 .snackbar_show {
@@ -808,7 +806,7 @@ div.contact-content form button:hover {
   min-height: 40px;
   /* width: 50%;
   width: calc(50% + 2rem); */
-  color: var(--text-dark);
+  /* color: var(--text-dark); */
   font-size: 1rem;
   font-weight: 500;
   letter-spacing: 4px;
@@ -819,18 +817,17 @@ div.contact-content form button:hover {
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 1px solid #0000002b;
-  opacity: 0;
-  transition: opacity 250ms ease-in-out;
+  background-color: #e2e2e2;
+  transition: background-color 250ms ease-in-out;
 }
 
-.block--left.active,
 .block--right.active {
-  opacity: 1;
-  transition: opacity 250ms ease-in-out;
+  background-color: var(--dark-background);
+  transition: background-color 250ms ease-in-out;
 }
 
 .block--left {
+  color: var(--black);
   clip-path: polygon(0 0, 100% 0, calc(100% - 3rem) 100%, 0% 100%);
   border-top-left-radius: 4px;
   border-bottom-left-radius: 4px;
@@ -838,7 +835,7 @@ div.contact-content form button:hover {
 }
 
 .block--right {
-  background-color: lightgray;
+  color: var(--gray);
   margin-left: -2.5rem;
   clip-path: polygon(3rem 0, 100% 0, 100% 100%, 0% 100%);
   border-top-right-radius: 4px;
