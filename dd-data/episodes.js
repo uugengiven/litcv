@@ -447,6 +447,13 @@ const data = {
       value: baseParticles,
       characterPath: 'Luna'
     },
+    // this is hacky af but it works for the next/prev functionality
+    {
+      source: 'LunaKiki06',
+      target: 'LunaKiki06',
+      linkColor: 'transparent',
+      characterPath: 'Luna'
+    },
     // path 1 end
     // path 2 start
     // DARCY
@@ -515,6 +522,13 @@ const data = {
       linkCurvature: baseCurve,
       width: baseWidth,
       value: baseParticles,
+      characterPath: 'Darcy'
+    },
+    // this is hacky af but it works for the next/prev functionality
+    {
+      source: 'DarcyFatherD01',
+      target: 'DarcyFatherD01',
+      linkColor: 'transparent',
       characterPath: 'Darcy'
     },
     // path 2 end
@@ -628,6 +642,13 @@ const data = {
       value: baseParticles,
       characterPath: 'Trav'
     },
+    // this is hacky af but it works for the next/prev functionality
+    {
+      source: 'TravFatherD02',
+      target: 'TravFatherD02',
+      linkColor: 'transparent',
+      characterPath: 'Trav'
+    },
     // path 3 end
     // path 4 start
     // KIKI
@@ -719,6 +740,13 @@ const data = {
       value: baseParticles,
       characterPath: 'Kiki'
     },
+    // this is hacky af but it works for the next/prev functionality
+    {
+      source: 'KikiLeaf03',
+      target: 'KikiLeaf03',
+      linkColor: 'transparent',
+      characterPath: 'Kiki'
+    },
     // path 4 end
     // path 5 start
     // JAMAL
@@ -751,6 +779,13 @@ const data = {
       value: baseParticles,
       characterPath: 'Jamal'
     },
+    // this is hacky af but it works for the next/prev functionality
+    {
+      source: 'DarcyJamal03',
+      target: 'DarcyJamal03',
+      linkColor: 'transparent',
+      characterPath: 'Jamal'
+    },
     // path 5 end
     // path 6 start
     // FATHER DANIEL
@@ -780,6 +815,13 @@ const data = {
       linkCurvature: baseCurve,
       width: baseWidth,
       value: baseParticles,
+      characterPath: 'FatherD'
+    },
+    // this is hacky af but it works for the next/prev functionality
+    {
+      source: 'DarcyFatherD01',
+      target: 'DarcyFatherD01',
+      linkColor: 'transparent',
       characterPath: 'FatherD'
     },
     // path 6 end
@@ -833,6 +875,13 @@ const data = {
       value: baseParticles,
       characterPath: 'Carson'
     },
+    // this is hacky af but it works for the next/prev functionality
+    {
+      source: 'TravCarson02',
+      target: 'TravCarson02',
+      linkColor: 'transparent',
+      characterPath: 'Carson'
+    },
     // path 7 end
     // path 8 start
     // LEAF
@@ -882,6 +931,12 @@ const data = {
       curveRotation: curveRotationB,
       width: baseWidth,
       value: baseParticles,
+      characterPath: 'Leaf'
+    },
+    {
+      source: 'KikiLeaf03',
+      target: 'KikiLeaf03',
+      linkColor: 'transparent',
       characterPath: 'Leaf'
     },
     // path 8 end
