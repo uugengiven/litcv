@@ -37,8 +37,6 @@ const data = {
       title: 'Luna',
       size: 22,
       primaryColor: path1color
-      // recommendedEpisode: 'Trav Luna 01',
-      // recommendedEpisodeID: 'TravLuna01'
     },
     {
       id: 'Darcy',
@@ -47,8 +45,6 @@ const data = {
       title: 'Darcy',
       size: 18,
       primaryColor: path2color
-      // recommendedEpisode: 'Darcy Jamal 01',
-      // recommendedEpisodeID: 'DarcyJamal01'
     },
     {
       id: 'Trav',
@@ -57,8 +53,6 @@ const data = {
       title: 'Trav',
       size: 22,
       primaryColor: path3color
-      // recommendedEpisode: 'Trav Luna 01',
-      // recommendedEpisodeID: 'TravLuna01'
     },
     {
       id: 'Kiki',
@@ -67,8 +61,6 @@ const data = {
       title: 'Kiki',
       size: 18,
       primaryColor: path4color
-      // recommendedEpisode: 'Luna Kiki 01',
-      // recommendedEpisodeID: 'LunaKiki01'
     },
     {
       id: 'Jamal',
@@ -77,8 +69,6 @@ const data = {
       title: 'Jamal',
       size: 14,
       primaryColor: path5color
-      // recommendedEpisode: 'Darcy Jamal 01',
-      // recommendedEpisodeID: 'DarcyJamal01'
     },
     {
       id: 'FatherD',
@@ -87,8 +77,6 @@ const data = {
       title: 'Father D',
       size: 14,
       primaryColor: path6color
-      // recommendedEpisode: 'Trav FatherD 01',
-      // recommendedEpisodeID: 'TravFatherD01'
     },
     {
       id: 'Carson',
@@ -97,8 +85,6 @@ const data = {
       title: 'Carson',
       size: 14,
       primaryColor: path7color
-      // recommendedEpisode: 'Darcy Carson 01',
-      // recommendedEpisodeID: 'DarcyCarson01'
     },
     {
       id: 'Leaf',
@@ -107,8 +93,6 @@ const data = {
       title: 'Leaf',
       size: 14,
       primaryColor: path8color
-      // recommendedEpisode: 'Luna Leaf 01',
-      // recommendedEpisodeID: 'LunaLeaf01'
     },
     {
       id: 'DarcyCarson01',

@@ -819,6 +819,7 @@ div.contact-content form button:hover {
   display: flex;
   justify-content: center;
   align-items: center;
+  border: 1px solid #0000002b;
   opacity: 0;
   transition: opacity 250ms ease-in-out;
 }
