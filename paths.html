@@ -101,7 +101,7 @@
     const allNodes = data.nodes;
     // all links data
     const allLinks = data.links;
-    // global vars
+    // global vars because we need global access to these: (storyPath is path of episode links for each character)
     var storyPath = [];
     var storyPathIndex = 0;
     // Function grabs data-attribute added from node click to use for repositioning graph from snackbar blocks
@@ -118,7 +118,6 @@
       playBtn.classList.add('active');
       // changes opacity for prev icon in snackbar
       prevBtn.classList.add('active');
-      console.log(storyPathIndex);
       // sets text content for episode in right diagonal block
       blockRight.textContent = storyPath[storyPathIndex].source.title;
       // gets next target x,y,z and repositions camera
@@ -144,7 +143,7 @@
         blockRight.textContent = '';
       }
       storyPath[--storyPathIndex];
-      console.log(storyPathIndex);
+      // reset/set classes and text for snackbar blocks/controls
       storyPathIndex === 0 
       ? blockRight.classList.remove('active') 
       & prevBtn.classList.remove('active')
@@ -228,7 +227,7 @@
           blockLeft.textContent = node.title;
         }
         if (node.type === "Episode") {
-          // resets storyPath array
+          // resets storyPath array which is path of links for each character
           storyPath = [];
           // resets storyPath index
           storyPathIndex = 0;
