@@ -104,9 +104,10 @@
     // global vars because we need global access to these: (storyPath is path of episode links for each character)
     var storyPath = [];
     var storyPathIndex = 0;
-    // Function grabs data-attribute added from node click to use for repositioning graph from snackbar blocks
+
+    // Function increments through storyPath array and sets/resets classes based on position in array
     nextBtn.onclick = function() {
-      // checks if on last item of array
+      // checks if last item of array
       if (storyPathIndex === (storyPath.length - 1)) {
         return;
       }
@@ -134,7 +135,8 @@
           2000 // ms transition duration
         );
     }
-
+    
+    // Function decrements through storyPath array and sets/resets classes based on position in array
     prevBtn.onclick = function() {
       // checks if first item of array
       if (storyPathIndex === 0) {
