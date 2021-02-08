@@ -150,9 +150,7 @@
       & prevBtn.classList.remove('active')
       & playBtn.classList.remove('active')
       : blockRight.textContent = storyPath[storyPathIndex].source.title;
-      
       nextBtn.classList.add('active');
-      
       // gets next target x,y,z and repositions camera
       let node = storyPath[storyPathIndex].source;
       const distance = 35;
@@ -169,7 +167,6 @@
 
     // 3D graph 
     const elem = document.getElementById('3d-graph');
-
     const Graph = ForceGraph3D()
       (elem)
       .graphData(data)
@@ -214,15 +211,13 @@
 
         // conditional for character versus episode 
         if (node.type === "Character") {
+          // builds storyPath array based on node id and characterPath property in json
           storyPath = allLinks.filter(item => item.characterPath === node.id);
+          // resets storyPath index
           storyPathIndex = 0;
-          console.log('storypath from character', storyPath);
-          console.log('storypath index from character', storyPathIndex);
           // resets classes on snackbar control icons
           prevBtn.classList.remove('active')
           playBtn.classList.remove('active')
-          // adds active class to left snackbar block
-          // blockLeft.classList.add('active');
           // adds active class to next button
           nextBtn.classList.add('active');
           // resets for storyPathIndex and text content
@@ -233,16 +228,18 @@
           blockLeft.textContent = node.title;
         }
         if (node.type === "Episode") {
+          // resets storyPath array
           storyPath = [];
+          // resets storyPath index
           storyPathIndex = 0;
-          console.log('storypath from episode', storyPath)
-          console.log('storypath index from episode', storyPathIndex)
+          // sets snackbar right box to episode title
           blockRight.textContent = node.title; 
+          // resets snackbar left box to empty string
           blockLeft.textContent = '';
+          // sets snackbar left box to default color
           blockLeft.style.backgroundColor = '#e2e2e2';
-          // blockLeft.classList.add('active');     
+          // reset/set classes on snackbar right box and snackbar controls   
           blockRight.classList.add('active');         
-          // blockLeft.classList.remove('active');  
           nextBtn.classList.remove('active');
           prevBtn.classList.remove('active');
           playBtn.classList.add('active');
