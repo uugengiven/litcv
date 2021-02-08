@@ -110,6 +110,7 @@
       if (storyPathIndex === (storyPath.length - 1)) {
         return;
       }
+      // increment storyPath index
       storyPath[++storyPathIndex];
       storyPathIndex === (storyPath.length - 1) ? nextBtn.classList.remove('active') : null;
       // changes opacity for right text block in snackbar
@@ -140,8 +141,10 @@
         return;
       }
       if (storyPathIndex === 1) {
+        // resets right block text if at first element of array and going back to character node
         blockRight.textContent = '';
       }
+      // decrement storyPath index
       storyPath[--storyPathIndex];
       // reset/set classes and text for snackbar blocks/controls
       storyPathIndex === 0 
