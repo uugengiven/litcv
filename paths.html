@@ -123,7 +123,7 @@
       blockRight.textContent = storyPath[storyPathIndex].source.title;
       // gets next target x,y,z and repositions camera
       let node = storyPath[storyPathIndex].source;
-      const distance = 40;
+      const distance = 35;
       const distRatio = 1 + distance / Math.hypot(node.x, node.y, node.z);
         Graph.cameraPosition({
             x: node.x * distRatio,
@@ -152,7 +152,7 @@
       
       // gets next target x,y,z and repositions camera
       let node = storyPath[storyPathIndex].source;
-      const distance = 40;
+      const distance = 35;
       const distRatio = 1 + distance / Math.hypot(node.x, node.y, node.z);
         Graph.cameraPosition({
             x: node.x * distRatio,
@@ -233,7 +233,7 @@
           blockRight.textContent = node.title;      
           blockLeft.classList.remove('active');  
         }
-        const distance = 40;
+        const distance = 35;
         const distRatio = 1 + distance / Math.hypot(node.x, node.y, node.z);
         Graph.cameraPosition({
             x: node.x * distRatio,
