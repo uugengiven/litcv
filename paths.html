@@ -113,6 +113,7 @@
       }
       // increment storyPath index
       storyPath[++storyPathIndex];
+      // removes active class on nextBtn if at last item in storyPath array
       storyPathIndex === (storyPath.length - 1) ? nextBtn.classList.remove('active') : null;
       // changes opacity for right text block in snackbar
       blockRight.classList.add('active');
