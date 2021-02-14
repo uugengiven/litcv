@@ -1,20 +1,9 @@
-// closes snackbar if open when nav menu toggled
-const snackBar = document.getElementById('snackbar-container');
-function toggleSnackbar() {
-  snackBar.classList.contains('snackbar_show')
-    ? snackBar.classList.remove('snackbar_show') &
-      snackBar.classList.add('snackbar_hidden')
-    : null;
-}
-
 // select the body tag in the HTML
 const bodyTag = document.querySelector('body');
 const menuToggle = document.querySelector('a.menu-toggle');
 
 menuToggle.addEventListener('click', function () {
   bodyTag.classList.toggle('nav-open');
-  // closes snackbar if open when nav menu toggled
-  toggleSnackbar();
 
   if (bodyTag.classList.contains('nav-open')) {
     gsap.to('.menu-top', { rotation: 45, transformOrigin: '50% 50%', y: 6 });
