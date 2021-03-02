@@ -98,35 +98,40 @@ const data = {
       img: 'DarcyCarson01.png',
       type: 'Episode',
       title: 'Darcy Carson 01',
-      primaryColor: path2color
+      primaryColor: path2color,
+      associatedCharacters: ['Darcy', 'Carson', 'Jamal']
     },
     {
       id: 'DarcyCarson02',
       img: 'DarcyCarson02.png',
       type: 'Episode',
       title: 'Darcy Carson 02',
-      primaryColor: path2color
+      primaryColor: path2color,
+      associatedCharacters: ['Darcy', 'Carson', 'Jamal']
     },
     {
       id: 'DarcyCarson03',
       img: 'DarcyCarson03.png',
       type: 'Episode',
       title: 'Darcy Carson 03',
-      primaryColor: path2color
+      primaryColor: path2color,
+      associatedCharacters: ['Darcy', 'Carson', 'Jamal']
     },
     {
       id: 'DarcyFatherD01',
       img: 'DarcyFatherD01.png',
       type: 'Episode',
       title: 'Darcy FatherD 01',
-      primaryColor: path2color
+      primaryColor: path2color,
+      associatedCharacters: ['Darcy', 'FatherD', 'Jamal']
     },
     {
       id: 'DarcyJamal01',
       img: 'DarcyJamal01.png',
       type: 'Episode',
       title: 'Darcy Jamal 01',
-      primaryColor: path2color
+      primaryColor: path2color,
+      associatedCharacters: ['Darcy', 'Jamal']
     },
     {
       id: 'DarcyJamal02',

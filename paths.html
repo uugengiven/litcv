@@ -249,6 +249,13 @@
           nextBtn.classList.remove('active');
           prevBtn.classList.remove('active');
           playBtn.classList.add('active');
+          // get associated characters
+          let associatedCharactersArray = node.associatedCharacters;
+          console.log(associatedCharactersArray);
+          // filters associatedCharactersArray against allNodes to get characters objects needed
+          let filteredNodes = allNodes.filter(item => associatedCharactersArray.includes(item.id))
+          console.log(filteredNodes);
+
         }
         const distance = 35;
         const distRatio = 1 + distance / Math.hypot(node.x, node.y, node.z);
@@ -268,4 +275,6 @@
 
 </html>
 
-
+<!-- 
+for filtering 
+https://stackoverflow.com/questions/34901593/how-to-filter-an-array-from-all-elements-of-another-array -->
