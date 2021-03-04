@@ -818,12 +818,12 @@ div.contact-content form button:hover {
   justify-content: center;
   align-items: center;
   background-color: #e2e2e2;
-  transition: background-color 2000ms ease-in-out;
+  transition: background-color 250ms ease-in-out;
 }
 
 .block--right.active {
   background-color: var(--dark-background);
-  transition: background-color 2000ms ease-in-out;
+  transition: background-color 250ms ease-in-out;
 }
 
 .block--left {
@@ -854,18 +854,18 @@ div.contact-content form button:hover {
   height: 46px;
   cursor: not-allowed;
   opacity: 0.2;
-  transition: opacity 2000ms ease-in-out;
+  transition: opacity 250ms ease-in-out;
 }
 
 .snackbar-controls .control-icon.active {
   opacity: 1;
   cursor: pointer;
-  transition: opacity 2000ms ease-in-out;
+  transition: opacity 250ms ease-in-out;
 }
 
 .snackbar-controls .control-icon.active:hover {
   opacity: 0.5;
-  transition: opacity 2000ms ease-in-out;
+  transition: opacity 250ms ease-in-out;
 }
 
 .scene-tooltip {
