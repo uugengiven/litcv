@@ -944,3 +944,13 @@ div.contact-content form button:hover {
   align-items: center;
   transition: all 250ms ease;
 }
+
+/* select options avatar */
+.avatar {
+  /* vertical-align: middle; */
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 3px solid red;
+  cursor: pointer;
+}
