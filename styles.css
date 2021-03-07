@@ -926,6 +926,8 @@ div.contact-content form button:hover {
 .select-options.hidden {
   height: 0;
   opacity: 0;
+  z-index: 1;
+  bottom: -30px;
   transition: all 250ms ease;
 }
 .select-options {

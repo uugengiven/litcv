@@ -249,6 +249,8 @@
           isHamburgerMenuOpen = false;
           // hide hamburger btn
           hamburgerBtn.classList.add('hidden');
+          // toggle hamburger icon class
+          hamburgerBtn.classList.remove('open');
           // hide snackbar select options
           selectOptions.classList.add('hidden')
           // resets classes on snackbar control icons
@@ -268,8 +270,14 @@
           storyPath = [];
           // resets storyPath index
           storyPathIndex = 0;
+          // toggle hamburger var
+          isHamburgerMenuOpen = false;
+          // toggle hamburger icon class
+          hamburgerBtn.classList.remove('open');
           // show hamburger button
           hamburgerBtn.classList.remove('hidden')
+          // hide snackbar select options
+          selectOptions.classList.add('hidden')
           // sets snackbar right box to episode title
           blockRight.textContent = node.title; 
           // resets snackbar left box to empty string
