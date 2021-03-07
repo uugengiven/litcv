@@ -849,6 +849,7 @@ div.contact-content form button:hover {
   justify-content: space-evenly;
   max-width: 350px;
   margin: 0.5rem auto;
+  z-index: 2;
 }
 
 .snackbar-controls .control-icon {
@@ -934,7 +935,7 @@ div.contact-content form button:hover {
   width: calc(100% - 20px);
   position: absolute;
   bottom: 2px;
-  z-index: 9;
+  z-index: 1;
   display: flex;
   border-radius: 4px;
   justify-content: space-evenly;
