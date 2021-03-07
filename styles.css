@@ -874,7 +874,9 @@ div.contact-content form button:hover {
 }
 
 /* snackbar hamburger */
-
+.hamburger-btn.hidden {
+  display: none;
+}
 .hamburger-btn {
   position: absolute;
   width: 40px;

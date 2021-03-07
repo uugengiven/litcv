@@ -64,7 +64,7 @@
     <img class="snackbar-icon" src="./images/icons/close-icon-circle.png" alt="close" title="close">
     <section class="diagonal-blocks">
       <div class="block block--left"></div>
-      <div class="hamburger-btn">
+      <div class="hamburger-btn hidden">
         <div class="hamburger"></div>
       </div>
       <div class="block block--right"></div>
@@ -101,6 +101,8 @@
     const prevBtn = document.querySelector('.control-icon--prev');
     const nextBtn = document.querySelector('.control-icon--next');
     const playBtn = document.querySelector('.control-icon--play')
+    // Selector for hamburger button in snackbar
+    const hamburgerBtn = document.querySelector('.hamburger-btn');
     // all nodes data
     const allNodes = data.nodes;
     // all links data
@@ -224,6 +226,8 @@
           storyPath = allLinks.filter(item => item.characterPath === node.id);
           // resets storyPath index
           storyPathIndex = 0;
+          // hide hamburger btn
+          hamburgerBtn.classList.add('hidden');
           // resets classes on snackbar control icons
           prevBtn.classList.remove('active')
           playBtn.classList.remove('active')
@@ -241,6 +245,8 @@
           storyPath = [];
           // resets storyPath index
           storyPathIndex = 0;
+          // show hamburger button
+          hamburgerBtn.classList.remove('hidden')
           // sets snackbar right box to episode title
           blockRight.textContent = node.title; 
           // resets snackbar left box to empty string
