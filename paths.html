@@ -103,6 +103,7 @@
     const playBtn = document.querySelector('.control-icon--play')
     // Selector for hamburger button in snackbar
     const hamburgerBtn = document.querySelector('.hamburger-btn');
+    var isHamburgerMenuOpen = false;
     // all nodes data
     const allNodes = data.nodes;
     // all links data
@@ -175,6 +176,18 @@
           2000 // ms transition duration
         );
     }
+
+    // Function adds hamburger animation and toggles character path options 
+    hamburgerBtn.addEventListener("click", () => {
+      if(isHamburgerMenuOpen){
+        isHamburgerMenuOpen = !isHamburgerMenuOpen;
+        hamburgerBtn.classList.remove("open");
+      }
+      else{
+        isHamburgerMenuOpen = !isHamburgerMenuOpen;
+        hamburgerBtn.classList.add("open");
+      }
+    });
 
     // 3D graph 
     const elem = document.getElementById('3d-graph');
