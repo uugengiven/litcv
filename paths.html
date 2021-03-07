@@ -67,15 +67,17 @@
       <div class="hamburger-btn hidden">
         <div class="hamburger"></div>
       </div>
+      <section class="select-options hidden">
+        <div>one</div>
+        <div>two</div>
+      </section>
       <div class="block block--right"></div>
     </section>
     <section class="snackbar-controls">
       <div>
-        <!-- inactive classes to start?? -->
         <img class="control-icon control-icon--prev" src="images/icons/back.png" alt="back button icon" title="previous">
       </div>
       <div>
-        <!-- inactive classes to start?? -->
         <img class="control-icon control-icon--play" src="images/icons/play.png" alt="play button icon" title="play">
       </div>
       <div>
@@ -104,6 +106,8 @@
     // Selector for hamburger button in snackbar
     const hamburgerBtn = document.querySelector('.hamburger-btn');
     var isHamburgerMenuOpen = false;
+    // Selector for selector options in snackbar
+    const selectOptions = document.querySelector('.select-options');
     // all nodes data
     const allNodes = data.nodes;
     // all links data
@@ -182,10 +186,12 @@
       if(isHamburgerMenuOpen){
         isHamburgerMenuOpen = !isHamburgerMenuOpen;
         hamburgerBtn.classList.remove("open");
+        selectOptions.classList.add('hidden')
       }
       else{
         isHamburgerMenuOpen = !isHamburgerMenuOpen;
         hamburgerBtn.classList.add("open");
+        selectOptions.classList.remove('hidden')
       }
     });
 

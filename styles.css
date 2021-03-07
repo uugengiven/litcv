@@ -783,8 +783,8 @@ div.contact-content form button:hover {
 .snackbar-icon {
   width: 20px;
   position: absolute;
-  bottom: 2px;
-  right: 4px;
+  bottom: 4px;
+  right: 10px;
   cursor: pointer;
   opacity: 0.85;
   transition: opacity 250ms ease-in-out;
@@ -891,7 +891,6 @@ div.contact-content form button:hover {
   width: 30px;
   height: 3px;
   background: var(--text-dark);
-  /* box-shadow: 0 2px 2px #0004; */
   border-radius: 1px;
   transition: all 250ms ease-out;
 }
@@ -902,7 +901,6 @@ div.contact-content form button:hover {
   width: 30px;
   height: 3px;
   background: var(--text-dark);
-  /* box-shadow: 0 2px 2px #0004; */
   border-radius: 1px;
   transition: all 250ms ease-in-out;
 }
@@ -923,4 +921,23 @@ div.contact-content form button:hover {
   transform: rotate(-45deg);
 }
 
-/* https://codepen.io/JohannesKantz/pen/qBZdNxw */
+/* select options in snackbar */
+.select-options.hidden {
+  height: 0;
+  opacity: 0;
+  transition: all 250ms ease;
+}
+.select-options {
+  background-color: rgb(226, 226, 226);
+  height: 70px;
+  opacity: 1;
+  width: calc(100% - 20px);
+  position: absolute;
+  bottom: 2px;
+  z-index: 9;
+  display: flex;
+  border-radius: 4px;
+  justify-content: space-evenly;
+  align-items: center;
+  transition: all 250ms ease;
+}
