@@ -804,6 +804,7 @@ div.contact-content form button:hover {
 
 .block {
   min-height: 40px;
+  position: relative;
   /* width: 50%;
   width: calc(50% + 2rem); */
   /* color: var(--text-dark); */
@@ -871,3 +872,53 @@ div.contact-content form button:hover {
 .scene-tooltip {
   color: var(--text-dark);
 }
+
+/* snackbar hamburger */
+
+.hamburger-btn {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+.hamburger {
+  position: relative;
+  width: 30px;
+  height: 3px;
+  background: var(--text-dark);
+  /* box-shadow: 0 2px 2px #0004; */
+  border-radius: 1px;
+  transition: all 250ms ease-out;
+}
+.hamburger::before,
+.hamburger::after {
+  content: '';
+  position: absolute;
+  width: 30px;
+  height: 3px;
+  background: var(--text-dark);
+  /* box-shadow: 0 2px 2px #0004; */
+  border-radius: 1px;
+  transition: all 250ms ease-in-out;
+}
+.hamburger::before {
+  transform: translateY(-15px);
+}
+.hamburger::after {
+  transform: translateY(15px);
+}
+.hamburger-btn.open .hamburger {
+  background: transparent;
+  box-shadow: none;
+}
+.hamburger-btn.open .hamburger::before {
+  transform: rotate(45deg);
+}
+.hamburger-btn.open .hamburger::after {
+  transform: rotate(-45deg);
+}
+
+/* https://codepen.io/JohannesKantz/pen/qBZdNxw */
