@@ -200,6 +200,14 @@
       }
     });
 
+    // dynamically creates avatars in snackbar
+    function createAvatar(id, color, image, title) {
+      const element = document.createElement('div');
+      element.classList.add('avatar-container');
+      element.innerHTML = `<img src="images/episodes/${image}" class="avatar" alt="Avatar" style="border: 2px solid ${color}" title=${title}>`;
+      avatarContainer.appendChild(element);
+    }
+
     // 3D graph 
     const elem = document.getElementById('3d-graph');
     const Graph = ForceGraph3D()
@@ -323,13 +331,6 @@
           2000 // ms transition duration
         );
       });
-      // dynamically creates avatars in snackbar
-      function createAvatar(id, color, image, title) {
-        const element = document.createElement('div');
-        // element.classList.add('avatar');
-        element.innerHTML = `<img src="images/episodes/${image}" class="avatar" alt="Avatar" style="border: 2px solid ${color}" title=${title}>`;
-        avatarContainer.appendChild(element);
-      }
   </script>
   <script src="js/menu.js"></script>
   <script src="js/snackbarToggle.js"></script>

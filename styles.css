@@ -951,6 +951,5 @@ div.contact-content form button:hover {
   width: 50px;
   height: 50px;
   border-radius: 50%;
-  border: 3px solid red;
   cursor: pointer;
 }
