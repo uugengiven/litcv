@@ -202,7 +202,7 @@
     function createAvatar(id, color, image, title) {
       const element = document.createElement('div');
       element.classList.add('avatar-container');
-      element.innerHTML = `<img src="images/episodes/${image}" class="avatar" alt="Avatar" style="border: 2px solid ${color}" title=${title}>`;
+      element.innerHTML = `<img src="images/episodes/${image}" class="avatar" alt="Avatar" style="border: 3px solid ${color}" title=${title}>`;
       // slight delay so new avatars are now shown if someone clicks a different episode with the snackbar still open
       setTimeout(() => {
         avatarContainer.appendChild(element);
@@ -214,6 +214,18 @@
       while(avatarContainer.hasChildNodes()) {
         avatarContainer.removeChild(avatarContainer.firstChild)
       }
+    }
+
+    function resetVariables() {
+      // removes avatars if they exist
+      clearAvatars();
+      // resets storyPath index
+      storyPathIndex = 0;
+      // resets associated characters and filteredNodes
+      associatedCharacters = [];
+      filteredNodes = [];
+      // toggle hamburger var
+      isHamburgerMenuOpen = false;
     }
 
     // 3D graph 
@@ -262,17 +274,9 @@
 
         // conditional for character versus episode 
         if (node.type === "Character") {
-          // removes avatars if they exist
-          clearAvatars();
+          resetVariables();
           // builds storyPath array based on node id and characterPath property in json
           storyPath = allLinks.filter(item => item.characterPath === node.id);
-          // resets storyPath index
-          storyPathIndex = 0;
-          // resets associated characters and filteredNodes
-          associatedCharacters = [];
-          filteredNodes = [];
-          // toggle hamburger var
-          isHamburgerMenuOpen = false;
           // hide hamburger btn
           hamburgerBtn.classList.add('hidden');
           // toggle hamburger icon class
@@ -292,22 +296,11 @@
           blockLeft.textContent = node.title;
         }
         if (node.type === "Episode") {
-          clearAvatars();
-          // resets storyPath array which is path of links for each character
-          storyPath = [];
-          // resets storyPath index
-          storyPathIndex = 0;
-          // toggle hamburger var
-          isHamburgerMenuOpen = false;
-          // resets associated characters and filteredNodes
-          associatedCharacters = [];
-          filteredNodes = [];
+          resetVariables();
           // get associated characters
           associatedCharacters = node.associatedCharacters;
-          console.log({associatedCharacters});
           // filters associatedCharacters against allNodes to get characters objects needed
           filteredNodes = allNodes.filter(item => associatedCharacters.includes(item.id))
-          console.log({filteredNodes});
           // calls createAvatar function to create avatars in snackbar
           filteredNodes.forEach(function(item) {
             createAvatar(item.id, item.primaryColor, item.img, item.title)
