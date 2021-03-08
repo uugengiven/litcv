@@ -292,7 +292,7 @@
           console.log({filteredNodes});
           // calls createAvatar function to create avatars in snackbar
           filteredNodes.forEach(function(item) {
-            createAvatar(item.id, item.primaryColor, item.img)
+            createAvatar(item.id, item.primaryColor, item.img, item.title)
           })
           // toggle hamburger icon class
           hamburgerBtn.classList.remove('open');
@@ -324,10 +324,10 @@
         );
       });
       // dynamically creates avatars in snackbar
-      function createAvatar(id, color, image) {
+      function createAvatar(id, color, image, title) {
         const element = document.createElement('div');
         // element.classList.add('avatar');
-        element.innerHTML = `<img src="images/episodes/${image}" class="avatar" alt="Avatar" style="border: 2px solid ${color}">`;
+        element.innerHTML = `<img src="images/episodes/${image}" class="avatar" alt="Avatar" style="border: 2px solid ${color}" title=${title}>`;
         avatarContainer.appendChild(element);
       }
   </script>
