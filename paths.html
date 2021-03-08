@@ -270,11 +270,8 @@
           // Sets colors/text content for diagonal boxes in snackbar
           blockLeft.style.backgroundColor = node.primaryColor
           blockLeft.textContent = node.title;
-          console.log(associatedCharacters, filteredNodes);
         }
         if (node.type === "Episode") {
-          console.log(associatedCharacters, filteredNodes);
-
           // resets storyPath array which is path of links for each character
           storyPath = [];
           // resets storyPath index
@@ -302,8 +299,6 @@
           nextBtn.classList.remove('active');
           prevBtn.classList.remove('active');
           playBtn.classList.add('active');
-          console.log(associatedCharacters, filteredNodes);
-
         }
         const distance = 35;
         const distRatio = 1 + distance / Math.hypot(node.x, node.y, node.z);
@@ -320,24 +315,5 @@
   <script src="js/menu.js"></script>
   <script src="js/snackbarToggle.js"></script>
 </body>
-
 </html>
 
-<!-- 
-for filtering 
-https://stackoverflow.com/questions/34901593/how-to-filter-an-array-from-all-elements-of-another-array -->
-
-
-<!-- select options -->
-<!-- make diagonal blocks relative position -->
-<!-- background-color: lightgrey;
-    height: 70px;
-    width: calc(100% - 20px);
-    position: absolute;
-    bottom: 0;
-    z-index: 9;
-    display: flex;
-    justify-content: space-evenly; -->
-
-    <!-- use avatar images instead of names? -->
-    <!-- slide in from left??? -->
