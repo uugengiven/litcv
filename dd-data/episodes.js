@@ -99,7 +99,7 @@ const data = {
       type: 'Episode',
       title: 'Darcy Carson 01',
       primaryColor: path2color,
-      associatedCharacters: ['Darcy', 'Carson']
+      associatedCharacters: ['Darcy', 'Carson', 'FatherD']
     },
     {
       id: 'DarcyCarson02',

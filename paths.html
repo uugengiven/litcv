@@ -68,8 +68,8 @@
         <div class="hamburger"></div>
       </div>
       <section class="select-options hidden">
-          <img src="images/episodes/Carson.jpg" alt="Avatar" class="avatar">
-          <img src="images/episodes/Darcy.jpg" alt="Avatar" class="avatar">
+          <!-- <img src="images/episodes/Carson.jpg" alt="Avatar" class="avatar">
+          <img src="images/episodes/Darcy.jpg" alt="Avatar" class="avatar"> -->
       </section>
       <div class="block block--right"></div>
     </section>
@@ -119,6 +119,8 @@
     var associatedCharacters = [];
     // objects for characters associated with each episode
     var filteredNodes = [];
+    // container selector for dynamically added avatars in snackbar once episode node is clicked
+    const avatarContainer = document.querySelector('.select-options');
     // Function increments through storyPath array and sets/resets classes based on position in array
     nextBtn.onclick = function() {
       // checks if last item of array
@@ -272,16 +274,26 @@
           blockLeft.textContent = node.title;
         }
         if (node.type === "Episode") {
+          console.log(avatarContainer);
           // resets storyPath array which is path of links for each character
           storyPath = [];
           // resets storyPath index
           storyPathIndex = 0;
           // toggle hamburger var
           isHamburgerMenuOpen = false;
+          // resets associated characters and filteredNodes
+          associatedCharacters = [];
+          filteredNodes = [];
           // get associated characters
           associatedCharacters = node.associatedCharacters;
+          console.log({associatedCharacters});
           // filters associatedCharacters against allNodes to get characters objects needed
           filteredNodes = allNodes.filter(item => associatedCharacters.includes(item.id))
+          console.log({filteredNodes});
+          // calls createAvatar function to create avatars in snackbar
+          filteredNodes.forEach(function(item) {
+            createAvatar(item.id, item.primaryColor, item.img)
+          })
           // toggle hamburger icon class
           hamburgerBtn.classList.remove('open');
           // show hamburger button
@@ -311,6 +323,13 @@
           2000 // ms transition duration
         );
       });
+      // dynamically creates avatars in snackbar
+      function createAvatar(id, color, image) {
+        const element = document.createElement('div');
+        // element.classList.add('avatar');
+        element.innerHTML = `<img src="images/episodes/${image}" class="avatar" alt="Avatar" style="border: 2px solid ${color}">`;
+        avatarContainer.appendChild(element);
+      }
   </script>
   <script src="js/menu.js"></script>
   <script src="js/snackbarToggle.js"></script>
