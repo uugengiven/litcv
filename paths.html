@@ -205,7 +205,17 @@
       const element = document.createElement('div');
       element.classList.add('avatar-container');
       element.innerHTML = `<img src="images/episodes/${image}" class="avatar" alt="Avatar" style="border: 2px solid ${color}" title=${title}>`;
-      avatarContainer.appendChild(element);
+      // slight delay so new avatars are now shown if someone clicks a different episode with the snackbar still open
+      setTimeout(() => {
+        avatarContainer.appendChild(element);
+      }, 500);
+    }
+
+    // clears DOM of existing avatars
+    function clearAvatars() {
+      while(avatarContainer.hasChildNodes()) {
+        avatarContainer.removeChild(avatarContainer.firstChild)
+      }
     }
 
     // 3D graph 
@@ -254,6 +264,8 @@
 
         // conditional for character versus episode 
         if (node.type === "Character") {
+          // removes avatars if they exist
+          clearAvatars();
           // builds storyPath array based on node id and characterPath property in json
           storyPath = allLinks.filter(item => item.characterPath === node.id);
           // resets storyPath index
@@ -282,7 +294,7 @@
           blockLeft.textContent = node.title;
         }
         if (node.type === "Episode") {
-          console.log(avatarContainer);
+          clearAvatars();
           // resets storyPath array which is path of links for each character
           storyPath = [];
           // resets storyPath index
