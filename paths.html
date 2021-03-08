@@ -115,7 +115,10 @@
     // global vars because we need global access to these: (storyPath is path of episode links for each character)
     var storyPath = [];
     var storyPathIndex = 0;
-
+    // id of characters associated with each episode
+    var associatedCharacters = [];
+    // objects for characters associated with each episode
+    var filteredNodes = [];
     // Function increments through storyPath array and sets/resets classes based on position in array
     nextBtn.onclick = function() {
       // checks if last item of array
@@ -245,6 +248,9 @@
           storyPath = allLinks.filter(item => item.characterPath === node.id);
           // resets storyPath index
           storyPathIndex = 0;
+          // resets associated characters and filteredNodes
+          associatedCharacters = [];
+          filteredNodes = [];
           // toggle hamburger var
           isHamburgerMenuOpen = false;
           // hide hamburger btn
@@ -264,14 +270,21 @@
           // Sets colors/text content for diagonal boxes in snackbar
           blockLeft.style.backgroundColor = node.primaryColor
           blockLeft.textContent = node.title;
+          console.log(associatedCharacters, filteredNodes);
         }
         if (node.type === "Episode") {
+          console.log(associatedCharacters, filteredNodes);
+
           // resets storyPath array which is path of links for each character
           storyPath = [];
           // resets storyPath index
           storyPathIndex = 0;
           // toggle hamburger var
           isHamburgerMenuOpen = false;
+          // get associated characters
+          associatedCharacters = node.associatedCharacters;
+          // filters associatedCharacters against allNodes to get characters objects needed
+          filteredNodes = allNodes.filter(item => associatedCharacters.includes(item.id))
           // toggle hamburger icon class
           hamburgerBtn.classList.remove('open');
           // show hamburger button
@@ -289,13 +302,8 @@
           nextBtn.classList.remove('active');
           prevBtn.classList.remove('active');
           playBtn.classList.add('active');
-          // get associated characters
-          // TODO: should this be a var??
-          let associatedCharactersArray = node.associatedCharacters;
-          console.log(associatedCharactersArray);
-          // filters associatedCharactersArray against allNodes to get characters objects needed
-          let filteredNodes = allNodes.filter(item => associatedCharactersArray.includes(item.id))
-          console.log(filteredNodes);
+          console.log(associatedCharacters, filteredNodes);
+
         }
         const distance = 35;
         const distRatio = 1 + distance / Math.hypot(node.x, node.y, node.z);
