@@ -867,6 +867,22 @@ div.contact-content form button:hover {
   transition: opacity 250ms ease-in-out;
 }
 
+/* animation for prev button right */
+.pulse {
+  animation: pulse 1250ms infinite;
+}
+@keyframes pulse {
+  0% {
+    opacity: 0.2;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.2;
+  }
+}
+
 .scene-tooltip {
   color: var(--text-dark);
 }
