@@ -203,10 +203,11 @@
     function chooseAvatar(e) {
       // gets id from selected avatar on click
       let selectedAvatarID = event.target.getAttribute('data-id');
+      // gets name from selected avatar on click
       let selectedAvatarName = event.target.getAttribute('title');
       // sets left diagonal block to character name
       blockLeft.textContent = selectedAvatarName;
-      // closes hamburger and select options in snackbar
+      // close hamburger and select options in snackbar
       isHamburgerMenuOpen = false;
       hamburgerBtn.classList.remove("open");
       selectOptions.classList.add('hidden')
@@ -292,6 +293,7 @@
 
         // conditional for character versus episode 
         if (node.type === "Character") {
+          // clears all vars to original values
           resetVariables();
           // builds storyPath array based on node id and characterPath property in json
           storyPath = allLinks.filter(item => item.characterPath === node.id);
@@ -314,6 +316,7 @@
           blockLeft.textContent = node.title;
         }
         if (node.type === "Episode") {
+          // clears all vars to originals values
           resetVariables();
           // get associated characters
           associatedCharacters = node.associatedCharacters;
@@ -323,6 +326,8 @@
           filteredNodes.forEach(function(item) {
             createAvatar(item.id, item.primaryColor, item.img, item.title)
           })
+          // sets data atttribute of id on episode so it is accessible when finding index from avatar clicks
+          blockRight.setAttribute('data-episodeID', node.id);
           // toggle hamburger icon class
           hamburgerBtn.classList.remove('open');
           // show hamburger button
