@@ -215,11 +215,11 @@
       storyPath = allLinks.filter(item => item.characterPath === selectedAvatarID);
       // gets/sets current episode id from right diagonal block
       const currentEpisodeID = blockRight.getAttribute('data-episodeID');
-      console.log(currentEpisodeID);
-      console.log(storyPath);
       // set storyPathIndex based on currentEpisodeID index in latest storyPath
       storyPathIndex = storyPath.findIndex(item => item.source.id === currentEpisodeID);
-      console.log(storyPathIndex);
+      // set classes on prev/next buttons based on array index
+      storyPathIndex !== 0 ? prevBtn.classList.add('active') : null;
+      storyPathIndex !== (storyPath.length - 1) ? nextBtn.classList.add('active') : null;
       // sets left diagonal block to character color
       blockLeft.style.backgroundColor = storyPath[0].linkColor;
     }
