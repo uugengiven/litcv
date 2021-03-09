@@ -203,9 +203,10 @@
       }
     });
 
-    function chooseAvatar(e) {
+    function chooseAvatar() {
       // gets id from selected avatar on click
       let selectedAvatarID = event.target.getAttribute('data-id');
+      console.log(selectedAvatarID);
       // gets name from selected avatar on click
       let selectedAvatarName = event.target.getAttribute('title');
       // sets left diagonal block to character name
