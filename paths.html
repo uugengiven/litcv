@@ -192,7 +192,7 @@
         selectOptions.classList.add('hidden')
       }
       else {
-        var associatedAvatars = document.querySelectorAll('.avatar');
+        const associatedAvatars = document.querySelectorAll('.avatar');
         associatedAvatars.forEach(item => item.addEventListener('click', chooseAvatar))
         isHamburgerMenuOpen = !isHamburgerMenuOpen;
         hamburgerBtn.classList.add("open");
@@ -213,6 +213,13 @@
       selectOptions.classList.add('hidden')
       // builds character path array
       storyPath = allLinks.filter(item => item.characterPath === selectedAvatarID);
+      // gets/sets current episode id from right diagonal block
+      const currentEpisodeID = blockRight.getAttribute('data-episodeID');
+      console.log(currentEpisodeID);
+      console.log(storyPath);
+      // set storyPathIndex based on currentEpisodeID index in latest storyPath
+      storyPathIndex = storyPath.findIndex(item => item.source.id === currentEpisodeID);
+      console.log(storyPathIndex);
       // sets left diagonal block to character color
       blockLeft.style.backgroundColor = storyPath[0].linkColor;
     }
