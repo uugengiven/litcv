@@ -163,7 +163,7 @@
       }
       // decrement storyPath index
       storyPath[--storyPathIndex];
-      // reset/set classes and text for snackbar blocks/controls
+      // reset/set classes and text for snackbar blocks
       storyPathIndex === 0 
       ? blockRight.classList.remove('active') 
       & prevBtn.classList.remove('active')
@@ -232,7 +232,7 @@
       // slight delay so new avatars are now shown if someone clicks a different episode with the snackbar still open
       setTimeout(() => {
         avatarContainer.appendChild(element);
-      }, 300);
+      }, 250);
     }
 
     // clears DOM of existing avatars
