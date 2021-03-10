@@ -868,6 +868,11 @@ div.contact-content form button:hover {
   transition: opacity 250ms ease-in-out;
 }
 
+.snackbar-controls .control-icon.material-icons-round {
+  font-size: 32px;
+  line-height: 46px;
+}
+
 /* animation for prev button right */
 .pulse {
   animation: pulse 1250ms infinite;
