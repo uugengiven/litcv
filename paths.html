@@ -172,7 +172,6 @@
       // decrement storyPath index
       storyPath[--storyPathIndex];
       // reset/set classes and text for snackbar blocks
-      console.log({storyPath});
       storyPathIndex === 0 
       ? blockRight.classList.remove('active') 
       & prevBtn.classList.remove('active')
@@ -337,7 +336,6 @@
           nextBtn.classList.add('pulse');
           // adds character color to nextBtn
           nextBtn.style.color = node.primaryColor;
-          console.log(node);
           // hides hamburger
           hamburgerBtn.classList.add('hidden')
           // resets for storyPathIndex and text content
