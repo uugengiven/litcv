@@ -138,6 +138,8 @@
       prevBtn.classList.add('active');
       // removes pulse from nextBtn
       nextBtn.classList.remove('pulse');
+      // removes character color from nextBtn icon
+      nextBtn.removeAttribute('style');
       // shows hamburger button
       hamburgerBtn.classList.remove('hidden');
       // sets text content for episode in right diagonal block
@@ -165,10 +167,12 @@
       if (storyPathIndex === 1) {
         // resets right block text if at first element of array and going back to character node
         blockRight.textContent = '';
+        // nextBtn.style.color = storyPath[0].linkColor;
       }
       // decrement storyPath index
       storyPath[--storyPathIndex];
       // reset/set classes and text for snackbar blocks
+      console.log(storyPath);
       storyPathIndex === 0 
       ? blockRight.classList.remove('active') 
       & prevBtn.classList.remove('active')
@@ -177,6 +181,7 @@
       & hamburgerBtn.classList.add('hidden')
       : blockRight.textContent = storyPath[storyPathIndex].source.title;
       nextBtn.classList.add('active');
+      
       // gets next target x,y,z and repositions camera
       let node = storyPath[storyPathIndex].source;
       const distance = 35;
@@ -330,6 +335,9 @@
           nextBtn.classList.add('active');
           // adds pulse animation to nextBtn
           nextBtn.classList.add('pulse');
+          // adds character color to nextBtn
+          nextBtn.style.color = node.primaryColor;
+          console.log(node);
           // hides hamburger
           hamburgerBtn.classList.add('hidden')
           // resets for storyPathIndex and text content
@@ -370,6 +378,7 @@
           prevBtn.classList.remove('active');
           playBtn.classList.add('active');
           nextBtn.classList.remove('pulse');
+          nextBtn.removeAttribute('style');
         }
         const distance = 35;
         const distRatio = 1 + distance / Math.hypot(node.x, node.y, node.z);

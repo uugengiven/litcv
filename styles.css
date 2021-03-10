@@ -753,8 +753,10 @@ div.contact-content form button:hover {
 
 .snackbar_hidden,
 .snackbar_show {
-  color: var(--text-dark);
-  background-color: var(--light-background);
+  /* color: var(--text-dark); */
+  /* background-color: var(--light-background); */
+  color: whitesmoke;
+  background-color: rgb(76 76 76);
   padding: 10px;
   position: fixed;
   bottom: -50px;
