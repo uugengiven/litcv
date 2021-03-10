@@ -875,6 +875,11 @@ div.contact-content form button:hover {
   line-height: 46px;
 }
 
+.snackbar-controls .control-icon.control-icon--play.material-icons-round {
+  font-size: 42px;
+  vertical-align: bottom;
+}
+
 /* animation for prev button right */
 .pulse {
   animation: pulse 1250ms infinite;
