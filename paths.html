@@ -309,6 +309,15 @@
           resetVariables();
           // builds storyPath array based on node id and characterPath property in json
           storyPath = allLinks.filter(item => item.characterPath === node.id);
+          // get associated characters
+          associatedCharacters = storyPath[0].target.associatedCharacters;
+          // filters associatedCharacters against allNodes to get characters objects needed
+          filteredNodes = allNodes.filter(item => associatedCharacters.includes(item.id));
+          // calls createAvatar function to create avatars in snackbar
+          filteredNodes.forEach(function(item) {
+            createAvatar(item.id, item.primaryColor, item.img, item.title)
+          })
+          console.log({filteredNodes});
           // hide hamburger btn
           hamburgerBtn.classList.add('hidden');
           // toggle hamburger icon class
