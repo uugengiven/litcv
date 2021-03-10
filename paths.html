@@ -137,6 +137,8 @@
       prevBtn.classList.add('active');
       // removes pulse from nextBtn
       nextBtn.classList.remove('pulse');
+      // shows hamburger button
+      hamburgerBtn.classList.remove('hidden');
       // sets text content for episode in right diagonal block
       blockRight.textContent = storyPath[storyPathIndex].source.title;
       // gets next target x,y,z and repositions camera
@@ -170,7 +172,8 @@
       ? blockRight.classList.remove('active') 
       & prevBtn.classList.remove('active')
       & playBtn.classList.remove('active')
-      &  nextBtn.classList.add('pulse')
+      & nextBtn.classList.add('pulse')
+      & hamburgerBtn.classList.add('hidden')
       : blockRight.textContent = storyPath[storyPathIndex].source.title;
       nextBtn.classList.add('active');
       // gets next target x,y,z and repositions camera
@@ -318,7 +321,8 @@
           nextBtn.classList.add('active');
           // adds pulse animation to nextBtn
           nextBtn.classList.add('pulse');
-
+          // hides hamburger
+          hamburgerBtn.classList.add('hidden')
           // resets for storyPathIndex and text content
           blockRight.classList.remove('active');
           blockRight.textContent = '';
