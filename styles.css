@@ -822,6 +822,7 @@ div.contact-content form button:hover {
 }
 
 .block--right.active {
+  color: var(--gray);
   background-color: var(--dark-background);
   transition: background-color 250ms ease-in-out;
 }
@@ -837,6 +838,7 @@ div.contact-content form button:hover {
 
 .block--right {
   color: var(--gray);
+  background-color: var(--gray);
   margin-left: -2.5rem;
   clip-path: polygon(3rem 0, 100% 0, 100% 100%, 0% 100%);
   border-top-right-radius: 4px;
