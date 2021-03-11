@@ -118,6 +118,8 @@
     var associatedCharacters = [];
     // objects for characters associated with each episode
     var filteredNodes = [];
+    // current episode
+    var currentEpisode = {};
     // container selector for dynamically added avatars in snackbar once episode node is clicked
     const avatarContainer = document.querySelector('.select-options');
     // Function increments through storyPath array and sets/resets classes based on position in array
@@ -128,6 +130,9 @@
       }
       // increment storyPath index
       storyPath[++storyPathIndex];
+      // sets currentEpisode
+      currentEpisode = storyPath[storyPathIndex].source;
+      console.log(currentEpisode);
       // removes active class on nextBtn if at last item in storyPath array
       storyPathIndex === (storyPath.length - 1) ? nextBtn.classList.remove('active') : null;
       // changes opacity for right text block in snackbar
@@ -167,10 +172,16 @@
       if (storyPathIndex === 1) {
         // resets right block text if at first element of array and going back to character node
         blockRight.textContent = '';
-        // nextBtn.style.color = storyPath[0].linkColor;
+        nextBtn.style.color = storyPath[0].linkColor;
+        // sets currentEpisode
+        currentEpisode = {};
+        console.log(currentEpisode);
       }
       // decrement storyPath index
       storyPath[--storyPathIndex];
+      // sets currentEpisode
+      currentEpisode = storyPath[storyPathIndex];
+      console.log(currentEpisode);
       // reset/set classes and text for snackbar blocks
       storyPathIndex === 0 
       ? blockRight.classList.remove('active') 
@@ -179,6 +190,9 @@
       & nextBtn.classList.add('pulse')
       & hamburgerBtn.classList.add('hidden')
       : blockRight.textContent = storyPath[storyPathIndex].source.title;
+      // nextBtn.style.color = storyPath[0].linkColor;
+      currentEpisode = {};
+      console.log(currentEpisode);
       nextBtn.classList.add('active');
       
       // gets next target x,y,z and repositions camera
@@ -201,8 +215,17 @@
         isHamburgerMenuOpen = !isHamburgerMenuOpen;
         hamburgerBtn.classList.remove("open");
         selectOptions.classList.add('hidden')
+        clearAvatars();
       }
       else {
+      // get associated characters
+        associatedCharacters = currentEpisode.associatedCharacters;
+        // filters associatedCharacters against allNodes to get characters objects needed
+        filteredNodes = allNodes.filter(item => associatedCharacters.includes(item.id))
+        // calls createAvatar function to create avatars in snackbar
+        filteredNodes.forEach(function(item) {
+          createAvatar(item.id, item.primaryColor, item.img, item.title)
+        })
         const associatedAvatars = document.querySelectorAll('.avatar');
         associatedAvatars.forEach(item => item.addEventListener('click', chooseAvatar))
         isHamburgerMenuOpen = !isHamburgerMenuOpen;
@@ -348,14 +371,14 @@
         if (node.type === "Episode") {
           // clears all vars to originals values
           resetVariables();
-          // get associated characters
-          associatedCharacters = node.associatedCharacters;
-          // filters associatedCharacters against allNodes to get characters objects needed
-          filteredNodes = allNodes.filter(item => associatedCharacters.includes(item.id))
-          // calls createAvatar function to create avatars in snackbar
-          filteredNodes.forEach(function(item) {
-            createAvatar(item.id, item.primaryColor, item.img, item.title)
-          })
+          // // get associated characters
+          // associatedCharacters = node.associatedCharacters;
+          // // filters associatedCharacters against allNodes to get characters objects needed
+          // filteredNodes = allNodes.filter(item => associatedCharacters.includes(item.id))
+          // // calls createAvatar function to create avatars in snackbar
+          // filteredNodes.forEach(function(item) {
+          //   createAvatar(item.id, item.primaryColor, item.img, item.title)
+          // })
           // sets data atttribute of id on episode so it is accessible when finding index from avatar clicks
           blockRight.setAttribute('data-episodeID', node.id);
           // toggle hamburger icon class
