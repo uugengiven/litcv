@@ -89,7 +89,7 @@ prevBtn.onclick = function () {
     // resets right block text if at first element of array and going back to character node
     blockRight.textContent = '';
     nextBtn.style.color = storyPath[0].linkColor;
-    // sets currentEpisode
+    // clears currentEpisode
     currentEpisode = {};
   }
   // decrement storyPath index
