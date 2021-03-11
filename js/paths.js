@@ -131,9 +131,7 @@ hamburgerBtn.addEventListener('click', () => {
   } else {
     clearAvatars();
     // get associated characters
-    console.log(currentEpisode);
     associatedCharacters = currentEpisode.associatedCharacters;
-    console.log(associatedCharacters);
     // filters associatedCharacters against allNodes to get characters objects needed
     filteredNodes = allNodes.filter(item =>
       associatedCharacters.includes(item.id)
