@@ -232,10 +232,10 @@
         filteredNodes.forEach(function(item) {
           createAvatar(item.id, item.primaryColor, item.img, item.title)
         })
-        // const associatedAvatars = document.querySelectorAll('.avatar');
-        // associatedAvatars.forEach(item => item.addEventListener('click', chooseAvatar))
+        // toggles isHamburgerOpen 
         isHamburgerMenuOpen = !isHamburgerMenuOpen;
         hamburgerBtn.classList.add("open");
+        // shows select options
         selectOptions.classList.remove('hidden');
       }
     });
@@ -280,13 +280,10 @@
     }
 
     function resetVariables() {
-      // removes avatars if they exist
+      // removes avatars if they exist or else they will reproduce like rabbits
       clearAvatars();
       // resets storyPath index
       storyPathIndex = 0;
-      // resets associated characters and filteredNodes
-      associatedCharacters = [];
-      filteredNodes = [];
       // toggle hamburger var
       isHamburgerMenuOpen = false;
     }
