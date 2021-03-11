@@ -198,8 +198,6 @@
       & nextBtn.classList.add('pulse')
       & hamburgerBtn.classList.add('hidden')
       : blockRight.textContent = storyPath[storyPathIndex].source.title;
-      // nextBtn.style.color = storyPath[0].linkColor;
-      // currentEpisode = {};
       nextBtn.classList.add('active');
       
       // gets next target x,y,z and repositions camera
@@ -234,8 +232,8 @@
         filteredNodes.forEach(function(item) {
           createAvatar(item.id, item.primaryColor, item.img, item.title)
         })
-        const associatedAvatars = document.querySelectorAll('.avatar');
-        associatedAvatars.forEach(item => item.addEventListener('click', chooseAvatar))
+        // const associatedAvatars = document.querySelectorAll('.avatar');
+        // associatedAvatars.forEach(item => item.addEventListener('click', chooseAvatar))
         isHamburgerMenuOpen = !isHamburgerMenuOpen;
         hamburgerBtn.classList.add("open");
         selectOptions.classList.remove('hidden');
@@ -255,9 +253,7 @@
       selectOptions.classList.add('hidden')
       // builds character path array
       storyPath = allLinks.filter(item => item.characterPath === selectedAvatarID);
-      // gets/sets current episode id from right diagonal block
-      // const currentEpisodeID = blockRight.getAttribute('data-episodeID');
-      // set storyPathIndex based on currentEpisodeID index in latest storyPath
+      // set storyPathIndex based on currentEpisode id index in latest storyPath
       storyPathIndex = storyPath.findIndex(item => item.source.id === currentEpisode.id);
       // set classes on prev/next buttons based on array index
       storyPathIndex !== 0 ? prevBtn.classList.add('active') : null;
@@ -271,8 +267,9 @@
       const element = document.createElement('div');
       element.classList.add('avatar-container');
       element.innerHTML = `<img data-id="${id}" src="images/episodes/${image}" class="avatar" alt="Avatar" style="border: 3px solid ${color}" title=${title}>`;
-      // clears existing avatars or else they will multiply like rabbits
       avatarContainer.appendChild(element);
+      const associatedAvatars = document.querySelectorAll('.avatar');
+      associatedAvatars.forEach(item => item.addEventListener('click', chooseAvatar))
     }
 
     // clears DOM of existing avatars
@@ -344,14 +341,6 @@
           resetVariables();
           // builds storyPath array based on node id and characterPath property in json
           storyPath = allLinks.filter(item => item.characterPath === node.id);
-          // // get associated characters
-          // associatedCharacters = storyPath[0].target.associatedCharacters;
-          // // filters associatedCharacters against allNodes to get characters objects needed
-          // filteredNodes = allNodes.filter(item => associatedCharacters.includes(item.id));
-          // // calls createAvatar function to create avatars in snackbar
-          // filteredNodes.forEach(function(item) {
-          //   createAvatar(item.id, item.primaryColor, item.img, item.title)
-          // })
           // hide hamburger btn
           hamburgerBtn.classList.add('hidden');
           // toggle hamburger icon class
@@ -379,16 +368,8 @@
         if (node.type === "Episode") {
           // clears all vars to originals values
           resetVariables();
-          // // get associated characters
-          // associatedCharacters = node.associatedCharacters;
-          // // filters associatedCharacters against allNodes to get characters objects needed
-          // filteredNodes = allNodes.filter(item => associatedCharacters.includes(item.id))
-          // // calls createAvatar function to create avatars in snackbar
-          // filteredNodes.forEach(function(item) {
-          //   createAvatar(item.id, item.primaryColor, item.img, item.title)
-          // })
+          // sets current episode to episode node clicked
           currentEpisode = node;
-          console.log(node);
           // sets data atttribute of id on episode so it is accessible when finding index from avatar clicks
           blockRight.setAttribute('data-episodeID', node.id);
           // toggle hamburger icon class
