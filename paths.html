@@ -148,7 +148,11 @@
       // shows hamburger button
       hamburgerBtn.classList.remove('hidden');
       // sets text content for episode in right diagonal block
-      blockRight.textContent = storyPath[storyPathIndex].source.title;
+      console.log(storyPathIndex);
+      storyPathIndex !== 0 
+      ? blockRight.textContent = storyPath[storyPathIndex].source.title 
+      : blockRight.textContent = '' 
+      & blockRight.classList.remove('active');
       // gets next target x,y,z and repositions camera
       let node = storyPath[storyPathIndex].source;
       const distance = 35;
@@ -191,8 +195,8 @@
       & hamburgerBtn.classList.add('hidden')
       : blockRight.textContent = storyPath[storyPathIndex].source.title;
       // nextBtn.style.color = storyPath[0].linkColor;
-      currentEpisode = {};
-      console.log(currentEpisode);
+      // currentEpisode = {};
+      // console.log(currentEpisode);
       nextBtn.classList.add('active');
       
       // gets next target x,y,z and repositions camera
@@ -218,7 +222,8 @@
         clearAvatars();
       }
       else {
-      // get associated characters
+        clearAvatars();
+        // get associated characters
         associatedCharacters = currentEpisode.associatedCharacters;
         // filters associatedCharacters against allNodes to get characters objects needed
         filteredNodes = allNodes.filter(item => associatedCharacters.includes(item.id))
@@ -248,9 +253,9 @@
       // builds character path array
       storyPath = allLinks.filter(item => item.characterPath === selectedAvatarID);
       // gets/sets current episode id from right diagonal block
-      const currentEpisodeID = blockRight.getAttribute('data-episodeID');
+      // const currentEpisodeID = blockRight.getAttribute('data-episodeID');
       // set storyPathIndex based on currentEpisodeID index in latest storyPath
-      storyPathIndex = storyPath.findIndex(item => item.source.id === currentEpisodeID);
+      storyPathIndex = storyPath.findIndex(item => item.source.id === currentEpisode);
       // set classes on prev/next buttons based on array index
       storyPathIndex !== 0 ? prevBtn.classList.add('active') : null;
       storyPathIndex !== (storyPath.length - 1) ? nextBtn.classList.add('active') : null;
