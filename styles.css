@@ -810,6 +810,7 @@ div.contact-content form button:hover {
   font-size: 1rem;
   font-weight: 500;
   letter-spacing: 4px;
+  text-transform: uppercase;
 }
 
 .block--left,
@@ -837,7 +838,7 @@ div.contact-content form button:hover {
 }
 
 .block--right {
-  color: var(--gray);
+  color: var(--black);
   background-color: var(--gray);
   margin-left: -2.5rem;
   clip-path: polygon(3rem 0, 100% 0, 100% 100%, 0% 100%);

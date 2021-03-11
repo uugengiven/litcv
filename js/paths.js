@@ -87,7 +87,7 @@ prevBtn.onclick = function () {
   }
   if (storyPathIndex === 1) {
     // resets right block text if at first element of array and going back to character node
-    blockRight.textContent = '';
+    blockRight.textContent = 'click arrow';
     nextBtn.style.color = storyPath[0].linkColor;
     // clears currentEpisode
     currentEpisode = {};
@@ -267,7 +267,7 @@ const Graph = ForceGraph3D()(elem)
       hamburgerBtn.classList.add('hidden');
       // resets for storyPathIndex and text content
       blockRight.classList.remove('active');
-      blockRight.textContent = '';
+      blockRight.textContent = 'click arrow';
       // Sets colors/text content for diagonal boxes in snackbar
       blockLeft.style.backgroundColor = node.primaryColor;
       blockLeft.textContent = node.title;
