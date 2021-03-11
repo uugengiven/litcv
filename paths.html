@@ -132,7 +132,6 @@
       storyPath[++storyPathIndex];
       // sets currentEpisode
       currentEpisode = storyPath[storyPathIndex].source;
-      console.log(currentEpisode);
       // removes active class on nextBtn if at last item in storyPath array
       storyPathIndex === (storyPath.length - 1) ? nextBtn.classList.remove('active') : null;
       // changes opacity for right text block in snackbar
@@ -148,7 +147,6 @@
       // shows hamburger button
       hamburgerBtn.classList.remove('hidden');
       // sets text content for episode in right diagonal block
-      console.log(storyPathIndex);
       storyPathIndex !== 0 
       ? blockRight.textContent = storyPath[storyPathIndex].source.title 
       : blockRight.textContent = '' 
@@ -187,13 +185,11 @@
         nextBtn.style.color = storyPath[0].linkColor;
         // sets currentEpisode
         currentEpisode = {};
-        console.log(currentEpisode);
       }
       // decrement storyPath index
       storyPath[--storyPathIndex];
       // sets currentEpisode
       currentEpisode = storyPath[storyPathIndex];
-      console.log(currentEpisode);
       // reset/set classes and text for snackbar blocks
       storyPathIndex === 0 
       ? blockRight.classList.remove('active') 
@@ -204,7 +200,6 @@
       : blockRight.textContent = storyPath[storyPathIndex].source.title;
       // nextBtn.style.color = storyPath[0].linkColor;
       // currentEpisode = {};
-      // console.log(currentEpisode);
       nextBtn.classList.add('active');
       
       // gets next target x,y,z and repositions camera
