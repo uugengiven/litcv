@@ -95,7 +95,7 @@ prevBtn.onclick = function () {
   // decrement storyPath index
   storyPath[--storyPathIndex];
   // sets currentEpisode
-  currentEpisode = storyPath[storyPathIndex];
+  currentEpisode = storyPath[storyPathIndex].source;
   // reset/set classes and text for snackbar blocks
   storyPathIndex === 0
     ? blockRight.classList.remove('active') &
@@ -131,7 +131,9 @@ hamburgerBtn.addEventListener('click', () => {
   } else {
     clearAvatars();
     // get associated characters
+    console.log(currentEpisode);
     associatedCharacters = currentEpisode.associatedCharacters;
+    console.log(associatedCharacters);
     // filters associatedCharacters against allNodes to get characters objects needed
     filteredNodes = allNodes.filter(item =>
       associatedCharacters.includes(item.id)
