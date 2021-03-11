@@ -73,7 +73,7 @@ const data = {
       id: 'FatherD',
       img: 'FatherD_avatar.png',
       type: 'Character',
-      title: 'Father D',
+      title: 'FatherD',
       size: 14,
       primaryColor: path6color
     },

@@ -153,6 +153,14 @@
       ? blockRight.textContent = storyPath[storyPathIndex].source.title 
       : blockRight.textContent = '' 
       & blockRight.classList.remove('active');
+      if (storyPathIndex === 0) {
+        nextBtn.classList.add('active');
+        nextBtn.classList.add('pulse');
+        nextBtn.style.color = storyPath[0].linkColor;
+        prevBtn.classList.remove('active');
+        playBtn.classList.remove('active');
+        hamburgerBtn.classList.add('hidden');
+      }
       // gets next target x,y,z and repositions camera
       let node = storyPath[storyPathIndex].source;
       const distance = 35;
