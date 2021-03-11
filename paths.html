@@ -238,7 +238,7 @@
         associatedAvatars.forEach(item => item.addEventListener('click', chooseAvatar))
         isHamburgerMenuOpen = !isHamburgerMenuOpen;
         hamburgerBtn.classList.add("open");
-        selectOptions.classList.remove('hidden')
+        selectOptions.classList.remove('hidden');
       }
     });
 
@@ -258,7 +258,7 @@
       // gets/sets current episode id from right diagonal block
       // const currentEpisodeID = blockRight.getAttribute('data-episodeID');
       // set storyPathIndex based on currentEpisodeID index in latest storyPath
-      storyPathIndex = storyPath.findIndex(item => item.source.id === currentEpisode);
+      storyPathIndex = storyPath.findIndex(item => item.source.id === currentEpisode.id);
       // set classes on prev/next buttons based on array index
       storyPathIndex !== 0 ? prevBtn.classList.add('active') : null;
       storyPathIndex !== (storyPath.length - 1) ? nextBtn.classList.add('active') : null;
@@ -387,6 +387,8 @@
           // filteredNodes.forEach(function(item) {
           //   createAvatar(item.id, item.primaryColor, item.img, item.title)
           // })
+          currentEpisode = node;
+          console.log(node);
           // sets data atttribute of id on episode so it is accessible when finding index from avatar clicks
           blockRight.setAttribute('data-episodeID', node.id);
           // toggle hamburger icon class
