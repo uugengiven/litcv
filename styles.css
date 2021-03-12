@@ -764,6 +764,7 @@ div.contact-content form button:hover {
   transform: translateX(-50%);
   min-width: 310px;
   max-width: 800px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
   /* height: 124px; */
   width: 90vw;
   margin: 0 auto;
