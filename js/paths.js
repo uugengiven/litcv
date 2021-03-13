@@ -8,22 +8,24 @@ const nextBtn = document.querySelector('.control-icon--next');
 const playBtn = document.querySelector('.control-icon--play');
 // Selector for hamburger button in snackbar
 const hamburgerBtn = document.querySelector('.hamburger-btn');
-var isHamburgerMenuOpen = false;
+// state of hamburger menu
+let isHamburgerMenuOpen = false;
 // Selector for selector options in snackbar
 const selectOptions = document.querySelector('.select-options');
 // all nodes data
-var allNodes = data.nodes;
+let allNodes = data.nodes;
 // all links data
 const allLinks = data.links;
-// global vars because we need global access to these: (storyPath is path of episode links for each character)
-var storyPath = [];
-var storyPathIndex = 0;
+// path of episode links for each character
+let storyPath = [];
+// index of storyPath
+let storyPathIndex = 0;
 // id of characters associated with each episode
-var associatedCharacters = [];
+let associatedCharacters = [];
 // objects for characters associated with each episode
-var filteredNodes = [];
+let filteredNodes = [];
 // current episode
-var currentEpisode = {};
+let currentEpisode = {};
 // container selector for dynamically added avatars in snackbar once episode node is clicked
 const avatarContainer = document.querySelector('.select-options');
 // Function increments through storyPath array and sets/resets classes based on position in array
