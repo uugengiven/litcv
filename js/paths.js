@@ -68,17 +68,18 @@ nextBtn.onclick = function () {
   }
   // gets next target x,y,z and repositions camera
   let node = storyPath[storyPathIndex].source;
-  const distance = 35;
-  const distRatio = 1 + distance / Math.hypot(node.x, node.y, node.z);
-  Graph.cameraPosition(
-    {
-      x: node.x * distRatio,
-      y: node.y * distRatio,
-      z: node.z * distRatio
-    }, // new position
-    node, // lookAt ({ x, y, z })
-    2000 // ms transition duration
-  );
+  // const distance = 35;
+  // const distRatio = 1 + distance / Math.hypot(node.x, node.y, node.z);
+  // Graph.cameraPosition(
+  //   {
+  //     x: node.x * distRatio,
+  //     y: node.y * distRatio,
+  //     z: node.z * distRatio
+  //   }, // new position
+  //   node, // lookAt ({ x, y, z })
+  //   2000 // ms transition duration
+  // );
+  updateCamera(node, storyPath[storyPathIndex + 1]?.source);
 };
 
 // Function decrements through storyPath array and sets/resets classes based on position in array
@@ -110,18 +111,69 @@ prevBtn.onclick = function () {
 
   // gets next target x,y,z and repositions camera
   let node = storyPath[storyPathIndex].source;
-  const distance = 35;
-  const distRatio = 1 + distance / Math.hypot(node.x, node.y, node.z);
+  // const distance = 35;
+  // const distRatio = 1 + distance / Math.hypot(node.x, node.y, node.z);
+  // Graph.cameraPosition(
+  //   {
+  //     x: node.x * distRatio,
+  //     y: node.y * distRatio,
+  //     z: node.z * distRatio
+  //   }, // new position
+  //   node, // lookAt ({ x, y, z })
+  //   2000 // ms transition duration
+  // );
+  updateCamera(node, storyPath[storyPathIndex + 1]?.source);
+};
+
+const updateCamera = function (node, nextNode) {
+  var cameraLocation = new THREE.Vector3(node.x, node.y, node.z);
+  const originalPoint = cameraLocation.clone();
+  testThing = node;
+  console.log("before transform", node);
+  console.log(cameraLocation);
+  if(nextNode)
+  {
+    const distance = 35;
+    const distRatio = 1 + distance / Math.hypot(node.x, node.y, node.z);
+    secondPoint = new THREE.Vector3(nextNode.x, nextNode.y, nextNode.z);
+    console.log("second node/point", nextNode, secondPoint);
+    const cameraDiff = cameraLocation.clone().sub(secondPoint);
+    //const cameraOffset = new THREE.Vector3(cameraDiff.y * -1, cameraDiff.x, cameraDiff.z)
+    console.log("camera diff", cameraDiff);
+    cameraLocation = cameraLocation.add(cameraDiff);
+    console.log("using next");
+    const bleh = Graph.camera().clone();
+    bleh.position = cameraLocation;
+    bleh.lookAt(originalPoint);
+    bleh.translateX(35);
+    // cameraLocation = bleh.position;
+    // console.log("bl;eh", bleh);
+  }
+  else
+  {
+    //cameraLocation = node.clone();
+    const distance = 35;
+    const distRatio = 1 + distance / Math.hypot(node.x, node.y, node.z);
+    cameraLocation = cameraLocation.clone().multiplyScalar(5);
+  }
+
+  console.log("location and node", node, cameraLocation);
+
   Graph.cameraPosition(
-    {
-      x: node.x * distRatio,
-      y: node.y * distRatio,
-      z: node.z * distRatio
-    }, // new position
+    cameraLocation, // new position
     node, // lookAt ({ x, y, z })
     2000 // ms transition duration
   );
-};
+  // setTimeout(() => {
+  //   const tempCam = Graph.camera().clone().translateX(35);
+  //   Graph.cameraPosition(
+  //     tempCam.position,
+  //     node,
+  //     1000
+  //   )
+  //   console.log("temp cam", tempCam);
+  // }, 2200)
+}
 
 // Function adds hamburger animation and toggles character path options
 hamburgerBtn.addEventListener('click', () => {
@@ -301,15 +353,5 @@ const Graph = ForceGraph3D()(elem)
       nextBtn.classList.remove('pulse');
       nextBtn.removeAttribute('style');
     }
-    const distance = 35;
-    const distRatio = 1 + distance / Math.hypot(node.x, node.y, node.z);
-    Graph.cameraPosition(
-      {
-        x: node.x * distRatio,
-        y: node.y * distRatio,
-        z: node.z * distRatio
-      }, // new position
-      node, // lookAt ({ x, y, z })
-      2000 // ms transition duration
-    );
+    updateCamera(node);
   });
