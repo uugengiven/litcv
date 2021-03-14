@@ -142,19 +142,19 @@ const updateCamera = function (node, nextNode) {
     console.log("camera diff", cameraDiff);
     cameraLocation = cameraLocation.add(cameraDiff);
     console.log("using next");
-    const bleh = Graph.camera().clone();
-    bleh.position = cameraLocation;
-    bleh.lookAt(originalPoint);
-    bleh.translateX(35);
-    // cameraLocation = bleh.position;
-    // console.log("bl;eh", bleh);
+    // const bleh = Graph.camera().clone();
+    // bleh.position = cameraLocation;
+    // bleh.lookAt(originalPoint);
+    // bleh.translateX(35);
+    // cameraLocation = new THREE.Vector3(bleh.position.x, bleh.position.y, bleh.position.z);
+    // console.log("bleh", bleh);
   }
   else
   {
     //cameraLocation = node.clone();
     const distance = 35;
     const distRatio = 1 + distance / Math.hypot(node.x, node.y, node.z);
-    cameraLocation = cameraLocation.clone().multiplyScalar(5);
+    cameraLocation = cameraLocation.clone().multiplyScalar(distRatio);
   }
 
   console.log("location and node", node, cameraLocation);
@@ -164,15 +164,15 @@ const updateCamera = function (node, nextNode) {
     node, // lookAt ({ x, y, z })
     2000 // ms transition duration
   );
-  // setTimeout(() => {
-  //   const tempCam = Graph.camera().clone().translateX(35);
-  //   Graph.cameraPosition(
-  //     tempCam.position,
-  //     node,
-  //     1000
-  //   )
-  //   console.log("temp cam", tempCam);
-  // }, 2200)
+  setTimeout(() => {
+    const tempCam = Graph.camera().clone().translateX(35);
+    Graph.cameraPosition(
+      tempCam.position,
+      node,
+      3000
+    )
+    console.log("temp cam", tempCam);
+  }, 2200)
 }
 
 // Function adds hamburger animation and toggles character path options
