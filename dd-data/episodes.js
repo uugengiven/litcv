@@ -1,5 +1,6 @@
 // character to episode links
-const baseColor = '#ffffff75';
+// const baseColor = '#ffffff75';
+const baseColor = '#ffffff00';
 // luna
 const path1color = '#339ACC'; // cerulean blue
 // darcy
