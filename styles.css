@@ -810,7 +810,8 @@ div.contact-content form button:hover {
   position: relative;
   font-size: 0.725rem;
   font-weight: 600;
-  letter-spacing: 4px;
+  /* letter-spacing: 4px; */
+  letter-spacing: 2px;
   text-transform: uppercase;
 }
 
@@ -1000,7 +1001,7 @@ div.contact-content form button:hover {
     flex-wrap: wrap;
   }
   .block {
-    font-size: 0.575rem;
+    font-size: 0.6rem;
   }
   .block--left,
   .block--right {
