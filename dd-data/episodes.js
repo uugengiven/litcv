@@ -314,6 +314,15 @@ const data = {
       // primaryColor: path3color,
       associatedCharacters: ['Jamal'],
     },
+    {
+      id: 'OURFATHERWHOARTWHEREVER',
+      // TODO: temp image - UPDATE WHEN AVAILABLE
+      img: 'DarcyFatherD01.png',
+      type: 'Episode',
+      title: 'Our Father, Who Art Wherever...',
+      // primaryColor: path3color,
+      associatedCharacters: ['FatherD'],
+    },
   ],
   links: [
     // path 1 start
@@ -805,10 +814,19 @@ const data = {
       value: baseParticles,
       characterPath: 'FatherD',
     },
-    // yes, this looks hacky af but it's for the next/prev functionality so leave it
     {
       source: 'WHATWOULDGOD',
-      target: 'WHATWOULDGOD',
+      target: 'OURFATHERWHOARTWHEREVER',
+      linkColor: path6color,
+      linkCurvature: baseCurve,
+      width: baseWidth,
+      value: baseParticles,
+      characterPath: 'FatherD',
+    },
+    // yes, this looks hacky af but it's for the next/prev functionality so leave it
+    {
+      source: 'OURFATHERWHOARTWHEREVER',
+      target: 'OURFATHERWHOARTWHEREVER',
       linkColor: 'transparent',
       characterPath: 'FatherD',
     },
