@@ -844,6 +844,16 @@ const data = {
     },
     {
       source: 'UNDERTHENUMBERS',
+      target: 'EXPENSIVEEXPENSES',
+      linkColor: path7color,
+      linkCurvature: slightCurve,
+      curveRotation: curveRotationB,
+      width: baseWidth,
+      value: baseParticles,
+      characterPath: 'Carson',
+    },
+    {
+      source: 'EXPENSIVEEXPENSES',
       target: 'WHATEVERHAPPENS',
       linkColor: path7color,
       linkCurvature: slightCurve,
@@ -854,7 +864,7 @@ const data = {
     },
     {
       source: 'WHATEVERHAPPENS',
-      target: 'OHDADDY',
+      target: 'TRAVWRIGGLES',
       linkColor: path7color,
       linkCurvature: slightCurve,
       curveRotation: curveRotationB,
@@ -863,17 +873,8 @@ const data = {
       characterPath: 'Carson',
     },
     {
-      source: 'OHDADDY',
-      target: 'EXPENSIVEEXPENSES',
-      linkColor: path7color,
-      linkCurvature: baseCurve,
-      width: baseWidth,
-      value: baseParticles,
-      characterPath: 'Carson',
-    },
-    {
-      source: 'EXPENSIVEEXPENSES',
-      target: 'TRAVWRIGGLES',
+      source: 'TRAVWRIGGLES',
+      target: 'OHDADDY',
       linkColor: path7color,
       linkCurvature: slightCurve,
       curveRotation: curveRotationB,
@@ -883,8 +884,8 @@ const data = {
     },
     // yes, this looks hacky af but it's for the next/prev functionality so leave it
     {
-      source: 'TRAVWRIGGLES',
-      target: 'TRAVWRIGGLES',
+      source: 'OHDADDY',
+      target: 'OHDADDY',
       linkColor: 'transparent',
       characterPath: 'Carson',
     },
