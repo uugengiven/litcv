@@ -101,7 +101,6 @@ const data = {
       img: 'DarcyCarson01.png',
       type: 'Episode',
       title: 'Under the Numbers',
-      // primaryColor: path2color,
       associatedCharacters: ['Darcy', 'Carson'],
     },
     {
@@ -109,7 +108,6 @@ const data = {
       img: 'DarcyCarson02.png',
       type: 'Episode',
       title: "Whatever Happens, You're a Gunter",
-      // primaryColor: path2color,
       associatedCharacters: ['Darcy', 'Carson'],
     },
     {
@@ -117,7 +115,6 @@ const data = {
       img: 'DarcyCarson03.png',
       type: 'Episode',
       title: 'Oh, Daddy',
-      // primaryColor: path2color,
       associatedCharacters: ['Darcy', 'Carson'],
     },
     {
@@ -125,7 +122,6 @@ const data = {
       img: 'DarcyFatherD01.png',
       type: 'Episode',
       title: 'What Would God?',
-      // primaryColor: path2color,
       associatedCharacters: ['Darcy', 'FatherD'],
     },
     {
@@ -133,7 +129,6 @@ const data = {
       img: 'DarcyJamal01.png',
       type: 'Episode',
       title: "It's More Than That",
-      // primaryColor: path2color,
       associatedCharacters: ['Darcy', 'Jamal'],
     },
     {
@@ -141,7 +136,6 @@ const data = {
       img: 'DarcyJamal02.png',
       type: 'Episode',
       title: 'The Effect of Marital Stress',
-      // primaryColor: path2color,
       associatedCharacters: ['Darcy', 'Jamal'],
     },
     {
@@ -149,7 +143,6 @@ const data = {
       img: 'DarcyJamal03.png',
       type: 'Episode',
       title: 'Can You Refer Us?',
-      // primaryColor: path2color,
       associatedCharacters: ['Darcy', 'Jamal'],
     },
     {
@@ -157,7 +150,6 @@ const data = {
       img: 'KikiLeaf01.png',
       type: 'Episode',
       title: "Let's Break Them Up",
-      // primaryColor: path4color,
       associatedCharacters: ['Kiki', 'Leaf'],
     },
     {
@@ -165,7 +157,6 @@ const data = {
       img: 'KikiLeaf02.png',
       type: 'Episode',
       title: 'Floating Leaf',
-      // primaryColor: path4color,
       associatedCharacters: ['Kiki', 'Leaf'],
     },
     {
@@ -173,7 +164,6 @@ const data = {
       img: 'KikiLeaf03.png',
       type: 'Episode',
       title: 'Cat, Bag, and So On',
-      // primaryColor: path4color,
       associatedCharacters: ['Kiki', 'Leaf'],
     },
     {
@@ -181,7 +171,6 @@ const data = {
       img: 'LunaKiki01.png',
       type: 'Episode',
       title: 'I Love You, Keeks',
-      // primaryColor: path1color,
       associatedCharacters: ['Luna', 'Kiki'],
     },
     {
@@ -189,7 +178,6 @@ const data = {
       img: 'LunaKiki02.png',
       type: 'Episode',
       title: "Luna's Happy Happiness",
-      // primaryColor: path1color,
       associatedCharacters: ['Luna', 'Kiki'],
     },
     {
@@ -205,7 +193,6 @@ const data = {
       img: 'LunaKiki04.png',
       type: 'Episode',
       title: 'I Wish',
-      // primaryColor: path1color,
       associatedCharacters: ['Luna', 'Kiki'],
     },
     {
@@ -213,7 +200,6 @@ const data = {
       img: 'LunaKiki05.png',
       type: 'Episode',
       title: 'Feeling You Breathe',
-      // primaryColor: path1color,
       associatedCharacters: ['Luna', 'Kiki'],
     },
     {
@@ -221,7 +207,6 @@ const data = {
       img: 'TravCarson01.png',
       type: 'Episode',
       title: 'Expensive Expenses',
-      // primaryColor: path3color,
       associatedCharacters: ['Trav', 'Carson'],
     },
     {
@@ -229,7 +214,6 @@ const data = {
       img: 'TravCarson02.png',
       type: 'Episode',
       title: 'Trav Wriggles',
-      // primaryColor: path3color,
       associatedCharacters: ['Trav', 'Carson'],
     },
     {
@@ -237,7 +221,6 @@ const data = {
       img: 'TravFatherD01.png',
       type: 'Episode',
       title: 'Why Would God?',
-      // primaryColor: path3color,
       associatedCharacters: ['Trav', 'FatherD'],
     },
     {
@@ -245,7 +228,6 @@ const data = {
       img: 'TravLuna01.png',
       type: 'Episode',
       title: 'E-Jollies',
-      // primaryColor: path3color,
       associatedCharacters: ['Trav', 'Luna'],
     },
     {
@@ -253,7 +235,6 @@ const data = {
       img: 'TravLuna02.png',
       type: 'Episode',
       title: 'Luna Wants More',
-      // primaryColor: path3color,
       associatedCharacters: ['Trav', 'Luna'],
     },
     {
@@ -261,7 +242,6 @@ const data = {
       img: 'TravLuna03.png',
       type: 'Episode',
       title: '3AM, Free of Guile',
-      // primaryColor: path3color,
       associatedCharacters: ['Trav', 'Luna'],
     },
     {
@@ -269,7 +249,6 @@ const data = {
       img: 'TravLuna04.png',
       type: 'Episode',
       title: 'Luna Crosses the Rubicon',
-      // primaryColor: path3color,
       associatedCharacters: ['Trav', 'Luna'],
     },
     {
@@ -277,7 +256,6 @@ const data = {
       img: 'TravLuna05.png',
       type: 'Episode',
       title: 'The Cost of Cost',
-      // primaryColor: path3color,
       associatedCharacters: ['Trav', 'Luna'],
     },
     {
@@ -285,7 +263,6 @@ const data = {
       img: 'TravLuna06.png',
       type: 'Episode',
       title: 'It Comes Down to This',
-      // primaryColor: path3color,
       associatedCharacters: ['Trav', 'Luna'],
     },
     {
@@ -293,7 +270,6 @@ const data = {
       img: 'TravLuna07.png',
       type: 'Episode',
       title: 'Drive West on Sunset',
-      // primaryColor: path3color,
       associatedCharacters: ['Trav', 'Luna'],
     },
     {
@@ -302,7 +278,6 @@ const data = {
       img: 'bill.jpeg',
       type: 'Episode',
       title: 'White Count',
-      // primaryColor: path3color,
       associatedCharacters: ['Jamal', 'Darcy', 'Trav'],
     },
     {
@@ -311,7 +286,6 @@ const data = {
       img: 'bill.jpeg',
       type: 'Episode',
       title: 'A Message for Tangie',
-      // primaryColor: path3color,
       associatedCharacters: ['Jamal'],
     },
     {
@@ -320,7 +294,6 @@ const data = {
       img: 'bill.jpeg',
       type: 'Episode',
       title: 'Our Father, Who Art Wherever...',
-      // primaryColor: path3color,
       associatedCharacters: ['FatherD'],
     },
   ],
