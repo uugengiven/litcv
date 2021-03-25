@@ -915,18 +915,11 @@ const data = {
       characterPath: 'Leaf',
     },
     // path 8 end
-    // transparent link to reshape
+    // TODO: add transparent links to reshape
     // {
-    //   source: 'Jamal',
-    //   target: 'Leaf',
+    //   source: 'Trav',
+    //   target: 'Carson',
     //   linkColor: transparentLink,
     // },
-    // {
-    //   source: 'Darcy',
-    //   target: 'UNDERTHENUMBERS',
-    //   linkColor: baseColor,
-    //   linkCurvature: baseCurve,
-    //   width: charWidth,
-    // }
   ],
 };
