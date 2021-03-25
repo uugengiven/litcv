@@ -299,7 +299,7 @@ const data = {
     {
       id: 'WHITECOUNT',
       // TODO: temp image - UPDATE WHEN AVAILABLE
-      img: 'DarcyJamal03.png',
+      img: 'bill.jpeg',
       type: 'Episode',
       title: 'White Count',
       // primaryColor: path3color,
@@ -308,7 +308,7 @@ const data = {
     {
       id: 'AMESSAGEFORTANGIE',
       // TODO: temp image - UPDATE WHEN AVAILABLE
-      img: 'DarcyJamal03.png',
+      img: 'bill.jpeg',
       type: 'Episode',
       title: 'A Message for Tangie',
       // primaryColor: path3color,
@@ -317,7 +317,7 @@ const data = {
     {
       id: 'OURFATHERWHOARTWHEREVER',
       // TODO: temp image - UPDATE WHEN AVAILABLE
-      img: 'DarcyFatherD01.png',
+      img: 'bill.jpeg',
       type: 'Episode',
       title: 'Our Father, Who Art Wherever...',
       // primaryColor: path3color,
