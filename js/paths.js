@@ -8,10 +8,14 @@ const nextBtn = document.querySelector('.control-icon--next');
 const playBtn = document.querySelector('.control-icon--play');
 // Selector for hamburger button in snackbar
 const hamburgerBtn = document.querySelector('.hamburger-btn');
-// state of hamburger menu
-let isHamburgerMenuOpen = false;
 // Selector for selector options in snackbar
 const selectOptions = document.querySelector('.select-options');
+// Selector for body to add box-shadow based on character chosen
+const gradientBody = document.querySelector('.particles.gradient-body');
+// Selector for restart text in snackbar
+const restartText = document.querySelector('.restart-text');
+// state of hamburger menu
+let isHamburgerMenuOpen = false;
 // all nodes data
 let allNodes = data.nodes;
 // all links data
@@ -40,7 +44,9 @@ nextBtn.onclick = function () {
   currentEpisode = storyPath[storyPathIndex].source;
   // removes active class on nextBtn if at last item in storyPath array
   storyPathIndex === storyPath.length - 1
-    ? nextBtn.classList.remove('active')
+    ? nextBtn.classList.remove('active') &
+      nextBtn.classList.add('hidden') &
+      restartText.classList.remove('hidden')
     : null;
   // changes opacity for right text block in snackbar
   blockRight.classList.add('active');
@@ -108,6 +114,8 @@ prevBtn.onclick = function () {
       hamburgerBtn.classList.add('hidden')
     : (blockRight.textContent = storyPath[storyPathIndex].source.title);
   nextBtn.classList.add('active');
+  nextBtn.classList.remove('hidden');
+  restartText.classList.add('hidden');
 
   // gets next target x,y,z and repositions camera
   let node = storyPath[storyPathIndex].source;
@@ -129,35 +137,32 @@ const updateCamera = function (node, nextNode) {
   var cameraLocation = new THREE.Vector3(node.x, node.y, node.z);
   const originalPoint = cameraLocation.clone();
   testThing = node;
-  console.log("before transform", node);
+  console.log('before transform', node);
   console.log(cameraLocation);
-  if(nextNode)
-  {
+  if (nextNode) {
     const distance = 35;
     const distRatio = 1 + distance / Math.hypot(node.x, node.y, node.z);
     secondPoint = new THREE.Vector3(nextNode.x, nextNode.y, nextNode.z);
-    console.log("second node/point", nextNode, secondPoint);
+    console.log('second node/point', nextNode, secondPoint);
     const cameraDiff = cameraLocation.clone().sub(secondPoint);
     //const cameraOffset = new THREE.Vector3(cameraDiff.y * -1, cameraDiff.x, cameraDiff.z)
-    console.log("camera diff", cameraDiff);
+    console.log('camera diff', cameraDiff);
     cameraLocation = cameraLocation.add(cameraDiff);
-    console.log("using next");
+    console.log('using next');
     // const bleh = Graph.camera().clone();
     // bleh.position = cameraLocation;
     // bleh.lookAt(originalPoint);
     // bleh.translateX(35);
     // cameraLocation = new THREE.Vector3(bleh.position.x, bleh.position.y, bleh.position.z);
     // console.log("bleh", bleh);
-  }
-  else
-  {
+  } else {
     //cameraLocation = node.clone();
     const distance = 35;
     const distRatio = 1 + distance / Math.hypot(node.x, node.y, node.z);
     cameraLocation = cameraLocation.clone().multiplyScalar(distRatio);
   }
 
-  console.log("location and node", node, cameraLocation);
+  console.log('location and node', node, cameraLocation);
 
   Graph.cameraPosition(
     cameraLocation, // new position
@@ -166,14 +171,10 @@ const updateCamera = function (node, nextNode) {
   );
   setTimeout(() => {
     const tempCam = Graph.camera().clone().translateX(35);
-    Graph.cameraPosition(
-      tempCam.position,
-      node,
-      3000
-    )
-    console.log("temp cam", tempCam);
-  }, 2200)
-}
+    Graph.cameraPosition(tempCam.position, node, 3000);
+    console.log('temp cam', tempCam);
+  }, 2200);
+};
 
 // Function adds hamburger animation and toggles character path options
 hamburgerBtn.addEventListener('click', () => {
@@ -223,9 +224,10 @@ function chooseAvatar() {
   storyPathIndex !== 0 ? prevBtn.classList.add('active') : null;
   storyPathIndex !== storyPath.length - 1
     ? nextBtn.classList.add('active')
-    : null;
+    : nextBtn.classList.add('hidden') & restartText.classList.remove('hidden');
   // sets left diagonal block to character color
   blockLeft.style.backgroundColor = storyPath[0].linkColor;
+  gradientBody.style.boxShadow = `inset 0 0 0 3px ${storyPath[0].linkColor}`;
 }
 
 // dynamically creates avatars in snackbar
@@ -276,7 +278,7 @@ const Graph = ForceGraph3D()(elem)
       `./images/episodes/${img}`
     );
     const material = new THREE.SpriteMaterial({
-      map: imgTexture
+      map: imgTexture,
     });
     const sprite = new THREE.Sprite(material);
     if (type == 'Character') {
@@ -311,6 +313,8 @@ const Graph = ForceGraph3D()(elem)
       // resets classes on snackbar control icons
       prevBtn.classList.remove('active');
       playBtn.classList.remove('active');
+      nextBtn.classList.remove('hidden');
+      restartText.classList.add('hidden');
       // adds active class to next button
       nextBtn.classList.add('active');
       // adds pulse animation to nextBtn
@@ -325,6 +329,8 @@ const Graph = ForceGraph3D()(elem)
       // Sets colors/text content for diagonal boxes in snackbar
       blockLeft.style.backgroundColor = node.primaryColor;
       blockLeft.textContent = node.title;
+      // Sets box shadow color based on character chosem
+      gradientBody.style.boxShadow = `inset 0 0 0 3px ${node.primaryColor}`;
     }
     if (node.type === 'Episode') {
       // clears all vars to originals values
@@ -333,6 +339,9 @@ const Graph = ForceGraph3D()(elem)
       currentEpisode = node;
       // sets data atttribute of id on episode so it is accessible when finding index from avatar clicks
       blockRight.setAttribute('data-episodeID', node.id);
+      // resets restart text classes and nextBtn classes
+      restartText.classList.add('hidden');
+      nextBtn.classList.remove('hidden');
       // toggle hamburger icon class
       hamburgerBtn.classList.remove('open');
       // show hamburger button
@@ -352,6 +361,8 @@ const Graph = ForceGraph3D()(elem)
       playBtn.classList.add('active');
       nextBtn.classList.remove('pulse');
       nextBtn.removeAttribute('style');
+      // remove box-shadow on body
+      gradientBody.style.boxShadow = 'none';
     }
     updateCamera(node);
   });
