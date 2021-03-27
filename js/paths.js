@@ -12,6 +12,8 @@ const hamburgerBtn = document.querySelector('.hamburger-btn');
 const selectOptions = document.querySelector('.select-options');
 // Selector for body to add box-shadow based on character chosen
 const gradientBody = document.querySelector('.particles.gradient-body');
+// Selector for restart text in snackbar
+const restartText = document.querySelector('.restart-text');
 // state of hamburger menu
 let isHamburgerMenuOpen = false;
 // all nodes data
@@ -42,7 +44,9 @@ nextBtn.onclick = function () {
   currentEpisode = storyPath[storyPathIndex].source;
   // removes active class on nextBtn if at last item in storyPath array
   storyPathIndex === storyPath.length - 1
-    ? nextBtn.classList.remove('active')
+    ? nextBtn.classList.remove('active') &
+      nextBtn.classList.add('hidden') &
+      restartText.classList.remove('hidden')
     : null;
   // changes opacity for right text block in snackbar
   blockRight.classList.add('active');
@@ -109,6 +113,8 @@ prevBtn.onclick = function () {
       hamburgerBtn.classList.add('hidden')
     : (blockRight.textContent = storyPath[storyPathIndex].source.title);
   nextBtn.classList.add('active');
+  nextBtn.classList.remove('hidden');
+  restartText.classList.add('hidden');
 
   // gets next target x,y,z and repositions camera
   let node = storyPath[storyPathIndex].source;

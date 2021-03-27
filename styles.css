@@ -865,6 +865,13 @@ div.contact-content form button:hover {
   z-index: 2;
 }
 
+.snackbar-controls .control-item {
+  width: calc(100% / 3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .snackbar-controls .control-icon {
   height: 46px;
   cursor: not-allowed;
@@ -891,6 +898,20 @@ div.contact-content form button:hover {
 .snackbar-controls .control-icon.control-icon--play.material-icons-round {
   font-size: 42px;
   vertical-align: bottom;
+}
+
+.snackbar-controls .restart-text.pulse {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  cursor: pointer;
+}
+.snackbar-controls .restart-text.hidden {
+  display: none;
+}
+
+.snackbar-controls .control-icon--next.material-icons-round.hidden {
+  display: none;
 }
 
 /* animation for prev button right */
