@@ -179,7 +179,7 @@ function chooseAvatar() {
   storyPathIndex !== 0 ? prevBtn.classList.add('active') : null;
   storyPathIndex !== storyPath.length - 1
     ? nextBtn.classList.add('active')
-    : null;
+    : nextBtn.classList.add('hidden') & restartText.classList.remove('hidden');
   // sets left diagonal block to character color
   blockLeft.style.backgroundColor = storyPath[0].linkColor;
   gradientBody.style.boxShadow = `inset 0 0 0 3px ${storyPath[0].linkColor}`;
@@ -268,6 +268,8 @@ const Graph = ForceGraph3D()(elem)
       // resets classes on snackbar control icons
       prevBtn.classList.remove('active');
       playBtn.classList.remove('active');
+      nextBtn.classList.remove('hidden');
+      restartText.classList.add('hidden');
       // adds active class to next button
       nextBtn.classList.add('active');
       // adds pulse animation to nextBtn
@@ -292,6 +294,9 @@ const Graph = ForceGraph3D()(elem)
       currentEpisode = node;
       // sets data atttribute of id on episode so it is accessible when finding index from avatar clicks
       blockRight.setAttribute('data-episodeID', node.id);
+      // resets restart text classes and nextBtn classes
+      restartText.classList.add('hidden');
+      nextBtn.classList.remove('hidden');
       // toggle hamburger icon class
       hamburgerBtn.classList.remove('open');
       // show hamburger button
