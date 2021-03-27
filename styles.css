@@ -901,9 +901,9 @@ div.contact-content form button:hover {
 }
 
 .snackbar-controls .restart-text.pulse {
-  font-size: 0.7rem;
+  font-size: 0.725rem;
   text-transform: uppercase;
-  letter-spacing: 3px;
+  letter-spacing: 2px;
   cursor: pointer;
 }
 .snackbar-controls .restart-text.hidden {
