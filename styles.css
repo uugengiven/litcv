@@ -94,6 +94,12 @@ body {
   color: var(--text-dark);
 }
 
+/* allows for addition of box-shadow dynamically on click  */
+.gradient-body.particles {
+  box-shadow: none;
+  transition: box-shadow 0.25s ease;
+}
+
 .dark-body {
   background-color: var(--dark-background);
   color: var(--text-light);

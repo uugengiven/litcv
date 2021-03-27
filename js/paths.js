@@ -8,10 +8,12 @@ const nextBtn = document.querySelector('.control-icon--next');
 const playBtn = document.querySelector('.control-icon--play');
 // Selector for hamburger button in snackbar
 const hamburgerBtn = document.querySelector('.hamburger-btn');
-// state of hamburger menu
-let isHamburgerMenuOpen = false;
 // Selector for selector options in snackbar
 const selectOptions = document.querySelector('.select-options');
+// Selector for body to add box-shadow based on character chosen
+const gradientBody = document.querySelector('.particles.gradient-body');
+// state of hamburger menu
+let isHamburgerMenuOpen = false;
 // all nodes data
 let allNodes = data.nodes;
 // all links data
@@ -74,7 +76,7 @@ nextBtn.onclick = function () {
     {
       x: node.x * distRatio,
       y: node.y * distRatio,
-      z: node.z * distRatio
+      z: node.z * distRatio,
     }, // new position
     node, // lookAt ({ x, y, z })
     2000 // ms transition duration
@@ -116,7 +118,7 @@ prevBtn.onclick = function () {
     {
       x: node.x * distRatio,
       y: node.y * distRatio,
-      z: node.z * distRatio
+      z: node.z * distRatio,
     }, // new position
     node, // lookAt ({ x, y, z })
     2000 // ms transition duration
@@ -174,6 +176,7 @@ function chooseAvatar() {
     : null;
   // sets left diagonal block to character color
   blockLeft.style.backgroundColor = storyPath[0].linkColor;
+  gradientBody.style.boxShadow = `inset 0 0 0 3px ${storyPath[0].linkColor}`;
 }
 
 // dynamically creates avatars in snackbar
@@ -224,7 +227,7 @@ const Graph = ForceGraph3D()(elem)
       `./images/episodes/${img}`
     );
     const material = new THREE.SpriteMaterial({
-      map: imgTexture
+      map: imgTexture,
     });
     const sprite = new THREE.Sprite(material);
     if (type == 'Character') {
@@ -273,6 +276,8 @@ const Graph = ForceGraph3D()(elem)
       // Sets colors/text content for diagonal boxes in snackbar
       blockLeft.style.backgroundColor = node.primaryColor;
       blockLeft.textContent = node.title;
+      // Sets box shadow color based on character chosem
+      gradientBody.style.boxShadow = `inset 0 0 0 3px ${node.primaryColor}`;
     }
     if (node.type === 'Episode') {
       // clears all vars to originals values
@@ -300,6 +305,8 @@ const Graph = ForceGraph3D()(elem)
       playBtn.classList.add('active');
       nextBtn.classList.remove('pulse');
       nextBtn.removeAttribute('style');
+      // remove box-shadow on body
+      gradientBody.style.boxShadow = 'none';
     }
     const distance = 35;
     const distRatio = 1 + distance / Math.hypot(node.x, node.y, node.z);
@@ -307,7 +314,7 @@ const Graph = ForceGraph3D()(elem)
       {
         x: node.x * distRatio,
         y: node.y * distRatio,
-        z: node.z * distRatio
+        z: node.z * distRatio,
       }, // new position
       node, // lookAt ({ x, y, z })
       2000 // ms transition duration
