@@ -1,5 +1,5 @@
 /* DM Sans font - Will probs use this as the main body font */
-@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap');
 
 :root {
   --white: #fff;
@@ -442,7 +442,7 @@ a.explore span {
 }
 a.explore::before,
 a.explore::after {
-  content: "";
+  content: '';
   width: 0;
   height: 2px;
   position: absolute;
@@ -452,7 +452,7 @@ a.explore::after {
 
 a.explore span::before,
 a.explore span::after {
-  content: "";
+  content: '';
   width: 2px;
   height: 0;
   position: absolute;
@@ -830,13 +830,40 @@ section.chars-overlay .grid {
 }
 
 section.chars-overlay .grid img {
+  border-radius: 50%;
   transition: all 0.3s ease;
   transform: scale(0.95);
+  border: 4px solid;
 }
 
 section.chars-overlay .grid img:hover {
   transform: scale(1);
   cursor: pointer;
+}
+
+section.chars-overlay .grid img.luna {
+  border-color: #339acc;
+}
+section.chars-overlay .grid img.trav {
+  border-color: #ff9933;
+}
+section.chars-overlay .grid img.kiki {
+  border-color: #ffff66;
+}
+section.chars-overlay .grid img.darcy {
+  border-color: #ff6037;
+}
+section.chars-overlay .grid img.carson {
+  border-color: #ff00cc;
+}
+section.chars-overlay .grid img.father {
+  border-color: #aaf0d1;
+}
+section.chars-overlay .grid img.jamal {
+  border-color: #66ff66;
+}
+section.chars-overlay .grid img.leaf {
+  border-color: #ff355e;
 }
 
 .grid .close-modal {
@@ -1066,7 +1093,7 @@ section.chars-overlay .grid img:hover {
 }
 .hamburger::before,
 .hamburger::after {
-  content: "";
+  content: '';
   position: absolute;
   width: 24px;
   height: 2px;
