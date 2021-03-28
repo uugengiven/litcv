@@ -45,19 +45,50 @@ closeBtn.addEventListener('click', function () {
 });
 // opens paths page modal from restart text
 restartOpenModal.addEventListener('click', function () {
-  resetVariables();
-  snackbarContainer.classList.remove('snackbar_show');
-  snackbarContainer.classList.add('snackbar_hidden');
   modal.classList.remove('d-none');
 });
 // Function listens for paths modal avatar clicks and selects character on graph
 modalAvatars.forEach(item => {
   item.addEventListener('click', e => {
     modal.classList.add('d-none');
+    // clears all vars to original values
+    resetVariables();
+    // checks to see if snackbar is open and toggles it
+    snackbar.classList.contains('snackbar_hidden')
+      ? snackbar.classList.remove('snackbar_hidden') &
+        snackbar.classList.add('snackbar_show')
+      : null;
     // gets id from selected avatar on click
     let selectedModalAvatarID = e.target.getAttribute('data-id');
     console.log(selectedModalAvatarID);
     let node = allNodes.find(item => item.id === selectedModalAvatarID);
+    // builds storyPath array based on node id and characterPath property in json
+    storyPath = allLinks.filter(item => item.characterPath === node.id);
+    // hide hamburger btn
+    hamburgerBtn.classList.add('hidden');
+    // toggle hamburger icon class
+    hamburgerBtn.classList.remove('open');
+    // hide snackbar select options
+    selectOptions.classList.add('hidden');
+    // resets classes on snackbar control icons
+    prevBtn.classList.remove('active');
+    playBtn.classList.remove('active');
+    nextBtn.classList.remove('hidden');
+    restartText.classList.add('hidden');
+    // adds active class to next button
+    nextBtn.classList.add('active');
+    // adds pulse animation to nextBtn
+    nextBtn.classList.add('pulse');
+    // adds character color to nextBtn
+    nextBtn.style.color = node.primaryColor;
+    // resets for storyPathIndex and text content
+    blockRight.classList.remove('active');
+    blockRight.textContent = 'click arrow';
+    // Sets colors/text content for diagonal boxes in snackbar
+    blockLeft.style.backgroundColor = node.primaryColor;
+    blockLeft.textContent = node.title;
+    // Sets box shadow color based on character chosem
+    gradientBody.style.boxShadow = `inset 0 0 0 3px ${node.primaryColor}`;
     console.log(node);
     const distance = 35;
     const distRatio = 1 + distance / Math.hypot(node.x, node.y, node.z);
@@ -316,8 +347,6 @@ const Graph = ForceGraph3D()(elem)
       nextBtn.classList.add('pulse');
       // adds character color to nextBtn
       nextBtn.style.color = node.primaryColor;
-      // hides hamburger
-      hamburgerBtn.classList.add('hidden');
       // resets for storyPathIndex and text content
       blockRight.classList.remove('active');
       blockRight.textContent = 'click arrow';
