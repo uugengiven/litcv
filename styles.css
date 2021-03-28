@@ -94,6 +94,12 @@ body {
   color: var(--text-dark);
 }
 
+/* allows for addition of box-shadow dynamically on click  */
+.gradient-body.particles {
+  box-shadow: none;
+  transition: box-shadow 0.25s ease;
+}
+
 .dark-body {
   background-color: var(--dark-background);
   color: var(--text-light);
@@ -872,7 +878,7 @@ section.chars-overlay .grid img:hover {
   max-width: 800px;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
   /* height: 124px; */
-  width: 90vw;
+  width: 98vw;
   margin: 0 auto;
   border-radius: 4px 4px 0 0;
   /* align with animation speed of sidenav or 3D */
@@ -914,9 +920,10 @@ section.chars-overlay .grid img:hover {
 .block {
   min-height: 40px;
   position: relative;
-  font-size: 1rem;
-  font-weight: 500;
-  letter-spacing: 4px;
+  font-size: 0.725rem;
+  font-weight: 600;
+  /* letter-spacing: 4px; */
+  letter-spacing: 2px;
   text-transform: uppercase;
 }
 
@@ -948,6 +955,8 @@ section.chars-overlay .grid img:hover {
   color: var(--black);
   background-color: var(--gray);
   margin-left: -2.5rem;
+  padding-left: 30px;
+  text-align: center;
   clip-path: polygon(3rem 0, 100% 0, 100% 100%, 0% 100%);
   border-top-right-radius: 4px;
   border-bottom-right-radius: 4px;
@@ -960,6 +969,13 @@ section.chars-overlay .grid img:hover {
   max-width: 350px;
   margin: 0.5rem auto;
   z-index: 2;
+}
+
+.snackbar-controls .control-item {
+  width: calc(100% / 3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .snackbar-controls .control-icon {
@@ -988,6 +1004,21 @@ section.chars-overlay .grid img:hover {
 .snackbar-controls .control-icon.control-icon--play.material-icons-round {
   font-size: 42px;
   vertical-align: bottom;
+}
+
+.snackbar-controls .restart-text.pulse {
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  cursor: pointer;
+  font-weight: 600;
+}
+.snackbar-controls .restart-text.hidden {
+  display: none;
+}
+
+.snackbar-controls .control-icon--next.material-icons-round.hidden {
+  display: none;
 }
 
 /* animation for prev button right */
@@ -1103,6 +1134,9 @@ section.chars-overlay .grid img:hover {
   .diagonal-blocks {
     flex-wrap: wrap;
   }
+  .block {
+    font-size: 0.6rem;
+  }
   .block--left,
   .block--right {
     clip-path: none;
@@ -1118,6 +1152,7 @@ section.chars-overlay .grid img:hover {
   .block--right {
     margin-left: 0;
     order: 1;
+    padding-left: 0;
     border-top-left-radius: 4px;
     border-top-right-radius: 4px;
     border-bottom-right-radius: 0;

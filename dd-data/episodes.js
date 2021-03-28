@@ -30,13 +30,14 @@ const baseParticles = 3;
 
 const data = {
   nodes: [
+    // CHARACTER NODES
     {
       id: 'Luna',
       img: 'Luna_avatar.png',
       type: 'Character',
       title: 'Luna',
       size: 22,
-      primaryColor: path1color
+      primaryColor: path1color,
     },
     {
       id: 'Darcy',
@@ -44,7 +45,7 @@ const data = {
       type: 'Character',
       title: 'Darcy',
       size: 18,
-      primaryColor: path2color
+      primaryColor: path2color,
     },
     {
       id: 'Trav',
@@ -52,7 +53,7 @@ const data = {
       type: 'Character',
       title: 'Trav',
       size: 22,
-      primaryColor: path3color
+      primaryColor: path3color,
     },
     {
       id: 'Kiki',
@@ -60,7 +61,7 @@ const data = {
       type: 'Character',
       title: 'Kiki',
       size: 18,
-      primaryColor: path4color
+      primaryColor: path4color,
     },
     {
       id: 'Jamal',
@@ -68,15 +69,15 @@ const data = {
       type: 'Character',
       title: 'Jamal',
       size: 14,
-      primaryColor: path5color
+      primaryColor: path5color,
     },
     {
       id: 'FatherD',
       img: 'FatherD_avatar.png',
       type: 'Character',
-      title: 'FatherD',
+      title: 'Father D',
       size: 14,
-      primaryColor: path6color
+      primaryColor: path6color,
     },
     {
       id: 'Carson',
@@ -84,7 +85,7 @@ const data = {
       type: 'Character',
       title: 'Carson',
       size: 14,
-      primaryColor: path7color
+      primaryColor: path7color,
     },
     {
       id: 'Leaf',
@@ -92,1301 +93,1109 @@ const data = {
       type: 'Character',
       title: 'Leaf',
       size: 14,
-      primaryColor: path8color
+      primaryColor: path8color,
     },
+    // EPISODE NODES
     {
-      id: 'DarcyCarson01',
+      id: 'UNDERTHENUMBERS',
       img: 'DarcyCarson01.png',
       type: 'Episode',
-      title: 'Darcy Carson 01',
-      primaryColor: path2color,
-      associatedCharacters: ['Darcy', 'Carson']
+      title: 'Under the Numbers',
+      associatedCharacters: ['Darcy', 'Carson'],
     },
     {
-      id: 'DarcyCarson02',
+      id: 'WHATEVERHAPPENS',
       img: 'DarcyCarson02.png',
       type: 'Episode',
-      title: 'Darcy Carson 02',
-      primaryColor: path2color,
-      associatedCharacters: ['Darcy', 'Carson']
+      title: "Whatever Happens, You're a Gunter",
+      associatedCharacters: ['Darcy', 'Carson'],
     },
     {
-      id: 'DarcyCarson03',
+      id: 'OHDADDY',
       img: 'DarcyCarson03.png',
       type: 'Episode',
-      title: 'Darcy Carson 03',
-      primaryColor: path2color,
-      associatedCharacters: ['Darcy', 'Carson']
+      title: 'Oh, Daddy',
+      associatedCharacters: ['Darcy', 'Carson'],
     },
     {
-      id: 'DarcyFatherD01',
+      id: 'WHATWOULDGOD',
       img: 'DarcyFatherD01.png',
       type: 'Episode',
-      title: 'Darcy FatherD 01',
-      primaryColor: path2color,
-      associatedCharacters: ['Darcy', 'FatherD']
+      title: 'What Would God?',
+      associatedCharacters: ['Darcy', 'FatherD'],
     },
     {
-      id: 'DarcyJamal01',
+      id: 'ITSMORETHANTHAT',
       img: 'DarcyJamal01.png',
       type: 'Episode',
-      title: 'Darcy Jamal 01',
-      primaryColor: path2color,
-      associatedCharacters: ['Darcy', 'Jamal']
+      title: "It's More Than That",
+      associatedCharacters: ['Darcy', 'Jamal'],
     },
     {
-      id: 'DarcyJamal02',
+      id: 'THEEFFECTOFMARITALSTRESS',
       img: 'DarcyJamal02.png',
       type: 'Episode',
-      title: 'Darcy Jamal 02',
-      primaryColor: path2color,
-      associatedCharacters: ['Darcy', 'Jamal']
+      title: 'The Effect of Marital Stress',
+      associatedCharacters: ['Darcy', 'Jamal'],
     },
     {
-      id: 'DarcyJamal03',
+      id: 'CANYOUREFERUS',
       img: 'DarcyJamal03.png',
       type: 'Episode',
-      title: 'Darcy Jamal 03',
-      primaryColor: path2color,
-      associatedCharacters: ['Darcy', 'Jamal']
+      title: 'Can You Refer Us?',
+      associatedCharacters: ['Darcy', 'Jamal'],
     },
     {
-      id: 'KikiLeaf01',
+      id: 'LETSBREAKTHEMUP',
       img: 'KikiLeaf01.png',
       type: 'Episode',
-      title: 'Kiki Leaf 01',
-      primaryColor: path4color,
-      associatedCharacters: ['Kiki', 'Leaf']
+      title: "Let's Break Them Up",
+      associatedCharacters: ['Kiki', 'Leaf'],
     },
     {
-      id: 'KikiLeaf02',
+      id: 'FLOATINGLEAF',
       img: 'KikiLeaf02.png',
       type: 'Episode',
-      title: 'Kiki Leaf 02',
-      primaryColor: path4color,
-      associatedCharacters: ['Kiki', 'Leaf']
+      title: 'Floating Leaf',
+      associatedCharacters: ['Kiki', 'Leaf'],
     },
     {
-      id: 'KikiLeaf03',
+      id: 'CATBAGANDSOON',
       img: 'KikiLeaf03.png',
       type: 'Episode',
-      title: 'Kiki Leaf 03',
-      primaryColor: path4color,
-      associatedCharacters: ['Kiki', 'Leaf']
+      title: 'Cat, Bag, and So On',
+      associatedCharacters: ['Kiki', 'Leaf'],
     },
     {
-      id: 'LunaKiki01',
+      id: 'ILOVEYOUKEEKS',
       img: 'LunaKiki01.png',
       type: 'Episode',
-      title: 'Luna Kiki 01',
-      primaryColor: path1color,
-      associatedCharacters: ['Luna', 'Kiki']
+      title: 'I Love You, Keeks',
+      associatedCharacters: ['Luna', 'Kiki'],
     },
     {
-      id: 'LunaKiki02',
+      id: 'LUNASHAPPYHAPPINESS',
       img: 'LunaKiki02.png',
       type: 'Episode',
-      title: 'Luna Kiki 02',
-      primaryColor: path1color,
-      associatedCharacters: ['Luna', 'Kiki']
+      title: "Luna's Happy Happiness",
+      associatedCharacters: ['Luna', 'Kiki'],
     },
     {
-      id: 'LunaKiki03',
+      id: 'CLOSER',
       img: 'LunaKiki03.png',
       type: 'Episode',
-      title: 'Luna Kiki 03',
+      title: 'Closer',
       primaryColor: path1color,
-      associatedCharacters: ['Luna', 'Kiki']
+      associatedCharacters: ['Luna', 'Kiki'],
     },
     {
-      id: 'LunaKiki04',
+      id: 'IWISH',
       img: 'LunaKiki04.png',
       type: 'Episode',
-      title: 'Luna Kiki 04',
-      primaryColor: path1color,
-      associatedCharacters: ['Luna', 'Kiki']
+      title: 'I Wish',
+      associatedCharacters: ['Luna', 'Kiki'],
     },
     {
-      id: 'LunaKiki05',
+      id: 'FEELINGYOUBREATHE',
       img: 'LunaKiki05.png',
       type: 'Episode',
-      title: 'Luna Kiki 05',
-      primaryColor: path1color,
-      associatedCharacters: ['Luna', 'Kiki']
+      title: 'Feeling You Breathe',
+      associatedCharacters: ['Luna', 'Kiki'],
     },
     {
-      id: 'LunaKiki06',
-      img: 'LunaKiki06.png',
-      type: 'Episode',
-      title: 'Luna Kiki 06',
-      primaryColor: path1color,
-      associatedCharacters: ['Luna', 'Kiki']
-    },
-    {
-      id: 'LunaLeaf01',
-      img: 'LunaLeaf01.png',
-      type: 'Episode',
-      title: 'Luna Leaf 01',
-      primaryColor: path1color,
-      associatedCharacters: ['Luna', 'Leaf']
-    },
-    {
-      id: 'LunaLeaf02',
-      img: 'LunaLeaf02.png',
-      type: 'Episode',
-      title: 'Luna Leaf 02',
-      primaryColor: path1color,
-      associatedCharacters: ['Luna', 'Leaf']
-    },
-    {
-      id: 'TravCarson01',
+      id: 'EXPENSIVEEXPENSES',
       img: 'TravCarson01.png',
       type: 'Episode',
-      title: 'Trav Carson 01',
-      primaryColor: path3color,
-      associatedCharacters: ['Trav', 'Carson']
+      title: 'Expensive Expenses',
+      associatedCharacters: ['Trav', 'Carson'],
     },
     {
-      id: 'TravCarson02',
+      id: 'TRAVWRIGGLES',
       img: 'TravCarson02.png',
       type: 'Episode',
-      title: 'Trav Carson 02',
-      primaryColor: path3color,
-      associatedCharacters: ['Trav', 'Carson']
+      title: 'Trav Wriggles',
+      associatedCharacters: ['Trav', 'Carson'],
     },
     {
-      id: 'TravFatherD01',
+      id: 'WHYWOULDGOD',
       img: 'TravFatherD01.png',
       type: 'Episode',
-      title: 'Trav FatherD 01',
-      primaryColor: path3color,
-      associatedCharacters: ['Trav', 'FatherD']
+      title: 'Why Would God?',
+      associatedCharacters: ['Trav', 'FatherD'],
     },
     {
-      id: 'TravFatherD02',
-      img: 'TravFatherD02.png',
-      type: 'Episode',
-      title: 'Trav FatherD 02',
-      primaryColor: path3color,
-      associatedCharacters: ['Trav', 'FatherD']
-    },
-    {
-      id: 'TravLuna01',
+      id: 'EJOLLIES',
       img: 'TravLuna01.png',
       type: 'Episode',
-      title: 'Trav Luna 01',
-      primaryColor: path3color,
-      associatedCharacters: ['Trav', 'Luna']
+      title: 'E-Jollies',
+      associatedCharacters: ['Trav', 'Luna'],
     },
     {
-      id: 'TravLuna02',
+      id: 'LUNAWANTSMORE',
       img: 'TravLuna02.png',
       type: 'Episode',
-      title: 'Trav Luna 02',
-      primaryColor: path3color,
-      associatedCharacters: ['Trav', 'Luna']
+      title: 'Luna Wants More',
+      associatedCharacters: ['Trav', 'Luna'],
     },
     {
-      id: 'TravLuna03',
+      id: '3AMFULLOFGUILE',
       img: 'TravLuna03.png',
       type: 'Episode',
-      title: 'Trav Luna 03',
-      primaryColor: path3color,
-      associatedCharacters: ['Trav', 'Luna']
+      title: '3AM, Free of Guile',
+      associatedCharacters: ['Trav', 'Luna'],
     },
     {
-      id: 'TravLuna04',
+      id: 'LUNACROSSESTHERUBICON',
       img: 'TravLuna04.png',
       type: 'Episode',
-      title: 'Trav Luna 04',
-      primaryColor: path3color,
-      associatedCharacters: ['Trav', 'Luna']
+      title: 'Luna Crosses the Rubicon',
+      associatedCharacters: ['Trav', 'Luna'],
     },
     {
-      id: 'TravLuna05',
+      id: 'THECOSTOFCOST',
       img: 'TravLuna05.png',
       type: 'Episode',
-      title: 'Trav Luna 05',
-      primaryColor: path3color,
-      associatedCharacters: ['Trav', 'Luna']
+      title: 'The Cost of Cost',
+      associatedCharacters: ['Trav', 'Luna'],
     },
     {
-      id: 'TravLuna06',
+      id: 'ITCOMESDOWNTOTHIS',
       img: 'TravLuna06.png',
       type: 'Episode',
-      title: 'Trav Luna 06',
-      primaryColor: path3color,
-      associatedCharacters: ['Trav', 'Luna']
+      title: 'It Comes Down to This',
+      associatedCharacters: ['Trav', 'Luna'],
     },
     {
-      id: 'TravLuna07',
+      id: 'DRIVEWESTONSUNSET',
       img: 'TravLuna07.png',
       type: 'Episode',
-      title: 'Trav Luna 07',
-      primaryColor: path3color,
-      associatedCharacters: ['Trav', 'Luna']
-    }
+      title: 'Drive West on Sunset',
+      associatedCharacters: ['Trav', 'Luna'],
+    },
+    {
+      id: 'WHITECOUNT',
+      // TODO: temp image - UPDATE WHEN AVAILABLE
+      img: 'bill.jpeg',
+      type: 'Episode',
+      title: 'White Count',
+      associatedCharacters: ['Jamal', 'Darcy', 'Trav'],
+    },
+    {
+      id: 'AMESSAGEFORTANGIE',
+      // TODO: temp image - UPDATE WHEN AVAILABLE
+      img: 'bill.jpeg',
+      type: 'Episode',
+      title: 'A Message for Tangie',
+      associatedCharacters: ['Jamal'],
+    },
+    {
+      id: 'OURFATHERWHOARTWHEREVER',
+      // TODO: temp image - UPDATE WHEN AVAILABLE
+      img: 'bill.jpeg',
+      type: 'Episode',
+      title: 'Our Father, Who Art Wherever...',
+      associatedCharacters: ['FatherD'],
+    },
   ],
   links: [
     // path 1 start
     // LUNA
     {
       source: 'Luna',
-      target: 'TravLuna01',
+      target: 'EJOLLIES',
       linkColor: path1color,
       linkCurvature: baseCurve,
       width: baseWidth,
       value: baseParticles,
-      characterPath: 'Luna'
+      characterPath: 'Luna',
     },
     {
-      source: 'TravLuna01',
-      target: 'TravLuna02',
+      source: 'EJOLLIES',
+      target: 'ILOVEYOUKEEKS',
       linkColor: path1color,
       linkCurvature: baseCurve,
       width: baseWidth,
       value: baseParticles,
-      characterPath: 'Luna'
+      characterPath: 'Luna',
     },
     {
-      source: 'TravLuna02',
-      target: 'TravLuna03',
-      linkColor: path1color,
-      linkCurvature: slightCurve,
-      curveRotation: curveRotationA,
-      width: baseWidth,
-      value: baseParticles,
-      characterPath: 'Luna'
-    },
-    {
-      source: 'TravLuna03',
-      target: 'TravLuna04',
-      linkColor: path1color,
-      linkCurvature: slightCurve,
-      curveRotation: curveRotationA,
-      width: baseWidth,
-      value: baseParticles,
-      characterPath: 'Luna'
-    },
-    {
-      source: 'TravLuna04',
-      target: 'TravLuna05',
-      linkColor: path1color,
-      linkCurvature: slightCurve,
-      curveRotation: curveRotationA,
-      width: baseWidth,
-      value: baseParticles,
-      characterPath: 'Luna'
-    },
-    {
-      source: 'TravLuna05',
-      target: 'TravLuna06',
-      linkColor: path1color,
-      linkCurvature: slightCurve,
-      curveRotation: curveRotationA,
-      width: baseWidth,
-      value: baseParticles,
-      characterPath: 'Luna'
-    },
-    {
-      source: 'TravLuna06',
-      target: 'TravLuna07',
-      linkColor: path1color,
-      linkCurvature: slightCurve,
-      curveRotation: curveRotationA,
-      width: baseWidth,
-      value: baseParticles,
-      characterPath: 'Luna'
-    },
-    {
-      source: 'TravLuna07',
-      target: 'LunaLeaf01',
+      source: 'ILOVEYOUKEEKS',
+      target: 'LUNAWANTSMORE',
       linkColor: path1color,
       linkCurvature: baseCurve,
       width: baseWidth,
       value: baseParticles,
-      characterPath: 'Luna'
+      characterPath: 'Luna',
     },
     {
-      source: 'LunaLeaf01',
-      target: 'LunaLeaf02',
+      source: 'LUNAWANTSMORE',
+      target: '3AMFULLOFGUILE',
       linkColor: path1color,
       linkCurvature: slightCurve,
       curveRotation: curveRotationA,
       width: baseWidth,
       value: baseParticles,
-      characterPath: 'Luna'
+      characterPath: 'Luna',
     },
     {
-      source: 'LunaLeaf02',
-      target: 'LunaKiki01',
+      source: '3AMFULLOFGUILE',
+      target: 'LUNACROSSESTHERUBICON',
       linkColor: path1color,
       linkCurvature: baseCurve,
       width: baseWidth,
       value: baseParticles,
-      characterPath: 'Luna'
+      characterPath: 'Luna',
     },
     {
-      source: 'LunaKiki01',
-      target: 'LunaKiki02',
+      source: 'LUNACROSSESTHERUBICON',
+      target: 'LUNASHAPPYHAPPINESS',
       linkColor: path1color,
-      linkCurvature: slightCurve,
-      curveRotation: curveRotationA,
+      linkCurvature: baseCurve,
       width: baseWidth,
       value: baseParticles,
-      characterPath: 'Luna'
+      characterPath: 'Luna',
     },
     {
-      source: 'LunaKiki02',
-      target: 'LunaKiki03',
+      source: 'LUNASHAPPYHAPPINESS',
+      target: 'CLOSER',
       linkColor: path1color,
-      linkCurvature: slightCurve,
-      curveRotation: curveRotationA,
+      linkCurvature: baseCurve,
       width: baseWidth,
       value: baseParticles,
-      characterPath: 'Luna'
+      characterPath: 'Luna',
     },
     {
-      source: 'LunaKiki03',
-      target: 'LunaKiki04',
+      source: 'CLOSER',
+      target: 'THECOSTOFCOST',
       linkColor: path1color,
-      linkCurvature: slightCurve,
-      curveRotation: curveRotationA,
+      linkCurvature: baseCurve,
       width: baseWidth,
       value: baseParticles,
-      characterPath: 'Luna'
+      characterPath: 'Luna',
     },
     {
-      source: 'LunaKiki04',
-      target: 'LunaKiki05',
+      source: 'THECOSTOFCOST',
+      target: 'IWISH',
       linkColor: path1color,
-      linkCurvature: slightCurve,
-      curveRotation: curveRotationA,
+      linkCurvature: baseCurve,
       width: baseWidth,
       value: baseParticles,
-      characterPath: 'Luna'
+      characterPath: 'Luna',
     },
     {
-      source: 'LunaKiki05',
-      target: 'LunaKiki06',
+      source: 'IWISH',
+      target: 'ITCOMESDOWNTOTHIS',
       linkColor: path1color,
-      linkCurvature: slightCurve,
-      curveRotation: curveRotationA,
+      linkCurvature: baseCurve,
       width: baseWidth,
       value: baseParticles,
-      characterPath: 'Luna'
+      characterPath: 'Luna',
     },
-    // yes, this looks hacky af but it's for the next/prev functionality
     {
-      source: 'LunaKiki06',
-      target: 'LunaKiki06',
+      source: 'ITCOMESDOWNTOTHIS',
+      target: 'FEELINGYOUBREATHE',
+      linkColor: path1color,
+      linkCurvature: baseCurve,
+      width: baseWidth,
+      value: baseParticles,
+      characterPath: 'Luna',
+    },
+    {
+      source: 'FEELINGYOUBREATHE',
+      target: 'DRIVEWESTONSUNSET',
+      linkColor: path1color,
+      linkCurvature: baseCurve,
+      width: baseWidth,
+      value: baseParticles,
+      characterPath: 'Luna',
+    },
+    // yes, this looks hacky af but it's for the next/prev functionality so leave it
+    {
+      source: 'DRIVEWESTONSUNSET',
+      target: 'DRIVEWESTONSUNSET',
       linkColor: 'transparent',
-      characterPath: 'Luna'
+      characterPath: 'Luna',
     },
     // path 1 end
     // path 2 start
     // DARCY
     {
       source: 'Darcy',
-      target: 'DarcyJamal01',
+      target: 'UNDERTHENUMBERS',
       linkColor: path2color,
       linkCurvature: baseCurve,
       width: baseWidth,
       value: baseParticles,
-      characterPath: 'Darcy'
+      characterPath: 'Darcy',
     },
     {
-      source: 'DarcyJamal01',
-      target: 'DarcyJamal02',
-      linkColor: path2color,
-      linkCurvature: slightCurve,
-      curveRotation: curveRotationA,
-      width: baseWidth,
-      value: baseParticles,
-      characterPath: 'Darcy'
-    },
-    {
-      source: 'DarcyJamal02',
-      target: 'DarcyJamal03',
-      linkColor: path2color,
-      linkCurvature: slightCurve,
-      curveRotation: curveRotationA,
-      width: baseWidth,
-      value: baseParticles,
-      characterPath: 'Darcy'
-    },
-    {
-      source: 'DarcyJamal03',
-      target: 'DarcyCarson01',
+      source: 'UNDERTHENUMBERS',
+      target: 'ITSMORETHANTHAT',
       linkColor: path2color,
       linkCurvature: baseCurve,
       width: baseWidth,
       value: baseParticles,
-      characterPath: 'Darcy'
+      characterPath: 'Darcy',
     },
     {
-      source: 'DarcyCarson01',
-      target: 'DarcyCarson02',
+      source: 'ITSMORETHANTHAT',
+      target: 'THEEFFECTOFMARITALSTRESS',
       linkColor: path2color,
       linkCurvature: slightCurve,
       curveRotation: curveRotationA,
       width: baseWidth,
       value: baseParticles,
-      characterPath: 'Darcy'
+      characterPath: 'Darcy',
     },
     {
-      source: 'DarcyCarson02',
-      target: 'DarcyCarson03',
+      source: 'THEEFFECTOFMARITALSTRESS',
+      target: 'WHITECOUNT',
       linkColor: path2color,
       linkCurvature: slightCurve,
       curveRotation: curveRotationA,
       width: baseWidth,
       value: baseParticles,
-      characterPath: 'Darcy'
+      characterPath: 'Darcy',
     },
     {
-      source: 'DarcyCarson03',
-      target: 'DarcyFatherD01',
+      source: 'WHITECOUNT',
+      target: 'WHATEVERHAPPENS',
       linkColor: path2color,
       linkCurvature: baseCurve,
       width: baseWidth,
       value: baseParticles,
-      characterPath: 'Darcy'
+      characterPath: 'Darcy',
     },
-    // yes, this looks hacky af but it's for the next/prev functionality
     {
-      source: 'DarcyFatherD01',
-      target: 'DarcyFatherD01',
+      source: 'WHATEVERHAPPENS',
+      target: 'WHATWOULDGOD',
+      linkColor: path2color,
+      linkCurvature: baseCurve,
+      width: baseWidth,
+      value: baseParticles,
+      characterPath: 'Darcy',
+    },
+    {
+      source: 'WHATWOULDGOD',
+      target: 'CANYOUREFERUS',
+      linkColor: path2color,
+      linkCurvature: baseCurve,
+      width: baseWidth,
+      value: baseParticles,
+      characterPath: 'Darcy',
+    },
+    {
+      source: 'CANYOUREFERUS',
+      target: 'OHDADDY',
+      linkColor: path2color,
+      linkCurvature: baseCurve,
+      width: baseWidth,
+      value: baseParticles,
+      characterPath: 'Darcy',
+    },
+    // yes, this looks hacky af but it's for the next/prev functionality so leave it
+    {
+      source: 'OHDADDY',
+      target: 'OHDADDY',
       linkColor: 'transparent',
-      characterPath: 'Darcy'
+      characterPath: 'Darcy',
     },
     // path 2 end
     // path 3 start
     // TRAV
     {
       source: 'Trav',
-      target: 'TravLuna01',
+      target: 'EJOLLIES',
       linkColor: path3color,
       linkCurvature: baseCurve,
       width: baseWidth,
       value: baseParticles,
-      characterPath: 'Trav'
+      characterPath: 'Trav',
     },
     {
-      source: 'TravLuna01',
-      target: 'TravLuna02',
-      linkColor: path3color,
-      linkCurvature: slightCurve,
-      curveRotation: curveRotationB,
-      width: baseWidth,
-      value: baseParticles,
-      characterPath: 'Trav'
-    },
-    {
-      source: 'TravLuna02',
-      target: 'TravLuna03',
-      linkColor: path3color,
-      linkCurvature: slightCurve,
-      curveRotation: curveRotationB,
-      width: baseWidth,
-      value: baseParticles,
-      characterPath: 'Trav'
-    },
-    {
-      source: 'TravLuna03',
-      target: 'TravLuna04',
-      linkColor: path3color,
-      linkCurvature: slightCurve,
-      curveRotation: curveRotationB,
-      width: baseWidth,
-      value: baseParticles,
-      characterPath: 'Trav'
-    },
-    {
-      source: 'TravLuna04',
-      target: 'TravLuna05',
-      linkColor: path3color,
-      linkCurvature: slightCurve,
-      curveRotation: curveRotationB,
-      width: baseWidth,
-      value: baseParticles,
-      characterPath: 'Trav'
-    },
-    {
-      source: 'TravLuna05',
-      target: 'TravLuna06',
-      linkColor: path3color,
-      linkCurvature: slightCurve,
-      curveRotation: curveRotationB,
-      width: baseWidth,
-      value: baseParticles,
-      characterPath: 'Trav'
-    },
-    {
-      source: 'TravLuna06',
-      target: 'TravLuna07',
-      linkColor: path3color,
-      linkCurvature: slightCurve,
-      curveRotation: curveRotationB,
-      width: baseWidth,
-      value: baseParticles,
-      characterPath: 'Trav'
-    },
-    {
-      source: 'TravLuna07',
-      target: 'TravCarson01',
+      source: 'EJOLLIES',
+      target: 'LUNAWANTSMORE',
       linkColor: path3color,
       linkCurvature: baseCurve,
       width: baseWidth,
       value: baseParticles,
-      characterPath: 'Trav'
+      characterPath: 'Trav',
     },
     {
-      source: 'TravCarson01',
-      target: 'TravCarson02',
+      source: 'LUNAWANTSMORE',
+      target: '3AMFULLOFGUILE',
       linkColor: path3color,
       linkCurvature: slightCurve,
-      curveRotation: curveRotationA,
+      curveRotation: curveRotationB,
       width: baseWidth,
       value: baseParticles,
-      characterPath: 'Trav'
+      characterPath: 'Trav',
     },
     {
-      source: 'TravCarson02',
-      target: 'TravFatherD01',
+      source: '3AMFULLOFGUILE',
+      target: 'LUNACROSSESTHERUBICON',
       linkColor: path3color,
-      linkCurvature: slightCurve,
-      curveRotation: curveRotationA,
+      linkCurvature: baseCurve,
       width: baseWidth,
       value: baseParticles,
-      characterPath: 'Trav'
+      characterPath: 'Trav',
     },
     {
-      source: 'TravFatherD01',
-      target: 'TravFatherD02',
+      source: 'LUNACROSSESTHERUBICON',
+      target: 'EXPENSIVEEXPENSES',
       linkColor: path3color,
-      linkCurvature: slightCurve,
-      curveRotation: curveRotationA,
+      linkCurvature: baseCurve,
       width: baseWidth,
       value: baseParticles,
-      characterPath: 'Trav'
+      characterPath: 'Trav',
     },
-    // yes, this looks hacky af but it's for the next/prev functionality
     {
-      source: 'TravFatherD02',
-      target: 'TravFatherD02',
-      linkColor: 'transparent',
-      characterPath: 'Trav'
+      source: 'EXPENSIVEEXPENSES',
+      target: 'THECOSTOFCOST',
+      linkColor: path3color,
+      linkCurvature: baseCurve,
+      width: baseWidth,
+      value: baseParticles,
+      characterPath: 'Trav',
+    },
+    {
+      source: 'THECOSTOFCOST',
+      target: 'WHITECOUNT',
+      linkColor: path3color,
+      linkCurvature: baseCurve,
+      width: baseWidth,
+      value: baseParticles,
+      characterPath: 'Trav',
+    },
+    {
+      source: 'WHITECOUNT',
+      target: 'WHYWOULDGOD',
+      linkColor: path3color,
+      linkCurvature: baseCurve,
+      width: baseWidth,
+      value: baseParticles,
+      characterPath: 'Trav',
+    },
+    {
+      source: 'WHYWOULDGOD',
+      target: 'TRAVWRIGGLES',
+      linkColor: path3color,
+      linkCurvature: baseCurve,
+      width: baseWidth,
+      value: baseParticles,
+      characterPath: 'Trav',
+    },
+    {
+      source: 'TRAVWRIGGLES',
+      target: 'ITCOMESDOWNTOTHIS',
+      linkColor: path3color,
+      linkCurvature: baseCurve,
+      width: baseWidth,
+      value: baseParticles,
+      characterPath: 'Trav',
+    },
+    {
+      source: 'ITCOMESDOWNTOTHIS',
+      target: 'DRIVEWESTONSUNSET',
+      linkColor: path3color,
+      linkCurvature: baseCurve,
+      width: baseWidth,
+      value: baseParticles,
+      characterPath: 'Trav',
+    },
+    // yes, this looks hacky af but it's for the next/prev functionality so leave it
+    {
+      source: 'DRIVEWESTONSUNSET',
+      target: 'DRIVEWESTONSUNSET',
+      linkColor: path3color,
+      linkCurvature: baseCurve,
+      width: baseWidth,
+      value: baseParticles,
+      characterPath: 'Trav',
     },
     // path 3 end
     // path 4 start
     // KIKI
     {
       source: 'Kiki',
-      target: 'LunaKiki01',
+      target: 'ILOVEYOUKEEKS',
       linkColor: path4color,
       linkCurvature: baseCurve,
       width: baseWidth,
       value: baseParticles,
-      characterPath: 'Kiki'
+      characterPath: 'Kiki',
     },
     {
-      source: 'LunaKiki01',
-      target: 'LunaKiki02',
-      linkColor: path4color,
-      linkCurvature: slightCurve,
-      curveRotation: curveRotationB,
-      width: baseWidth,
-      value: baseParticles,
-      characterPath: 'Kiki'
-    },
-    {
-      source: 'LunaKiki02',
-      target: 'LunaKiki03',
-      linkColor: path4color,
-      linkCurvature: slightCurve,
-      curveRotation: curveRotationB,
-      width: baseWidth,
-      value: baseParticles,
-      characterPath: 'Kiki'
-    },
-    {
-      source: 'LunaKiki03',
-      target: 'LunaKiki04',
-      linkColor: path4color,
-      linkCurvature: slightCurve,
-      curveRotation: curveRotationB,
-      width: baseWidth,
-      value: baseParticles,
-      characterPath: 'Kiki'
-    },
-    {
-      source: 'LunaKiki04',
-      target: 'LunaKiki05',
-      linkColor: path4color,
-      linkCurvature: slightCurve,
-      curveRotation: curveRotationB,
-      width: baseWidth,
-      value: baseParticles,
-      characterPath: 'Kiki'
-    },
-    {
-      source: 'LunaKiki05',
-      target: 'LunaKiki06',
-      linkColor: path4color,
-      linkCurvature: slightCurve,
-      curveRotation: curveRotationB,
-      width: baseWidth,
-      value: baseParticles,
-      characterPath: 'Kiki'
-    },
-    {
-      source: 'LunaKiki06',
-      target: 'KikiLeaf01',
+      source: 'ILOVEYOUKEEKS',
+      target: 'LETSBREAKTHEMUP',
       linkColor: path4color,
       linkCurvature: baseCurve,
       width: baseWidth,
       value: baseParticles,
-      characterPath: 'Kiki'
+      characterPath: 'Kiki',
     },
     {
-      source: 'KikiLeaf01',
-      target: 'KikiLeaf02',
+      source: 'LETSBREAKTHEMUP',
+      target: 'LUNASHAPPYHAPPINESS',
       linkColor: path4color,
-      linkCurvature: slightCurve,
-      curveRotation: curveRotationA,
+      linkCurvature: baseCurve,
       width: baseWidth,
       value: baseParticles,
-      characterPath: 'Kiki'
+      characterPath: 'Kiki',
     },
     {
-      source: 'KikiLeaf02',
-      target: 'KikiLeaf03',
+      source: 'LUNASHAPPYHAPPINESS',
+      target: 'FLOATINGLEAF',
       linkColor: path4color,
-      linkCurvature: slightCurve,
-      curveRotation: curveRotationA,
+      linkCurvature: baseCurve,
       width: baseWidth,
       value: baseParticles,
-      characterPath: 'Kiki'
+      characterPath: 'Kiki',
     },
-    // yes, this looks hacky af but it's for the next/prev functionality
     {
-      source: 'KikiLeaf03',
-      target: 'KikiLeaf03',
+      source: 'FLOATINGLEAF',
+      target: 'CLOSER',
+      linkColor: path4color,
+      linkCurvature: baseCurve,
+      width: baseWidth,
+      value: baseParticles,
+      characterPath: 'Kiki',
+    },
+    {
+      source: 'CLOSER',
+      target: 'IWISH',
+      linkColor: path4color,
+      linkCurvature: baseCurve,
+      width: baseWidth,
+      value: baseParticles,
+      characterPath: 'Kiki',
+    },
+    {
+      source: 'IWISH',
+      target: 'CATBAGANDSOON',
+      linkColor: path4color,
+      linkCurvature: baseCurve,
+      width: baseWidth,
+      value: baseParticles,
+      characterPath: 'Kiki',
+    },
+    {
+      source: 'CATBAGANDSOON',
+      target: 'FEELINGYOUBREATHE',
+      linkColor: path4color,
+      llinkCurvature: baseCurve,
+      width: baseWidth,
+      value: baseParticles,
+      characterPath: 'Kiki',
+    },
+    // yes, this looks hacky af but it's for the next/prev functionality so leave it
+    {
+      source: 'FEELINGYOUBREATHE',
+      target: 'FEELINGYOUBREATHE',
       linkColor: 'transparent',
-      characterPath: 'Kiki'
+      characterPath: 'Kiki',
     },
     // path 4 end
     // path 5 start
     // JAMAL
     {
       source: 'Jamal',
-      target: 'DarcyJamal01',
+      target: 'ITSMORETHANTHAT',
       linkColor: path5color,
       linkCurvature: baseCurve,
       width: baseWidth,
       value: baseParticles,
-      characterPath: 'Jamal'
+      characterPath: 'Jamal',
     },
     {
-      source: 'DarcyJamal01',
-      target: 'DarcyJamal02',
+      source: 'ITSMORETHANTHAT',
+      target: 'THEEFFECTOFMARITALSTRESS',
       linkColor: path5color,
       linkCurvature: slightCurve,
       curveRotation: curveRotationB,
       width: baseWidth,
       value: baseParticles,
-      characterPath: 'Jamal'
+      characterPath: 'Jamal',
     },
     {
-      source: 'DarcyJamal02',
-      target: 'DarcyJamal03',
+      source: 'THEEFFECTOFMARITALSTRESS',
+      target: 'WHITECOUNT',
       linkColor: path5color,
       linkCurvature: slightCurve,
       curveRotation: curveRotationB,
       width: baseWidth,
       value: baseParticles,
-      characterPath: 'Jamal'
+      characterPath: 'Jamal',
     },
-    // yes, this looks hacky af but it's for the next/prev functionality
     {
-      source: 'DarcyJamal03',
-      target: 'DarcyJamal03',
+      source: 'WHITECOUNT',
+      target: 'AMESSAGEFORTANGIE',
+      linkColor: path5color,
+      linkCurvature: baseCurve,
+      width: baseWidth,
+      value: baseParticles,
+      characterPath: 'Jamal',
+    },
+    {
+      source: 'AMESSAGEFORTANGIE',
+      target: 'CANYOUREFERUS',
+      linkColor: path5color,
+      linkCurvature: baseCurve,
+      width: baseWidth,
+      value: baseParticles,
+      characterPath: 'Jamal',
+    },
+    // yes, this looks hacky af but it's for the next/prev functionality so leave it
+    {
+      source: 'CANYOUREFERUS',
+      target: 'CANYOUREFERUS',
       linkColor: 'transparent',
-      characterPath: 'Jamal'
+      characterPath: 'Jamal',
     },
     // path 5 end
     // path 6 start
     // FATHER DANIEL
     {
       source: 'FatherD',
-      target: 'TravFatherD01',
+      target: 'WHYWOULDGOD',
       linkColor: path6color,
       linkCurvature: baseCurve,
       width: baseWidth,
       value: baseParticles,
-      characterPath: 'FatherD'
+      characterPath: 'FatherD',
     },
     {
-      source: 'TravFatherD01',
-      target: 'TravFatherD02',
-      linkColor: path6color,
-      linkCurvature: slightCurve,
-      curveRotation: curveRotationB,
-      width: baseWidth,
-      value: baseParticles,
-      characterPath: 'FatherD'
-    },
-    {
-      source: 'TravFatherD02',
-      target: 'DarcyFatherD01',
+      source: 'WHYWOULDGOD',
+      target: 'WHATWOULDGOD',
       linkColor: path6color,
       linkCurvature: baseCurve,
       width: baseWidth,
       value: baseParticles,
-      characterPath: 'FatherD'
+      characterPath: 'FatherD',
     },
-    // yes, this looks hacky af but it's for the next/prev functionality
     {
-      source: 'DarcyFatherD01',
-      target: 'DarcyFatherD01',
+      source: 'WHATWOULDGOD',
+      target: 'OURFATHERWHOARTWHEREVER',
+      linkColor: path6color,
+      linkCurvature: baseCurve,
+      width: baseWidth,
+      value: baseParticles,
+      characterPath: 'FatherD',
+    },
+    // yes, this looks hacky af but it's for the next/prev functionality so leave it
+    {
+      source: 'OURFATHERWHOARTWHEREVER',
+      target: 'OURFATHERWHOARTWHEREVER',
       linkColor: 'transparent',
-      characterPath: 'FatherD'
+      characterPath: 'FatherD',
     },
     // path 6 end
     // path 7 start
     // CARSON
     {
       source: 'Carson',
-      target: 'DarcyCarson01',
+      target: 'UNDERTHENUMBERS',
       linkColor: path7color,
       linkCurvature: baseCurve,
       width: baseWidth,
       value: baseParticles,
-      characterPath: 'Carson'
+      characterPath: 'Carson',
     },
     {
-      source: 'DarcyCarson01',
-      target: 'DarcyCarson02',
-      linkColor: path7color,
-      linkCurvature: slightCurve,
-      curveRotation: curveRotationB,
-      width: baseWidth,
-      value: baseParticles,
-      characterPath: 'Carson'
-    },
-    {
-      source: 'DarcyCarson02',
-      target: 'DarcyCarson03',
-      linkColor: path7color,
-      linkCurvature: slightCurve,
-      curveRotation: curveRotationB,
-      width: baseWidth,
-      value: baseParticles,
-      characterPath: 'Carson'
-    },
-    {
-      source: 'DarcyCarson03',
-      target: 'TravCarson01',
+      source: 'UNDERTHENUMBERS',
+      target: 'EXPENSIVEEXPENSES',
       linkColor: path7color,
       linkCurvature: baseCurve,
       width: baseWidth,
       value: baseParticles,
-      characterPath: 'Carson'
+      characterPath: 'Carson',
     },
     {
-      source: 'TravCarson01',
-      target: 'TravCarson02',
+      source: 'EXPENSIVEEXPENSES',
+      target: 'WHATEVERHAPPENS',
       linkColor: path7color,
-      linkCurvature: slightCurve,
-      curveRotation: curveRotationB,
+      linkCurvature: baseCurve,
       width: baseWidth,
       value: baseParticles,
-      characterPath: 'Carson'
+      characterPath: 'Carson',
     },
-    // yes, this looks hacky af but it's for the next/prev functionality
     {
-      source: 'TravCarson02',
-      target: 'TravCarson02',
+      source: 'WHATEVERHAPPENS',
+      target: 'TRAVWRIGGLES',
+      linkColor: path7color,
+      linkCurvature: baseCurve,
+      width: baseWidth,
+      value: baseParticles,
+      characterPath: 'Carson',
+    },
+    {
+      source: 'TRAVWRIGGLES',
+      target: 'OHDADDY',
+      linkColor: path7color,
+      linkCurvature: baseCurve,
+      width: baseWidth,
+      value: baseParticles,
+      characterPath: 'Carson',
+    },
+    // yes, this looks hacky af but it's for the next/prev functionality so leave it
+    {
+      source: 'OHDADDY',
+      target: 'OHDADDY',
       linkColor: 'transparent',
-      characterPath: 'Carson'
+      characterPath: 'Carson',
     },
     // path 7 end
     // path 8 start
     // LEAF
     {
       source: 'Leaf',
-      target: 'LunaLeaf01',
+      target: 'LETSBREAKTHEMUP',
       linkColor: path8color,
       linkCurvature: baseCurve,
       width: baseWidth,
       value: baseParticles,
-      characterPath: 'Leaf'
+      characterPath: 'Leaf',
     },
     {
-      source: 'LunaLeaf01',
-      target: 'LunaLeaf02',
-      linkColor: path8color,
-      linkCurvature: slightCurve,
-      curveRotation: curveRotationB,
-      width: baseWidth,
-      value: baseParticles,
-      characterPath: 'Leaf'
-    },
-    {
-      source: 'LunaLeaf02',
-      target: 'KikiLeaf01',
+      source: 'LETSBREAKTHEMUP',
+      target: 'FLOATINGLEAF',
       linkColor: path8color,
       linkCurvature: baseCurve,
       width: baseWidth,
       value: baseParticles,
-      characterPath: 'Leaf'
+      characterPath: 'Leaf',
     },
     {
-      source: 'KikiLeaf01',
-      target: 'KikiLeaf02',
+      source: 'FLOATINGLEAF',
+      target: 'CATBAGANDSOON',
       linkColor: path8color,
-      linkCurvature: slightCurve,
-      curveRotation: curveRotationB,
+      linkCurvature: baseCurve,
       width: baseWidth,
       value: baseParticles,
-      characterPath: 'Leaf'
+      characterPath: 'Leaf',
     },
     {
-      source: 'KikiLeaf02',
-      target: 'KikiLeaf03',
-      linkColor: path8color,
-      linkCurvature: slightCurve,
-      curveRotation: curveRotationB,
-      width: baseWidth,
-      value: baseParticles,
-      characterPath: 'Leaf'
-    },
-    {
-      source: 'KikiLeaf03',
-      target: 'KikiLeaf03',
+      source: 'CATBAGANDSOON',
+      target: 'CATBAGANDSOON',
       linkColor: 'transparent',
-      characterPath: 'Leaf'
+      characterPath: 'Leaf',
     },
     // path 8 end
-    // transparent link to reshape
+    // TODO: add transparent links to reshape
     {
       source: 'Jamal',
+      target: 'ITSMORETHANTHAT',
+      linkColor: transparentLink,
+    },
+    {
+      source: 'Jamal',
+      target: 'THEEFFECTOFMARITALSTRESS',
+      linkColor: transparentLink,
+    },
+    {
+      source: 'Jamal',
+      target: 'WHITECOUNT',
+      linkColor: transparentLink,
+    },
+    {
+      source: 'Jamal',
+      target: 'AMESSAGEFORTANGIE',
+      linkColor: transparentLink,
+    },
+    {
+      source: 'Jamal',
+      target: 'CANYOUREFERUS',
+      linkColor: transparentLink,
+    },
+    {
+      source: 'Darcy',
+      target: 'UNDERTHENUMBERS',
+      linkColor: transparentLink,
+    },
+    {
+      source: 'Darcy',
+      target: 'ITSMORETHANTHAT',
+      linkColor: transparentLink,
+    },
+    {
+      source: 'Darcy',
+      target: 'THEEFFECTOFMARITALSTRESS',
+      linkColor: transparentLink,
+    },
+    {
+      source: 'Darcy',
+      target: 'WHITECOUNT',
+      linkColor: transparentLink,
+    },
+    {
+      source: 'Darcy',
+      target: 'WHATEVERHAPPENS',
+      linkColor: transparentLink,
+    },
+    {
+      source: 'Darcy',
+      target: 'WHATWOULDGOD',
+      linkColor: transparentLink,
+    },
+    {
+      source: 'Darcy',
+      target: 'CANYOUREFERUS',
+      linkColor: transparentLink,
+    },
+    {
+      source: 'Darcy',
+      target: 'OHDADDY',
+      linkColor: transparentLink,
+    },
+    {
+      source: 'Carson',
+      target: 'UNDERTHENUMBERS',
+      linkColor: transparentLink,
+    },
+    {
+      source: 'Carson',
+      target: 'EXPENSIVEEXPENSES',
+      linkColor: transparentLink,
+    },
+    {
+      source: 'Carson',
+      target: 'WHATEVERHAPPENS',
+      linkColor: transparentLink,
+    },
+    {
+      source: 'Carson',
+      target: 'TRAVWRIGGLES',
+      linkColor: transparentLink,
+    },
+    {
+      source: 'Carson',
+      target: 'OHDADDY',
+      linkColor: transparentLink,
+    },
+    {
+      source: 'Trav',
+      target: 'EJOLLIES',
+      linkColor: transparentLink,
+    },
+    {
+      source: 'Trav',
+      target: 'LUNAWANTSMORE',
+      linkColor: transparentLink,
+    },
+    {
+      source: 'Trav',
+      target: '3AMFULLOFGUILE',
+      linkColor: transparentLink,
+    },
+    {
+      source: 'Trav',
+      target: 'LUNACROSSESTHERUBICON',
+      linkColor: transparentLink,
+    },
+    {
+      source: 'Trav',
+      target: 'EXPENSIVEEXPENSES',
+      linkColor: transparentLink,
+    },
+    {
+      source: 'Trav',
+      target: 'THECOSTOFCOST',
+      linkColor: transparentLink,
+    },
+    {
+      source: 'Trav',
+      target: 'WHITECOUNT',
+      linkColor: transparentLink,
+    },
+    {
+      source: 'Trav',
+      target: 'WHYWOULDGOD',
+      linkColor: transparentLink,
+    },
+    {
+      source: 'Trav',
+      target: 'TRAVWRIGGLES',
+      linkColor: transparentLink,
+    },
+    {
+      source: 'Trav',
+      target: 'ITCOMESDOWNTOTHIS',
+      linkColor: transparentLink,
+    },
+    {
+      source: 'Trav',
+      target: 'DRIVEWESTONSUNSET',
+      linkColor: transparentLink,
+    },
+    {
+      source: 'Luna',
+      target: 'EJOLLIES',
+      linkColor: transparentLink,
+    },
+    {
+      source: 'Luna',
+      target: 'ILOVEYOUKEEKS',
+      linkColor: transparentLink,
+    },
+    {
+      source: 'Luna',
+      target: 'LUNAWANTSMORE',
+      linkColor: transparentLink,
+    },
+    {
+      source: 'Luna',
+      target: '3AMFULLOFGUILE',
+      linkColor: transparentLink,
+    },
+    {
+      source: 'Luna',
+      target: 'LUNACROSSESTHERUBICON',
+      linkColor: transparentLink,
+    },
+    {
+      source: 'Luna',
+      target: 'LUNASHAPPYHAPPINESS',
+      linkColor: transparentLink,
+    },
+    {
+      source: 'Luna',
+      target: 'CLOSER',
+      linkColor: transparentLink,
+    },
+    {
+      source: 'Luna',
+      target: 'THECOSTOFCOST',
+      linkColor: transparentLink,
+    },
+    {
+      source: 'Luna',
+      target: 'IWISH',
+      linkColor: transparentLink,
+    },
+    {
+      source: 'Luna',
+      target: 'ITCOMESDOWNTOTHIS',
+      linkColor: transparentLink,
+    },
+    {
+      source: 'Luna',
+      target: 'FEELINGYOUBREATHE',
+      linkColor: transparentLink,
+    },
+    {
+      source: 'Luna',
+      target: 'DRIVEWESTONSUNSET',
+      linkColor: transparentLink,
+    },
+    {
+      source: 'FatherD',
+      target: 'WHYWOULDGOD',
+      linkColor: transparentLink,
+    },
+    {
+      source: 'FatherD',
+      target: 'WHATWOULDGOD',
+      linkColor: transparentLink,
+    },
+    {
+      source: 'FatherD',
+      target: 'OURFATHERWHOARTWHEREVER',
+      linkColor: transparentLink,
+    },
+    {
+      source: 'Kiki',
+      target: 'ILOVEYOUKEEKS',
+      linkColor: transparentLink,
+    },
+    {
+      source: 'Kiki',
+      target: 'LETSBREAKTHEMUP',
+      linkColor: transparentLink,
+    },
+    {
+      source: 'Kiki',
+      target: 'LUNASHAPPYHAPPINESS',
+      linkColor: transparentLink,
+    },
+    {
+      source: 'Kiki',
+      target: 'FLOATINGLEAF',
+      linkColor: transparentLink,
+    },
+    {
+      source: 'Kiki',
+      target: 'CLOSER',
+      linkColor: transparentLink,
+    },
+    {
+      source: 'Kiki',
+      target: 'IWISH',
+      linkColor: transparentLink,
+    },
+    {
+      source: 'Kiki',
+      target: 'CATBAGANDSOON',
+      linkColor: transparentLink,
+    },
+    {
+      source: 'Kiki',
+      target: 'FEELINGYOUBREATHE',
+      linkColor: transparentLink,
+    },
+    {
+      source: 'Leaf',
+      target: 'LETSBREAKTHEMUP',
+      linkColor: transparentLink,
+    },
+    {
+      source: 'Leaf',
+      target: 'FLOATINGLEAF',
+      linkColor: transparentLink,
+    },
+    {
+      source: 'Leaf',
+      target: 'CATBAGANDSOON',
+      linkColor: transparentLink,
+    },
+    {
+      source: 'Trav',
+      target: 'Carson',
+      linkColor: transparentLink,
+    },
+    {
+      source: 'Trav',
+      target: 'FatherD',
+      linkColor: transparentLink,
+    },
+    {
+      source: 'Trav',
+      target: 'Jamal',
+      linkColor: transparentLink,
+    },
+    {
+      source: 'Trav',
+      target: 'Darcy',
+      linkColor: transparentLink,
+    },
+    {
+      source: 'Luna',
+      target: 'Kiki',
+      linkColor: transparentLink,
+    },
+    {
+      source: 'Luna',
       target: 'Leaf',
-      linkColor: transparentLink
-    },
-    {
-      source: 'Darcy',
-      target: 'DarcyCarson01',
-      linkColor: baseColor,
-      linkCurvature: baseCurve,
-      width: charWidth
-    },
-    {
-      source: 'Darcy',
-      target: 'DarcyCarson02',
-      linkColor: baseColor,
-      linkCurvature: baseCurve,
-      width: charWidth
-    },
-    {
-      source: 'Darcy',
-      target: 'DarcyCarson03',
-      linkColor: baseColor,
-      linkCurvature: baseCurve,
-      width: charWidth
-    },
-    {
-      source: 'Darcy',
-      target: 'DarcyFatherD01',
-      linkColor: baseColor,
-      linkCurvature: baseCurve,
-      width: charWidth
-    },
-    {
-      source: 'Darcy',
-      target: 'DarcyJamal01',
-      linkColor: baseColor,
-      linkCurvature: baseCurve,
-      width: charWidth
-    },
-    {
-      source: 'Darcy',
-      target: 'DarcyJamal02',
-      linkColor: baseColor,
-      linkCurvature: baseCurve,
-      width: charWidth
-    },
-    {
-      source: 'Darcy',
-      target: 'DarcyJamal03',
-      linkColor: baseColor,
-      linkCurvature: baseCurve,
-      width: charWidth
-    },
-    {
-      source: 'Carson',
-      target: 'DarcyCarson01',
-      linkColor: baseColor,
-      linkCurvature: baseCurve,
-      width: charWidth
-    },
-    {
-      source: 'Carson',
-      target: 'DarcyCarson02',
-      linkColor: baseColor,
-      linkCurvature: baseCurve,
-      width: charWidth
-    },
-    {
-      source: 'Carson',
-      target: 'DarcyCarson03',
-      linkColor: baseColor,
-      linkCurvature: baseCurve,
-      width: charWidth
-    },
-    {
-      source: 'Carson',
-      target: 'DarcyCarson03',
-      linkColor: baseColor,
-      linkCurvature: baseCurve,
-      width: charWidth
-    },
-    {
-      source: 'Carson',
-      target: 'TravCarson01',
-      linkColor: baseColor,
-      linkCurvature: baseCurve,
-      width: charWidth
-    },
-    {
-      source: 'Carson',
-      target: 'TravCarson02',
-      linkColor: baseColor,
-      linkCurvature: baseCurve,
-      width: charWidth
-    },
-    {
-      source: 'FatherD',
-      target: 'DarcyFatherD01',
-      linkColor: baseColor,
-      linkCurvature: baseCurve,
-      width: charWidth
-    },
-    {
-      source: 'FatherD',
-      target: 'TravFatherD01',
-      linkColor: baseColor,
-      linkCurvature: baseCurve,
-      width: charWidth
-    },
-    {
-      source: 'FatherD',
-      target: 'TravFatherD02',
-      linkColor: baseColor,
-      linkCurvature: baseCurve,
-      width: charWidth
-    },
-    {
-      source: 'Jamal',
-      target: 'DarcyJamal01',
-      linkColor: baseColor,
-      linkCurvature: baseCurve,
-      width: charWidth
-    },
-    {
-      source: 'Jamal',
-      target: 'DarcyJamal02',
-      linkColor: baseColor,
-      linkCurvature: baseCurve,
-      width: charWidth
-    },
-    {
-      source: 'Jamal',
-      target: 'DarcyJamal03',
-      linkColor: baseColor,
-      linkCurvature: baseCurve,
-      width: charWidth
-    },
-    {
-      source: 'Kiki',
-      target: 'KikiLeaf01',
-      linkColor: baseColor,
-      linkCurvature: baseCurve,
-      width: charWidth
-    },
-    {
-      source: 'Kiki',
-      target: 'KikiLeaf02',
-      linkColor: baseColor,
-      linkCurvature: baseCurve,
-      width: charWidth
-    },
-    {
-      source: 'Kiki',
-      target: 'KikiLeaf03',
-      linkColor: baseColor,
-      linkCurvature: baseCurve,
-      width: charWidth
-    },
-    {
-      source: 'Kiki',
-      target: 'LunaKiki01',
-      linkColor: baseColor,
-      linkCurvature: baseCurve,
-      width: charWidth
-    },
-    {
-      source: 'Kiki',
-      target: 'LunaKiki02',
-      linkColor: baseColor,
-      linkCurvature: baseCurve,
-      width: charWidth
-    },
-    {
-      source: 'Kiki',
-      target: 'LunaKiki03',
-      linkColor: baseColor,
-      linkCurvature: baseCurve,
-      width: charWidth
-    },
-    {
-      source: 'Kiki',
-      target: 'LunaKiki04',
-      linkColor: baseColor,
-      linkCurvature: baseCurve,
-      width: charWidth
-    },
-    {
-      source: 'Kiki',
-      target: 'LunaKiki05',
-      linkColor: baseColor,
-      linkCurvature: baseCurve,
-      width: charWidth
-    },
-    {
-      source: 'Kiki',
-      target: 'LunaKiki06',
-      linkColor: baseColor,
-      linkCurvature: baseCurve,
-      width: charWidth
-    },
-    {
-      source: 'Leaf',
-      target: 'KikiLeaf01',
-      linkColor: baseColor,
-      linkCurvature: baseCurve,
-      width: charWidth
-    },
-    {
-      source: 'Leaf',
-      target: 'KikiLeaf02',
-      linkColor: baseColor,
-      linkCurvature: baseCurve,
-      width: charWidth
-    },
-    {
-      source: 'Leaf',
-      target: 'KikiLeaf03',
-      linkColor: baseColor,
-      linkCurvature: baseCurve,
-      width: charWidth
-    },
-    {
-      source: 'Leaf',
-      target: 'LunaLeaf01',
-      linkColor: baseColor,
-      linkCurvature: baseCurve,
-      width: charWidth
-    },
-    {
-      source: 'Leaf',
-      target: 'LunaLeaf02',
-      linkColor: baseColor,
-      linkCurvature: baseCurve,
-      width: charWidth
+      linkColor: transparentLink,
     },
     {
       source: 'Luna',
-      target: 'LunaKiki01',
-      linkColor: baseColor,
-      linkCurvature: baseCurve,
-      width: charWidth
-    },
-    {
-      source: 'Luna',
-      target: 'LunaKiki02',
-      linkColor: baseColor,
-      linkCurvature: baseCurve,
-      width: charWidth
-    },
-    {
-      source: 'Luna',
-      target: 'LunaKiki03',
-      linkColor: baseColor,
-      linkCurvature: baseCurve,
-      width: charWidth
-    },
-    {
-      source: 'Luna',
-      target: 'LunaKiki04',
-      linkColor: baseColor,
-      linkCurvature: baseCurve,
-      width: charWidth
-    },
-    {
-      source: 'Luna',
-      target: 'LunaKiki05',
-      linkColor: baseColor,
-      linkCurvature: baseCurve,
-      width: charWidth
-    },
-    {
-      source: 'Luna',
-      target: 'LunaKiki06',
-      linkColor: baseColor,
-      linkCurvature: baseCurve,
-      width: charWidth
-    },
-    {
-      source: 'Luna',
-      target: 'LunaLeaf01',
-      linkColor: baseColor,
-      linkCurvature: baseCurve,
-      width: charWidth
-    },
-    {
-      source: 'Luna',
-      target: 'LunaLeaf02',
-      linkColor: baseColor,
-      linkCurvature: baseCurve,
-      width: charWidth
-    },
-    {
-      source: 'Luna',
-      target: 'TravLuna01',
-      linkColor: baseColor,
-      linkCurvature: baseCurve,
-      width: charWidth
-    },
-    {
-      source: 'Luna',
-      target: 'TravLuna02',
-      linkColor: baseColor,
-      linkCurvature: baseCurve,
-      width: charWidth
-    },
-    {
-      source: 'Luna',
-      target: 'TravLuna03',
-      linkColor: baseColor,
-      linkCurvature: baseCurve,
-      width: charWidth
-    },
-    {
-      source: 'Luna',
-      target: 'TravLuna04',
-      linkColor: baseColor,
-      linkCurvature: baseCurve,
-      width: charWidth
-    },
-    {
-      source: 'Luna',
-      target: 'TravLuna05',
-      linkColor: baseColor,
-      linkCurvature: baseCurve,
-      width: charWidth
-    },
-    {
-      source: 'Luna',
-      target: 'TravLuna06',
-      linkColor: baseColor,
-      linkCurvature: baseCurve,
-      width: charWidth
-    },
-    {
-      source: 'Luna',
-      target: 'TravLuna07',
-      linkColor: baseColor,
-      linkCurvature: baseCurve,
-      width: charWidth
+      target: 'Trav',
+      linkColor: transparentLink,
     },
     {
       source: 'Trav',
-      target: 'TravCarson01',
-      linkColor: baseColor,
-      linkCurvature: baseCurve,
-      width: charWidth
+      target: 'OURFATHERWHOARTWHEREVER',
+      linkColor: transparentLink,
     },
-    {
-      source: 'Trav',
-      target: 'TravCarson02',
-      linkColor: baseColor,
-      linkCurvature: baseCurve,
-      width: charWidth
-    },
-    {
-      source: 'Trav',
-      target: 'TravFatherD01',
-      linkColor: baseColor,
-      linkCurvature: baseCurve,
-      width: charWidth
-    },
-    {
-      source: 'Trav',
-      target: 'TravFatherD02',
-      linkColor: baseColor,
-      linkCurvature: baseCurve,
-      width: charWidth
-    },
-    {
-      source: 'Trav',
-      target: 'TravLuna01',
-      linkColor: baseColor,
-      linkCurvature: baseCurve,
-      width: charWidth
-    },
-    {
-      source: 'Trav',
-      target: 'TravLuna02',
-      linkColor: baseColor,
-      linkCurvature: baseCurve,
-      width: charWidth
-    },
-    {
-      source: 'Trav',
-      target: 'TravLuna03',
-      linkColor: baseColor,
-      linkCurvature: baseCurve,
-      width: charWidth
-    },
-    {
-      source: 'Trav',
-      target: 'TravLuna04',
-      linkColor: baseColor,
-      linkCurvature: baseCurve,
-      width: charWidth
-    },
-    {
-      source: 'Trav',
-      target: 'TravLuna05',
-      linkColor: baseColor,
-      linkCurvature: baseCurve,
-      width: charWidth
-    },
-    {
-      source: 'Trav',
-      target: 'TravLuna06',
-      linkColor: baseColor,
-      linkCurvature: baseCurve,
-      width: charWidth
-    },
-    {
-      source: 'Trav',
-      target: 'TravLuna07',
-      linkColor: baseColor,
-      linkCurvature: baseCurve,
-      width: charWidth
-    }
-  ]
+  ],
 };
