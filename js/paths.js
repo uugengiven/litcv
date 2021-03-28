@@ -54,7 +54,22 @@ restartOpenModal.addEventListener('click', function () {
 modalAvatars.forEach(item => {
   item.addEventListener('click', e => {
     modal.classList.add('d-none');
-    console.log(e.target.title);
+    // gets id from selected avatar on click
+    let selectedModalAvatarID = e.target.getAttribute('data-id');
+    console.log(selectedModalAvatarID);
+    let node = allNodes.find(item => item.id === selectedModalAvatarID);
+    console.log(node);
+    const distance = 35;
+    const distRatio = 1 + distance / Math.hypot(node.x, node.y, node.z);
+    Graph.cameraPosition(
+      {
+        x: node.x * distRatio,
+        y: node.y * distRatio,
+        z: node.z * distRatio,
+      }, // new position
+      node, // lookAt ({ x, y, z })
+      2000 // ms transition duration
+    );
   });
 });
 // Function increments through storyPath array and sets/resets classes based on position in array
