@@ -21,11 +21,24 @@
 </head>
 
 <body onload="init()" class="gradient-body">
+  <!-- Overlay container with character images -->
+  <section class="chars-overlay">
+    <div class="grid">
+      <img src="./images/AngelaGulner_Luna_600-square.jpg" alt="Character">
+      <img src="./images/YohanceMyles_Jamal_600-square.jpg" alt="Character">
+      <img src="./images/IanRemmers_Leaf_600-square.jpg" alt="Character">
+      <img src="./images/KateHiggins_Darcy_600-square.jpg" alt="Character">
+      <img src="./images/MichaelBofshever_FatherDaniel_600-square.jpg" alt="Character">
+      <img src="./images/JohnNewberg_Carson_600-square.jpg" alt="Character">
+      <img src="./images/YohanceMyles_Jamal_600-square.jpg" alt="Character">
+      <img src="./images/AngelaGulner_Luna_600-square.jpg" alt="Character">
+    </div>
+  </section>
   <div class="particles gradient-body" id="tsparticles"></div>
 
   <!-- SITE HEADER -->
   <header>
-    <h1 class="gt-america">Digital <span class="black-white">Divide</span></h1>
+    <h1 class="gt-america text-light">Digital <span>Divide</span></h1>
     <a href="#" class="menu-toggle">
       <svg width="50" height="50" viewBox="0 0 74 74" fill="none" xmlns="http://www.w3.org/2000/svg">
         <circle cx="37" cy="37" r="37" fill="#E9EEF3" />
@@ -55,7 +68,9 @@
       <a class="" href="#">Instagram</a>
     </div>
   </nav>
-  </section>
+
+
+
   <section>
     <div id="3d-graph">
     </div>
@@ -74,13 +89,16 @@
     </section>
     <section class="snackbar-controls">
       <div>
-        <span class="control-icon control-icon--prev material-icons-round" alt="back button icon" title="previous">arrow_back</span>
+        <span class="control-icon control-icon--prev material-icons-round" alt="back button icon"
+          title="previous">arrow_back</span>
       </div>
       <div>
-        <span class="control-icon control-icon--play material-icons-round" alt="play button icon" title="play">play_circle_outline</span>
+        <span class="control-icon control-icon--play material-icons-round" alt="play button icon"
+          title="play">play_circle_outline</span>
       </div>
       <div>
-        <span class="control-icon control-icon--next material-icons-round" alt="forward button icon" title="next">arrow_forward</span>
+        <span class="control-icon control-icon--next material-icons-round" alt="forward button icon"
+          title="next">arrow_forward</span>
       </div>
     </section>
   </article>
@@ -96,5 +114,5 @@
   <script src="js/menu.js"></script>
   <script src="js/snackbarToggle.js"></script>
 </body>
-</html>
 
+</html>

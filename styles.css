@@ -1,5 +1,5 @@
 /* DM Sans font - Will probs use this as the main body font */
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap");
 
 :root {
   --white: #fff;
@@ -384,7 +384,7 @@ a.explore span {
 }
 a.explore::before,
 a.explore::after {
-  content: '';
+  content: "";
   width: 0;
   height: 2px;
   position: absolute;
@@ -394,7 +394,7 @@ a.explore::after {
 
 a.explore span::before,
 a.explore span::after {
-  content: '';
+  content: "";
   width: 2px;
   height: 0;
   position: absolute;
@@ -749,6 +749,38 @@ div.contact-content form button:hover {
   }
 }
 
+/* Paths: Character's Overlay */
+section.chars-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  min-height: 100vh;
+  background-color: var(--black);
+  z-index: 100;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+section.chars-overlay .grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 2rem;
+  max-width: 75%;
+  width: 100%;
+}
+
+section.chars-overlay .grid img {
+  transition: all 0.3s ease;
+  transform: scale(0.95);
+}
+
+section.chars-overlay .grid img:hover {
+  transform: scale(1);
+  cursor: pointer;
+}
+
 /* 3D MAP PAGE */
 
 .snackbar_hidden,
@@ -929,7 +961,7 @@ div.contact-content form button:hover {
 }
 .hamburger::before,
 .hamburger::after {
-  content: '';
+  content: "";
   position: absolute;
   width: 24px;
   height: 2px;
