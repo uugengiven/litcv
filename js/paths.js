@@ -14,6 +14,9 @@ const selectOptions = document.querySelector('.select-options');
 const gradientBody = document.querySelector('.particles.gradient-body');
 // Selector for restart text in snackbar
 const restartText = document.querySelector('.restart-text');
+// Selectors for paths page modal and modal close button
+const modal = document.querySelector('section.chars-overlay');
+const closeBtn = modal.querySelector('button.btn--white');
 // state of hamburger menu
 let isHamburgerMenuOpen = false;
 // all nodes data
@@ -32,6 +35,10 @@ let filteredNodes = [];
 let currentEpisode = {};
 // container selector for dynamically added avatars in snackbar once episode node is clicked
 const avatarContainer = document.querySelector('.select-options');
+// closes paths page modal
+closeBtn.addEventListener('click', function () {
+  modal.classList.add('d-none');
+});
 // Function increments through storyPath array and sets/resets classes based on position in array
 nextBtn.onclick = function () {
   // checks if last item of array
@@ -366,11 +373,3 @@ const Graph = ForceGraph3D()(elem)
     }
     updateCamera(node);
   });
-
-const modal = document.querySelector('section.chars-overlay');
-const closeBtn = modal.querySelector('button.btn--white');
-
-closeBtn.addEventListener('click', function () {
-  console.log('work bitch');
-  modal.classList.add('d-none');
-});
