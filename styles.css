@@ -1,5 +1,5 @@
 /* DM Sans font - Will probs use this as the main body font */
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap");
 
 :root {
   --white: #fff;
@@ -170,6 +170,14 @@ header h1 span.black-white {
   color: var(--text-light);
 }
 
+.menu-toggle svg rect {
+  fill: var(--text-light);
+}
+
+.menu-toggle svg circle {
+  fill: none;
+}
+
 .menu-toggle svg circle,
 .menu-toggle svg rect {
   transition: fill 0.3s ease;
@@ -182,6 +190,46 @@ header h1 span.black-white {
 .menu-toggle svg:hover rect {
   fill: var(--text-light);
 }
+
+.svg-dark svg rect {
+  fill: var(--text-dark);
+}
+
+.svg-dark svg circle {
+  fill: none;
+}
+
+.svg-light svg rect {
+  fill: var(--text-light);
+}
+
+.svg-light svg circle {
+  fill: none;
+}
+
+.svg-light svg:hover rect {
+  fill: var(--text-dark);
+}
+
+.svg-light svg:hover circle {
+  fill: var(--light-background);
+}
+
+/* .svg-light svg rect {
+  fill: var(--text-light);
+}
+
+.svg-light svg rect:hover {
+  fill: var(--text-dark);
+}
+
+.svg-light svg circle {
+  fill: none;
+}
+
+.svg-light svg circle:hover {
+  fill: var(--light-background);
+} */
 
 /* nav body */
 nav {
@@ -317,6 +365,10 @@ footer a .misterPixelTools {
   }
 }
 
+.d-none {
+  opacity: 0;
+}
+
 /* Title and blurb */
 main.intro {
   position: relative;
@@ -390,7 +442,7 @@ a.explore span {
 }
 a.explore::before,
 a.explore::after {
-  content: '';
+  content: "";
   width: 0;
   height: 2px;
   position: absolute;
@@ -400,7 +452,7 @@ a.explore::after {
 
 a.explore span::before,
 a.explore span::after {
-  content: '';
+  content: "";
   width: 2px;
   height: 0;
   position: absolute;
@@ -755,6 +807,60 @@ div.contact-content form button:hover {
   }
 }
 
+/* Paths: Character's Overlay */
+section.chars-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  min-height: 100vh;
+  background-color: var(--black);
+  z-index: 100;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+section.chars-overlay .grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 2rem;
+  max-width: 75%;
+  width: 100%;
+}
+
+section.chars-overlay .grid img {
+  transition: all 0.3s ease;
+  transform: scale(0.95);
+}
+
+section.chars-overlay .grid img:hover {
+  transform: scale(1);
+  cursor: pointer;
+}
+
+.grid .close-modal {
+  position: fixed;
+  left: 50%;
+  bottom: 3rem;
+  transform: translateX(-50%);
+}
+
+.btn--white {
+  border: 1px solid var(--white);
+  background: none;
+  color: var(--white);
+  padding: 10px 1rem;
+  cursor: pointer;
+  font-size: 1rem;
+  /* transition: all 0.3s ease; */
+}
+
+.btn--white:hover {
+  background-color: var(--white);
+  color: var(--black);
+}
+
 /* 3D MAP PAGE */
 
 .snackbar_hidden,
@@ -960,7 +1066,7 @@ div.contact-content form button:hover {
 }
 .hamburger::before,
 .hamburger::after {
-  content: '';
+  content: "";
   position: absolute;
   width: 24px;
   height: 2px;
