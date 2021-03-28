@@ -366,3 +366,11 @@ const Graph = ForceGraph3D()(elem)
     }
     updateCamera(node);
   });
+
+const modal = document.querySelector('section.chars-overlay');
+const closeBtn = modal.querySelector('button.btn--white');
+
+closeBtn.addEventListener('click', function () {
+  console.log('work bitch');
+  modal.classList.add('d-none');
+});
