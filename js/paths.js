@@ -17,6 +17,12 @@ const restartText = document.querySelector('.restart-text');
 // Selectors for paths page modal and modal close button
 const modal = document.querySelector('section.chars-overlay');
 const closeBtn = modal.querySelector('button.btn--white');
+// Selector for paths overal modal avatar images
+const modalAvatars = document.querySelectorAll('.chars-overlay-avatar');
+// container selector for dynamically added avatars in snackbar once episode node is clicked
+const avatarContainer = document.querySelector('.select-options');
+// Selector for restart text in snackbar
+const restartOpenModal = document.querySelector('.restart-text');
 // state of hamburger menu
 let isHamburgerMenuOpen = false;
 // all nodes data
@@ -33,11 +39,69 @@ let associatedCharacters = [];
 let filteredNodes = [];
 // current episode
 let currentEpisode = {};
-// container selector for dynamically added avatars in snackbar once episode node is clicked
-const avatarContainer = document.querySelector('.select-options');
 // closes paths page modal
 closeBtn.addEventListener('click', function () {
   modal.classList.add('d-none');
+});
+// opens paths page modal from restart text
+restartOpenModal.addEventListener('click', function () {
+  modal.classList.remove('d-none');
+});
+// Function listens for paths modal avatar clicks and selects character on graph
+modalAvatars.forEach(item => {
+  item.addEventListener('click', e => {
+    modal.classList.add('d-none');
+    // clears all vars to original values
+    resetVariables();
+    // checks to see if snackbar is open and toggles it
+    snackbar.classList.contains('snackbar_hidden')
+      ? snackbar.classList.remove('snackbar_hidden') &
+        snackbar.classList.add('snackbar_show')
+      : null;
+    // gets id from selected avatar on click
+    let selectedModalAvatarID = e.target.getAttribute('data-id');
+    console.log(selectedModalAvatarID);
+    let node = allNodes.find(item => item.id === selectedModalAvatarID);
+    // builds storyPath array based on node id and characterPath property in json
+    storyPath = allLinks.filter(item => item.characterPath === node.id);
+    // hide hamburger btn
+    hamburgerBtn.classList.add('hidden');
+    // toggle hamburger icon class
+    hamburgerBtn.classList.remove('open');
+    // hide snackbar select options
+    selectOptions.classList.add('hidden');
+    // resets classes on snackbar control icons
+    prevBtn.classList.remove('active');
+    playBtn.classList.remove('active');
+    nextBtn.classList.remove('hidden');
+    restartText.classList.add('hidden');
+    // adds active class to next button
+    nextBtn.classList.add('active');
+    // adds pulse animation to nextBtn
+    nextBtn.classList.add('pulse');
+    // adds character color to nextBtn
+    nextBtn.style.color = node.primaryColor;
+    // resets for storyPathIndex and text content
+    blockRight.classList.remove('active');
+    blockRight.textContent = 'click arrow';
+    // Sets colors/text content for diagonal boxes in snackbar
+    blockLeft.style.backgroundColor = node.primaryColor;
+    blockLeft.textContent = node.title;
+    // Sets box shadow color based on character chosem
+    gradientBody.style.boxShadow = `inset 0 0 0 3px ${node.primaryColor}`;
+    console.log(node);
+    const distance = 35;
+    const distRatio = 1 + distance / Math.hypot(node.x, node.y, node.z);
+    Graph.cameraPosition(
+      {
+        x: node.x * distRatio,
+        y: node.y * distRatio,
+        z: node.z * distRatio,
+      }, // new position
+      node, // lookAt ({ x, y, z })
+      2000 // ms transition duration
+    );
+  });
 });
 // Function increments through storyPath array and sets/resets classes based on position in array
 nextBtn.onclick = function () {
@@ -210,11 +274,11 @@ hamburgerBtn.addEventListener('click', () => {
   }
 });
 
-function chooseAvatar() {
+function chooseAvatar(e) {
   // gets id from selected avatar on click
-  let selectedAvatarID = event.target.getAttribute('data-id');
+  let selectedAvatarID = e.target.getAttribute('data-id');
   // gets name from selected avatar on click
-  let selectedAvatarName = event.target.getAttribute('title');
+  let selectedAvatarName = e.target.getAttribute('title');
   // sets left diagonal block to character name
   blockLeft.textContent = selectedAvatarName;
   // close hamburger and select options in snackbar
@@ -328,8 +392,6 @@ const Graph = ForceGraph3D()(elem)
       nextBtn.classList.add('pulse');
       // adds character color to nextBtn
       nextBtn.style.color = node.primaryColor;
-      // hides hamburger
-      hamburgerBtn.classList.add('hidden');
       // resets for storyPathIndex and text content
       blockRight.classList.remove('active');
       blockRight.textContent = 'click arrow';
