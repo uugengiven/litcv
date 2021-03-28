@@ -17,6 +17,8 @@ const restartText = document.querySelector('.restart-text');
 // Selectors for paths page modal and modal close button
 const modal = document.querySelector('section.chars-overlay');
 const closeBtn = modal.querySelector('button.btn--white');
+// Selector for paths overal modal avatar images
+const modalAvatars = document.querySelectorAll('.chars-overlay-avatar');
 // state of hamburger menu
 let isHamburgerMenuOpen = false;
 // all nodes data
@@ -38,6 +40,12 @@ const avatarContainer = document.querySelector('.select-options');
 // closes paths page modal
 closeBtn.addEventListener('click', function () {
   modal.classList.add('d-none');
+});
+// Function listens for paths modal avatar clicks and selects character on graph
+modalAvatars.forEach(item => {
+  item.addEventListener('click', e => {
+    console.log(e.target.title);
+  });
 });
 // Function increments through storyPath array and sets/resets classes based on position in array
 nextBtn.onclick = function () {
@@ -165,11 +173,11 @@ hamburgerBtn.addEventListener('click', () => {
   }
 });
 
-function chooseAvatar() {
+function chooseAvatar(e) {
   // gets id from selected avatar on click
-  let selectedAvatarID = event.target.getAttribute('data-id');
+  let selectedAvatarID = e.target.getAttribute('data-id');
   // gets name from selected avatar on click
-  let selectedAvatarName = event.target.getAttribute('title');
+  let selectedAvatarName = e.target.getAttribute('title');
   // sets left diagonal block to character name
   blockLeft.textContent = selectedAvatarName;
   // close hamburger and select options in snackbar
