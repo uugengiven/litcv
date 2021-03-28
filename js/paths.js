@@ -19,6 +19,10 @@ const modal = document.querySelector('section.chars-overlay');
 const closeBtn = modal.querySelector('button.btn--white');
 // Selector for paths overal modal avatar images
 const modalAvatars = document.querySelectorAll('.chars-overlay-avatar');
+// container selector for dynamically added avatars in snackbar once episode node is clicked
+const avatarContainer = document.querySelector('.select-options');
+// Selector for restart text in snackbar
+const restartOpenModal = document.querySelector('.restart-text');
 // state of hamburger menu
 let isHamburgerMenuOpen = false;
 // all nodes data
@@ -35,15 +39,21 @@ let associatedCharacters = [];
 let filteredNodes = [];
 // current episode
 let currentEpisode = {};
-// container selector for dynamically added avatars in snackbar once episode node is clicked
-const avatarContainer = document.querySelector('.select-options');
 // closes paths page modal
 closeBtn.addEventListener('click', function () {
   modal.classList.add('d-none');
 });
+// opens paths page modal from restart text
+restartOpenModal.addEventListener('click', function () {
+  resetVariables();
+  snackbarContainer.classList.remove('snackbar_show');
+  snackbarContainer.classList.add('snackbar_hidden');
+  modal.classList.remove('d-none');
+});
 // Function listens for paths modal avatar clicks and selects character on graph
 modalAvatars.forEach(item => {
   item.addEventListener('click', e => {
+    modal.classList.add('d-none');
     console.log(e.target.title);
   });
 });

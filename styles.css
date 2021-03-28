@@ -913,7 +913,7 @@ section.chars-overlay .grid img.leaf {
   border-radius: 4px 4px 0 0;
   /* align with animation speed of sidenav or 3D */
   transition: bottom 2000ms ease-in-out;
-  z-index: 9000;
+  z-index: 5;
   font-size: 14px;
   box-sizing: border-box;
 }
