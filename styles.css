@@ -901,10 +901,11 @@ div.contact-content form button:hover {
 }
 
 .snackbar-controls .restart-text.pulse {
-  font-size: 0.725rem;
+  font-size: 0.65rem;
   text-transform: uppercase;
   letter-spacing: 2px;
   cursor: pointer;
+  font-weight: 600;
 }
 .snackbar-controls .restart-text.hidden {
   display: none;
