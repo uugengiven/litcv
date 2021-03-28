@@ -365,10 +365,6 @@ footer a .misterPixelTools {
   }
 }
 
-.d-none {
-  opacity: 0;
-}
-
 /* Title and blurb */
 main.intro {
   position: relative;
@@ -819,6 +815,13 @@ section.chars-overlay {
   display: flex;
   justify-content: center;
   align-items: center;
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+section.chars-overlay.d-none {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
 }
 
 section.chars-overlay .grid {
