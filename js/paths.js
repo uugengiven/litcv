@@ -47,6 +47,12 @@ closeBtn.addEventListener('click', function () {
 restartOpenModal.addEventListener('click', function () {
   modal.classList.remove('d-none');
 });
+
+// prevents user from clicking on modal avatars until 3d graph is fully loaded
+window.addEventListener('load', function () {
+  modalAvatars.forEach(item => (item.style.pointerEvents = 'auto'));
+});
+
 // Function listens for paths modal avatar clicks and selects character on graph
 modalAvatars.forEach(item => {
   item.addEventListener('click', e => {
@@ -60,7 +66,6 @@ modalAvatars.forEach(item => {
       : null;
     // gets id from selected avatar on click
     let selectedModalAvatarID = e.target.getAttribute('data-id');
-    console.log(selectedModalAvatarID);
     let node = allNodes.find(item => item.id === selectedModalAvatarID);
     // builds storyPath array based on node id and characterPath property in json
     storyPath = allLinks.filter(item => item.characterPath === node.id);
@@ -89,7 +94,6 @@ modalAvatars.forEach(item => {
     blockLeft.textContent = node.title;
     // Sets box shadow color based on character chosem
     gradientBody.style.boxShadow = `inset 0 0 0 3px ${node.primaryColor}`;
-    console.log(node);
     const distance = 35;
     const distRatio = 1 + distance / Math.hypot(node.x, node.y, node.z);
     Graph.cameraPosition(
