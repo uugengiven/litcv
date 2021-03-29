@@ -837,6 +837,8 @@ section.chars-overlay .grid img {
   transition: all 0.3s ease;
   transform: scale(0.95);
   border: 4px solid;
+  /* not allowing pointer events until dom is loaded */
+  pointer-events: none;
 }
 
 section.chars-overlay .grid img:hover {
