@@ -50,7 +50,7 @@ restartOpenModal.addEventListener('click', function () {
 
 // prevents user from clicking on modal avatars until 3d graph is fully loaded
 window.addEventListener('load', function () {
-  modalAvatars.forEach(item => (item.style.pointerEvents = 'auto'));
+  modalAvatars.forEach(item => (item.style.pointerEvents = 'inherit'));
 });
 
 // Function listens for paths modal avatar clicks and selects character on graph
@@ -126,7 +126,7 @@ nextBtn.onclick = function () {
   // changes opacity for right text block in snackbar
   blockRight.classList.add('active');
   // changes opacity for play icon in snackbar
-  playBtn.classList.add('active');
+  playBtn.classList.add('active');  
   // changes opacity for prev icon in snackbar
   prevBtn.classList.add('active');
   // removes pulse from nextBtn
@@ -454,3 +454,22 @@ const Graph = ForceGraph3D()(elem)
   }
   
   window.onresize = reportWindowSize;
+
+  function setupVideo() {
+    const overlay = document.querySelector(".video-overlay");
+    overlay.addEventListener('click', () => {
+      overlay.style.opacity = 0;
+      overlay.style.pointerEvents = "none";
+    })
+  }
+
+  function showVideo() {
+    url = currentEpisode?.url ? currentEpisode.url : "https://player.vimeo.com/video/523994506";
+    const video = document.querySelector(".video");
+    video.innerHTML = `<iframe title="vimeo-player" src="${url}" frameborder="0" allowfullscreen></iframe>`;
+    const overlay = document.querySelector(".video-overlay");    
+    overlay.style.opacity = 1;
+    overlay.style.pointerEvents = "auto";
+  }
+
+  setupVideo();

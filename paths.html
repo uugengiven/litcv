@@ -25,6 +25,11 @@
   </head>
 
   <body onload="init()" class="gradient-body">
+    <section class="video-overlay">
+      <div class="video">
+        <iframe title="vimeo-player" src="https://player.vimeo.com/video/523994506" frameborder="0" allowfullscreen></iframe>
+      </div>
+    </section>
     <!-- Overlay container with character images -->
     <section class="chars-overlay">
       <div class="grid">
@@ -177,6 +182,7 @@
             class="control-icon control-icon--play material-icons-round"
             alt="play button icon"
             title="play"
+            onClick="showVideo()"
             >play_circle_outline</span
           >
         </div>
@@ -199,8 +205,8 @@
     </script>
     <script src="js/gsap.min.js"></script>
     <script src="dd-data/episodes.js"></script>
-    <script src="js/paths.js"></script>
     <script src="js/menu.js"></script>
     <script src="js/snackbarToggle.js"></script>
+    <script src="js/paths.js" async></script>
   </body>
 </html>
