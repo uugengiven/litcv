@@ -460,6 +460,8 @@ const Graph = ForceGraph3D()(elem)
     overlay.addEventListener('click', () => {
       overlay.style.opacity = 0;
       overlay.style.pointerEvents = "none";
+      const video = document.querySelector(".video");
+      setTimeout(() => {video.innerHTML = "";}, 1000);
     })
   }
 
