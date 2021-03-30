@@ -214,15 +214,23 @@ const updateCamera = function (node, nextNode) {
   testThing = node;
   console.log('before transform', node);
   console.log(cameraLocation);
+  const distance = 35;
+  const distRatio = 1 + distance / Math.hypot(node.x, node.y, node.z);
   if (nextNode) {
-    const distance = 35;
-    const distRatio = 1 + distance / Math.hypot(node.x, node.y, node.z);
-    secondPoint = new THREE.Vector3(nextNode.x, nextNode.y, nextNode.z);
+    const secondPoint = new THREE.Vector3(nextNode.x, nextNode.y, nextNode.z);
+
     console.log('second node/point', nextNode, secondPoint);
-    const cameraDiff = cameraLocation.clone().sub(secondPoint);
+    // const cameraDiff = cameraLocation.clone().sub(secondPoint);
+    const cameraDiff = cameraLocation.clone().sub(secondPoint).normalize();
+    const pointDistance = cameraLocation.clone().sub(secondPoint).length();
+    console.log("distance: ", pointDistance);
+    const axisPoint = new THREE.Vector3(cameraDiff.z, cameraDiff.x, cameraDiff.y);
+    const angle = 90 * (Math.PI / 180);
+    const offset = cameraDiff.clone().applyAxisAngle( axisPoint, angle);
+
     //const cameraOffset = new THREE.Vector3(cameraDiff.y * -1, cameraDiff.x, cameraDiff.z)
     console.log('camera diff', cameraDiff);
-    cameraLocation = cameraLocation.add(cameraDiff);
+    cameraLocation = cameraLocation.add(cameraDiff.multiplyScalar(35)).add(offset.multiplyScalar(20 + (pointDistance / 10)));
     console.log('using next');
     // const bleh = Graph.camera().clone();
     // bleh.position = cameraLocation;
@@ -232,8 +240,7 @@ const updateCamera = function (node, nextNode) {
     // console.log("bleh", bleh);
   } else {
     //cameraLocation = node.clone();
-    const distance = 35;
-    const distRatio = 1 + distance / Math.hypot(node.x, node.y, node.z);
+    
     cameraLocation = cameraLocation.clone().multiplyScalar(distRatio);
   }
 
@@ -244,11 +251,11 @@ const updateCamera = function (node, nextNode) {
     node, // lookAt ({ x, y, z })
     2000 // ms transition duration
   );
-  setTimeout(() => {
-    const tempCam = Graph.camera().clone().translateX(35);
-    Graph.cameraPosition(tempCam.position, node, 3000);
-    console.log('temp cam', tempCam);
-  }, 2200);
+  // setTimeout(() => {
+  //   const tempCam = Graph.camera().clone().translateX(35);
+  //   Graph.cameraPosition(tempCam.position, node, 3000);
+  //   console.log('temp cam', tempCam);
+  // }, 2200);
 };
 
 // Function adds hamburger animation and toggles character path options
