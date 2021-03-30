@@ -223,14 +223,20 @@ const updateCamera = function (node, nextNode) {
     // const cameraDiff = cameraLocation.clone().sub(secondPoint);
     const cameraDiff = cameraLocation.clone().sub(secondPoint).normalize();
     const pointDistance = cameraLocation.clone().sub(secondPoint).length();
-    console.log("distance: ", pointDistance);
-    const axisPoint = new THREE.Vector3(cameraDiff.z, cameraDiff.x, cameraDiff.y);
+    console.log('distance: ', pointDistance);
+    const axisPoint = new THREE.Vector3(
+      cameraDiff.z,
+      cameraDiff.x,
+      cameraDiff.y
+    );
     const angle = 90 * (Math.PI / 180);
-    const offset = cameraDiff.clone().applyAxisAngle( axisPoint, angle);
+    const offset = cameraDiff.clone().applyAxisAngle(axisPoint, angle);
 
     //const cameraOffset = new THREE.Vector3(cameraDiff.y * -1, cameraDiff.x, cameraDiff.z)
     console.log('camera diff', cameraDiff);
-    cameraLocation = cameraLocation.add(cameraDiff.multiplyScalar(35)).add(offset.multiplyScalar(20 + (pointDistance / 10)));
+    cameraLocation = cameraLocation
+      .add(cameraDiff.multiplyScalar(35))
+      .add(offset.multiplyScalar(20 + pointDistance / 10));
     console.log('using next');
     // const bleh = Graph.camera().clone();
     // bleh.position = cameraLocation;
@@ -240,7 +246,7 @@ const updateCamera = function (node, nextNode) {
     // console.log("bleh", bleh);
   } else {
     //cameraLocation = node.clone();
-    
+
     cameraLocation = cameraLocation.clone().multiplyScalar(distRatio);
   }
 
