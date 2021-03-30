@@ -50,7 +50,7 @@ restartOpenModal.addEventListener('click', function () {
 
 // prevents user from clicking on modal avatars until 3d graph is fully loaded
 window.addEventListener('load', function () {
-  modalAvatars.forEach(item => (item.style.pointerEvents = 'auto'));
+  modalAvatars.forEach(item => (item.style.pointerEvents = 'inherit'));
 });
 
 // Function listens for paths modal avatar clicks and selects character on graph
@@ -458,4 +458,34 @@ function reportWindowSize() {
   Graph.width(window.innerWidth - 10);
 }
 
+function reportWindowSize() {
+  Graph.height(window.innerHeight - 10);
+  Graph.width(window.innerWidth - 10);
+}
+
 window.onresize = reportWindowSize;
+
+function setupVideo() {
+  const overlay = document.querySelector('.video-overlay');
+  overlay.addEventListener('click', () => {
+    overlay.style.opacity = 0;
+    overlay.style.pointerEvents = 'none';
+    const video = document.querySelector('.video');
+    setTimeout(() => {
+      video.innerHTML = '';
+    }, 1000);
+  });
+}
+
+function showVideo() {
+  url = currentEpisode?.url
+    ? currentEpisode.url
+    : 'https://player.vimeo.com/video/523994506';
+  const video = document.querySelector('.video');
+  video.innerHTML = `<iframe title="vimeo-player" src="${url}" frameborder="0" allowfullscreen></iframe>`;
+  const overlay = document.querySelector('.video-overlay');
+  overlay.style.opacity = 1;
+  overlay.style.pointerEvents = 'auto';
+}
+
+setupVideo();
