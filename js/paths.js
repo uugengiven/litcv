@@ -225,8 +225,8 @@ const updateCamera = function (node, nextNode) {
     const pointDistance = cameraLocation.clone().sub(secondPoint).length();
     console.log('distance: ', pointDistance);
     const axisPoint = new THREE.Vector3(
-      cameraDiff.z,
       cameraDiff.x,
+      -cameraDiff.z,
       cameraDiff.y
     );
     const angle = 90 * (Math.PI / 180);
@@ -236,7 +236,7 @@ const updateCamera = function (node, nextNode) {
     console.log('camera diff', cameraDiff);
     cameraLocation = cameraLocation
       .add(cameraDiff.multiplyScalar(35))
-      .add(offset.multiplyScalar(20 + pointDistance / 10));
+      .add(offset.multiplyScalar(10 + (15 - pointDistance / 10)));
     console.log('using next');
     // const bleh = Graph.camera().clone();
     // bleh.position = cameraLocation;
@@ -452,3 +452,10 @@ const Graph = ForceGraph3D()(elem)
     }
     updateCamera(node);
   });
+
+function reportWindowSize() {
+  Graph.height(window.innerHeight - 10);
+  Graph.width(window.innerWidth - 10);
+}
+
+window.onresize = reportWindowSize;
