@@ -102,7 +102,7 @@ const data = {
       type: 'Episode',
       title: 'Under the Numbers',
       associatedCharacters: ['Darcy', 'Carson'],
-      url: 'break!'
+      url: 'https://player.vimeo.com/video/523994506',
     },
     {
       id: 'WHATEVERHAPPENS',
@@ -131,6 +131,7 @@ const data = {
       type: 'Episode',
       title: "It's More Than That",
       associatedCharacters: ['Darcy', 'Jamal'],
+      url: 'https://player.vimeo.com/video/523995966',
     },
     {
       id: 'THEEFFECTOFMARITALSTRESS',
@@ -152,6 +153,7 @@ const data = {
       type: 'Episode',
       title: "Let's Break Them Up",
       associatedCharacters: ['Kiki', 'Leaf'],
+      url: 'https://player.vimeo.com/video/523996776',
     },
     {
       id: 'FLOATINGLEAF',
@@ -173,6 +175,7 @@ const data = {
       type: 'Episode',
       title: 'I Love You, Keeks',
       associatedCharacters: ['Luna', 'Kiki'],
+      url: 'https://player.vimeo.com/video/523997117',
     },
     {
       id: 'LUNASHAPPYHAPPINESS',
@@ -223,6 +226,7 @@ const data = {
       type: 'Episode',
       title: 'Why Would God?',
       associatedCharacters: ['Trav', 'FatherD'],
+      url: 'https://player.vimeo.com/video/523999659',
     },
     {
       id: 'EJOLLIES',
@@ -230,6 +234,7 @@ const data = {
       type: 'Episode',
       title: 'E-Jollies',
       associatedCharacters: ['Trav', 'Luna'],
+      url: 'https://player.vimeo.com/video/414984043',
     },
     {
       id: 'LUNAWANTSMORE',
@@ -237,6 +242,7 @@ const data = {
       type: 'Episode',
       title: 'Luna Wants More',
       associatedCharacters: ['Trav', 'Luna'],
+      url: 'https://player.vimeo.com/video/414989134',
     },
     {
       id: '3AMFULLOFGUILE',
@@ -244,6 +250,7 @@ const data = {
       type: 'Episode',
       title: '3AM, Free of Guile',
       associatedCharacters: ['Trav', 'Luna'],
+      url: 'https://player.vimeo.com/video/410727503',
     },
     {
       id: 'LUNACROSSESTHERUBICON',
@@ -251,6 +258,7 @@ const data = {
       type: 'Episode',
       title: 'Luna Crosses the Rubicon',
       associatedCharacters: ['Trav', 'Luna'],
+      url: 'https://player.vimeo.com/video/415008035',
     },
     {
       id: 'THECOSTOFCOST',
