@@ -910,7 +910,7 @@ section.chars-overlay .grid img.leaf {
   max-width: 800px;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
   /* height: 124px; */
-  width: 98vw;
+  width: 96vw;
   margin: 0 auto;
   border-radius: 4px 4px 0 0;
   /* align with animation speed of sidenav or 3D */
@@ -1202,8 +1202,8 @@ section.chars-overlay .grid img.leaf {
   display: grid;
   justify-content: center;
   align-content: center;
-  background-color: rgba(0, 0, 0, .8);
-  z-index: 1000;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 100001;
   opacity: 0;
   transition-duration: 1s;
   pointer-events: none;
