@@ -1021,6 +1021,11 @@ section.chars-overlay .grid img.leaf {
   opacity: 1;
   cursor: pointer;
   transition: opacity 250ms ease-in-out;
+  pointer-events: all;
+}
+.control-icon--prev,
+.control-icon--next {
+  pointer-events: none;
 }
 
 .snackbar-controls .control-icon.active:hover {
