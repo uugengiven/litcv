@@ -93,7 +93,7 @@ modalAvatars.forEach(item => {
     blockLeft.style.backgroundColor = node.primaryColor;
     blockLeft.textContent = node.title;
     // Sets box shadow color based on character chosem
-    gradientBody.style.boxShadow = `inset 0 0 0 3px ${node.primaryColor}`;
+    gradientBody.style.boxShadow = `inset 0 0 0 6px ${node.primaryColor}`;
     const distance = 35;
     const distRatio = 1 + distance / Math.hypot(node.x, node.y, node.z);
     Graph.cameraPosition(
@@ -416,7 +416,7 @@ const Graph = ForceGraph3D()(elem)
       blockLeft.style.backgroundColor = node.primaryColor;
       blockLeft.textContent = node.title;
       // Sets box shadow color based on character chosem
-      gradientBody.style.boxShadow = `inset 0 0 0 3px ${node.primaryColor}`;
+      gradientBody.style.boxShadow = `inset 0 0 0 6px ${node.primaryColor}`;
     }
     if (node.type === 'Episode') {
       // clears all vars to originals values
