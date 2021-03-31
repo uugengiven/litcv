@@ -1012,7 +1012,6 @@ section.chars-overlay .grid img.leaf {
 
 .snackbar-controls .control-icon {
   height: 46px;
-  cursor: not-allowed;
   opacity: 0.2;
   transition: opacity 250ms ease-in-out;
 }
@@ -1023,8 +1022,8 @@ section.chars-overlay .grid img.leaf {
   transition: opacity 250ms ease-in-out;
   pointer-events: all;
 }
-.control-icon--prev,
-.control-icon--next {
+.snackbar-controls .control-icon--prev,
+.snackbar-controls .control-icon--next {
   pointer-events: none;
 }
 
