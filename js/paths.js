@@ -96,10 +96,10 @@ modalAvatars.forEach(item => {
     gradientBody.style.boxShadow = `inset 0 0 0 6px ${node.primaryColor}`;
     const distance = 35;
     const distRatio = 1 + distance / Math.hypot(node.x, node.y, node.z);
-    Graph
-    .nodeColor(Graph.nodeColor())
-    .linkWidth(Graph.linkWidth())
-    .linkDirectionalParticles(Graph.linkDirectionalParticles());
+    // highlights links based on character
+    Graph.nodeColor(Graph.nodeColor())
+      .linkWidth(Graph.linkWidth())
+      .linkDirectionalParticles(Graph.linkDirectionalParticles());
     Graph.cameraPosition(
       {
         x: node.x * distRatio,
@@ -320,10 +320,10 @@ function chooseAvatar(e) {
   // sets left diagonal block to character color
   blockLeft.style.backgroundColor = storyPath[0].linkColor;
   gradientBody.style.boxShadow = `inset 0 0 0 3px ${storyPath[0].linkColor}`;
-  Graph
-  .nodeColor(Graph.nodeColor())
-  .linkWidth(Graph.linkWidth())
-  .linkDirectionalParticles(Graph.linkDirectionalParticles());
+  // highlights links based on character
+  Graph.nodeColor(Graph.nodeColor())
+    .linkWidth(Graph.linkWidth())
+    .linkDirectionalParticles(Graph.linkDirectionalParticles());
 }
 
 // dynamically creates avatars in snackbar
@@ -363,30 +363,22 @@ const Graph = ForceGraph3D()(elem)
   .linkDirectionalParticles('value')
   .linkDirectionalParticleSpeed(0.005)
   .linkColor(link => {
-    if(link.linkColor == 'ffffff00')
-    {
+    if (link.linkColor == 'ffffff00') {
       return 'ffffff00';
     }
-    if(storyPath[0]?.characterPath == link.characterPath)
-    {
+    if (storyPath[0]?.characterPath == link.characterPath) {
       return link.linkColor;
-    }
-    else
-    {
-      return "#FFFFFF33";
+    } else {
+      return '#FFFFFF33';
     }
   })
   .linkOpacity(1)
   .linkCurvature('linkCurvature')
   .linkCurveRotation('curveRotation')
-  .linkDirectionalParticleWidth(link => 
-  {
-    if(storyPath[0]?.characterPath == link.characterPath)
-    {
+  .linkDirectionalParticleWidth(link => {
+    if (storyPath[0]?.characterPath == link.characterPath) {
       return 1.25;
-    }
-    else
-    {
+    } else {
       return 0;
     }
   })
@@ -448,6 +440,10 @@ const Graph = ForceGraph3D()(elem)
       blockLeft.textContent = node.title;
       // Sets box shadow color based on character chosem
       gradientBody.style.boxShadow = `inset 0 0 0 6px ${node.primaryColor}`;
+      // highlights links based on character
+      Graph.nodeColor(Graph.nodeColor())
+        .linkWidth(Graph.linkWidth())
+        .linkDirectionalParticles(Graph.linkDirectionalParticles());
     }
     if (node.type === 'Episode') {
       // clears all vars to originals values
