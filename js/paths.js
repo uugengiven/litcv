@@ -96,6 +96,10 @@ modalAvatars.forEach(item => {
     gradientBody.style.boxShadow = `inset 0 0 0 6px ${node.primaryColor}`;
     const distance = 35;
     const distRatio = 1 + distance / Math.hypot(node.x, node.y, node.z);
+    Graph
+    .nodeColor(Graph.nodeColor())
+    .linkWidth(Graph.linkWidth())
+    .linkDirectionalParticles(Graph.linkDirectionalParticles());
     Graph.cameraPosition(
       {
         x: node.x * distRatio,
@@ -316,6 +320,10 @@ function chooseAvatar(e) {
   // sets left diagonal block to character color
   blockLeft.style.backgroundColor = storyPath[0].linkColor;
   gradientBody.style.boxShadow = `inset 0 0 0 3px ${storyPath[0].linkColor}`;
+  Graph
+  .nodeColor(Graph.nodeColor())
+  .linkWidth(Graph.linkWidth())
+  .linkDirectionalParticles(Graph.linkDirectionalParticles());
 }
 
 // dynamically creates avatars in snackbar
@@ -354,11 +362,34 @@ const Graph = ForceGraph3D()(elem)
   .nodeLabel('title')
   .linkDirectionalParticles('value')
   .linkDirectionalParticleSpeed(0.005)
-  .linkColor('linkColor')
+  .linkColor(link => {
+    if(link.linkColor == 'ffffff00')
+    {
+      return 'ffffff00';
+    }
+    if(storyPath[0]?.characterPath == link.characterPath)
+    {
+      return link.linkColor;
+    }
+    else
+    {
+      return "#FFFFFF33";
+    }
+  })
   .linkOpacity(1)
   .linkCurvature('linkCurvature')
   .linkCurveRotation('curveRotation')
-  .linkDirectionalParticleWidth(1.125)
+  .linkDirectionalParticleWidth(link => 
+  {
+    if(storyPath[0]?.characterPath == link.characterPath)
+    {
+      return 1.25;
+    }
+    else
+    {
+      return 0;
+    }
+  })
   .linkWidth('width')
   .linkResolution(6)
   .nodeThreeObject(({ img, type, id, size }) => {
