@@ -214,8 +214,6 @@ const updateCamera = function (node, nextNode) {
     cameraLocation = cameraLocation.clone().multiplyScalar(distRatio);
   }
 
-  console.log('location and node', node, cameraLocation);
-
   Graph.cameraPosition(
     cameraLocation, // new position
     node, // lookAt ({ x, y, z })
