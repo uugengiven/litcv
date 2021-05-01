@@ -153,17 +153,6 @@ nextBtn.onclick = function () {
   }
   // gets next target x,y,z and repositions camera
   let node = storyPath[storyPathIndex].source;
-  // const distance = 35;
-  // const distRatio = 1 + distance / Math.hypot(node.x, node.y, node.z);
-  // Graph.cameraPosition(
-  //   {
-  //     x: node.x * distRatio,
-  //     y: node.y * distRatio,
-  //     z: node.z * distRatio
-  //   }, // new position
-  //   node, // lookAt ({ x, y, z })
-  //   2000 // ms transition duration
-  // );
   updateCamera(node, storyPath[storyPathIndex + 1]?.source);
 };
 
@@ -198,17 +187,6 @@ prevBtn.onclick = function () {
 
   // gets next target x,y,z and repositions camera
   let node = storyPath[storyPathIndex].source;
-  // const distance = 35;
-  // const distRatio = 1 + distance / Math.hypot(node.x, node.y, node.z);
-  // Graph.cameraPosition(
-  //   {
-  //     x: node.x * distRatio,
-  //     y: node.y * distRatio,
-  //     z: node.z * distRatio
-  //   }, // new position
-  //   node, // lookAt ({ x, y, z })
-  //   2000 // ms transition duration
-  // );
   updateCamera(node, storyPath[storyPathIndex + 1]?.source);
 };
 
@@ -216,18 +194,12 @@ const updateCamera = function (node, nextNode) {
   var cameraLocation = new THREE.Vector3(node.x, node.y, node.z);
   const originalPoint = cameraLocation.clone();
   testThing = node;
-  console.log('before transform', node);
-  console.log(cameraLocation);
   const distance = 35;
   const distRatio = 1 + distance / Math.hypot(node.x, node.y, node.z);
   if (nextNode) {
     const secondPoint = new THREE.Vector3(nextNode.x, nextNode.y, nextNode.z);
-
-    console.log('second node/point', nextNode, secondPoint);
-    // const cameraDiff = cameraLocation.clone().sub(secondPoint);
     const cameraDiff = cameraLocation.clone().sub(secondPoint).normalize();
     const pointDistance = cameraLocation.clone().sub(secondPoint).length();
-    console.log('distance: ', pointDistance);
     const axisPoint = new THREE.Vector3(
       cameraDiff.x,
       -cameraDiff.z,
@@ -235,22 +207,10 @@ const updateCamera = function (node, nextNode) {
     );
     const angle = 90 * (Math.PI / 180);
     const offset = cameraDiff.clone().applyAxisAngle(axisPoint, angle);
-
-    //const cameraOffset = new THREE.Vector3(cameraDiff.y * -1, cameraDiff.x, cameraDiff.z)
-    console.log('camera diff', cameraDiff);
     cameraLocation = cameraLocation
       .add(cameraDiff.multiplyScalar(35))
       .add(offset.multiplyScalar(10 + (15 - pointDistance / 10)));
-    console.log('using next');
-    // const bleh = Graph.camera().clone();
-    // bleh.position = cameraLocation;
-    // bleh.lookAt(originalPoint);
-    // bleh.translateX(35);
-    // cameraLocation = new THREE.Vector3(bleh.position.x, bleh.position.y, bleh.position.z);
-    // console.log("bleh", bleh);
   } else {
-    //cameraLocation = node.clone();
-
     cameraLocation = cameraLocation.clone().multiplyScalar(distRatio);
   }
 
@@ -261,11 +221,6 @@ const updateCamera = function (node, nextNode) {
     node, // lookAt ({ x, y, z })
     2000 // ms transition duration
   );
-  // setTimeout(() => {
-  //   const tempCam = Graph.camera().clone().translateX(35);
-  //   Graph.cameraPosition(tempCam.position, node, 3000);
-  //   console.log('temp cam', tempCam);
-  // }, 2200);
 };
 
 // Function adds hamburger animation and toggles character path options
