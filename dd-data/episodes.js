@@ -25,7 +25,7 @@ const slightCurve = 0.125;
 const curveRotationA = 1;
 const curveRotationB = 4;
 const charWidth = 0;
-const baseWidth = 0.25;
+const baseWidth = .25;
 const baseParticles = 3;
 
 const data = {

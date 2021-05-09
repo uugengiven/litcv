@@ -164,6 +164,7 @@ nextBtn.onclick = function () {
   //   node, // lookAt ({ x, y, z })
   //   2000 // ms transition duration
   // );
+  updatePathColorsAndBalls();
   updateCamera(node, storyPath[storyPathIndex + 1]?.source);
 };
 
@@ -209,6 +210,7 @@ prevBtn.onclick = function () {
   //   node, // lookAt ({ x, y, z })
   //   2000 // ms transition duration
   // );
+  updatePathColorsAndBalls();
   updateCamera(node, storyPath[storyPathIndex + 1]?.source);
 };
 
@@ -321,6 +323,12 @@ function chooseAvatar(e) {
   blockLeft.style.backgroundColor = storyPath[0].linkColor;
   gradientBody.style.boxShadow = `inset 0 0 0 3px ${storyPath[0].linkColor}`;
   // highlights links based on character
+  updatePathColorsAndBalls();
+  updateCamera(storyPath[storyPathIndex].source, storyPath[storyPathIndex + 1]?.source);
+}
+
+function updatePathColorsAndBalls()
+{
   Graph.nodeColor(Graph.nodeColor())
     .linkWidth(Graph.linkWidth())
     .linkDirectionalParticles(Graph.linkDirectionalParticles());
@@ -376,7 +384,7 @@ const Graph = ForceGraph3D()(elem)
   .linkCurvature('linkCurvature')
   .linkCurveRotation('curveRotation')
   .linkDirectionalParticleWidth(link => {
-    if (storyPath[0]?.characterPath == link.characterPath) {
+    if (storyPath[storyPathIndex] == link || storyPath[storyPathIndex-1] == link) {
       return 1.25;
     } else {
       return 0;
@@ -494,14 +502,25 @@ window.onresize = reportWindowSize;
 
 function setupVideo() {
   const overlay = document.querySelector('.video-overlay');
-  overlay.addEventListener('click', () => {
-    overlay.style.opacity = 0;
-    overlay.style.pointerEvents = 'none';
-    const video = document.querySelector('.video');
+  overlay.addEventListener('click', () => {hideVideo(false)});
+}
+
+function hideVideo (gonext) {
+  console.log("trying to hide");
+  const overlay = document.querySelector('.video-overlay');
+  overlay.style.opacity = 0;
+  overlay.style.pointerEvents = 'none';
+  const video = document.querySelector('.video');
+  setTimeout(() => {
+    video.innerHTML = '';
+  }, 1000);
+  if(gonext)
+  {
+    let event = new Event('click');
     setTimeout(() => {
-      video.innerHTML = '';
-    }, 1000);
-  });
+      nextBtn.dispatchEvent(event);
+    }, 500);
+  }
 }
 
 function showVideo() {
@@ -509,10 +528,34 @@ function showVideo() {
     ? currentEpisode.url
     : 'https://player.vimeo.com/video/523994506';
   const video = document.querySelector('.video');
-  video.innerHTML = `<iframe title="vimeo-player" src="${url}" frameborder="0" allowfullscreen></iframe>`;
+  video.innerHTML = `<iframe title="vimeo-player" src="${url}" id="vimeo-player" frameborder="0" allowfullscreen></iframe>`;
   const overlay = document.querySelector('.video-overlay');
   overlay.style.opacity = 1;
   overlay.style.pointerEvents = 'auto';
+  setupVimeo();
+}
+
+function setupVimeo() {
+  var player = new Vimeo.Player(document.getElementById("vimeo-player"));
+
+  player.on('play', function() {
+    console.log('Played the video');
+  });
+
+  player.getVideoTitle().then(function(title) {
+    console.log('title:', title);
+  });
+
+  // set function for when video has finished
+  player.on('ended', () => {
+    console.log("video is over, do your thingo");
+    // close the video
+    // then hit next
+    hideVideo(true);
+  });
+
+  // start video
+  player.play();
 }
 
 setupVideo();

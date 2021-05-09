@@ -1221,3 +1221,19 @@ section.chars-overlay .grid img.leaf {
   width: 100%;
   height: 100%;
 }
+
+.video-x {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 8vh;
+  right: 8vh;
+  font-size: 2em;
+  color: whitesmoke;
+  background:rgba(0, 0, 0, 0.8);
+  border-radius: 10px;
+  width: 2em;
+  height: 2em;
+  border: 2px solid white;
+}
