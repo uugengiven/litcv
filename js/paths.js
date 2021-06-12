@@ -6,6 +6,8 @@ const blockRight = document.querySelector('.block--right');
 const prevBtn = document.querySelector('.control-icon--prev');
 const nextBtn = document.querySelector('.control-icon--next');
 const playBtn = document.querySelector('.control-icon--play');
+const recenterBtn = document.querySelector('.control-icon--recenter');
+
 // Selector for hamburger button in snackbar
 const hamburgerBtn = document.querySelector('.hamburger-btn');
 // Selector for selector options in snackbar
@@ -47,6 +49,10 @@ closeBtn.addEventListener('click', function () {
 restartOpenModal.addEventListener('click', function () {
   modal.classList.remove('d-none');
 });
+
+let videoDisplay = false;
+const desktop = !(typeof window.orientation !== "undefined") || (navigator.userAgent.indexOf('IEMobile') !== -1);
+
 
 // prevents user from clicking on modal avatars until 3d graph is fully loaded
 window.addEventListener('load', function () {
@@ -97,18 +103,8 @@ modalAvatars.forEach(item => {
     const distance = 35;
     const distRatio = 1 + distance / Math.hypot(node.x, node.y, node.z);
     // highlights links based on character
-    Graph.nodeColor(Graph.nodeColor())
-      .linkWidth(Graph.linkWidth())
-      .linkDirectionalParticles(Graph.linkDirectionalParticles());
-    Graph.cameraPosition(
-      {
-        x: node.x * distRatio,
-        y: node.y * distRatio,
-        z: node.z * distRatio,
-      }, // new position
-      node, // lookAt ({ x, y, z })
-      2000 // ms transition duration
-    );
+    updatePathColorsAndBalls();
+    updateCamera(node, storyPath[0]);
   });
 });
 // Function increments through storyPath array and sets/resets classes based on position in array
@@ -196,7 +192,7 @@ const updateCamera = function (node, nextNode) {
   var cameraLocation = new THREE.Vector3(node.x, node.y, node.z);
   const originalPoint = cameraLocation.clone();
   testThing = node;
-  const distance = 35;
+  const distance = desktop ? 55 : 35;
   const distRatio = 1 + distance / Math.hypot(node.x, node.y, node.z);
   if (nextNode) {
     const secondPoint = new THREE.Vector3(nextNode.x, nextNode.y, nextNode.z);
@@ -210,7 +206,7 @@ const updateCamera = function (node, nextNode) {
     const angle = 90 * (Math.PI / 180);
     const offset = cameraDiff.clone().applyAxisAngle(axisPoint, angle);
     cameraLocation = cameraLocation
-      .add(cameraDiff.multiplyScalar(35))
+      .add(cameraDiff.multiplyScalar(distance))
       .add(offset.multiplyScalar(10 + (15 - pointDistance / 10)));
   } else {
     cameraLocation = cameraLocation.clone().multiplyScalar(distRatio);
@@ -283,6 +279,7 @@ function chooseAvatar(e) {
 function updatePathColorsAndBalls()
 {
   Graph.nodeColor(Graph.nodeColor())
+    .nodeThreeObject(Graph.nodeThreeObject())
     .linkWidth(Graph.linkWidth())
     .linkDirectionalParticles(Graph.linkDirectionalParticles());
 }
@@ -346,11 +343,18 @@ const Graph = ForceGraph3D()(elem)
   .linkWidth('width')
   .linkResolution(6)
   .nodeThreeObject(({ img, type, id, size }) => {
+    let color = 0x999999;
+    console.log(type);
+    if(id === currentEpisode.id || type == "Character")
+    {
+      color = 0xffffff;
+    }
     const imgTexture = new THREE.TextureLoader().load(
       `./images/episodes/${img}`
     );
     const material = new THREE.SpriteMaterial({
       map: imgTexture,
+      color: color
     });
     const sprite = new THREE.Sprite(material);
     if (type == 'Character') {
@@ -407,6 +411,11 @@ const Graph = ForceGraph3D()(elem)
         .linkDirectionalParticles(Graph.linkDirectionalParticles());
     }
     if (node.type === 'Episode') {
+      if (currentEpisode === node)
+      {
+        showVideo();
+        return;
+      }
       // clears all vars to originals values
       resetVariables();
       // sets current episode to episode node clicked
@@ -441,6 +450,13 @@ const Graph = ForceGraph3D()(elem)
     updateCamera(node);
   });
 
+function recenter() {
+  if(currentEpisode)
+  {
+    updateCamera(currentEpisode);
+  }
+}
+
 function reportWindowSize() {
   Graph.height(window.innerHeight - 10);
   Graph.width(window.innerWidth - 10);
@@ -459,20 +475,23 @@ function setupVideo() {
 }
 
 function hideVideo (gonext) {
-  console.log("trying to hide");
-  const overlay = document.querySelector('.video-overlay');
-  overlay.style.opacity = 0;
-  overlay.style.pointerEvents = 'none';
-  const video = document.querySelector('.video');
-  setTimeout(() => {
-    video.innerHTML = '';
-  }, 1000);
-  if(gonext)
+  if(videoDisplay)
   {
-    let event = new Event('click');
+    const overlay = document.querySelector('.video-overlay');
+    overlay.style.opacity = 0;
+    overlay.style.pointerEvents = 'none';
+    videoDisplay = false;
+    const video = document.querySelector('.video');
     setTimeout(() => {
-      nextBtn.dispatchEvent(event);
-    }, 500);
+      video.innerHTML = '';
+    }, 1000);
+    if(gonext)
+    {
+      let event = new Event('click');
+      setTimeout(() => {
+        nextBtn.dispatchEvent(event);
+      }, 500);
+    }
   }
 }
 
@@ -485,6 +504,7 @@ function showVideo() {
   const overlay = document.querySelector('.video-overlay');
   overlay.style.opacity = 1;
   overlay.style.pointerEvents = 'auto';
+  videoDisplay = true;
   setupVimeo();
 }
 
@@ -501,7 +521,6 @@ function setupVimeo() {
 
   // set function for when video has finished
   player.on('ended', () => {
-    console.log("video is over, do your thingo");
     // close the video
     // then hit next
     hideVideo(true);
@@ -510,5 +529,14 @@ function setupVimeo() {
   // start video
   player.play();
 }
+
+document.addEventListener("keydown", (e) => {
+  var key = e.key;
+  if(key == "Esc" || key == "Escape")
+  {
+    hideVideo(false);
+  }
+
+}, false);
 
 setupVideo();
