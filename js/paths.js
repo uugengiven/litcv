@@ -51,62 +51,63 @@ restartOpenModal.addEventListener('click', function () {
 });
 
 let videoDisplay = false;
-const desktop = !(typeof window.orientation !== "undefined") || (navigator.userAgent.indexOf('IEMobile') !== -1);
-
+const desktop =
+  !(typeof window.orientation !== 'undefined') ||
+  navigator.userAgent.indexOf('IEMobile') !== -1;
 
 // prevents user from clicking on modal avatars until 3d graph is fully loaded
 window.addEventListener('load', function () {
-  modalAvatars.forEach(item => (item.style.pointerEvents = 'inherit'));
-});
-
-// Function listens for paths modal avatar clicks and selects character on graph
-modalAvatars.forEach(item => {
-  item.addEventListener('click', e => {
-    modal.classList.add('d-none');
-    // clears all vars to original values
-    resetVariables();
-    // checks to see if snackbar is open and toggles it
-    snackbar.classList.contains('snackbar_hidden')
-      ? snackbar.classList.remove('snackbar_hidden') &
-        snackbar.classList.add('snackbar_show')
-      : null;
-    // gets id from selected avatar on click
-    let selectedModalAvatarID = e.target.getAttribute('data-id');
-    let node = allNodes.find(item => item.id === selectedModalAvatarID);
-    // builds storyPath array based on node id and characterPath property in json
-    storyPath = allLinks.filter(item => item.characterPath === node.id);
-    // hide hamburger btn
-    hamburgerBtn.classList.add('hidden');
-    // toggle hamburger icon class
-    hamburgerBtn.classList.remove('open');
-    // hide snackbar select options
-    selectOptions.classList.add('hidden');
-    // resets classes on snackbar control icons
-    prevBtn.classList.remove('active');
-    playBtn.classList.remove('active');
-    nextBtn.classList.remove('hidden');
-    restartText.classList.add('hidden');
-    // adds active class to next button
-    nextBtn.classList.add('active');
-    // adds pulse animation to nextBtn
-    nextBtn.classList.add('pulse');
-    // adds character color to nextBtn
-    nextBtn.style.color = node.primaryColor;
-    // resets for storyPathIndex and text content
-    blockRight.classList.remove('active');
-    blockRight.textContent = 'click arrow';
-    // Sets colors/text content for diagonal boxes in snackbar
-    blockLeft.style.backgroundColor = node.primaryColor;
-    blockLeft.textContent = node.title;
-    // Sets box shadow color based on character chosem
-    gradientBody.style.boxShadow = `inset 0 0 0 6px ${node.primaryColor}`;
-    const distance = 35;
-    const distRatio = 1 + distance / Math.hypot(node.x, node.y, node.z);
-    // highlights links based on character
-    updatePathColorsAndBalls();
-    updateCamera(node, storyPath[0]);
+  // Function listens for paths modal avatar clicks and selects character on graph
+  modalAvatars.forEach(item => {
+    item.style.pointerEvents = 'inherit';
+    item.addEventListener('click', e => {
+      modal.classList.add('d-none');
+      // clears all vars to original values
+      resetVariables();
+      // checks to see if snackbar is open and toggles it
+      snackbar.classList.contains('snackbar_hidden')
+        ? snackbar.classList.remove('snackbar_hidden') &
+          snackbar.classList.add('snackbar_show')
+        : null;
+      // gets id from selected avatar on click
+      let selectedModalAvatarID = e.target.getAttribute('data-id');
+      let node = allNodes.find(item => item.id === selectedModalAvatarID);
+      // builds storyPath array based on node id and characterPath property in json
+      storyPath = allLinks.filter(item => item.characterPath === node.id);
+      // hide hamburger btn
+      hamburgerBtn.classList.add('hidden');
+      // toggle hamburger icon class
+      hamburgerBtn.classList.remove('open');
+      // hide snackbar select options
+      selectOptions.classList.add('hidden');
+      // resets classes on snackbar control icons
+      prevBtn.classList.remove('active');
+      playBtn.classList.remove('active');
+      nextBtn.classList.remove('hidden');
+      restartText.classList.add('hidden');
+      // adds active class to next button
+      nextBtn.classList.add('active');
+      // adds pulse animation to nextBtn
+      nextBtn.classList.add('pulse');
+      // adds character color to nextBtn
+      nextBtn.style.color = node.primaryColor;
+      // resets for storyPathIndex and text content
+      blockRight.classList.remove('active');
+      blockRight.textContent = 'click arrow';
+      // Sets colors/text content for diagonal boxes in snackbar
+      blockLeft.style.backgroundColor = node.primaryColor;
+      blockLeft.textContent = node.title;
+      // Sets box shadow color based on character chosem
+      gradientBody.style.boxShadow = `inset 0 0 0 6px ${node.primaryColor}`;
+      const distance = 35;
+      const distRatio = 1 + distance / Math.hypot(node.x, node.y, node.z);
+      // highlights links based on character
+      updatePathColorsAndBalls();
+      updateCamera(node, storyPath[0]);
+    });
   });
 });
+
 // Function increments through storyPath array and sets/resets classes based on position in array
 nextBtn.onclick = function () {
   // checks if last item of array
@@ -273,11 +274,13 @@ function chooseAvatar(e) {
   gradientBody.style.boxShadow = `inset 0 0 0 3px ${storyPath[0].linkColor}`;
   // highlights links based on character
   updatePathColorsAndBalls();
-  updateCamera(storyPath[storyPathIndex].source, storyPath[storyPathIndex + 1]?.source);
+  updateCamera(
+    storyPath[storyPathIndex].source,
+    storyPath[storyPathIndex + 1]?.source
+  );
 }
 
-function updatePathColorsAndBalls()
-{
+function updatePathColorsAndBalls() {
   Graph.nodeColor(Graph.nodeColor())
     .nodeThreeObject(Graph.nodeThreeObject())
     .linkWidth(Graph.linkWidth())
@@ -334,7 +337,10 @@ const Graph = ForceGraph3D()(elem)
   .linkCurvature('linkCurvature')
   .linkCurveRotation('curveRotation')
   .linkDirectionalParticleWidth(link => {
-    if (storyPath[storyPathIndex] == link || storyPath[storyPathIndex-1] == link) {
+    if (
+      storyPath[storyPathIndex] == link ||
+      storyPath[storyPathIndex - 1] == link
+    ) {
       return 1.25;
     } else {
       return 0;
@@ -345,8 +351,7 @@ const Graph = ForceGraph3D()(elem)
   .nodeThreeObject(({ img, type, id, size }) => {
     let color = 0x999999;
     console.log(type);
-    if(id === currentEpisode.id || type == "Character")
-    {
+    if (id === currentEpisode.id || type == 'Character') {
       color = 0xffffff;
     }
     const imgTexture = new THREE.TextureLoader().load(
@@ -354,7 +359,7 @@ const Graph = ForceGraph3D()(elem)
     );
     const material = new THREE.SpriteMaterial({
       map: imgTexture,
-      color: color
+      color: color,
     });
     const sprite = new THREE.Sprite(material);
     if (type == 'Character') {
@@ -411,8 +416,7 @@ const Graph = ForceGraph3D()(elem)
         .linkDirectionalParticles(Graph.linkDirectionalParticles());
     }
     if (node.type === 'Episode') {
-      if (currentEpisode === node)
-      {
+      if (currentEpisode === node) {
         showVideo();
         return;
       }
@@ -451,8 +455,8 @@ const Graph = ForceGraph3D()(elem)
   });
 
 function recenter() {
-  if(currentEpisode)
-  {
+  if (currentEpisode.id) {
+    console.log(currentEpisode);
     updateCamera(currentEpisode);
   }
 }
@@ -471,12 +475,13 @@ window.onresize = reportWindowSize;
 
 function setupVideo() {
   const overlay = document.querySelector('.video-overlay');
-  overlay.addEventListener('click', () => {hideVideo(false)});
+  overlay.addEventListener('click', () => {
+    hideVideo(false);
+  });
 }
 
-function hideVideo (gonext) {
-  if(videoDisplay)
-  {
+function hideVideo(gonext) {
+  if (videoDisplay) {
     const overlay = document.querySelector('.video-overlay');
     overlay.style.opacity = 0;
     overlay.style.pointerEvents = 'none';
@@ -485,8 +490,7 @@ function hideVideo (gonext) {
     setTimeout(() => {
       video.innerHTML = '';
     }, 1000);
-    if(gonext)
-    {
+    if (gonext) {
       let event = new Event('click');
       setTimeout(() => {
         nextBtn.dispatchEvent(event);
@@ -509,13 +513,13 @@ function showVideo() {
 }
 
 function setupVimeo() {
-  var player = new Vimeo.Player(document.getElementById("vimeo-player"));
+  var player = new Vimeo.Player(document.getElementById('vimeo-player'));
 
-  player.on('play', function() {
+  player.on('play', function () {
     console.log('Played the video');
   });
 
-  player.getVideoTitle().then(function(title) {
+  player.getVideoTitle().then(function (title) {
     console.log('title:', title);
   });
 
@@ -530,13 +534,15 @@ function setupVimeo() {
   player.play();
 }
 
-document.addEventListener("keydown", (e) => {
-  var key = e.key;
-  if(key == "Esc" || key == "Escape")
-  {
-    hideVideo(false);
-  }
-
-}, false);
+document.addEventListener(
+  'keydown',
+  e => {
+    var key = e.key;
+    if (key == 'Esc' || key == 'Escape') {
+      hideVideo(false);
+    }
+  },
+  false
+);
 
 setupVideo();
