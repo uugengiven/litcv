@@ -1030,6 +1030,23 @@ section.chars-overlay .grid img.leaf {
   display: none;
 }
 
+.snackbar_show span.control-icon.control-icon--recenter.material-icons-round {
+  top: -18px;
+  position: absolute;
+  font-size: 30px !important;
+  left: 50%;
+  opacity: 0.5;
+  cursor: pointer;
+  transform: translate(-50%, -50%);
+  transition: opacity 250ms ease-in-out;
+}
+
+.snackbar_show
+  span.control-icon.control-icon--recenter.material-icons-round:hover {
+  opacity: 1;
+  transition: opacity 250ms ease-in-out;
+}
+
 /* animation for prev button right */
 .pulse {
   animation: pulse 1250ms infinite;
