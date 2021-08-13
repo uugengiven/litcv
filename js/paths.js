@@ -1,3 +1,196 @@
+// Things needed for this to work
+// Default view, what is the current item, what is the next, what is the previous node
+// what is the next and what is the previous link
+// get next, move next, get prev, move prev
+
+// Display should:
+// look for next, prev and set up buttons accordingly
+// highlight buttons as required
+
+// Timer:
+// This is a one second set interal, used for doing animation things
+// generally sends out bubbles from nodes
+
+// State:
+// Is the modal showing
+// Is the snackbar open
+// List of all nodes
+// List of current node path
+// Current Node Index
+
+// Selectors:
+// Items on the page, such as snackbar, nextbtn, prevbtn
+
+const program = {
+  state: {
+    isSnackbarVisible: true,
+    // state of hamburger menu
+    isHamburgerMenuOpen: true,
+    node: null,
+    // all nodes data
+    allNodes: data.nodes,
+    // all links data
+    allLinks: data.links,
+    // path of episode links for each character
+    storyPath: [],
+    // index of storyPath
+    storyPathIndex: 0,
+    // id of characters associated with each episode
+    associatedCharacters: [],
+    // objects for characters associated with each episode
+    filteredNodes: [],
+    // current episode
+    currentEpisode: {},
+    // is the current video displaying?
+    videoDisplay: false,
+    // are we on the desktop?
+    desktop: !(typeof window.orientation !== "undefined") || (navigator.userAgent.indexOf('IEMobile') !== -1),
+  },
+  selectors: {
+    // Selectors for snackbar and diagonal blocks inside snackbar
+    snackbar: document.getElementById('snackbar-container'),
+    blockLeft: document.querySelector('.block--left'),
+    blockRight: document.querySelector('.block--right'),
+    // Selectors for snack bar control icons
+    prevBtn: document.querySelector('.control-icon--prev'),
+    nextBtn: document.querySelector('.control-icon--next'),
+    playBtn: document.querySelector('.control-icon--play'),
+    recenterBtn: document.querySelector('.control-icon--recenter'),
+
+    // Selector for hamburger button in snackbar
+    hamburgerBtn: document.querySelector('.hamburger-btn'),
+    // Selector for selector options in snackbar
+    selectOptions: document.querySelector('.select-options'),
+    // Selector for body to add box-shadow based on character chosen
+    gradientBody: document.querySelector('.particles.gradient-body'),
+    // Selector for restart text in snackbar
+    restartText: document.querySelector('.restart-text'),
+    // Selectors for paths page modal and modal close button
+    modal: document.querySelector('section.chars-overlay'),
+    closeBtn: document.querySelector('.chars-overlay button.btn--white'),
+    // Selector for paths overal modal avatar images
+    modalAvatars: document.querySelectorAll('.chars-overlay-avatar'),
+    // container selector for dynamically added avatars in snackbar once episode node is clicked
+    avatarContainer: document.querySelector('.select-options'),
+    // Selector for restart text in snackbar
+    restartOpenModal: document.querySelector('.restart-text'),
+  },
+  setup: function () {
+    // closes paths page modal
+    const {selectors} = this;
+    selectors.closeBtn.addEventListener('click', function () {
+      selectors.modal.classList.add('d-none');
+    });
+    // opens paths page modal from restart text
+    selectors.restartOpenModal.addEventListener('click', function () {
+      selectors.modal.classList.remove('d-none');
+    });
+    window.addEventListener('load', function () {
+      selectors.modalAvatars.forEach(item => (item.style.pointerEvents = 'inherit'));
+    });
+
+    selectors.modalAvatars.forEach(item => {
+      item.addEventListener('click', e => {
+        selectors.modal.classList.add('d-none');
+        // clears all vars to original values
+        // resetVariables();
+        // checks to see if snackbar is open and toggles it
+        // snackbar.classList.contains('snackbar_hidden')
+        //   ? snackbar.classList.remove('snackbar_hidden') &
+        //     snackbar.classList.add('snackbar_show')
+        //   : null;
+        // gets id from selected avatar on click
+        let selectedModalAvatarID = e.target.getAttribute('data-id');
+        console.log(this);
+        this.selectPath(selectedModalAvatarID);
+      });
+    });
+
+    this.render();
+  },
+  setState: function (newState) {
+    this.state = {...this.state, ...newState};
+    this.render();
+    console.log(this.selectors.modal);
+    console.log(this);
+  },
+  render: function () {
+    const {selectors, state} = this;
+    setClass(selectors.hamburgerBtn, ['hidden', 'open'], state.isHamburgerMenuOpen ? 'open' : 'hidden');
+    setClass(selectors.playBtn, ['active', 'hidden', 'pulse'], state.isEpisode ? 'active' : 'hidden');
+    setClass(selectors.prevBtn, ['active', 'hidden', 'pulse'], state.prev ? 'active' : 'hidden'); 
+    setClass(selectors.snackbar, ['snackbar_hidden', 'snackbar_show'], state.isSnackbarVisible ? 'snackbar_show' : 'snackbar_hidden');
+
+    if(state.node) {
+      selectors.gradientBody.style.boxShadow = `inset 0 0 0 6px ${state.node.primaryColor}`;
+      selectors.nextBtn.style.color = state.node.primaryColor;
+      selectors.blockLeft.style.backgroundColor = state.node.primaryColor;
+      selectors.blockLeft.textContent = state.node.title;
+      if(state.node.type == "Character"){
+        selectors.blockRight.classList.remove('active');
+        selectors.blockRight.textContent = 'click arrow';
+      }
+      else if (state.node.type == "Episode") {
+        // show episode stuff here
+      }
+    }
+  },
+  selectPath: function(path_id) {
+        let selectedModalAvatarID = path_id;
+        const node = allNodes.find(item => item.id === selectedModalAvatarID);
+        // builds storyPath array based on node id and characterPath property in json
+        const storyPath = allLinks.filter(item => item.characterPath === node.id);
+        this.setState({node, storyPath});
+        // // hide hamburger btn
+        // hamburgerBtn.classList.add('hidden');
+        // // toggle hamburger icon class
+        // hamburgerBtn.classList.remove('open');
+        // // hide snackbar select options
+        // selectOptions.classList.add('hidden');
+        // // resets classes on snackbar control icons
+        // prevBtn.classList.remove('active');
+        // playBtn.classList.remove('active');
+        // nextBtn.classList.remove('hidden');
+        // restartText.classList.add('hidden');
+        // // adds active class to next button
+        // nextBtn.classList.add('active');
+        // // adds pulse animation to nextBtn
+        // nextBtn.classList.add('pulse');
+        // // adds character color to nextBtn
+        // nextBtn.style.color = node.primaryColor;
+        // // resets for storyPathIndex and text content
+        // blockRight.classList.remove('active');
+        // blockRight.textContent = 'click arrow';
+        // // Sets colors/text content for diagonal boxes in snackbar
+        // blockLeft.style.backgroundColor = node.primaryColor;
+        // blockLeft.textContent = node.title;
+        // // Sets box shadow color based on character chosem
+        // this.selectors.gradientBody.style.boxShadow = `inset 0 0 0 6px ${node.primaryColor}`;
+        // const distance = 35;
+        // const distRatio = 1 + distance / Math.hypot(node.x, node.y, node.z);
+        // // highlights links based on character
+        updatePathColorsAndBalls();
+        updateCamera(node, storyPath[0]);
+  },
+  nextClick: function () {
+    
+  },
+  prevClick: function () {
+
+  }
+};
+
+function setClass(element, possibleClasses, setClass)
+{
+  possibleClasses.forEach(cls => {
+    element.classList.remove(cls);
+  })
+  element.classList.add(setClass);
+}
+
+program.setup();
+program.setState({});
+
 // Selectors for snackbar and diagonal blocks inside snackbar
 const snackbar = document.getElementById('snackbar-container');
 const blockLeft = document.querySelector('.block--left');
@@ -55,58 +248,56 @@ const desktop = !(typeof window.orientation !== "undefined") || (navigator.userA
 
 
 // prevents user from clicking on modal avatars until 3d graph is fully loaded
-window.addEventListener('load', function () {
-  modalAvatars.forEach(item => (item.style.pointerEvents = 'inherit'));
-});
+
 
 // Function listens for paths modal avatar clicks and selects character on graph
-modalAvatars.forEach(item => {
-  item.addEventListener('click', e => {
-    modal.classList.add('d-none');
-    // clears all vars to original values
-    resetVariables();
-    // checks to see if snackbar is open and toggles it
-    snackbar.classList.contains('snackbar_hidden')
-      ? snackbar.classList.remove('snackbar_hidden') &
-        snackbar.classList.add('snackbar_show')
-      : null;
-    // gets id from selected avatar on click
-    let selectedModalAvatarID = e.target.getAttribute('data-id');
-    let node = allNodes.find(item => item.id === selectedModalAvatarID);
-    // builds storyPath array based on node id and characterPath property in json
-    storyPath = allLinks.filter(item => item.characterPath === node.id);
-    // hide hamburger btn
-    hamburgerBtn.classList.add('hidden');
-    // toggle hamburger icon class
-    hamburgerBtn.classList.remove('open');
-    // hide snackbar select options
-    selectOptions.classList.add('hidden');
-    // resets classes on snackbar control icons
-    prevBtn.classList.remove('active');
-    playBtn.classList.remove('active');
-    nextBtn.classList.remove('hidden');
-    restartText.classList.add('hidden');
-    // adds active class to next button
-    nextBtn.classList.add('active');
-    // adds pulse animation to nextBtn
-    nextBtn.classList.add('pulse');
-    // adds character color to nextBtn
-    nextBtn.style.color = node.primaryColor;
-    // resets for storyPathIndex and text content
-    blockRight.classList.remove('active');
-    blockRight.textContent = 'click arrow';
-    // Sets colors/text content for diagonal boxes in snackbar
-    blockLeft.style.backgroundColor = node.primaryColor;
-    blockLeft.textContent = node.title;
-    // Sets box shadow color based on character chosem
-    gradientBody.style.boxShadow = `inset 0 0 0 6px ${node.primaryColor}`;
-    const distance = 35;
-    const distRatio = 1 + distance / Math.hypot(node.x, node.y, node.z);
-    // highlights links based on character
-    updatePathColorsAndBalls();
-    updateCamera(node, storyPath[0]);
-  });
-});
+// modalAvatars.forEach(item => {
+//   item.addEventListener('click', e => {
+//     modal.classList.add('d-none');
+//     // clears all vars to original values
+//     resetVariables();
+//     // checks to see if snackbar is open and toggles it
+//     snackbar.classList.contains('snackbar_hidden')
+//       ? snackbar.classList.remove('snackbar_hidden') &
+//         snackbar.classList.add('snackbar_show')
+//       : null;
+//     // gets id from selected avatar on click
+//     let selectedModalAvatarID = e.target.getAttribute('data-id');
+//     let node = allNodes.find(item => item.id === selectedModalAvatarID);
+//     // builds storyPath array based on node id and characterPath property in json
+//     storyPath = allLinks.filter(item => item.characterPath === node.id);
+//     // hide hamburger btn
+//     hamburgerBtn.classList.add('hidden');
+//     // toggle hamburger icon class
+//     hamburgerBtn.classList.remove('open');
+//     // hide snackbar select options
+//     selectOptions.classList.add('hidden');
+//     // resets classes on snackbar control icons
+//     prevBtn.classList.remove('active');
+//     playBtn.classList.remove('active');
+//     nextBtn.classList.remove('hidden');
+//     restartText.classList.add('hidden');
+//     // adds active class to next button
+//     nextBtn.classList.add('active');
+//     // adds pulse animation to nextBtn
+//     nextBtn.classList.add('pulse');
+//     // adds character color to nextBtn
+//     nextBtn.style.color = node.primaryColor;
+//     // resets for storyPathIndex and text content
+//     blockRight.classList.remove('active');
+//     blockRight.textContent = 'click arrow';
+//     // Sets colors/text content for diagonal boxes in snackbar
+//     blockLeft.style.backgroundColor = node.primaryColor;
+//     blockLeft.textContent = node.title;
+//     // Sets box shadow color based on character chosem
+//     gradientBody.style.boxShadow = `inset 0 0 0 6px ${node.primaryColor}`;
+//     const distance = 35;
+//     const distRatio = 1 + distance / Math.hypot(node.x, node.y, node.z);
+//     // highlights links based on character
+//     updatePathColorsAndBalls();
+//     updateCamera(node, storyPath[0]);
+//   });
+// });
 // Function increments through storyPath array and sets/resets classes based on position in array
 nextBtn.onclick = function () {
   // checks if last item of array
