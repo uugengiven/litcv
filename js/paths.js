@@ -98,14 +98,6 @@ const program = {
     selectors.modalAvatars.forEach(item => {
       item.addEventListener('click', e => {
         selectors.modal.classList.add('d-none');
-        // clears all vars to original values
-        // resetVariables();
-        // checks to see if snackbar is open and toggles it
-        // snackbar.classList.contains('snackbar_hidden')
-        //   ? snackbar.classList.remove('snackbar_hidden') &
-        //     snackbar.classList.add('snackbar_show')
-        //   : null;
-        // gets id from selected avatar on click
         let selectedModalAvatarID = e.target.getAttribute('data-id');
         console.log(this);
         this.selectPath(selectedModalAvatarID);
@@ -124,18 +116,26 @@ const program = {
   setupNodes : function () {
     // used to set up next/prev nodes
     const {state} = this;
-    state.nodes.current = state.storyPath.length > 0 ? state.storyPath[state.storyPathIndex].source : null;
-    state.nodes.next = state.storyPathIndex < (state.storyPath.length - 1) ? state.storyPath[state.storyPathIndex + 1] : null;
-    state.nodes.prev = state.storyPathIndex > 0 ? state.storyPath[state.storyPathIndex - 1] : null;
+    if(state.storyPath?.length > 0)
+    {
+      state.nodes.current = state.storyPath[state.storyPathIndex].source;
+      state.nodes.next = state.storyPathIndex < (state.storyPath.length - 1) ? state.storyPath[state.storyPathIndex + 1] : null;
+      state.nodes.prev = state.storyPathIndex > 0 ? state.storyPath[state.storyPathIndex - 1] : null;
+    }
   },
-  render: function () {
+  renderHamburger: function () {
     const {selectors, state} = this;
     setClass(selectors.hamburgerBtn, ['hidden', 'open'], state.isHamburgerMenuOpen ? 'open' : 'hidden');
+  },
+  renderSnackbar: function () {
+    const {selectors, state} = this;
     setClass(selectors.playBtn, ['active', 'hidden', 'pulse'], state.nodes.current?.type === "Episode" ? 'active' : 'hidden');
     setClass(selectors.prevBtn, ['active', 'hidden', 'pulse'], state.nodes.prev ? 'active' : 'hidden'); 
     setClass(selectors.nextBtn, ['active', 'hidden', 'pulse'], state.nodes.next ? 'active' : 'hidden'); 
     setClass(selectors.snackbar, ['snackbar_hidden', 'snackbar_show'], state.isSnackbarVisible ? 'snackbar_show' : 'snackbar_hidden');
     setClass(selectors.restartText, ['hidden'], state.nodes.next ? 'hidden': null)
+
+    selectors.blockLeft.textContent = state.selectedCharacterNode? state.selectedCharacterNode.title: null;
 
     // pulse states
     // if at the beginning
@@ -144,19 +144,9 @@ const program = {
       selectors.nextBtn.classList.add("pulse");
     }
 
-    console.log("nodes", state.nodes);
-    if(state.selectedCharacterNode) {
-      // a character is selected
-      selectors.gradientBody.style.boxShadow = `inset 0 0 0 6px ${state.selectedCharacterNode.primaryColor}`;
-      selectors.nextBtn.style.color = state.selectedCharacterNode.primaryColor;
-      selectors.blockLeft.style.backgroundColor = state.selectedCharacterNode.primaryColor;
-
-    }
+    
     if(state.nodes.current) {
       // a node is selected
-      console.log("should be setting stuff");
-      selectors.blockLeft.textContent = state.nodes.current.title;
-      
       setClass(selectors.blockRight, ['active', 'hidden'], state.nodes.current.type == "Episode" ? 'active': 'hidden');
 
       if(state.nodes.current.type == "Character"){
@@ -169,12 +159,32 @@ const program = {
         selectors.blockRight.textContent = state.nodes.current.title;
           
       }
+    }
+  },
+  render: function () {
+    const {selectors, state} = this;
+    
+    this.renderHamburger();
+    this.renderSnackbar();
 
-      
-      updatePathColorsAndBalls();
-      updateCamera(state.nodes.current, state.nodes.next);
+    if(state.selectedCharacterNode) {
+      // a character is selected
+      selectors.gradientBody.style.boxShadow = `inset 0 0 0 6px ${state.selectedCharacterNode.primaryColor}`;
+      selectors.nextBtn.style.color = state.selectedCharacterNode.primaryColor;
+      selectors.blockLeft.style.backgroundColor = state.selectedCharacterNode.primaryColor;
+    }
+    else
+    {
+      // a character is not selected
+      selectors.gradientBody.style.boxShadow = null;
+      selectors.nextBtn.style.color = null;
+      selectors.blockLeft.style.backgroundColor = null;
     }
 
+    if(state.nodes.current){ // this should also check for last action
+      updatePathColorsAndBalls();
+      updateCamera(state.nodes.current, state.nodes.next); 
+    }
   },
   selectPath: function(path_id) {
         let selectedModalAvatarID = path_id;
