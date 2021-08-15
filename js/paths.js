@@ -26,7 +26,13 @@ const program = {
     isSnackbarVisible: true,
     // state of hamburger menu
     isHamburgerMenuOpen: true,
-    node: null,
+    nodes: {
+      next: null,
+      prev: null,
+      current: null
+    },
+    selectedCharacterNode: null,
+    commands: [],
     // all nodes data
     allNodes: data.nodes,
     // all links data
@@ -110,73 +116,91 @@ const program = {
   },
   setState: function (newState) {
     this.state = {...this.state, ...newState};
+    this.setupNodes();
     this.render();
     console.log(this.selectors.modal);
     console.log(this);
   },
+  setupNodes : function () {
+    // used to set up next/prev nodes
+    const {state} = this;
+    state.nodes.current = state.storyPath.length > 0 ? state.storyPath[state.storyPathIndex].source : null;
+    state.nodes.next = state.storyPathIndex < (state.storyPath.length - 1) ? state.storyPath[state.storyPathIndex + 1] : null;
+    state.nodes.prev = state.storyPathIndex > 0 ? state.storyPath[state.storyPathIndex - 1] : null;
+  },
   render: function () {
     const {selectors, state} = this;
     setClass(selectors.hamburgerBtn, ['hidden', 'open'], state.isHamburgerMenuOpen ? 'open' : 'hidden');
-    setClass(selectors.playBtn, ['active', 'hidden', 'pulse'], state.isEpisode ? 'active' : 'hidden');
-    setClass(selectors.prevBtn, ['active', 'hidden', 'pulse'], state.prev ? 'active' : 'hidden'); 
+    setClass(selectors.playBtn, ['active', 'hidden', 'pulse'], state.nodes.current?.type === "Episode" ? 'active' : 'hidden');
+    setClass(selectors.prevBtn, ['active', 'hidden', 'pulse'], state.nodes.prev ? 'active' : 'hidden'); 
+    setClass(selectors.nextBtn, ['active', 'hidden', 'pulse'], state.nodes.next ? 'active' : 'hidden'); 
     setClass(selectors.snackbar, ['snackbar_hidden', 'snackbar_show'], state.isSnackbarVisible ? 'snackbar_show' : 'snackbar_hidden');
+    setClass(selectors.restartText, ['hidden'], state.nodes.next ? 'hidden': null)
 
-    if(state.node) {
-      selectors.gradientBody.style.boxShadow = `inset 0 0 0 6px ${state.node.primaryColor}`;
-      selectors.nextBtn.style.color = state.node.primaryColor;
-      selectors.blockLeft.style.backgroundColor = state.node.primaryColor;
-      selectors.blockLeft.textContent = state.node.title;
-      if(state.node.type == "Character"){
+    // pulse states
+    // if at the beginning
+    if(!state.nodes.prev)
+    {
+      selectors.nextBtn.classList.add("pulse");
+    }
+
+    console.log("nodes", state.nodes);
+    if(state.selectedCharacterNode) {
+      // a character is selected
+      selectors.gradientBody.style.boxShadow = `inset 0 0 0 6px ${state.selectedCharacterNode.primaryColor}`;
+      selectors.nextBtn.style.color = state.selectedCharacterNode.primaryColor;
+      selectors.blockLeft.style.backgroundColor = state.selectedCharacterNode.primaryColor;
+
+    }
+    if(state.nodes.current) {
+      // a node is selected
+      console.log("should be setting stuff");
+      selectors.blockLeft.textContent = state.nodes.current.title;
+      
+      setClass(selectors.blockRight, ['active', 'hidden'], state.nodes.current.type == "Episode" ? 'active': 'hidden');
+
+      if(state.nodes.current.type == "Character"){
         selectors.blockRight.classList.remove('active');
         selectors.blockRight.textContent = 'click arrow';
       }
-      else if (state.node.type == "Episode") {
+      else if (state.nodes.current.type == "Episode") {
         // show episode stuff here
+        // sets text content for episode in right diagonal block
+        selectors.blockRight.textContent = state.nodes.current.title;
+          
       }
+
+      
+      updatePathColorsAndBalls();
+      updateCamera(state.nodes.current, state.nodes.next);
     }
+
   },
   selectPath: function(path_id) {
         let selectedModalAvatarID = path_id;
         const node = allNodes.find(item => item.id === selectedModalAvatarID);
+        console.log("what is this", node);
         // builds storyPath array based on node id and characterPath property in json
         const storyPath = allLinks.filter(item => item.characterPath === node.id);
-        this.setState({node, storyPath});
-        // // hide hamburger btn
-        // hamburgerBtn.classList.add('hidden');
-        // // toggle hamburger icon class
-        // hamburgerBtn.classList.remove('open');
-        // // hide snackbar select options
-        // selectOptions.classList.add('hidden');
-        // // resets classes on snackbar control icons
-        // prevBtn.classList.remove('active');
-        // playBtn.classList.remove('active');
-        // nextBtn.classList.remove('hidden');
-        // restartText.classList.add('hidden');
-        // // adds active class to next button
-        // nextBtn.classList.add('active');
-        // // adds pulse animation to nextBtn
-        // nextBtn.classList.add('pulse');
-        // // adds character color to nextBtn
-        // nextBtn.style.color = node.primaryColor;
-        // // resets for storyPathIndex and text content
-        // blockRight.classList.remove('active');
-        // blockRight.textContent = 'click arrow';
-        // // Sets colors/text content for diagonal boxes in snackbar
-        // blockLeft.style.backgroundColor = node.primaryColor;
-        // blockLeft.textContent = node.title;
-        // // Sets box shadow color based on character chosem
-        // this.selectors.gradientBody.style.boxShadow = `inset 0 0 0 6px ${node.primaryColor}`;
-        // const distance = 35;
-        // const distRatio = 1 + distance / Math.hypot(node.x, node.y, node.z);
-        // // highlights links based on character
-        updatePathColorsAndBalls();
-        updateCamera(node, storyPath[0]);
+        this.setState({
+          storyPathIndex: 0, 
+          storyPath, 
+          selectedCharacterNode: node
+        });
+
+
   },
   nextClick: function () {
-    
+    if(this.state.storyPathIndex < this.state.storyPath.length - 1)
+    {
+      this.setState({storyPathIndex: this.state.storyPathIndex + 1});
+    }
   },
   prevClick: function () {
-
+    if(this.state.storyPathIndex > 0)
+    {
+      this.setState({storyPathIndex: this.state.storyPathIndex - 1});
+    }
   }
 };
 
@@ -185,7 +209,10 @@ function setClass(element, possibleClasses, setClass)
   possibleClasses.forEach(cls => {
     element.classList.remove(cls);
   })
-  element.classList.add(setClass);
+  if(setClass)
+  {
+    element.classList.add(setClass);
+  }
 }
 
 program.setup();
