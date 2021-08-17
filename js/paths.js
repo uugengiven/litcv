@@ -25,6 +25,7 @@
 const MEDIA_NEXT = "MEDIA_NEXT";
 const MEDIA_PREV = "MEDIA_PREV";
 const MEDIA_PLAY = "MEDIA_PLAY";
+const MEDIA_CHANGE = "MEDIA_CHANGE";
 const MEDIA_RECENTER = "MEDIA_RECENTER";
 const PATH_SELECT = "PATH_SELECT";
 const PATH_CHANGE = "PATH_CHANGE";
@@ -148,7 +149,7 @@ const program = {
     }
   },
   renderHamburger: function () {
-    const knownEvents = [HAMBURGER_OPEN, HAMBURGER_CLOSE, PATH_SELECT, PATH_CHANGE, MEDIA_NEXT, MEDIA_PREV];
+    const knownEvents = [HAMBURGER_OPEN, HAMBURGER_CLOSE, PATH_SELECT, PATH_CHANGE, MEDIA_NEXT, MEDIA_PREV, MEDIA_CHANGE];
     if(!knownEvents.includes(this.state.lastCommand)) {
       return; // only look at certain events
     }
@@ -177,7 +178,7 @@ const program = {
     setClass(selectors.selectOptions, ['hidden'], state.isHamburgerMenuOpen ? null : 'hidden');
   },
   renderSnackbar: function () {
-    const knownEvents = [MEDIA_NEXT, MEDIA_PREV, MEDIA_PLAY, PATH_SELECT, PATH_CHANGE, SNACKBAR_CLOSE, SNACKBAR_OPEN]
+    const knownEvents = [MEDIA_NEXT, MEDIA_PREV, MEDIA_PLAY, MEDIA_CHANGE, PATH_SELECT, PATH_CHANGE, SNACKBAR_CLOSE, SNACKBAR_OPEN]
     if(!knownEvents.includes(this.state.lastCommand)) {
       return; // only look at certain events
     }
@@ -216,7 +217,7 @@ const program = {
     }
   },
   renderCamera: function () {
-    const knownEvents = [MEDIA_NEXT, MEDIA_PREV, PATH_SELECT, PATH_CHANGE, MEDIA_RECENTER];
+    const knownEvents = [MEDIA_NEXT, MEDIA_PREV, PATH_SELECT, PATH_CHANGE, MEDIA_RECENTER, MEDIA_CHANGE];
     if(!knownEvents.includes(this.state.lastCommand)) {
       return; // only look at certain events
     }
@@ -279,9 +280,9 @@ const program = {
   },
   selectPath: function(path_id) {
         let selectedModalAvatarID = path_id;
-        const node = allNodes.find(item => item.id === selectedModalAvatarID);
+        const node = this.state.allNodes.find(item => item.id === selectedModalAvatarID);
         // builds storyPath array based on node id and characterPath property in json
-        const storyPath = allLinks.filter(item => item.characterPath === node.id);
+        const storyPath = this.state.allLinks.filter(item => item.characterPath === node.id);
         this.sendEvent(PATH_SELECT, {
           storyPathIndex: 0, 
           storyPath, 
@@ -291,9 +292,9 @@ const program = {
   changePath: function (path_id) {
     let selectedModalAvatarID = path_id;
     const {state} = this;
-    const node = allNodes.find(item => item.id === selectedModalAvatarID);
+    const node = state.allNodes.find(item => item.id === selectedModalAvatarID);
     // builds storyPath array based on node id and characterPath property in json
-    const storyPath = allLinks.filter(item => item.characterPath === node.id);
+    const storyPath = state.allLinks.filter(item => item.characterPath === node.id);
     const storyPathIndex = storyPath.findIndex(
       item => item.source.id === state.nodes.current.id
     );
@@ -349,7 +350,35 @@ const program = {
     this.sendEvent(SNACKBAR_OPEN, {isSnackbarVisible: true});
   },
   nodeClick: function (node) {
-
+    // find node
+    console.log("nodey clicky", node);
+    const index = this.state.storyPath.findIndex(item => item.source === node);
+    if(index > -1)
+    {
+      console.log("in the path");
+      // if node is in current story path, keep everything, just update storypathindex
+      if(index == this.state.storyPathIndex)
+      {
+        // clicked on the one that they're currently looking at
+        this.playClick();
+      }
+      else
+      {
+        this.sendEvent(MEDIA_CHANGE, {storyPathIndex: index});
+      }
+    }
+    else
+    {
+      console.log("out the path");
+      // if node is not in current story path, clear out currently selected user, then put it in as current
+      this.sendEvent(MEDIA_CHANGE, {
+        storyPathIndex: 0, 
+        storyPath: [], 
+        selectedCharacterNode: null,
+        nodes: {current: node, next: null, prev: null}
+      })
+      
+    }
   },
   hamburgerToggle: function() {
     if(this.state.isHamburgerMenuOpen){
@@ -375,58 +404,6 @@ function setClass(element, possibleClasses, setClass)
 
 program.setup();
 program.setState({});
-
-// Selectors for snackbar and diagonal blocks inside snackbar
-const snackbar = document.getElementById('snackbar-container');
-const blockLeft = document.querySelector('.block--left');
-const blockRight = document.querySelector('.block--right');
-// Selectors for snack bar control icons
-const prevBtn = document.querySelector('.control-icon--prev');
-const nextBtn = document.querySelector('.control-icon--next');
-// const playBtn = document.querySelector('.control-icon--play');
-const recenterBtn = document.querySelector('.control-icon--recenter');
-
-// Selector for hamburger button in snackbar
-const hamburgerBtn = document.querySelector('.hamburger-btn');
-// Selector for selector options in snackbar
-const selectOptions = document.querySelector('.select-options');
-// Selector for body to add box-shadow based on character chosen
-const gradientBody = document.querySelector('.particles.gradient-body');
-// Selector for restart text in snackbar
-const restartText = document.querySelector('.restart-text');
-// Selectors for paths page modal and modal close button
-const modal = document.querySelector('section.chars-overlay');
-const closeBtn = modal.querySelector('button.btn--white');
-// Selector for paths overal modal avatar images
-const modalAvatars = document.querySelectorAll('.chars-overlay-avatar');
-// container selector for dynamically added avatars in snackbar once episode node is clicked
-const avatarContainer = document.querySelector('.select-options');
-// Selector for restart text in snackbar
-const restartOpenModal = document.querySelector('.restart-text');
-// state of hamburger menu
-let isHamburgerMenuOpen = false;
-// all nodes data
-let allNodes = data.nodes;
-// all links data
-const allLinks = data.links;
-// path of episode links for each character
-let storyPath = [];
-// index of storyPath
-let storyPathIndex = 0;
-// id of characters associated with each episode
-let associatedCharacters = [];
-// objects for characters associated with each episode
-let filteredNodes = [];
-// current episode
-let currentEpisode = {};
-// closes paths page modal
-// closeBtn.addEventListener('click', function () {
-//   modal.classList.add('d-none');
-// });
-// // opens paths page modal from restart text
-// restartOpenModal.addEventListener('click', function () {
-//   modal.classList.remove('d-none');
-// });
 
 const desktop = !(typeof window.orientation !== "undefined") || (navigator.userAgent.indexOf('IEMobile') !== -1);
 
@@ -461,63 +438,6 @@ const updateCamera = function (node, nextNode) {
   );
 };
 
-// Function adds hamburger animation and toggles character path options
-// hamburgerBtn.addEventListener('click', () => {
-//   if (isHamburgerMenuOpen) {
-//     isHamburgerMenuOpen = !isHamburgerMenuOpen;
-//     hamburgerBtn.classList.remove('open');
-//     selectOptions.classList.add('hidden');
-//     clearAvatars();
-//   } else {
-//     clearAvatars();
-//     // get associated characters
-    // associatedCharacters = currentEpisode.associatedCharacters;
-    // // filters associatedCharacters against allNodes to get characters objects needed
-    // filteredNodes = allNodes.filter(item =>
-    //   associatedCharacters.includes(item.id)
-    // );
-    // // calls createAvatar function to create avatars in snackbar
-    // filteredNodes.forEach(function (item) {
-    //   createAvatar(item.id, item.primaryColor, item.img, item.title);
-    // });
-//     // toggles isHamburgerOpen
-//     isHamburgerMenuOpen = !isHamburgerMenuOpen;
-//     hamburgerBtn.classList.add('open');
-//     // shows select options
-//     selectOptions.classList.remove('hidden');
-//   }
-// });
-
-// function chooseAvatar(e) {
-//   // gets id from selected avatar on click
-//   let selectedAvatarID = e.target.getAttribute('data-id');
-//   // gets name from selected avatar on click
-//   let selectedAvatarName = e.target.getAttribute('title');
-//   // sets left diagonal block to character name
-//   blockLeft.textContent = selectedAvatarName;
-//   // close hamburger and select options in snackbar
-//   isHamburgerMenuOpen = false;
-//   hamburgerBtn.classList.remove('open');
-//   selectOptions.classList.add('hidden');
-//   // builds character path array
-//   storyPath = allLinks.filter(item => item.characterPath === selectedAvatarID);
-//   // set storyPathIndex based on currentEpisode id index in latest storyPath
-//   storyPathIndex = storyPath.findIndex(
-//     item => item.source.id === currentEpisode.id
-//   );
-//   // set classes on prev/next buttons based on array index
-//   storyPathIndex !== 0 ? prevBtn.classList.add('active') : null;
-//   storyPathIndex !== storyPath.length - 1
-//     ? nextBtn.classList.add('active')
-//     : nextBtn.classList.add('hidden') & restartText.classList.remove('hidden');
-//   // sets left diagonal block to character color
-//   blockLeft.style.backgroundColor = storyPath[0].linkColor;
-//   gradientBody.style.boxShadow = `inset 0 0 0 3px ${storyPath[0].linkColor}`;
-//   // highlights links based on character
-//   updatePathColorsAndBalls();
-//   updateCamera(storyPath[storyPathIndex].source, storyPath[storyPathIndex + 1]?.source);
-// }
-
 function updatePathColorsAndBalls()
 {
   Graph.nodeColor(Graph.nodeColor())
@@ -531,7 +451,7 @@ function createAvatar(id, color, image, title) {
   const element = document.createElement('div');
   element.classList.add('avatar-container');
   element.innerHTML = `<img data-id="${id}" src="images/episodes/${image}" class="avatar" alt="Avatar" style="border: 3px solid ${color}" title=${title}>`;
-  avatarContainer.appendChild(element);
+  program.selectors.avatarContainer.appendChild(element);
   const associatedAvatars = document.querySelectorAll('.avatar');
   associatedAvatars.forEach(item =>
     item.addEventListener('click', e => program.changePath(e.target.getAttribute('data-id')))
@@ -613,13 +533,6 @@ const Graph = ForceGraph3D()(elem)
     program.nodeClick(node);
   });
 
-function recenter() {
-  if(currentEpisode)
-  {
-    updateCamera(currentEpisode);
-  }
-}
-
 function reportWindowSize() {
   Graph.height(window.innerHeight - 10);
   Graph.width(window.innerWidth - 10);
@@ -627,55 +540,16 @@ function reportWindowSize() {
 
 window.onresize = reportWindowSize;
 
-// function setupVideo() {
-//   const overlay = document.querySelector('.video-overlay');
-//   overlay.addEventListener('click', () => {program.sendEvent(VIDEO_CLOSE, {})});
-// }
-
-// function hideVideo (gonext) {
-//   if(videoDisplay)
-//   {
-//     const overlay = document.querySelector('.video-overlay');
-//     overlay.style.opacity = 0;
-//     overlay.style.pointerEvents = 'none';
-//     videoDisplay = false;
-//     const video = document.querySelector('.video');
-//     setTimeout(() => {
-//       video.innerHTML = '';
-//     }, 1000);
-//     if(gonext)
-//     {
-//       let event = new Event('click');
-//       setTimeout(() => {
-//         nextBtn.dispatchEvent(event);
-//       }, 500);
-//     }
-//   }
-// }
-
-// function showVideo() {
-//   url = currentEpisode?.url
-//     ? currentEpisode.url
-//     : 'https://player.vimeo.com/video/523994506';
-//   const video = document.querySelector('.video');
-//   video.innerHTML = `<iframe title="vimeo-player" src="${url}" id="vimeo-player" frameborder="0" allowfullscreen></iframe>`;
-//   const overlay = document.querySelector('.video-overlay');
-//   overlay.style.opacity = 1;
-//   overlay.style.pointerEvents = 'auto';
-//   videoDisplay = true;
-//   setupVimeo();
-// }
-
 function setupVimeo() {
   var player = new Vimeo.Player(document.getElementById("vimeo-player"));
 
-  player.on('play', function() {
-    console.log('Played the video');
-  });
+  // player.on('play', function() {
+  //   console.log('Played the video');
+  // });
 
-  player.getVideoTitle().then(function(title) {
-    console.log('title:', title);
-  });
+  // player.getVideoTitle().then(function(title) {
+  //   console.log('title:', title);
+  // });
 
   // set function for when video has finished
   player.on('ended', () => {
@@ -696,5 +570,3 @@ document.addEventListener("keydown", (e) => {
     program.videocloseClick();
   }
 }, false);
-
-// setupVideo();
