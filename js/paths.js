@@ -402,13 +402,10 @@ const program = {
   },
   sendBalls: function() {
     const {state} = this;
-    if(state.storyPath.length > 0)
+    if(state.nodes.current)
     {
-      if(state.nodes.current.type == "Episode")
-      {
-        const links = state.allLinks.filter(link => link.target.id === state.nodes.current.id);
-        links.forEach(link => Graph.emitParticle(link));
-      }
+      const links = state.allLinks.filter(link => link.target.id === state.nodes.current.id);
+      links.forEach(link => Graph.emitParticle(link));
     }
   }
 };
