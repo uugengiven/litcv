@@ -32,6 +32,7 @@ const SNACKBAR_CLOSE = "SNACKBAR_CLOSE";
 const SNACKBAR_OPEN = "SNACKBAR_OPEN";
 const WEBSITE_LOADED = "WEBSITE_LOADED";
 const HAMBURGER_OPEN = "HAMBURGER_OPEN";
+const HAMBURGER_CLOSE = "HAMBURGER_CLOSE";
 const VIDEO_CLOSE = "VIDEO_CLOSE";
 const VIDEO_END = "VIDEO_END"; // this will close and go next
 
@@ -125,7 +126,8 @@ const program = {
     selectors.nextBtn.addEventListener('click', e => {this.nextClick();});
     selectors.playBtn.addEventListener('click', e => {this.playClick();});
     selectors.recenterBtn.addEventListener('click', e => {this.recenterClick();})
-    selectors.videoOverlay.addEventListener('click', () => {this.videocloseClick();});
+    selectors.videoOverlay.addEventListener('click', e => {this.videocloseClick();});
+    selectors.hamburgerBtn.addEventListener('click', e => {this.hamburgerToggle();});
     this.render();
   },
   setState: function (newState) {
@@ -146,11 +148,36 @@ const program = {
     }
   },
   renderHamburger: function () {
+    const knownEvents = [HAMBURGER_OPEN, HAMBURGER_CLOSE, PATH_SELECT, PATH_CHANGE, MEDIA_NEXT, MEDIA_PREV];
+    if(!knownEvents.includes(this.state.lastCommand)) {
+      return; // only look at certain events
+    }
     const {selectors, state} = this;
-    setClass(selectors.hamburgerBtn, ['hidden', 'open'], state.isHamburgerMenuOpen ? 'open' : 'hidden');
+    if(state.isHamburgerMenuOpen)
+    {
+      while(selectors.avatarContainer.firstChild)
+      {
+        selectors.avatarContainer.removeChild(selectors.avatarContainer.firstChild)
+      }
+      // do the absurd building of the avatars
+      if(state.nodes.current.type == "Episode"){
+        associatedCharacters = state.nodes.current.associatedCharacters;
+        // filters associatedCharacters against allNodes to get characters objects needed
+        filteredNodes = state.allNodes.filter(item =>
+          associatedCharacters.includes(item.id)
+        );
+        // calls createAvatar function to create avatars in snackbar
+        filteredNodes.forEach(function (item) {
+          createAvatar(item.id, item.primaryColor, item.img, item.title);
+        });
+      }
+    }
+    
+    setClass(selectors.hamburgerBtn, ['hidden', 'open'], state.isHamburgerMenuOpen ? 'open' : null);
+    setClass(selectors.selectOptions, ['hidden'], state.isHamburgerMenuOpen ? null : 'hidden');
   },
   renderSnackbar: function () {
-    const knownEvents = [MEDIA_NEXT, MEDIA_PREV, MEDIA_PLAY, PATH_SELECT, SNACKBAR_CLOSE, SNACKBAR_OPEN]
+    const knownEvents = [MEDIA_NEXT, MEDIA_PREV, MEDIA_PLAY, PATH_SELECT, PATH_CHANGE, SNACKBAR_CLOSE, SNACKBAR_OPEN]
     if(!knownEvents.includes(this.state.lastCommand)) {
       return; // only look at certain events
     }
@@ -189,7 +216,7 @@ const program = {
     }
   },
   renderCamera: function () {
-    const knownEvents = [MEDIA_NEXT, MEDIA_PREV, PATH_SELECT, MEDIA_RECENTER];
+    const knownEvents = [MEDIA_NEXT, MEDIA_PREV, PATH_SELECT, PATH_CHANGE, MEDIA_RECENTER];
     if(!knownEvents.includes(this.state.lastCommand)) {
       return; // only look at certain events
     }
@@ -261,6 +288,22 @@ const program = {
           selectedCharacterNode: node
         });
   },
+  changePath: function (path_id) {
+    let selectedModalAvatarID = path_id;
+    const {state} = this;
+    const node = allNodes.find(item => item.id === selectedModalAvatarID);
+    // builds storyPath array based on node id and characterPath property in json
+    const storyPath = allLinks.filter(item => item.characterPath === node.id);
+    const storyPathIndex = storyPath.findIndex(
+      item => item.source.id === state.nodes.current.id
+    );
+    this.sendEvent(PATH_CHANGE, {
+      storyPathIndex: storyPathIndex, 
+      storyPath, 
+      selectedCharacterNode: node,
+      isHamburgerMenuOpen: false
+    });
+  },
   sendEvent: function(event, newState) {
     const commands = [...this.state.commands, event];
     this.setState({...newState, commands, lastCommand: event});
@@ -307,6 +350,15 @@ const program = {
   },
   nodeClick: function (node) {
 
+  },
+  hamburgerToggle: function() {
+    if(this.state.isHamburgerMenuOpen){
+      this.sendEvent(HAMBURGER_CLOSE, {isHamburgerMenuOpen: false});
+    }
+    else
+    {
+      this.sendEvent(HAMBURGER_OPEN, {isHamburgerMenuOpen: true});
+    }   
   }
 };
 
@@ -376,63 +428,7 @@ let currentEpisode = {};
 //   modal.classList.remove('d-none');
 // });
 
-let videoDisplay = false;
 const desktop = !(typeof window.orientation !== "undefined") || (navigator.userAgent.indexOf('IEMobile') !== -1);
-
-
-// prevents user from clicking on modal avatars until 3d graph is fully loaded
-
-
-// Function listens for paths modal avatar clicks and selects character on graph
-// modalAvatars.forEach(item => {
-//   item.addEventListener('click', e => {
-//     modal.classList.add('d-none');
-//     // clears all vars to original values
-//     resetVariables();
-//     // checks to see if snackbar is open and toggles it
-//     snackbar.classList.contains('snackbar_hidden')
-//       ? snackbar.classList.remove('snackbar_hidden') &
-//         snackbar.classList.add('snackbar_show')
-//       : null;
-//     // gets id from selected avatar on click
-//     let selectedModalAvatarID = e.target.getAttribute('data-id');
-//     let node = allNodes.find(item => item.id === selectedModalAvatarID);
-//     // builds storyPath array based on node id and characterPath property in json
-//     storyPath = allLinks.filter(item => item.characterPath === node.id);
-//     // hide hamburger btn
-//     hamburgerBtn.classList.add('hidden');
-//     // toggle hamburger icon class
-//     hamburgerBtn.classList.remove('open');
-//     // hide snackbar select options
-//     selectOptions.classList.add('hidden');
-//     // resets classes on snackbar control icons
-//     prevBtn.classList.remove('active');
-//     playBtn.classList.remove('active');
-//     nextBtn.classList.remove('hidden');
-//     restartText.classList.add('hidden');
-//     // adds active class to next button
-//     nextBtn.classList.add('active');
-//     // adds pulse animation to nextBtn
-//     nextBtn.classList.add('pulse');
-//     // adds character color to nextBtn
-//     nextBtn.style.color = node.primaryColor;
-//     // resets for storyPathIndex and text content
-//     blockRight.classList.remove('active');
-//     blockRight.textContent = 'click arrow';
-//     // Sets colors/text content for diagonal boxes in snackbar
-//     blockLeft.style.backgroundColor = node.primaryColor;
-//     blockLeft.textContent = node.title;
-//     // Sets box shadow color based on character chosem
-//     gradientBody.style.boxShadow = `inset 0 0 0 6px ${node.primaryColor}`;
-//     const distance = 35;
-//     const distRatio = 1 + distance / Math.hypot(node.x, node.y, node.z);
-//     // highlights links based on character
-//     updatePathColorsAndBalls();
-//     updateCamera(node, storyPath[0]);
-//   });
-// });
-// Function increments through storyPath array and sets/resets classes based on position in array
-
 
 const updateCamera = function (node, nextNode) {
   var cameraLocation = new THREE.Vector3(node.x, node.y, node.z);
@@ -466,31 +462,31 @@ const updateCamera = function (node, nextNode) {
 };
 
 // Function adds hamburger animation and toggles character path options
-hamburgerBtn.addEventListener('click', () => {
-  if (isHamburgerMenuOpen) {
-    isHamburgerMenuOpen = !isHamburgerMenuOpen;
-    hamburgerBtn.classList.remove('open');
-    selectOptions.classList.add('hidden');
-    clearAvatars();
-  } else {
-    clearAvatars();
-    // get associated characters
-    associatedCharacters = currentEpisode.associatedCharacters;
-    // filters associatedCharacters against allNodes to get characters objects needed
-    filteredNodes = allNodes.filter(item =>
-      associatedCharacters.includes(item.id)
-    );
-    // calls createAvatar function to create avatars in snackbar
-    filteredNodes.forEach(function (item) {
-      createAvatar(item.id, item.primaryColor, item.img, item.title);
-    });
-    // toggles isHamburgerOpen
-    isHamburgerMenuOpen = !isHamburgerMenuOpen;
-    hamburgerBtn.classList.add('open');
-    // shows select options
-    selectOptions.classList.remove('hidden');
-  }
-});
+// hamburgerBtn.addEventListener('click', () => {
+//   if (isHamburgerMenuOpen) {
+//     isHamburgerMenuOpen = !isHamburgerMenuOpen;
+//     hamburgerBtn.classList.remove('open');
+//     selectOptions.classList.add('hidden');
+//     clearAvatars();
+//   } else {
+//     clearAvatars();
+//     // get associated characters
+    // associatedCharacters = currentEpisode.associatedCharacters;
+    // // filters associatedCharacters against allNodes to get characters objects needed
+    // filteredNodes = allNodes.filter(item =>
+    //   associatedCharacters.includes(item.id)
+    // );
+    // // calls createAvatar function to create avatars in snackbar
+    // filteredNodes.forEach(function (item) {
+    //   createAvatar(item.id, item.primaryColor, item.img, item.title);
+    // });
+//     // toggles isHamburgerOpen
+//     isHamburgerMenuOpen = !isHamburgerMenuOpen;
+//     hamburgerBtn.classList.add('open');
+//     // shows select options
+//     selectOptions.classList.remove('hidden');
+//   }
+// });
 
 // function chooseAvatar(e) {
 //   // gets id from selected avatar on click
@@ -538,7 +534,7 @@ function createAvatar(id, color, image, title) {
   avatarContainer.appendChild(element);
   const associatedAvatars = document.querySelectorAll('.avatar');
   associatedAvatars.forEach(item =>
-    item.addEventListener('click', chooseAvatar)
+    item.addEventListener('click', e => program.changePath(e.target.getAttribute('data-id')))
   );
 }
 
