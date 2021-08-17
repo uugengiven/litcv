@@ -130,6 +130,7 @@ const program = {
     selectors.videoOverlay.addEventListener('click', e => {this.videocloseClick();});
     selectors.hamburgerBtn.addEventListener('click', e => {this.hamburgerToggle();});
     this.render();
+    setInterval(() => this.pulse(), 1000);
   },
   setState: function (newState) {
     this.state = {...this.state, ...newState};
@@ -187,7 +188,7 @@ const program = {
     setClass(selectors.prevBtn, ['active', 'hidden', 'pulse'], state.nodes.prev ? 'active' : 'hidden'); 
     setClass(selectors.nextBtn, ['active', 'hidden', 'pulse'], state.nodes.next ? 'active' : 'hidden'); 
     setClass(selectors.snackbar, ['snackbar_hidden', 'snackbar_show'], state.isSnackbarVisible ? 'snackbar_show' : 'snackbar_hidden');
-    setClass(selectors.restartText, ['hidden'], state.nodes.next ? 'hidden': null);
+    setClass(selectors.restartText, ['hidden'], state.nodes.next || !state.selectedCharacterNode ? 'hidden': null);
     setClass(selectors.recenterBtn, ['active', 'hidden'], state.nodes.current ? 'active' : null);
 
     selectors.blockLeft.textContent = state.selectedCharacterNode? state.selectedCharacterNode.title: null;
@@ -223,7 +224,7 @@ const program = {
     }
     if(this.state.nodes.current){ // this should also check for last action
       updatePathColorsAndBalls();
-      updateCamera(this.state.nodes.current, this.state.nodes.next); 
+      // updateCamera(this.state.nodes.current, this.state.nodes.next); 
     }
   },
   renderVideoPlayer: function () {
@@ -371,12 +372,18 @@ const program = {
     {
       console.log("out the path");
       // if node is not in current story path, clear out currently selected user, then put it in as current
-      this.sendEvent(MEDIA_CHANGE, {
+      if(node.type == "Episode"){
+        this.sendEvent(MEDIA_CHANGE, {
         storyPathIndex: 0, 
         storyPath: [], 
         selectedCharacterNode: null,
         nodes: {current: node, next: null, prev: null}
-      })
+        });
+      }
+      else
+      {
+        this.selectPath(node.id);
+      }
       
     }
   },
@@ -388,6 +395,21 @@ const program = {
     {
       this.sendEvent(HAMBURGER_OPEN, {isHamburgerMenuOpen: true});
     }   
+  },
+  pulse: function() {
+    // I do this on an interval
+    this.sendBalls();
+  },
+  sendBalls: function() {
+    const {state} = this;
+    if(state.storyPath.length > 0)
+    {
+      if(state.nodes.current.type == "Episode")
+      {
+        const links = state.allLinks.filter(link => link.target.id === state.nodes.current.id);
+        links.forEach(link => Graph.emitParticle(link));
+      }
+    }
   }
 };
 
@@ -480,8 +502,8 @@ const Graph = ForceGraph3D()(elem)
   .graphData(data)
   .backgroundColor('#ffffff00')
   .nodeLabel('title')
-  .linkDirectionalParticles('value')
-  .linkDirectionalParticleSpeed(0.005)
+  //.linkDirectionalParticles('value')
+  //.linkDirectionalParticleSpeed(0.005)
   .linkColor(link => {
     if (link.linkColor == 'ffffff00') {
       return 'ffffff00';
@@ -496,6 +518,7 @@ const Graph = ForceGraph3D()(elem)
   .linkCurvature('linkCurvature')
   .linkCurveRotation('curveRotation')
   .linkDirectionalParticleWidth(link => {
+    return 1.25;
     if (program.state.storyPath[program.statestoryPathIndex] == link || program.state.storyPath[program.state.storyPathIndex-1] == link) {
       return 1.25;
     } else {
