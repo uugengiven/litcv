@@ -25,14 +25,20 @@
 const MEDIA_NEXT = "MEDIA_NEXT";
 const MEDIA_PREV = "MEDIA_PREV";
 const MEDIA_PLAY = "MEDIA_PLAY";
+const MEDIA_RECENTER = "MEDIA_RECENTER";
 const PATH_SELECT = "PATH_SELECT";
+const PATH_CHANGE = "PATH_CHANGE";
 const SNACKBAR_CLOSE = "SNACKBAR_CLOSE";
 const SNACKBAR_OPEN = "SNACKBAR_OPEN";
 const WEBSITE_LOADED = "WEBSITE_LOADED";
+const HAMBURGER_OPEN = "HAMBURGER_OPEN";
+const VIDEO_CLOSE = "VIDEO_CLOSE";
+const VIDEO_END = "VIDEO_END"; // this will close and go next
 
 const program = {
   state: {
     isSnackbarVisible: true,
+    videoDisplay: false,
     // state of hamburger menu
     isHamburgerMenuOpen: false,
     nodes: {
@@ -90,6 +96,8 @@ const program = {
     avatarContainer: document.querySelector('.select-options'),
     // Selector for restart text in snackbar
     restartOpenModal: document.querySelector('.restart-text'),
+    videoOverlay: document.querySelector('.video-overlay'),
+    video: document.querySelector('.video')
   },
   setup: function () {
     // closes paths page modal
@@ -115,6 +123,9 @@ const program = {
 
     selectors.prevBtn.addEventListener('click', e => {this.prevClick();});
     selectors.nextBtn.addEventListener('click', e => {this.nextClick();});
+    selectors.playBtn.addEventListener('click', e => {this.playClick();});
+    selectors.recenterBtn.addEventListener('click', e => {this.recenterClick();})
+    selectors.videoOverlay.addEventListener('click', () => {this.videocloseClick();});
     this.render();
   },
   setState: function (newState) {
@@ -149,6 +160,7 @@ const program = {
     setClass(selectors.nextBtn, ['active', 'hidden', 'pulse'], state.nodes.next ? 'active' : 'hidden'); 
     setClass(selectors.snackbar, ['snackbar_hidden', 'snackbar_show'], state.isSnackbarVisible ? 'snackbar_show' : 'snackbar_hidden');
     setClass(selectors.restartText, ['hidden'], state.nodes.next ? 'hidden': null);
+    setClass(selectors.recenterBtn, ['active', 'hidden'], state.nodes.current ? 'active' : null);
 
     selectors.blockLeft.textContent = state.selectedCharacterNode? state.selectedCharacterNode.title: null;
 
@@ -177,7 +189,7 @@ const program = {
     }
   },
   renderCamera: function () {
-    const knownEvents = [MEDIA_NEXT, MEDIA_PREV, PATH_SELECT]
+    const knownEvents = [MEDIA_NEXT, MEDIA_PREV, PATH_SELECT, MEDIA_RECENTER];
     if(!knownEvents.includes(this.state.lastCommand)) {
       return; // only look at certain events
     }
@@ -186,11 +198,41 @@ const program = {
       updateCamera(this.state.nodes.current, this.state.nodes.next); 
     }
   },
+  renderVideoPlayer: function () {
+    console.log("rendering video player");
+    const knownEvents = [MEDIA_PLAY, VIDEO_END, VIDEO_CLOSE];
+    if(!knownEvents.includes(this.state.lastCommand))
+    {
+      return;
+    }
+    const {state, selectors} = this;
+    if(state.videoDisplay)
+    {
+      if(state.lastCommand == MEDIA_PLAY)
+      {
+        console.log("setting up this video!)");
+        url = state.nodes.current?.url
+          ? state.nodes.current.url
+          : 'https://player.vimeo.com/video/523994506';
+        selectors.video.innerHTML = `<iframe title="vimeo-player" src="${url}" id="vimeo-player" frameborder="0" allowfullscreen></iframe>`;
+        setupVimeo();
+      }
+      selectors.videoOverlay.style.opacity = 1;
+      selectors.videoOverlay.style.pointerEvents = 'auto';
+       
+    }
+    else
+    {
+      selectors.videoOverlay.style.opacity = 0;
+      selectors.videoOverlay.style.pointerEvents = 'none';
+    }
+  },
   render: function () {
     const {selectors, state} = this;
     
     this.renderHamburger();
     this.renderSnackbar();
+    this.renderVideoPlayer();
 
     if(state.selectedCharacterNode) {
       // a character is selected
@@ -226,20 +268,45 @@ const program = {
   nextClick: function () {
     if(this.state.storyPathIndex < this.state.storyPath.length - 1)
     {
-      this.sendEvent("MEDIA_NEXT", {storyPathIndex: this.state.storyPathIndex + 1});
+      this.sendEvent(MEDIA_NEXT, {storyPathIndex: this.state.storyPathIndex + 1});
     }
   },
   prevClick: function () {
     if(this.state.storyPathIndex > 0)
     {
-      this.sendEvent("MEDIA_PREV", {storyPathIndex: this.state.storyPathIndex - 1});
+      this.sendEvent(MEDIA_PREV, {storyPathIndex: this.state.storyPathIndex - 1});
     }
+  },
+  recenterClick: function () {
+    if(this.state.nodes.current)
+    {
+      this.sendEvent(MEDIA_RECENTER, {});
+    }
+  },
+  playClick: function () {
+    this.sendEvent(MEDIA_PLAY, {videoDisplay: true});
+  },
+  videocloseClick: function () {
+    this.sendEvent(VIDEO_CLOSE, {videoDisplay: false});
+    const {selectors} = this;
+    setTimeout(() => {
+      selectors.video.innerHTML = '';
+    }, 1000);
+  },
+  videoEnd: function () {
+    this.sendEvent(VIDEO_END, {videoDisplay: false});
+    setTimeout(() => {
+      this.nextClick()
+    }, 500);
   },
   snackbarClose: function () {
     this.sendEvent(SNACKBAR_CLOSE, {isSnackbarVisible: false});
   },
   snackbarOpen: function () {
     this.sendEvent(SNACKBAR_OPEN, {isSnackbarVisible: true});
+  },
+  nodeClick: function (node) {
+
   }
 };
 
@@ -264,7 +331,7 @@ const blockRight = document.querySelector('.block--right');
 // Selectors for snack bar control icons
 const prevBtn = document.querySelector('.control-icon--prev');
 const nextBtn = document.querySelector('.control-icon--next');
-const playBtn = document.querySelector('.control-icon--play');
+// const playBtn = document.querySelector('.control-icon--play');
 const recenterBtn = document.querySelector('.control-icon--recenter');
 
 // Selector for hamburger button in snackbar
@@ -301,13 +368,13 @@ let filteredNodes = [];
 // current episode
 let currentEpisode = {};
 // closes paths page modal
-closeBtn.addEventListener('click', function () {
-  modal.classList.add('d-none');
-});
-// opens paths page modal from restart text
-restartOpenModal.addEventListener('click', function () {
-  modal.classList.remove('d-none');
-});
+// closeBtn.addEventListener('click', function () {
+//   modal.classList.add('d-none');
+// });
+// // opens paths page modal from restart text
+// restartOpenModal.addEventListener('click', function () {
+//   modal.classList.remove('d-none');
+// });
 
 let videoDisplay = false;
 const desktop = !(typeof window.orientation !== "undefined") || (navigator.userAgent.indexOf('IEMobile') !== -1);
@@ -425,35 +492,35 @@ hamburgerBtn.addEventListener('click', () => {
   }
 });
 
-function chooseAvatar(e) {
-  // gets id from selected avatar on click
-  let selectedAvatarID = e.target.getAttribute('data-id');
-  // gets name from selected avatar on click
-  let selectedAvatarName = e.target.getAttribute('title');
-  // sets left diagonal block to character name
-  blockLeft.textContent = selectedAvatarName;
-  // close hamburger and select options in snackbar
-  isHamburgerMenuOpen = false;
-  hamburgerBtn.classList.remove('open');
-  selectOptions.classList.add('hidden');
-  // builds character path array
-  storyPath = allLinks.filter(item => item.characterPath === selectedAvatarID);
-  // set storyPathIndex based on currentEpisode id index in latest storyPath
-  storyPathIndex = storyPath.findIndex(
-    item => item.source.id === currentEpisode.id
-  );
-  // set classes on prev/next buttons based on array index
-  storyPathIndex !== 0 ? prevBtn.classList.add('active') : null;
-  storyPathIndex !== storyPath.length - 1
-    ? nextBtn.classList.add('active')
-    : nextBtn.classList.add('hidden') & restartText.classList.remove('hidden');
-  // sets left diagonal block to character color
-  blockLeft.style.backgroundColor = storyPath[0].linkColor;
-  gradientBody.style.boxShadow = `inset 0 0 0 3px ${storyPath[0].linkColor}`;
-  // highlights links based on character
-  updatePathColorsAndBalls();
-  updateCamera(storyPath[storyPathIndex].source, storyPath[storyPathIndex + 1]?.source);
-}
+// function chooseAvatar(e) {
+//   // gets id from selected avatar on click
+//   let selectedAvatarID = e.target.getAttribute('data-id');
+//   // gets name from selected avatar on click
+//   let selectedAvatarName = e.target.getAttribute('title');
+//   // sets left diagonal block to character name
+//   blockLeft.textContent = selectedAvatarName;
+//   // close hamburger and select options in snackbar
+//   isHamburgerMenuOpen = false;
+//   hamburgerBtn.classList.remove('open');
+//   selectOptions.classList.add('hidden');
+//   // builds character path array
+//   storyPath = allLinks.filter(item => item.characterPath === selectedAvatarID);
+//   // set storyPathIndex based on currentEpisode id index in latest storyPath
+//   storyPathIndex = storyPath.findIndex(
+//     item => item.source.id === currentEpisode.id
+//   );
+//   // set classes on prev/next buttons based on array index
+//   storyPathIndex !== 0 ? prevBtn.classList.add('active') : null;
+//   storyPathIndex !== storyPath.length - 1
+//     ? nextBtn.classList.add('active')
+//     : nextBtn.classList.add('hidden') & restartText.classList.remove('hidden');
+//   // sets left diagonal block to character color
+//   blockLeft.style.backgroundColor = storyPath[0].linkColor;
+//   gradientBody.style.boxShadow = `inset 0 0 0 3px ${storyPath[0].linkColor}`;
+//   // highlights links based on character
+//   updatePathColorsAndBalls();
+//   updateCamera(storyPath[storyPathIndex].source, storyPath[storyPathIndex + 1]?.source);
+// }
 
 function updatePathColorsAndBalls()
 {
@@ -547,86 +614,7 @@ const Graph = ForceGraph3D()(elem)
   .onNodeHover(node => (elem.style.cursor = node ? 'pointer' : null))
   // Aim at node from outside it
   .onNodeClick(node => {
-    // checks to see if snackbar is open and toggles it
-    snackbar.classList.contains('snackbar_hidden')
-      ? snackbar.classList.remove('snackbar_hidden') &
-        snackbar.classList.add('snackbar_show')
-      : null;
-
-    // conditional for character versus episode
-    if (node.type === 'Character') {
-      // clears all vars to original values
-      resetVariables();
-      // builds storyPath array based on node id and characterPath property in json
-      storyPath = allLinks.filter(item => item.characterPath === node.id);
-      // hide hamburger btn
-      hamburgerBtn.classList.add('hidden');
-      // toggle hamburger icon class
-      hamburgerBtn.classList.remove('open');
-      // hide snackbar select options
-      selectOptions.classList.add('hidden');
-      // resets classes on snackbar control icons
-      prevBtn.classList.remove('active');
-      playBtn.classList.remove('active');
-      nextBtn.classList.remove('hidden');
-      restartText.classList.add('hidden');
-      // adds active class to next button
-      nextBtn.classList.add('active');
-      // adds pulse animation to nextBtn
-      nextBtn.classList.add('pulse');
-      // adds character color to nextBtn
-      nextBtn.style.color = node.primaryColor;
-      // resets for storyPathIndex and text content
-      blockRight.classList.remove('active');
-      blockRight.textContent = 'click arrow';
-      // Sets colors/text content for diagonal boxes in snackbar
-      blockLeft.style.backgroundColor = node.primaryColor;
-      blockLeft.textContent = node.title;
-      // Sets box shadow color based on character chosem
-      gradientBody.style.boxShadow = `inset 0 0 0 6px ${node.primaryColor}`;
-      // highlights links based on character
-      Graph.nodeColor(Graph.nodeColor())
-        .linkWidth(Graph.linkWidth())
-        .linkDirectionalParticles(Graph.linkDirectionalParticles());
-    }
-    if (node.type === 'Episode') {
-      if (currentEpisode === node)
-      {
-        showVideo();
-        return;
-      }
-      // clears all vars to originals values
-      resetVariables();
-      // sets current episode to episode node clicked
-      currentEpisode = node;
-      // sets data atttribute of id on episode so it is accessible when finding index from avatar clicks
-      blockRight.setAttribute('data-episodeID', node.id);
-      // resets restart text classes and nextBtn classes
-      restartText.classList.add('hidden');
-      nextBtn.classList.remove('hidden');
-      // toggle hamburger icon class
-      hamburgerBtn.classList.remove('open');
-      // show hamburger button
-      hamburgerBtn.classList.remove('hidden');
-      // hide snackbar select options
-      selectOptions.classList.add('hidden');
-      // sets snackbar right box to episode title
-      blockRight.textContent = node.title;
-      // resets snackbar left box to empty string
-      blockLeft.textContent = 'Choose Path';
-      // sets snackbar left box to default color
-      blockLeft.style.backgroundColor = '#e2e2e2';
-      // reset/set classes on snackbar right box and snackbar controls
-      blockRight.classList.add('active');
-      nextBtn.classList.remove('active');
-      prevBtn.classList.remove('active');
-      playBtn.classList.add('active');
-      nextBtn.classList.remove('pulse');
-      nextBtn.removeAttribute('style');
-      // remove box-shadow on body
-      gradientBody.style.boxShadow = 'none';
-    }
-    updateCamera(node);
+    program.nodeClick(node);
   });
 
 function recenter() {
@@ -641,51 +629,46 @@ function reportWindowSize() {
   Graph.width(window.innerWidth - 10);
 }
 
-function reportWindowSize() {
-  Graph.height(window.innerHeight - 10);
-  Graph.width(window.innerWidth - 10);
-}
-
 window.onresize = reportWindowSize;
 
-function setupVideo() {
-  const overlay = document.querySelector('.video-overlay');
-  overlay.addEventListener('click', () => {hideVideo(false)});
-}
+// function setupVideo() {
+//   const overlay = document.querySelector('.video-overlay');
+//   overlay.addEventListener('click', () => {program.sendEvent(VIDEO_CLOSE, {})});
+// }
 
-function hideVideo (gonext) {
-  if(videoDisplay)
-  {
-    const overlay = document.querySelector('.video-overlay');
-    overlay.style.opacity = 0;
-    overlay.style.pointerEvents = 'none';
-    videoDisplay = false;
-    const video = document.querySelector('.video');
-    setTimeout(() => {
-      video.innerHTML = '';
-    }, 1000);
-    if(gonext)
-    {
-      let event = new Event('click');
-      setTimeout(() => {
-        nextBtn.dispatchEvent(event);
-      }, 500);
-    }
-  }
-}
+// function hideVideo (gonext) {
+//   if(videoDisplay)
+//   {
+//     const overlay = document.querySelector('.video-overlay');
+//     overlay.style.opacity = 0;
+//     overlay.style.pointerEvents = 'none';
+//     videoDisplay = false;
+//     const video = document.querySelector('.video');
+//     setTimeout(() => {
+//       video.innerHTML = '';
+//     }, 1000);
+//     if(gonext)
+//     {
+//       let event = new Event('click');
+//       setTimeout(() => {
+//         nextBtn.dispatchEvent(event);
+//       }, 500);
+//     }
+//   }
+// }
 
-function showVideo() {
-  url = currentEpisode?.url
-    ? currentEpisode.url
-    : 'https://player.vimeo.com/video/523994506';
-  const video = document.querySelector('.video');
-  video.innerHTML = `<iframe title="vimeo-player" src="${url}" id="vimeo-player" frameborder="0" allowfullscreen></iframe>`;
-  const overlay = document.querySelector('.video-overlay');
-  overlay.style.opacity = 1;
-  overlay.style.pointerEvents = 'auto';
-  videoDisplay = true;
-  setupVimeo();
-}
+// function showVideo() {
+//   url = currentEpisode?.url
+//     ? currentEpisode.url
+//     : 'https://player.vimeo.com/video/523994506';
+//   const video = document.querySelector('.video');
+//   video.innerHTML = `<iframe title="vimeo-player" src="${url}" id="vimeo-player" frameborder="0" allowfullscreen></iframe>`;
+//   const overlay = document.querySelector('.video-overlay');
+//   overlay.style.opacity = 1;
+//   overlay.style.pointerEvents = 'auto';
+//   videoDisplay = true;
+//   setupVimeo();
+// }
 
 function setupVimeo() {
   var player = new Vimeo.Player(document.getElementById("vimeo-player"));
@@ -702,7 +685,8 @@ function setupVimeo() {
   player.on('ended', () => {
     // close the video
     // then hit next
-    hideVideo(true);
+    program.videoEnd();
+    // hideVideo(true);
   });
 
   // start video
@@ -713,9 +697,8 @@ document.addEventListener("keydown", (e) => {
   var key = e.key;
   if(key == "Esc" || key == "Escape")
   {
-    hideVideo(false);
+    program.videocloseClick();
   }
-
 }, false);
 
-setupVideo();
+// setupVideo();
