@@ -21,18 +21,28 @@
 // Selectors:
 // Items on the page, such as snackbar, nextbtn, prevbtn
 
+// EVENT TYPES
+const MEDIA_NEXT = "MEDIA_NEXT";
+const MEDIA_PREV = "MEDIA_PREV";
+const MEDIA_PLAY = "MEDIA_PLAY";
+const PATH_SELECT = "PATH_SELECT";
+const SNACKBAR_CLOSE = "SNACKBAR_CLOSE";
+const SNACKBAR_OPEN = "SNACKBAR_OPEN";
+const WEBSITE_LOADED = "WEBSITE_LOADED";
+
 const program = {
   state: {
     isSnackbarVisible: true,
     // state of hamburger menu
-    isHamburgerMenuOpen: true,
+    isHamburgerMenuOpen: false,
     nodes: {
       next: null,
       prev: null,
       current: null
     },
     selectedCharacterNode: null,
-    commands: [],
+    commands: [WEBSITE_LOADED],
+    lastCommand: WEBSITE_LOADED,
     // all nodes data
     allNodes: data.nodes,
     // all links data
@@ -99,11 +109,12 @@ const program = {
       item.addEventListener('click', e => {
         selectors.modal.classList.add('d-none');
         let selectedModalAvatarID = e.target.getAttribute('data-id');
-        console.log(this);
         this.selectPath(selectedModalAvatarID);
       });
     });
 
+    selectors.prevBtn.addEventListener('click', e => {this.prevClick();});
+    selectors.nextBtn.addEventListener('click', e => {this.nextClick();});
     this.render();
   },
   setState: function (newState) {
@@ -128,12 +139,16 @@ const program = {
     setClass(selectors.hamburgerBtn, ['hidden', 'open'], state.isHamburgerMenuOpen ? 'open' : 'hidden');
   },
   renderSnackbar: function () {
+    const knownEvents = [MEDIA_NEXT, MEDIA_PREV, MEDIA_PLAY, PATH_SELECT, SNACKBAR_CLOSE, SNACKBAR_OPEN]
+    if(!knownEvents.includes(this.state.lastCommand)) {
+      return; // only look at certain events
+    }
     const {selectors, state} = this;
     setClass(selectors.playBtn, ['active', 'hidden', 'pulse'], state.nodes.current?.type === "Episode" ? 'active' : 'hidden');
     setClass(selectors.prevBtn, ['active', 'hidden', 'pulse'], state.nodes.prev ? 'active' : 'hidden'); 
     setClass(selectors.nextBtn, ['active', 'hidden', 'pulse'], state.nodes.next ? 'active' : 'hidden'); 
     setClass(selectors.snackbar, ['snackbar_hidden', 'snackbar_show'], state.isSnackbarVisible ? 'snackbar_show' : 'snackbar_hidden');
-    setClass(selectors.restartText, ['hidden'], state.nodes.next ? 'hidden': null)
+    setClass(selectors.restartText, ['hidden'], state.nodes.next ? 'hidden': null);
 
     selectors.blockLeft.textContent = state.selectedCharacterNode? state.selectedCharacterNode.title: null;
 
@@ -161,6 +176,16 @@ const program = {
       }
     }
   },
+  renderCamera: function () {
+    const knownEvents = [MEDIA_NEXT, MEDIA_PREV, PATH_SELECT]
+    if(!knownEvents.includes(this.state.lastCommand)) {
+      return; // only look at certain events
+    }
+    if(this.state.nodes.current){ // this should also check for last action
+      updatePathColorsAndBalls();
+      updateCamera(this.state.nodes.current, this.state.nodes.next); 
+    }
+  },
   render: function () {
     const {selectors, state} = this;
     
@@ -181,36 +206,40 @@ const program = {
       selectors.blockLeft.style.backgroundColor = null;
     }
 
-    if(state.nodes.current){ // this should also check for last action
-      updatePathColorsAndBalls();
-      updateCamera(state.nodes.current, state.nodes.next); 
-    }
+    this.renderCamera();
   },
   selectPath: function(path_id) {
         let selectedModalAvatarID = path_id;
         const node = allNodes.find(item => item.id === selectedModalAvatarID);
-        console.log("what is this", node);
         // builds storyPath array based on node id and characterPath property in json
         const storyPath = allLinks.filter(item => item.characterPath === node.id);
-        this.setState({
+        this.sendEvent(PATH_SELECT, {
           storyPathIndex: 0, 
           storyPath, 
           selectedCharacterNode: node
         });
-
-
+  },
+  sendEvent: function(event, newState) {
+    const commands = [...this.state.commands, event];
+    this.setState({...newState, commands, lastCommand: event});
   },
   nextClick: function () {
     if(this.state.storyPathIndex < this.state.storyPath.length - 1)
     {
-      this.setState({storyPathIndex: this.state.storyPathIndex + 1});
+      this.sendEvent("MEDIA_NEXT", {storyPathIndex: this.state.storyPathIndex + 1});
     }
   },
   prevClick: function () {
     if(this.state.storyPathIndex > 0)
     {
-      this.setState({storyPathIndex: this.state.storyPathIndex - 1});
+      this.sendEvent("MEDIA_PREV", {storyPathIndex: this.state.storyPathIndex - 1});
     }
+  },
+  snackbarClose: function () {
+    this.sendEvent(SNACKBAR_CLOSE, {isSnackbarVisible: false});
+  },
+  snackbarOpen: function () {
+    this.sendEvent(SNACKBAR_OPEN, {isSnackbarVisible: true});
   }
 };
 
@@ -336,85 +365,7 @@ const desktop = !(typeof window.orientation !== "undefined") || (navigator.userA
 //   });
 // });
 // Function increments through storyPath array and sets/resets classes based on position in array
-nextBtn.onclick = function () {
-  // checks if last item of array
-  if (storyPathIndex === storyPath.length - 1) {
-    return;
-  }
-  // increment storyPath index
-  storyPath[++storyPathIndex];
-  // sets currentEpisode
-  currentEpisode = storyPath[storyPathIndex].source;
-  // removes active class on nextBtn if at last item in storyPath array
-  storyPathIndex === storyPath.length - 1
-    ? nextBtn.classList.remove('active') &
-      nextBtn.classList.add('hidden') &
-      restartText.classList.remove('hidden')
-    : null;
-  // changes opacity for right text block in snackbar
-  blockRight.classList.add('active');
-  // changes opacity for play icon in snackbar
-  playBtn.classList.add('active');
-  // changes opacity for prev icon in snackbar
-  prevBtn.classList.add('active');
-  // removes pulse from nextBtn
-  nextBtn.classList.remove('pulse');
-  // removes character color from nextBtn icon
-  nextBtn.removeAttribute('style');
-  // shows hamburger button
-  hamburgerBtn.classList.remove('hidden');
-  // sets text content for episode in right diagonal block
-  storyPathIndex !== 0
-    ? (blockRight.textContent = storyPath[storyPathIndex].source.title)
-    : (blockRight.textContent = '' & blockRight.classList.remove('active'));
-  if (storyPathIndex === 0) {
-    nextBtn.classList.add('active');
-    nextBtn.classList.add('pulse');
-    nextBtn.style.color = storyPath[0].linkColor;
-    prevBtn.classList.remove('active');
-    playBtn.classList.remove('active');
-    hamburgerBtn.classList.add('hidden');
-  }
-  // gets next target x,y,z and repositions camera
-  let node = storyPath[storyPathIndex].source;
-  updatePathColorsAndBalls();
-  updateCamera(node, storyPath[storyPathIndex + 1]?.source);
-};
 
-// Function decrements through storyPath array and sets/resets classes based on position in array
-prevBtn.onclick = function () {
-  // checks if first item of array
-  if (storyPathIndex === 0) {
-    return;
-  }
-  if (storyPathIndex === 1) {
-    // resets right block text if at first element of array and going back to character node
-    blockRight.textContent = 'click arrow';
-    nextBtn.style.color = storyPath[0].linkColor;
-    // clears currentEpisode
-    currentEpisode = {};
-  }
-  // decrement storyPath index
-  storyPath[--storyPathIndex];
-  // sets currentEpisode
-  currentEpisode = storyPath[storyPathIndex].source;
-  // reset/set classes and text for snackbar blocks
-  storyPathIndex === 0
-    ? blockRight.classList.remove('active') &
-      prevBtn.classList.remove('active') &
-      playBtn.classList.remove('active') &
-      nextBtn.classList.add('pulse') &
-      hamburgerBtn.classList.add('hidden')
-    : (blockRight.textContent = storyPath[storyPathIndex].source.title);
-  nextBtn.classList.add('active');
-  nextBtn.classList.remove('hidden');
-  restartText.classList.add('hidden');
-
-  // gets next target x,y,z and repositions camera
-  let node = storyPath[storyPathIndex].source;
-  updatePathColorsAndBalls();
-  updateCamera(node, storyPath[storyPathIndex + 1]?.source);
-};
 
 const updateCamera = function (node, nextNode) {
   var cameraLocation = new THREE.Vector3(node.x, node.y, node.z);
@@ -552,7 +503,7 @@ const Graph = ForceGraph3D()(elem)
     if (link.linkColor == 'ffffff00') {
       return 'ffffff00';
     }
-    if (storyPath[0]?.characterPath == link.characterPath) {
+    if (program.state.storyPath[0]?.characterPath == link.characterPath) {
       return link.linkColor;
     } else {
       return '#FFFFFF33';
@@ -562,7 +513,7 @@ const Graph = ForceGraph3D()(elem)
   .linkCurvature('linkCurvature')
   .linkCurveRotation('curveRotation')
   .linkDirectionalParticleWidth(link => {
-    if (storyPath[storyPathIndex] == link || storyPath[storyPathIndex-1] == link) {
+    if (program.state.storyPath[program.statestoryPathIndex] == link || program.state.storyPath[program.state.storyPathIndex-1] == link) {
       return 1.25;
     } else {
       return 0;
@@ -573,7 +524,7 @@ const Graph = ForceGraph3D()(elem)
   .nodeThreeObject(({ img, type, id, size }) => {
     let color = 0x999999;
     console.log(type);
-    if(id === currentEpisode.id || type == "Character")
+    if(id === program.state.nodes.current?.id || type == "Character")
     {
       color = 0xffffff;
     }
