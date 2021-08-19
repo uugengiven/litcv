@@ -39,7 +39,7 @@ const VIDEO_END = "VIDEO_END"; // this will close and go next
 
 const program = {
   state: {
-    isSnackbarVisible: true,
+    isSnackbarVisible: false,
     videoDisplay: false,
     // state of hamburger menu
     isHamburgerMenuOpen: false,
@@ -352,7 +352,7 @@ const program = {
     this.sendEvent(SNACKBAR_CLOSE, {isSnackbarVisible: false});
   },
   snackbarOpen: function () {
-    this.sendEvent(SNACKBAR_OPEN, {isSnackbarVisible: true});
+    this.sendEvent(SNACKBAR_OPEN, {isSnackbarVisible: false});
   },
   nodeClick: function (node) {
     // find node
@@ -362,7 +362,7 @@ const program = {
     {
       console.log("in the path");
       // if node is in current story path, keep everything, just update storypathindex
-      if(index == this.state.storyPathIndex)
+      if(index == this.state.storyPathIndex && index > 0)
       {
         // clicked on the one that they're currently looking at
         this.playClick();
