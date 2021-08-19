@@ -496,7 +496,7 @@ const Graph = ForceGraph3D({
     if (program.state.storyPath[0]?.characterPath == link.characterPath) {
       return link.linkColor;
     } else {
-      return '#FFFFFF33';
+      return '#FFFFFF22';
     }
   })
   .linkOpacity(1)
@@ -510,7 +510,13 @@ const Graph = ForceGraph3D({
       return 0;
     }
   })
-  .linkWidth('width')
+  .linkWidth(link => {
+    if (program.state.storyPath[0]?.characterPath == link.characterPath) {
+      return 1.25;
+    } else {
+      return .25;
+    }
+  })
   .linkResolution(6)
   // .nodeThreeObject(({ img, type, id, size }) => {
   //   let color = 0x999999;
@@ -540,6 +546,7 @@ const Graph = ForceGraph3D({
     nodeEl.id = id;
     const image = document.createElement('img');
     image.src = `./images/episodes/${img}`;
+    image.classList.add(type.toLowerCase());
     nodeEl.appendChild(image);
     nodeEl.className = 'node-label';
     const sprite =  new THREE.CSS3DSprite(nodeEl);

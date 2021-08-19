@@ -33,7 +33,7 @@ const data = {
     // CHARACTER NODES
     {
       id: 'Luna',
-      img: 'Luna_avatar.png',
+      img: 'Kiki.jpg',
       type: 'Character',
       title: 'Luna',
       size: 22,
@@ -41,7 +41,7 @@ const data = {
     },
     {
       id: 'Darcy',
-      img: 'Darcy_avatar.png',
+      img: 'Darcy.jpg',
       type: 'Character',
       title: 'Darcy',
       size: 18,
@@ -49,7 +49,7 @@ const data = {
     },
     {
       id: 'Trav',
-      img: 'Trav_avatar.png',
+      img: 'Trav.jpg',
       type: 'Character',
       title: 'Trav',
       size: 22,
@@ -57,7 +57,7 @@ const data = {
     },
     {
       id: 'Kiki',
-      img: 'Kiki_avatar.png',
+      img: 'Kiki.jpg',
       type: 'Character',
       title: 'Kiki',
       size: 18,
@@ -65,7 +65,7 @@ const data = {
     },
     {
       id: 'Jamal',
-      img: 'Jamal_avatar.png',
+      img: 'Kiki.jpg',
       type: 'Character',
       title: 'Jamal',
       size: 14,
@@ -73,7 +73,7 @@ const data = {
     },
     {
       id: 'FatherD',
-      img: 'FatherD_avatar.png',
+      img: 'Carson.jpg',
       type: 'Character',
       title: 'Father D',
       size: 14,
@@ -81,7 +81,7 @@ const data = {
     },
     {
       id: 'Carson',
-      img: 'Carson_avatar.png',
+      img: 'Carson.jpg',
       type: 'Character',
       title: 'Carson',
       size: 14,
@@ -89,7 +89,7 @@ const data = {
     },
     {
       id: 'Leaf',
-      img: 'Leaf_avatar.png',
+      img: 'Kiki.jpg',
       type: 'Character',
       title: 'Leaf',
       size: 14,
