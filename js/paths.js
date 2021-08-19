@@ -479,22 +479,6 @@ function createAvatar(id, color, image, title) {
   );
 }
 
-// clears DOM of existing avatars
-function clearAvatars() {
-  while (avatarContainer.hasChildNodes()) {
-    avatarContainer.removeChild(avatarContainer.firstChild);
-  }
-}
-
-function resetVariables() {
-  // removes avatars if they exist or else they will reproduce like rabbits
-  clearAvatars();
-  // resets storyPath index
-  storyPathIndex = 0;
-  // toggle hamburger var
-  isHamburgerMenuOpen = false;
-}
-
 // 3D graph
 const elem = document.getElementById('3d-graph');
 const Graph = ForceGraph3D({
