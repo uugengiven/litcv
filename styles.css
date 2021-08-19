@@ -1215,3 +1215,17 @@ section.chars-overlay .grid img.leaf {
   opacity: 0.5;
   transition: opacity 250ms ease-in-out;
 }
+
+.node-label {
+  user-select: none;
+  pointer-events: none;
+}
+
+.node-label img {
+  user-select: none;
+  pointer-events: none;
+}
+
+.active-node {
+
+}

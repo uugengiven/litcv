@@ -217,13 +217,17 @@ const program = {
       }
     }
   },
-  renderCamera: function () {
+  renderCamera: async function () {
     const knownEvents = [MEDIA_NEXT, MEDIA_PREV, PATH_SELECT, PATH_CHANGE, MEDIA_RECENTER, MEDIA_CHANGE];
     if(!knownEvents.includes(this.state.lastCommand)) {
       return; // only look at certain events
     }
+    
     if(this.state.nodes.current){ // this should also check for last action
-      updatePathColorsAndBalls();
+      await updatePathColorsAndBalls();
+      const test = document.getElementById(this.state.nodes.current.id);
+      console.log(test);
+      // test.classList.add("active-node");
       // updateCamera(this.state.nodes.current, this.state.nodes.next); 
     }
   },
@@ -457,12 +461,10 @@ const updateCamera = function (node, nextNode) {
   );
 };
 
-function updatePathColorsAndBalls()
+async function updatePathColorsAndBalls()
 {
-  Graph.nodeColor(Graph.nodeColor())
-    .nodeThreeObject(Graph.nodeThreeObject())
-    .linkWidth(Graph.linkWidth())
-    .linkDirectionalParticles(Graph.linkDirectionalParticles());
+  await Graph.nodeColor(Graph.nodeColor())
+    .linkWidth(Graph.linkWidth());
 }
 
 // dynamically creates avatars in snackbar
@@ -495,7 +497,9 @@ function resetVariables() {
 
 // 3D graph
 const elem = document.getElementById('3d-graph');
-const Graph = ForceGraph3D()(elem)
+const Graph = ForceGraph3D({
+    extraRenderers: [new THREE.CSS3DRenderer()]
+  })(elem)
   .graphData(data)
   .backgroundColor('#ffffff00')
   .nodeLabel('title')
@@ -524,29 +528,48 @@ const Graph = ForceGraph3D()(elem)
   })
   .linkWidth('width')
   .linkResolution(6)
-  .nodeThreeObject(({ img, type, id, size }) => {
-    let color = 0x999999;
-    console.log(type);
-    if(id === program.state.nodes.current?.id || type == "Character")
-    {
-      color = 0xffffff;
-    }
-    const imgTexture = new THREE.TextureLoader().load(
-      `./images/episodes/${img}`
-    );
-    const material = new THREE.SpriteMaterial({
-      map: imgTexture,
-      color: color
-    });
-    const sprite = new THREE.Sprite(material);
-    if (type == 'Character') {
-      sprite.scale.set(size, size);
-    } else {
-      sprite.scale.set(16, 9);
-    }
+  // .nodeThreeObject(({ img, type, id, size }) => {
+  //   let color = 0x999999;
+  //   console.log(type);
+  //   if(id === program.state.nodes.current?.id || type == "Character")
+  //   {
+  //     color = 0xffffff;
+  //   }
+  //   const imgTexture = new THREE.TextureLoader().load(
+  //     `./images/episodes/${img}`
+  //   );
+  //   const material = new THREE.SpriteMaterial({
+  //     map: imgTexture,
+  //     color: color
+  //   });
+  //   const sprite = new THREE.Sprite(material);
+  //   if (type == 'Character') {
+  //     sprite.scale.set(size, size);
+  //   } else {
+  //     sprite.scale.set(16, 9);
+  //   }
 
+  //   return sprite;
+  // })
+  .nodeThreeObject(({img, type, id, size}) => {
+    const nodeEl = document.createElement('div');
+    nodeEl.id = id;
+    const image = document.createElement('img');
+    image.src = `./images/episodes/${img}`;
+    nodeEl.appendChild(image);
+    nodeEl.className = 'node-label';
+    const sprite =  new THREE.CSS3DSprite(nodeEl);
+    if(type == "Episode")
+    {
+      sprite.scale.set(0.02, 0.02, 0.02);
+    }
+    else
+    {
+      sprite.scale.set(0.05, 0.05, 0.05);
+    }
     return sprite;
   })
+  .nodeThreeObjectExtend(true)
   .onNodeHover(node => (elem.style.cursor = node ? 'pointer' : null))
   // Aim at node from outside it
   .onNodeClick(node => {
