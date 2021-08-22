@@ -25,7 +25,7 @@ const slightCurve = 0.125;
 const curveRotationA = 1;
 const curveRotationB = 4;
 const charWidth = 0;
-const baseWidth = .25;
+const baseWidth = 0.25;
 const baseParticles = 3;
 
 const data = {
@@ -33,7 +33,7 @@ const data = {
     // CHARACTER NODES
     {
       id: 'Luna',
-      img: 'Kiki.jpg',
+      img: 'Luna_avatar.png',
       type: 'Character',
       title: 'Luna',
       size: 22,
@@ -41,7 +41,7 @@ const data = {
     },
     {
       id: 'Darcy',
-      img: 'Darcy.jpg',
+      img: 'Darcy_avatar.png',
       type: 'Character',
       title: 'Darcy',
       size: 18,
@@ -49,7 +49,7 @@ const data = {
     },
     {
       id: 'Trav',
-      img: 'Trav.jpg',
+      img: 'Trav_avatar.png',
       type: 'Character',
       title: 'Trav',
       size: 22,
@@ -57,7 +57,7 @@ const data = {
     },
     {
       id: 'Kiki',
-      img: 'Kiki.jpg',
+      img: 'Kiki_avatar.png',
       type: 'Character',
       title: 'Kiki',
       size: 18,
@@ -65,7 +65,7 @@ const data = {
     },
     {
       id: 'Jamal',
-      img: 'Kiki.jpg',
+      img: 'Jamal_avatar.png',
       type: 'Character',
       title: 'Jamal',
       size: 14,
@@ -73,7 +73,7 @@ const data = {
     },
     {
       id: 'FatherD',
-      img: 'Carson.jpg',
+      img: 'FatherD_avatar.png',
       type: 'Character',
       title: 'Father D',
       size: 14,
@@ -81,7 +81,7 @@ const data = {
     },
     {
       id: 'Carson',
-      img: 'Carson.jpg',
+      img: 'Carson_avatar.png',
       type: 'Character',
       title: 'Carson',
       size: 14,
@@ -89,7 +89,7 @@ const data = {
     },
     {
       id: 'Leaf',
-      img: 'Kiki.jpg',
+      img: 'Leaf_avatar.png',
       type: 'Character',
       title: 'Leaf',
       size: 14,
