@@ -1,193 +1,504 @@
-// Selectors for snackbar and diagonal blocks inside snackbar
-const snackbar = document.getElementById('snackbar-container');
-const blockLeft = document.querySelector('.block--left');
-const blockRight = document.querySelector('.block--right');
-// Selectors for snack bar control icons
-const prevBtn = document.querySelector('.control-icon--prev');
-const nextBtn = document.querySelector('.control-icon--next');
-const playBtn = document.querySelector('.control-icon--play');
-const recenterBtn = document.querySelector('.control-icon--recenter');
+// Things needed for this to work
+// Default view, what is the current item, what is the next, what is the previous node
+// what is the next and what is the previous link
+// get next, move next, get prev, move prev
 
-// Selector for hamburger button in snackbar
-const hamburgerBtn = document.querySelector('.hamburger-btn');
-// Selector for selector options in snackbar
-const selectOptions = document.querySelector('.select-options');
-// Selector for body to add box-shadow based on character chosen
-const gradientBody = document.querySelector('.particles.gradient-body');
-// Selector for restart text in snackbar
-const restartText = document.querySelector('.restart-text');
-// Selectors for paths page modal and modal close button
-const modal = document.querySelector('section.chars-overlay');
-const closeBtn = modal.querySelector('button.btn--white');
-// Selector for paths overal modal avatar images
-const modalAvatars = document.querySelectorAll('.chars-overlay-avatar');
-// container selector for dynamically added avatars in snackbar once episode node is clicked
-const avatarContainer = document.querySelector('.select-options');
-// Selector for restart text in snackbar
-const restartOpenModal = document.querySelector('.restart-text');
-// state of hamburger menu
-let isHamburgerMenuOpen = false;
-// all nodes data
-let allNodes = data.nodes;
-// all links data
-const allLinks = data.links;
-// path of episode links for each character
-let storyPath = [];
-// index of storyPath
-let storyPathIndex = 0;
-// id of characters associated with each episode
-let associatedCharacters = [];
-// objects for characters associated with each episode
-let filteredNodes = [];
-// current episode
-let currentEpisode = {};
-// closes paths page modal
-closeBtn.addEventListener('click', function () {
-  modal.classList.add('d-none');
-});
-// opens paths page modal from restart text
-restartOpenModal.addEventListener('click', function () {
-  modal.classList.remove('d-none');
-});
+// Display should:
+// look for next, prev and set up buttons accordingly
+// highlight buttons as required
 
-let videoDisplay = false;
+// Timer:
+// This is a one second set interal, used for doing animation things
+// generally sends out bubbles from nodes
+
+// State:
+// Is the modal showing
+// Is the snackbar open
+// List of all nodes
+// List of current node path
+// Current Node Index
+
+// Selectors:
+// Items on the page, such as snackbar, nextbtn, prevbtn
+
+// EVENT TYPES
+const MEDIA_NEXT = 'MEDIA_NEXT';
+const MEDIA_PREV = 'MEDIA_PREV';
+const MEDIA_PLAY = 'MEDIA_PLAY';
+const MEDIA_CHANGE = 'MEDIA_CHANGE';
+const MEDIA_RECENTER = 'MEDIA_RECENTER';
+const PATH_SELECT = 'PATH_SELECT';
+const PATH_CHANGE = 'PATH_CHANGE';
+const SNACKBAR_CLOSE = 'SNACKBAR_CLOSE';
+const SNACKBAR_OPEN = 'SNACKBAR_OPEN';
+const WEBSITE_LOADED = 'WEBSITE_LOADED';
+const HAMBURGER_OPEN = 'HAMBURGER_OPEN';
+const HAMBURGER_CLOSE = 'HAMBURGER_CLOSE';
+const VIDEO_CLOSE = 'VIDEO_CLOSE';
+const VIDEO_END = 'VIDEO_END'; // this will close and go next
+
+const program = {
+  state: {
+    isSnackbarVisible: false,
+    videoDisplay: false,
+    // state of hamburger menu
+    isHamburgerMenuOpen: false,
+    nodes: {
+      next: null,
+      prev: null,
+      current: null,
+    },
+    selectedCharacterNode: null,
+    commands: [WEBSITE_LOADED],
+    lastCommand: WEBSITE_LOADED,
+    // all nodes data
+    allNodes: data.nodes,
+    // all links data
+    allLinks: data.links,
+    // path of episode links for each character
+    storyPath: [],
+    // index of storyPath
+    storyPathIndex: 0,
+    // id of characters associated with each episode
+    associatedCharacters: [],
+    // objects for characters associated with each episode
+    filteredNodes: [],
+    // current episode
+    currentEpisode: {},
+    // is the current video displaying?
+    videoDisplay: false,
+    // are we on the desktop?
+    desktop:
+      !(typeof window.orientation !== 'undefined') ||
+      navigator.userAgent.indexOf('IEMobile') !== -1,
+  },
+  selectors: {
+    // Selectors for snackbar and diagonal blocks inside snackbar
+    snackbar: document.getElementById('snackbar-container'),
+    blockLeft: document.querySelector('.block--left'),
+    blockRight: document.querySelector('.block--right'),
+    // Selectors for snack bar control icons
+    prevBtn: document.querySelector('.control-icon--prev'),
+    nextBtn: document.querySelector('.control-icon--next'),
+    playBtn: document.querySelector('.control-icon--play'),
+    recenterBtn: document.querySelector('.control-icon--recenter'),
+
+    // Selector for hamburger button in snackbar
+    hamburgerBtn: document.querySelector('.hamburger-btn'),
+    // Selector for selector options in snackbar
+    selectOptions: document.querySelector('.select-options'),
+    // Selector for body to add box-shadow based on character chosen
+    gradientBody: document.querySelector('.particles.gradient-body'),
+    // Selector for restart text in snackbar
+    restartText: document.querySelector('.restart-text'),
+    // Selectors for paths page modal and modal close button
+    modal: document.querySelector('section.chars-overlay'),
+    closeBtn: document.querySelector('.chars-overlay button.btn--white'),
+    // Selector for paths overal modal avatar images
+    modalAvatars: document.querySelectorAll('.chars-overlay-avatar'),
+    // container selector for dynamically added avatars in snackbar once episode node is clicked
+    avatarContainer: document.querySelector('.select-options'),
+    // Selector for restart text in snackbar
+    restartOpenModal: document.querySelector('.restart-text'),
+    videoOverlay: document.querySelector('.video-overlay'),
+    video: document.querySelector('.video'),
+  },
+  setup: function () {
+    // closes paths page modal
+    const { selectors } = this;
+    selectors.closeBtn.addEventListener('click', function () {
+      selectors.modal.classList.add('d-none');
+    });
+    // opens paths page modal from restart text
+    selectors.restartOpenModal.addEventListener('click', function () {
+      selectors.modal.classList.remove('d-none');
+    });
+    window.addEventListener('load', function () {
+      selectors.modalAvatars.forEach(
+        item => (item.style.pointerEvents = 'inherit')
+      );
+    });
+
+    selectors.modalAvatars.forEach(item => {
+      item.addEventListener('click', e => {
+        selectors.modal.classList.add('d-none');
+        let selectedModalAvatarID = e.target.getAttribute('data-id');
+        this.selectPath(selectedModalAvatarID);
+      });
+    });
+
+    selectors.prevBtn.addEventListener('click', e => {
+      this.prevClick();
+    });
+    selectors.nextBtn.addEventListener('click', e => {
+      this.nextClick();
+    });
+    selectors.playBtn.addEventListener('click', e => {
+      this.playClick();
+    });
+    selectors.recenterBtn.addEventListener('click', e => {
+      this.recenterClick();
+    });
+    selectors.videoOverlay.addEventListener('click', e => {
+      this.videocloseClick();
+    });
+    selectors.hamburgerBtn.addEventListener('click', e => {
+      this.hamburgerToggle();
+    });
+    this.render();
+    setInterval(() => this.pulse(), 1000);
+  },
+  setState: function (newState) {
+    this.state = { ...this.state, ...newState };
+    this.setupNodes();
+    this.render();
+    console.log(this.selectors.modal);
+    console.log(this);
+  },
+  setupNodes: function () {
+    // used to set up next/prev nodes
+    const { state } = this;
+    if (state.storyPath?.length > 0) {
+      state.nodes.current = state.storyPath[state.storyPathIndex].source;
+      state.nodes.next =
+        state.storyPathIndex < state.storyPath.length - 1
+          ? state.storyPath[state.storyPathIndex + 1]
+          : null;
+      state.nodes.prev =
+        state.storyPathIndex > 0
+          ? state.storyPath[state.storyPathIndex - 1]
+          : null;
+    }
+  },
+  renderHamburger: function () {
+    const knownEvents = [
+      HAMBURGER_OPEN,
+      HAMBURGER_CLOSE,
+      PATH_SELECT,
+      PATH_CHANGE,
+      MEDIA_NEXT,
+      MEDIA_PREV,
+      MEDIA_CHANGE,
+    ];
+    if (!knownEvents.includes(this.state.lastCommand)) {
+      return; // only look at certain events
+    }
+    const { selectors, state } = this;
+    if (state.isHamburgerMenuOpen) {
+      while (selectors.avatarContainer.firstChild) {
+        selectors.avatarContainer.removeChild(
+          selectors.avatarContainer.firstChild
+        );
+      }
+      // do the absurd building of the avatars
+      if (state.nodes.current.type == 'Episode') {
+        associatedCharacters = state.nodes.current.associatedCharacters;
+        // filters associatedCharacters against allNodes to get characters objects needed
+        filteredNodes = state.allNodes.filter(item =>
+          associatedCharacters.includes(item.id)
+        );
+        // calls createAvatar function to create avatars in snackbar
+        filteredNodes.forEach(function (item) {
+          createAvatar(item.id, item.primaryColor, item.img, item.title);
+        });
+      }
+    }
+
+    setClass(
+      selectors.hamburgerBtn,
+      ['hidden', 'open'],
+      state.isHamburgerMenuOpen ? 'open' : null
+    );
+    setClass(
+      selectors.selectOptions,
+      ['hidden'],
+      state.isHamburgerMenuOpen ? null : 'hidden'
+    );
+  },
+  renderSnackbar: function () {
+    const knownEvents = [
+      MEDIA_NEXT,
+      MEDIA_PREV,
+      MEDIA_PLAY,
+      MEDIA_CHANGE,
+      PATH_SELECT,
+      PATH_CHANGE,
+      SNACKBAR_CLOSE,
+      SNACKBAR_OPEN,
+    ];
+    if (!knownEvents.includes(this.state.lastCommand)) {
+      return; // only look at certain events
+    }
+    const { selectors, state } = this;
+    setClass(
+      selectors.playBtn,
+      ['active', 'hidden', 'pulse'],
+      state.nodes.current?.type === 'Episode' ? 'active' : 'hidden'
+    );
+    setClass(
+      selectors.prevBtn,
+      ['active', 'hidden', 'pulse'],
+      state.nodes.prev ? 'active' : 'hidden'
+    );
+    setClass(
+      selectors.nextBtn,
+      ['active', 'hidden', 'pulse'],
+      state.nodes.next ? 'active' : 'hidden'
+    );
+    setClass(
+      selectors.snackbar,
+      ['snackbar_hidden', 'snackbar_show'],
+      state.isSnackbarVisible ? 'snackbar_show' : 'snackbar_hidden'
+    );
+    setClass(
+      selectors.restartText,
+      ['hidden'],
+      state.nodes.next || !state.selectedCharacterNode ? 'hidden' : null
+    );
+    setClass(
+      selectors.recenterBtn,
+      ['active', 'hidden'],
+      state.nodes.current ? 'active' : null
+    );
+
+    selectors.blockLeft.textContent = state.selectedCharacterNode
+      ? state.selectedCharacterNode.title
+      : null;
+
+    // pulse states
+    // if at the beginning
+    if (!state.nodes.prev) {
+      selectors.nextBtn.classList.add('pulse');
+    }
+
+    if (state.nodes.current) {
+      // a node is selected
+      setClass(
+        selectors.blockRight,
+        ['active', 'hidden'],
+        state.nodes.current.type == 'Episode' ? 'active' : 'hidden'
+      );
+
+      if (state.nodes.current.type == 'Character') {
+        selectors.blockRight.classList.remove('active');
+        selectors.blockRight.textContent = 'click arrow';
+      } else if (state.nodes.current.type == 'Episode') {
+        // show episode stuff here
+        // sets text content for episode in right diagonal block
+        selectors.blockRight.textContent = state.nodes.current.title;
+      }
+    }
+  },
+  renderCamera: async function () {
+    const knownEvents = [
+      MEDIA_NEXT,
+      MEDIA_PREV,
+      PATH_SELECT,
+      PATH_CHANGE,
+      MEDIA_RECENTER,
+      MEDIA_CHANGE,
+    ];
+    if (!knownEvents.includes(this.state.lastCommand)) {
+      return; // only look at certain events
+    }
+
+    if (this.state.nodes.current) {
+      // this should also check for last action
+      await updatePathColorsAndBalls();
+      const test = document.getElementById(this.state.nodes.current.id);
+      console.log(test);
+      // test.classList.add("active-node");
+      // updateCamera(this.state.nodes.current, this.state.nodes.next);
+    }
+  },
+  renderVideoPlayer: function () {
+    console.log('rendering video player');
+    const knownEvents = [MEDIA_PLAY, VIDEO_END, VIDEO_CLOSE];
+    if (!knownEvents.includes(this.state.lastCommand)) {
+      return;
+    }
+    const { state, selectors } = this;
+    if (state.videoDisplay) {
+      if (state.lastCommand == MEDIA_PLAY) {
+        console.log('setting up this video!)');
+        url = state.nodes.current?.url
+          ? state.nodes.current.url
+          : 'https://player.vimeo.com/video/523994506';
+        selectors.video.innerHTML = `<iframe title="vimeo-player" src="${url}" id="vimeo-player" frameborder="0" allowfullscreen></iframe>`;
+        setupVimeo();
+      }
+      selectors.videoOverlay.style.opacity = 1;
+      selectors.videoOverlay.style.pointerEvents = 'auto';
+    } else {
+      selectors.videoOverlay.style.opacity = 0;
+      selectors.videoOverlay.style.pointerEvents = 'none';
+    }
+  },
+  render: function () {
+    const { selectors, state } = this;
+
+    this.renderHamburger();
+    this.renderSnackbar();
+    this.renderVideoPlayer();
+
+    if (state.selectedCharacterNode) {
+      // a character is selected
+      selectors.gradientBody.style.boxShadow = `inset 0 0 0 6px ${state.selectedCharacterNode.primaryColor}`;
+      selectors.nextBtn.style.color = state.selectedCharacterNode.primaryColor;
+      selectors.blockLeft.style.backgroundColor =
+        state.selectedCharacterNode.primaryColor;
+    } else {
+      // a character is not selected
+      selectors.gradientBody.style.boxShadow = null;
+      selectors.nextBtn.style.color = null;
+      selectors.blockLeft.style.backgroundColor = null;
+    }
+
+    this.renderCamera();
+  },
+  selectPath: function (path_id) {
+    let selectedModalAvatarID = path_id;
+    const node = this.state.allNodes.find(
+      item => item.id === selectedModalAvatarID
+    );
+    // builds storyPath array based on node id and characterPath property in json
+    const storyPath = this.state.allLinks.filter(
+      item => item.characterPath === node.id
+    );
+    this.sendEvent(PATH_SELECT, {
+      storyPathIndex: 0,
+      storyPath,
+      selectedCharacterNode: node,
+    });
+  },
+  changePath: function (path_id) {
+    let selectedModalAvatarID = path_id;
+    const { state } = this;
+    const node = state.allNodes.find(item => item.id === selectedModalAvatarID);
+    // builds storyPath array based on node id and characterPath property in json
+    const storyPath = state.allLinks.filter(
+      item => item.characterPath === node.id
+    );
+    const storyPathIndex = storyPath.findIndex(
+      item => item.source.id === state.nodes.current.id
+    );
+    this.sendEvent(PATH_CHANGE, {
+      storyPathIndex: storyPathIndex,
+      storyPath,
+      selectedCharacterNode: node,
+      isHamburgerMenuOpen: false,
+    });
+  },
+  sendEvent: function (event, newState) {
+    const commands = [...this.state.commands, event];
+    this.setState({ ...newState, commands, lastCommand: event });
+  },
+  nextClick: function () {
+    if (this.state.storyPathIndex < this.state.storyPath.length - 1) {
+      this.sendEvent(MEDIA_NEXT, {
+        storyPathIndex: this.state.storyPathIndex + 1,
+      });
+    }
+  },
+  prevClick: function () {
+    if (this.state.storyPathIndex > 0) {
+      this.sendEvent(MEDIA_PREV, {
+        storyPathIndex: this.state.storyPathIndex - 1,
+      });
+    }
+  },
+  recenterClick: function () {
+    if (this.state.nodes.current) {
+      this.sendEvent(MEDIA_RECENTER, {});
+    }
+  },
+  playClick: function () {
+    this.sendEvent(MEDIA_PLAY, { videoDisplay: true });
+  },
+  videocloseClick: function () {
+    this.sendEvent(VIDEO_CLOSE, { videoDisplay: false });
+    const { selectors } = this;
+    setTimeout(() => {
+      selectors.video.innerHTML = '';
+    }, 1000);
+  },
+  videoEnd: function () {
+    this.sendEvent(VIDEO_END, { videoDisplay: false });
+    setTimeout(() => {
+      this.nextClick();
+    }, 500);
+  },
+  snackbarClose: function () {
+    this.sendEvent(SNACKBAR_CLOSE, { isSnackbarVisible: false });
+  },
+  snackbarOpen: function () {
+    this.sendEvent(SNACKBAR_OPEN, { isSnackbarVisible: false });
+  },
+  nodeClick: function (node) {
+    // find node
+    console.log('nodey clicky', node);
+    const index = this.state.storyPath.findIndex(item => item.source === node);
+    if (index > -1) {
+      console.log('in the path');
+      // if node is in current story path, keep everything, just update storypathindex
+      if (index == this.state.storyPathIndex && index > 0) {
+        // clicked on the one that they're currently looking at
+        this.playClick();
+      } else {
+        this.sendEvent(MEDIA_CHANGE, { storyPathIndex: index });
+      }
+    } else {
+      console.log('out the path');
+      // if node is not in current story path, clear out currently selected user, then put it in as current
+      if (node.type == 'Episode') {
+        this.sendEvent(MEDIA_CHANGE, {
+          storyPathIndex: 0,
+          storyPath: [],
+          selectedCharacterNode: null,
+          nodes: { current: node, next: null, prev: null },
+        });
+      } else {
+        this.selectPath(node.id);
+      }
+    }
+  },
+  hamburgerToggle: function () {
+    if (this.state.isHamburgerMenuOpen) {
+      this.sendEvent(HAMBURGER_CLOSE, { isHamburgerMenuOpen: false });
+    } else {
+      this.sendEvent(HAMBURGER_OPEN, { isHamburgerMenuOpen: true });
+    }
+  },
+  pulse: function () {
+    // I do this on an interval
+    this.sendBalls();
+  },
+  sendBalls: function () {
+    const { state } = this;
+    if (state.nodes.current) {
+      const links = state.allLinks.filter(
+        link => link.target.id === state.nodes.current.id
+      );
+      links.forEach(link => Graph.emitParticle(link));
+    }
+  },
+};
+
+function setClass(element, possibleClasses, setClass) {
+  possibleClasses.forEach(cls => {
+    element.classList.remove(cls);
+  });
+  if (setClass) {
+    element.classList.add(setClass);
+  }
+}
+
+program.setup();
+program.setState({});
+
 const desktop =
   !(typeof window.orientation !== 'undefined') ||
   navigator.userAgent.indexOf('IEMobile') !== -1;
-
-// prevents user from clicking on modal avatars until 3d graph is fully loaded
-window.addEventListener('load', function () {
-  // Function listens for paths modal avatar clicks and selects character on graph
-  modalAvatars.forEach(item => {
-    item.style.pointerEvents = 'inherit';
-    item.addEventListener('click', e => {
-      modal.classList.add('d-none');
-      // clears all vars to original values
-      resetVariables();
-      // checks to see if snackbar is open and toggles it
-      snackbar.classList.contains('snackbar_hidden')
-        ? snackbar.classList.remove('snackbar_hidden') &
-          snackbar.classList.add('snackbar_show')
-        : null;
-      // gets id from selected avatar on click
-      let selectedModalAvatarID = e.target.getAttribute('data-id');
-      let node = allNodes.find(item => item.id === selectedModalAvatarID);
-      // builds storyPath array based on node id and characterPath property in json
-      storyPath = allLinks.filter(item => item.characterPath === node.id);
-      // hide hamburger btn
-      hamburgerBtn.classList.add('hidden');
-      // toggle hamburger icon class
-      hamburgerBtn.classList.remove('open');
-      // hide snackbar select options
-      selectOptions.classList.add('hidden');
-      // resets classes on snackbar control icons
-      prevBtn.classList.remove('active');
-      playBtn.classList.remove('active');
-      nextBtn.classList.remove('hidden');
-      restartText.classList.add('hidden');
-      // adds active class to next button
-      nextBtn.classList.add('active');
-      // adds pulse animation to nextBtn
-      nextBtn.classList.add('pulse');
-      // adds character color to nextBtn
-      nextBtn.style.color = node.primaryColor;
-      // resets for storyPathIndex and text content
-      blockRight.classList.remove('active');
-      blockRight.textContent = 'click arrow';
-      // Sets colors/text content for diagonal boxes in snackbar
-      blockLeft.style.backgroundColor = node.primaryColor;
-      blockLeft.textContent = node.title;
-      // Sets box shadow color based on character chosem
-      gradientBody.style.boxShadow = `inset 0 0 0 6px ${node.primaryColor}`;
-      const distance = 35;
-      const distRatio = 1 + distance / Math.hypot(node.x, node.y, node.z);
-      // highlights links based on character
-      updatePathColorsAndBalls();
-      updateCamera(node, storyPath[0]);
-    });
-  });
-});
-
-// Function increments through storyPath array and sets/resets classes based on position in array
-nextBtn.onclick = function () {
-  // checks if last item of array
-  if (storyPathIndex === storyPath.length - 1) {
-    return;
-  }
-  // increment storyPath index
-  storyPath[++storyPathIndex];
-  // sets currentEpisode
-  currentEpisode = storyPath[storyPathIndex].source;
-  // removes active class on nextBtn if at last item in storyPath array
-  storyPathIndex === storyPath.length - 1
-    ? nextBtn.classList.remove('active') &
-      nextBtn.classList.add('hidden') &
-      restartText.classList.remove('hidden')
-    : null;
-  // changes opacity for right text block in snackbar
-  blockRight.classList.add('active');
-  // changes opacity for play icon in snackbar
-  playBtn.classList.add('active');
-  // changes opacity for prev icon in snackbar
-  prevBtn.classList.add('active');
-  // removes pulse from nextBtn
-  nextBtn.classList.remove('pulse');
-  // removes character color from nextBtn icon
-  nextBtn.removeAttribute('style');
-  // shows hamburger button
-  hamburgerBtn.classList.remove('hidden');
-  // sets text content for episode in right diagonal block
-  storyPathIndex !== 0
-    ? (blockRight.textContent = storyPath[storyPathIndex].source.title)
-    : (blockRight.textContent = '' & blockRight.classList.remove('active'));
-  if (storyPathIndex === 0) {
-    nextBtn.classList.add('active');
-    nextBtn.classList.add('pulse');
-    nextBtn.style.color = storyPath[0].linkColor;
-    prevBtn.classList.remove('active');
-    playBtn.classList.remove('active');
-    hamburgerBtn.classList.add('hidden');
-  }
-  // gets next target x,y,z and repositions camera
-  let node = storyPath[storyPathIndex].source;
-  updatePathColorsAndBalls();
-  updateCamera(node, storyPath[storyPathIndex + 1]?.source);
-};
-
-// Function decrements through storyPath array and sets/resets classes based on position in array
-prevBtn.onclick = function () {
-  // checks if first item of array
-  if (storyPathIndex === 0) {
-    return;
-  }
-  if (storyPathIndex === 1) {
-    // resets right block text if at first element of array and going back to character node
-    blockRight.textContent = 'click arrow';
-    nextBtn.style.color = storyPath[0].linkColor;
-    // clears currentEpisode
-    currentEpisode = {};
-  }
-  // decrement storyPath index
-  storyPath[--storyPathIndex];
-  // sets currentEpisode
-  currentEpisode = storyPath[storyPathIndex].source;
-  // reset/set classes and text for snackbar blocks
-  storyPathIndex === 0
-    ? blockRight.classList.remove('active') &
-      prevBtn.classList.remove('active') &
-      playBtn.classList.remove('active') &
-      nextBtn.classList.add('pulse') &
-      hamburgerBtn.classList.add('hidden')
-    : (blockRight.textContent = storyPath[storyPathIndex].source.title);
-  nextBtn.classList.add('active');
-  nextBtn.classList.remove('hidden');
-  restartText.classList.add('hidden');
-
-  // gets next target x,y,z and repositions camera
-  let node = storyPath[storyPathIndex].source;
-  updatePathColorsAndBalls();
-  updateCamera(node, storyPath[storyPathIndex + 1]?.source);
-};
 
 const updateCamera = function (node, nextNode) {
   var cameraLocation = new THREE.Vector3(node.x, node.y, node.z);
@@ -220,71 +531,8 @@ const updateCamera = function (node, nextNode) {
   );
 };
 
-// Function adds hamburger animation and toggles character path options
-hamburgerBtn.addEventListener('click', () => {
-  if (isHamburgerMenuOpen) {
-    isHamburgerMenuOpen = !isHamburgerMenuOpen;
-    hamburgerBtn.classList.remove('open');
-    selectOptions.classList.add('hidden');
-    clearAvatars();
-  } else {
-    clearAvatars();
-    // get associated characters
-    associatedCharacters = currentEpisode.associatedCharacters;
-    // filters associatedCharacters against allNodes to get characters objects needed
-    filteredNodes = allNodes.filter(item =>
-      associatedCharacters.includes(item.id)
-    );
-    // calls createAvatar function to create avatars in snackbar
-    filteredNodes.forEach(function (item) {
-      createAvatar(item.id, item.primaryColor, item.img, item.title);
-    });
-    // toggles isHamburgerOpen
-    isHamburgerMenuOpen = !isHamburgerMenuOpen;
-    hamburgerBtn.classList.add('open');
-    // shows select options
-    selectOptions.classList.remove('hidden');
-  }
-});
-
-function chooseAvatar(e) {
-  // gets id from selected avatar on click
-  let selectedAvatarID = e.target.getAttribute('data-id');
-  // gets name from selected avatar on click
-  let selectedAvatarName = e.target.getAttribute('title');
-  // sets left diagonal block to character name
-  blockLeft.textContent = selectedAvatarName;
-  // close hamburger and select options in snackbar
-  isHamburgerMenuOpen = false;
-  hamburgerBtn.classList.remove('open');
-  selectOptions.classList.add('hidden');
-  // builds character path array
-  storyPath = allLinks.filter(item => item.characterPath === selectedAvatarID);
-  // set storyPathIndex based on currentEpisode id index in latest storyPath
-  storyPathIndex = storyPath.findIndex(
-    item => item.source.id === currentEpisode.id
-  );
-  // set classes on prev/next buttons based on array index
-  storyPathIndex !== 0 ? prevBtn.classList.add('active') : null;
-  storyPathIndex !== storyPath.length - 1
-    ? nextBtn.classList.add('active')
-    : nextBtn.classList.add('hidden') & restartText.classList.remove('hidden');
-  // sets left diagonal block to character color
-  blockLeft.style.backgroundColor = storyPath[0].linkColor;
-  gradientBody.style.boxShadow = `inset 0 0 0 3px ${storyPath[0].linkColor}`;
-  // highlights links based on character
-  updatePathColorsAndBalls();
-  updateCamera(
-    storyPath[storyPathIndex].source,
-    storyPath[storyPathIndex + 1]?.source
-  );
-}
-
-function updatePathColorsAndBalls() {
-  Graph.nodeColor(Graph.nodeColor())
-    .nodeThreeObject(Graph.nodeThreeObject())
-    .linkWidth(Graph.linkWidth())
-    .linkDirectionalParticles(Graph.linkDirectionalParticles());
+async function updatePathColorsAndBalls() {
+  await Graph.nodeColor(Graph.nodeColor()).linkWidth(Graph.linkWidth());
 }
 
 // dynamically creates avatars in snackbar
@@ -292,179 +540,102 @@ function createAvatar(id, color, image, title) {
   const element = document.createElement('div');
   element.classList.add('avatar-container');
   element.innerHTML = `<img data-id="${id}" src="images/episodes/${image}" class="avatar" alt="Avatar" style="border: 3px solid ${color}" title=${title}>`;
-  avatarContainer.appendChild(element);
+  program.selectors.avatarContainer.appendChild(element);
   const associatedAvatars = document.querySelectorAll('.avatar');
   associatedAvatars.forEach(item =>
-    item.addEventListener('click', chooseAvatar)
+    item.addEventListener('click', e =>
+      program.changePath(e.target.getAttribute('data-id'))
+    )
   );
-}
-
-// clears DOM of existing avatars
-function clearAvatars() {
-  while (avatarContainer.hasChildNodes()) {
-    avatarContainer.removeChild(avatarContainer.firstChild);
-  }
-}
-
-function resetVariables() {
-  // removes avatars if they exist or else they will reproduce like rabbits
-  clearAvatars();
-  // resets storyPath index
-  storyPathIndex = 0;
-  // toggle hamburger var
-  isHamburgerMenuOpen = false;
 }
 
 // 3D graph
 const elem = document.getElementById('3d-graph');
-const Graph = ForceGraph3D()(elem)
+const Graph = ForceGraph3D({
+  extraRenderers: [new THREE.CSS3DRenderer()],
+})(elem)
   .graphData(data)
   .backgroundColor('#ffffff00')
   .nodeLabel('title')
-  .linkDirectionalParticles('value')
-  .linkDirectionalParticleSpeed(0.005)
+  //.linkDirectionalParticles('value')
+  //.linkDirectionalParticleSpeed(0.005)
   .linkColor(link => {
     if (link.linkColor == 'ffffff00') {
       return 'ffffff00';
     }
-    if (storyPath[0]?.characterPath == link.characterPath) {
+    if (program.state.storyPath[0]?.characterPath == link.characterPath) {
       return link.linkColor;
     } else {
-      return '#FFFFFF33';
+      return '#FFFFFF22';
     }
   })
   .linkOpacity(1)
   .linkCurvature('linkCurvature')
   .linkCurveRotation('curveRotation')
   .linkDirectionalParticleWidth(link => {
+    return 1.25;
     if (
-      storyPath[storyPathIndex] == link ||
-      storyPath[storyPathIndex - 1] == link
+      program.state.storyPath[program.statestoryPathIndex] == link ||
+      program.state.storyPath[program.state.storyPathIndex - 1] == link
     ) {
       return 1.25;
     } else {
       return 0;
     }
   })
-  .linkWidth('width')
-  .linkResolution(6)
-  .nodeThreeObject(({ img, type, id, size }) => {
-    let color = 0x999999;
-    console.log(type);
-    if (id === currentEpisode.id || type == 'Character') {
-      color = 0xffffff;
-    }
-    const imgTexture = new THREE.TextureLoader().load(
-      `./images/episodes/${img}`
-    );
-    const material = new THREE.SpriteMaterial({
-      map: imgTexture,
-      color: color,
-    });
-    const sprite = new THREE.Sprite(material);
-    if (type == 'Character') {
-      sprite.scale.set(size, size);
+  .linkWidth(link => {
+    if (program.state.storyPath[0]?.characterPath == link.characterPath) {
+      return 1.25;
     } else {
-      sprite.scale.set(16, 9);
+      return 0.25;
     }
+  })
+  .linkResolution(6)
+  // .nodeThreeObject(({ img, type, id, size }) => {
+  //   let color = 0x999999;
+  //   console.log(type);
+  //   if(id === program.state.nodes.current?.id || type == "Character")
+  //   {
+  //     color = 0xffffff;
+  //   }
+  //   const imgTexture = new THREE.TextureLoader().load(
+  //     `./images/episodes/${img}`
+  //   );
+  //   const material = new THREE.SpriteMaterial({
+  //     map: imgTexture,
+  //     color: color
+  //   });
+  //   const sprite = new THREE.Sprite(material);
+  //   if (type == 'Character') {
+  //     sprite.scale.set(size, size);
+  //   } else {
+  //     sprite.scale.set(16, 9);
+  //   }
 
+  //   return sprite;
+  // })
+  .nodeThreeObject(({ img, type, id, size }) => {
+    const nodeEl = document.createElement('div');
+    nodeEl.id = id;
+    const image = document.createElement('img');
+    image.src = `./images/episodes/${img}`;
+    image.classList.add(type.toLowerCase());
+    nodeEl.appendChild(image);
+    nodeEl.className = 'node-label';
+    const sprite = new THREE.CSS3DSprite(nodeEl);
+    if (type == 'Episode') {
+      sprite.scale.set(0.02, 0.02, 0.02);
+    } else {
+      sprite.scale.set(0.05, 0.05, 0.05);
+    }
     return sprite;
   })
+  .nodeThreeObjectExtend(true)
   .onNodeHover(node => (elem.style.cursor = node ? 'pointer' : null))
   // Aim at node from outside it
   .onNodeClick(node => {
-    // checks to see if snackbar is open and toggles it
-    snackbar.classList.contains('snackbar_hidden')
-      ? snackbar.classList.remove('snackbar_hidden') &
-        snackbar.classList.add('snackbar_show')
-      : null;
-
-    // conditional for character versus episode
-    if (node.type === 'Character') {
-      // clears all vars to original values
-      resetVariables();
-      // builds storyPath array based on node id and characterPath property in json
-      storyPath = allLinks.filter(item => item.characterPath === node.id);
-      // hide hamburger btn
-      hamburgerBtn.classList.add('hidden');
-      // toggle hamburger icon class
-      hamburgerBtn.classList.remove('open');
-      // hide snackbar select options
-      selectOptions.classList.add('hidden');
-      // resets classes on snackbar control icons
-      prevBtn.classList.remove('active');
-      playBtn.classList.remove('active');
-      nextBtn.classList.remove('hidden');
-      restartText.classList.add('hidden');
-      // adds active class to next button
-      nextBtn.classList.add('active');
-      // adds pulse animation to nextBtn
-      nextBtn.classList.add('pulse');
-      // adds character color to nextBtn
-      nextBtn.style.color = node.primaryColor;
-      // resets for storyPathIndex and text content
-      blockRight.classList.remove('active');
-      blockRight.textContent = 'click arrow';
-      // Sets colors/text content for diagonal boxes in snackbar
-      blockLeft.style.backgroundColor = node.primaryColor;
-      blockLeft.textContent = node.title;
-      // Sets box shadow color based on character chosem
-      gradientBody.style.boxShadow = `inset 0 0 0 6px ${node.primaryColor}`;
-      // highlights links based on character
-      Graph.nodeColor(Graph.nodeColor())
-        .linkWidth(Graph.linkWidth())
-        .linkDirectionalParticles(Graph.linkDirectionalParticles());
-    }
-    if (node.type === 'Episode') {
-      if (currentEpisode === node) {
-        showVideo();
-        return;
-      }
-      // clears all vars to originals values
-      resetVariables();
-      // sets current episode to episode node clicked
-      currentEpisode = node;
-      // sets data atttribute of id on episode so it is accessible when finding index from avatar clicks
-      blockRight.setAttribute('data-episodeID', node.id);
-      // resets restart text classes and nextBtn classes
-      restartText.classList.add('hidden');
-      nextBtn.classList.remove('hidden');
-      // toggle hamburger icon class
-      hamburgerBtn.classList.remove('open');
-      // show hamburger button
-      hamburgerBtn.classList.remove('hidden');
-      // hide snackbar select options
-      selectOptions.classList.add('hidden');
-      // sets snackbar right box to episode title
-      blockRight.textContent = node.title;
-      // resets snackbar left box to empty string
-      blockLeft.textContent = 'Choose Path';
-      // sets snackbar left box to default color
-      blockLeft.style.backgroundColor = '#e2e2e2';
-      // reset/set classes on snackbar right box and snackbar controls
-      blockRight.classList.add('active');
-      nextBtn.classList.remove('active');
-      prevBtn.classList.remove('active');
-      playBtn.classList.add('active');
-      nextBtn.classList.remove('pulse');
-      nextBtn.removeAttribute('style');
-      // remove box-shadow on body
-      gradientBody.style.boxShadow = 'none';
-    }
-    updateCamera(node);
+    program.nodeClick(node);
   });
-
-function recenter() {
-  if (currentEpisode.id) {
-    console.log(currentEpisode);
-    updateCamera(currentEpisode);
-  }
-}
-
-function reportWindowSize() {
-  Graph.height(window.innerHeight - 10);
-  Graph.width(window.innerWidth - 10);
-}
 
 function reportWindowSize() {
   Graph.height(window.innerHeight - 10);
@@ -473,61 +644,23 @@ function reportWindowSize() {
 
 window.onresize = reportWindowSize;
 
-function setupVideo() {
-  const overlay = document.querySelector('.video-overlay');
-  overlay.addEventListener('click', () => {
-    hideVideo(false);
-  });
-}
-
-function hideVideo(gonext) {
-  if (videoDisplay) {
-    const overlay = document.querySelector('.video-overlay');
-    overlay.style.opacity = 0;
-    overlay.style.pointerEvents = 'none';
-    videoDisplay = false;
-    const video = document.querySelector('.video');
-    setTimeout(() => {
-      video.innerHTML = '';
-    }, 1000);
-    if (gonext) {
-      let event = new Event('click');
-      setTimeout(() => {
-        nextBtn.dispatchEvent(event);
-      }, 500);
-    }
-  }
-}
-
-function showVideo() {
-  url = currentEpisode?.url
-    ? currentEpisode.url
-    : 'https://player.vimeo.com/video/523994506';
-  const video = document.querySelector('.video');
-  video.innerHTML = `<iframe title="vimeo-player" src="${url}" id="vimeo-player" frameborder="0" allowfullscreen></iframe>`;
-  const overlay = document.querySelector('.video-overlay');
-  overlay.style.opacity = 1;
-  overlay.style.pointerEvents = 'auto';
-  videoDisplay = true;
-  setupVimeo();
-}
-
 function setupVimeo() {
   var player = new Vimeo.Player(document.getElementById('vimeo-player'));
 
-  player.on('play', function () {
-    console.log('Played the video');
-  });
+  // player.on('play', function() {
+  //   console.log('Played the video');
+  // });
 
-  player.getVideoTitle().then(function (title) {
-    console.log('title:', title);
-  });
+  // player.getVideoTitle().then(function(title) {
+  //   console.log('title:', title);
+  // });
 
   // set function for when video has finished
   player.on('ended', () => {
     // close the video
     // then hit next
-    hideVideo(true);
+    program.videoEnd();
+    // hideVideo(true);
   });
 
   // start video
@@ -539,10 +672,8 @@ document.addEventListener(
   e => {
     var key = e.key;
     if (key == 'Esc' || key == 'Escape') {
-      hideVideo(false);
+      program.videocloseClick();
     }
   },
   false
 );
-
-setupVideo();

@@ -20,6 +20,7 @@
 
     <script src="//unpkg.com/three"></script>
     <script src="//unpkg.com/3d-force-graph"></script>
+    <script src="//unpkg.com/three/examples/js/renderers/CSS3DRenderer.js"></script>
     <script src="js/paths-particles.js"></script>
   </head>
 
@@ -202,7 +203,6 @@
             class="control-icon control-icon--play material-icons-round"
             alt="play button icon"
             title="play"
-            onClick="showVideo()"
             >play_circle_outline</span
           >
         </div>
@@ -214,6 +214,15 @@
             >arrow_forward</span
           >
           <span class="restart-text pulse hidden">restart</span>
+        </div>
+        <div class="control-item">
+          <span
+            class="control-icon control-icon--recenter material-icons-round"
+            alt="re-center button icon"
+            title="re-center"
+            >api</span
+          >
+          <span class="restart-text pulse hidden">re-center</span>
         </div>
       </section>
     </article>

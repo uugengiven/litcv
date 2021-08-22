@@ -1232,3 +1232,22 @@ section.chars-overlay .grid img.leaf {
   opacity: 0.5;
   transition: opacity 250ms ease-in-out;
 }
+
+.node-label {
+  user-select: none;
+  pointer-events: none;
+}
+
+.node-label img {
+  user-select: none;
+  pointer-events: none;
+}
+
+.active-node {
+
+}
+
+.character {
+  border-radius: 50%;
+  box-shadow: 0 0 15px 5px white;
+}
