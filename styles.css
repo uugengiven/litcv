@@ -1233,21 +1233,85 @@ section.chars-overlay .grid img.leaf {
   transition: opacity 250ms ease-in-out;
 }
 
-.node-label {
+.node {
   user-select: none;
   pointer-events: none;
 }
 
-.node-label img {
+.node img {
   user-select: none;
   pointer-events: none;
 }
 
-.active-node {
-
+.node-active {
+  box-shadow: 0 0 50px 20px white !important;
 }
 
 .character {
   border-radius: 50%;
-  box-shadow: 0 0 15px 5px white;
 }
+
+.luna {
+  box-shadow: 0 0 15px 5px #339ACC;
+}
+
+.luna.character {
+  box-shadow: 0 0 50px 5px #339ACC;
+}
+
+.darcy {
+  box-shadow: 0 0 15px 5px #FF6037;
+}
+
+.darcy.character {
+  box-shadow: 0 0 50px 5px #FF6037;
+}
+
+.trav {
+  box-shadow: 0 0 15px 5px #FF9933;
+}
+
+.trav.character {
+  box-shadow: 0 0 50px 5px #FF9933;
+}
+
+.kiki {
+  box-shadow: 0 0 15px 5px #FFFF66;
+}
+
+.kiki.character {
+  box-shadow: 0 0 50px 5px #FFFF66;
+}
+
+.jamal {
+  box-shadow: 0 0 15px 5px #66FF66;
+}
+
+.jamal.character {
+  box-shadow: 0 0 50px 5px #66FF66;
+}
+
+.fatherd {
+  box-shadow: 0 0 15px 5px #AAF0D1;
+}
+
+.fatherd.character {
+  box-shadow: 0 0 50px 5px #AAF0D1;
+}
+
+.carson {
+  box-shadow: 0 0 15px 5px #FF00CC;
+}
+
+.carson.character {
+  box-shadow: 0 0 50px 5px #FF00CC;
+}
+
+.leaf {
+  box-shadow: 0 0 15px 5px #FF355E;
+}
+
+.leaf.character {
+  box-shadow: 0 0 50px 5px #FF355E;
+}
+

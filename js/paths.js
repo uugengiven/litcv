@@ -308,7 +308,10 @@ const program = {
       const test = document.getElementById(this.state.nodes.current.id);
       console.log(test);
       // test.classList.add("active-node");
-      // updateCamera(this.state.nodes.current, this.state.nodes.next);
+      if(this.state.lastCommand == PATH_SELECT || this.state.lastCommand == MEDIA_RECENTER)
+      {
+        updateCamera(this.state.nodes.current, this.state.nodes.next);
+      }
     }
   },
   renderVideoPlayer: function () {
@@ -334,12 +337,39 @@ const program = {
       selectors.videoOverlay.style.pointerEvents = 'none';
     }
   },
+  renderNodes: function() {
+    const knownEvents = [
+      MEDIA_NEXT, 
+      MEDIA_PREV, 
+      PATH_SELECT, 
+      PATH_CHANGE, 
+      MEDIA_CHANGE];
+    if (!knownEvents.includes(this.state.lastCommand)) {
+      return;
+    }
+    const {state} = this;
+    const listOfNames = ['luna', 'kiki', 'darcy', 'trav', 'jamal', 'fatherd', 'carson', 'leaf']
+    state.allNodes.forEach(node => {
+      const element = document.getElementById(node.id);
+      setClass(element, [...listOfNames, 'node-active']); // remove all potential wrong classes
+    });
+    state.storyPath.forEach(node => {
+      const element = document.getElementById(node.source.id);
+      setClass(element, [], state.selectedCharacterNode.id.toLowerCase());
+    });
+    if(state.nodes.current)
+    {
+      const el = document.getElementById(state.nodes.current.id);
+      setClass(el, [], 'node-active');
+    }
+  },
   render: function () {
     const { selectors, state } = this;
 
     this.renderHamburger();
     this.renderSnackbar();
     this.renderVideoPlayer();
+    this.renderNodes();
 
     if (state.selectedCharacterNode) {
       // a character is selected
@@ -471,7 +501,7 @@ const program = {
   },
   pulse: function () {
     // I do this on an interval
-    this.sendBalls();
+    // this.sendBalls();
   },
   sendBalls: function () {
     const { state } = this;
@@ -485,11 +515,18 @@ const program = {
 };
 
 function setClass(element, possibleClasses, setClass) {
-  possibleClasses.forEach(cls => {
-    element.classList.remove(cls);
-  });
-  if (setClass) {
-    element.classList.add(setClass);
+  if(element)
+  {
+    possibleClasses.forEach(cls => {
+      element.classList.remove(cls);
+    });
+    if (setClass) {
+      element.classList.add(setClass);
+    }
+  }
+  else
+  {
+    console.log('attempting to set css for an empty element');
   }
 }
 
@@ -519,7 +556,7 @@ const updateCamera = function (node, nextNode) {
     const offset = cameraDiff.clone().applyAxisAngle(axisPoint, angle);
     cameraLocation = cameraLocation
       .add(cameraDiff.multiplyScalar(distance))
-      .add(offset.multiplyScalar(10 + (15 - pointDistance / 10)));
+      .add(offset.multiplyScalar(150 + (15 - pointDistance / 10)));
   } else {
     cameraLocation = cameraLocation.clone().multiplyScalar(distRatio);
   }
@@ -574,14 +611,14 @@ const Graph = ForceGraph3D({
   .linkCurveRotation('curveRotation')
   .linkDirectionalParticleWidth(link => {
     return 1.25;
-    if (
-      program.state.storyPath[program.statestoryPathIndex] == link ||
-      program.state.storyPath[program.state.storyPathIndex - 1] == link
-    ) {
-      return 1.25;
-    } else {
-      return 0;
-    }
+    // if (
+    //   program.state.storyPath[program.statestoryPathIndex] == link ||
+    //   program.state.storyPath[program.state.storyPathIndex - 1] == link
+    // ) {
+    //   return 1.25;
+    // } else {
+    //   return 0;
+    // }
   })
   .linkWidth(link => {
     if (program.state.storyPath[0]?.characterPath == link.characterPath) {
@@ -619,9 +656,9 @@ const Graph = ForceGraph3D({
     nodeEl.id = id;
     const image = document.createElement('img');
     image.src = `./images/episodes/${img}`;
-    image.classList.add(type.toLowerCase());
     nodeEl.appendChild(image);
-    nodeEl.className = 'node-label';
+    nodeEl.classList.add('node');
+    nodeEl.classList.add(type.toLowerCase());
     const sprite = new THREE.CSS3DSprite(nodeEl);
     if (type == 'Episode') {
       sprite.scale.set(0.02, 0.02, 0.02);
